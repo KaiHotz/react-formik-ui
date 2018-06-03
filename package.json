@@ -13,7 +13,7 @@
     "test:coverage": "jest --coverage --forceExit --colors",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "prerelease": "npm run lint:fix && npm run test:coverage && npm run build",
+    "prerelease": "npm run lint && npm run test:coverage && npm run build",
     "release": "npm run prerelease && npm publish"
   },
   "engines": {
