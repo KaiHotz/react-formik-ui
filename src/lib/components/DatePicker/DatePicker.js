@@ -30,21 +30,20 @@ class Datepicker extends Component {
     })
   }
 
-  onChange = event => {
+  handleChange = momentDate => event => {
     const { formik } = this.context
-    const { name, value } = event.target
 
-    formik.setFieldValue(name, value)
-    formik.setFieldTouched(name, true)
-  }
-
-  handleChange = momentDate => {
-    this.onChange({
+    event({
       target: {
         name: this.props.name,
         value: momentDate ? momentDate.format('YYYY-MM-DD') : ''
       }
-    });
+    })
+
+    const { name, value } = event.target
+
+    formik.setFieldValue(name, value)
+    formik.setFieldTouched(name, true)
   }
 
   handleChangeRaw = event => {
