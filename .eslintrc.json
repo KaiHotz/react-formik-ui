@@ -1,0 +1,38 @@
+{
+  "root": true,
+  "extends": [
+    "eslint:recommended",
+    "standard",
+    "plugin:react/recommended"
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 7,
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "jasmine": true,
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "jest": true
+  },
+  "rules": {
+    "import/no-unresolved": [
+      2,
+      {
+        "caseSensitive": false
+      }
+    ],
+    "linebreak-style": 0,
+    "jsx-a11y/label-has-for": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/aria-role": "off",
+    "jsx-a11y/anchor-is-valid": 0
+  }
+}

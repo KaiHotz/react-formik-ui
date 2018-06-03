@@ -1,0 +1,14 @@
+.git
+artefacts
+docs
+dist
+node_modules
+vendor
+
+.git/*
+artefacts/*
+docs/*
+dist/*
+node_modules/*
+vendor/*
+server/Host/wwwroot/lib/*
