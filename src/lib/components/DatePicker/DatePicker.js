@@ -6,7 +6,7 @@ import cx from 'classnames'
 import { get } from '../../utils/helper'
 import 'react-datepicker/dist/react-datepicker.css'
 
-class DatePicker extends Component {
+class Datepicker extends Component {
   static contextTypes = {
     formik: PropTypes.shape({})
   }
@@ -129,4 +129,4 @@ class DatePicker extends Component {
   }
 }
 
-export default DatePicker
+export default Datepicker
