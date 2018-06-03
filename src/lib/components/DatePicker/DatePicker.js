@@ -65,8 +65,8 @@ class Datepicker extends Component {
     formik.setFieldTouched(name, true)
   }
 
-  handleChangeRaw = e => {
-    this.handleUpdate(e, this.handleChange)
+  handleChangeRaw = event => {
+    this.handleUpdate(event, this.handleChange)
   }
 
   handleFocus = name => {
@@ -96,33 +96,33 @@ class Datepicker extends Component {
       <div className={cx('datePicker-wrapper', className, { 'hasError': error })}>
         {
           label &&
-          <label
-            htmlFor={name}
-            onClick={() => this.handleFocus(name)}
-          >
-            {`${label}${required ? ' *' : ''}`}
-          </label>
+            <label
+              htmlFor={name}
+              onClick={() => this.handleFocus(name)}
+            >
+              {`${label}${required ? ' *' : ''}`}
+            </label>
         }
         <DatePickerCmp
           id={name}
           name={name}
           selected={momentDate.isValid() ? momentDate : null}
-          maxDate={maxDate}
-          minDate={minDate}
+          minDate={moment(minDate)}
+          maxDate={moment(maxDate)}
           placeholderText={placeholder}
           dateFormat={dateFormat}
           disabledKeyboardNavigation
-          {...rest}
           onChangeRaw={this.handleChangeRaw}
           onChange={this.handleChange}
           onBlur={this.handleChangeRaw}
           disabled={disabled}
+          {...rest}
         />
         {
           error &&
-          <span className='error'>
-            {get(touched, name) && error}
-          </span>
+            <span className='error'>
+              {get(touched, name) && error}
+            </span>
         }
       </div>
     )
