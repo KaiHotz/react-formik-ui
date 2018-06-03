@@ -1,7 +1,7 @@
 {
-  "name": "formik-components",
+  "name": "react-formik-ui",
   "author": "Kai Hotz",
-  "version": "0.1.2",
+  "version": "0.1.0",
   "description": "Plain form components for easy use with formik",
   "license": "MIT",
   "main": "build/index.js",
@@ -10,20 +10,18 @@
     "styleguide:build": "styleguidist build",
     "build": "node scripts/build.js",
     "test": "jest",
-    "test:publish": "jest --coverage --forceExit --colors",
+    "test:coverage": "jest --coverage --forceExit --colors",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "parseSprite": "node scripts/parseSprite && eslint src/lib/components/Icon/Data.jsx --fix",
-    "prerelease": "npm run lint:fix && npm run test:publish && npm run build",
-    "release": "npm run prerelease && npm publish",
-    "version:patch": "npm version patch && git push origin HEAD:development"
+    "prerelease": "npm run lint:fix && npm run test:coverage && npm run build",
+    "release": "npm run prerelease && npm publish"
   },
   "engines": {
     "node": ">=8.3"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:KaiHotz/formik-components.git"
+    "url": "git@github.com:KaiHotz/react-formik-ui.git"
   },
   "dependencies": {
     "classnames": "^2.2.5",
