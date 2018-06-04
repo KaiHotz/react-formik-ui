@@ -18,7 +18,10 @@ class Datepicker extends Component {
     className: PropTypes.string,
     disabled: PropTypes.bool,
     required: PropTypes.bool,
-    dateFormat: PropTypes.arrayOf(PropTypes.string),
+    dateFormat: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.arrayOf(PropTypes.string)
+    ]),
     minDate: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     maxDate: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   }
@@ -37,6 +40,28 @@ class Datepicker extends Component {
       'M/D/YYYY'
     ],
     className: null
+  }
+
+  handleChangeRaw = (e) => {
+    const { formik } = this.context;
+    const { name, value } = e.target;
+
+    const validChars = /^\d{0,2}[.]{0,1}\d{0,2}[.]{0,1}\d{0,4}$/;
+    if (!validChars.test(value)) {
+      e.preventDefault();
+      return;
+    }
+
+    const momentDate = moment(
+      value,
+      this.props.dateFormat,
+      true
+    );
+
+    const updatedValue = momentDate.isValid() ? momentDate.format('YYYY-MM-DD') : '';
+
+    formik.setFieldValue(name, updatedValue)
+    formik.setFieldTouched(name, true)
   }
 
   handleChange = momentDate => {
@@ -91,6 +116,7 @@ class Datepicker extends Component {
           placeholderText={placeholder}
           dateFormat={dateFormat}
           disabledKeyboardNavigation
+          onChangeRaw={this.handleChangeRaw}
           onChange={this.handleChange}
           onBlur={formik.handleBlur}
           disabled={disabled}
