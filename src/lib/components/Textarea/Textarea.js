@@ -3,14 +3,13 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { get } from '../../utils/helper'
 
-const Input = ({
+const Textarea = ({
   name,
-  type,
-  label,
-  className,
   placeholder,
-  required,
   disabled,
+  required,
+  className,
+  label,
   hint,
   ...rest
 }, context) => {
@@ -18,24 +17,23 @@ const Input = ({
   const { touched, errors, values } = formik
   const error = get(touched, name) && get(errors, name)
   return (
-    <div className={cx('form-element input-wrapper', className, { 'hasError': !!error })}>
-      {
-        label &&
-          <label htmlFor={name}>
-            {`${label}${required ? ' *' : ''}`}
-          </label>
+    <div className={cx('form-element textarea-wrapper', className, { 'hasError': !!error })}>
+      {label &&
+        <label htmlFor={name}>
+          {label} {required ? '*' : ''}
+        </label>
       }
-      <input
+      <textarea
         id={name}
         name={name}
-        type={type}
         placeholder={placeholder}
         value={get(values, name, '')}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         disabled={disabled}
         {...rest}
-      />
+      >
+      </textarea>
       {
         error &&
           <span className='error'>
@@ -52,29 +50,28 @@ const Input = ({
   )
 }
 
-Input.contextTypes = {
+Textarea.contextTypes = {
   formik: PropTypes.shape({})
 }
 
-Input.propTypes = {
-  name: PropTypes.string.isRequired,
-  type: PropTypes.string,
-  label: PropTypes.string,
+Textarea.propTypes = {
   className: PropTypes.string,
-  placeholder: PropTypes.string,
-  required: PropTypes.bool,
+  label: PropTypes.string,
+  hint: PropTypes.string,
   disabled: PropTypes.bool,
-  hint: PropTypes.string
+  name: PropTypes.string,
+  placeholder: PropTypes.string,
+  required: PropTypes.bool
 }
 
-Input.defaultProps = {
-  type: 'text',
-  label: null,
+Textarea.defaultProps = {
   className: null,
-  placeholder: null,
-  required: false,
+  label: null,
+  hint: null,
   disabled: false,
-  hint: null
+  name: 'textarea',
+  placeholder: null,
+  required: false
 }
 
-export default Input
+export default Textarea

@@ -126,15 +126,15 @@ class Datepicker extends Component {
           {...rest}
         />
         {
+          error &&
+            <span className='error'>
+              {error}
+            </span>
+        }
+        {
           hint &&
           <span className='hint'>
             { hint}
-          </span>
-        }
-        {
-          error &&
-          <span className='error'>
-            { error}
           </span>
         }
       </div>

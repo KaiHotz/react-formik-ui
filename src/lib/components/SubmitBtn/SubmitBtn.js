@@ -43,7 +43,7 @@ SubmitBtn.propTypes = {
 SubmitBtn.defaultProps = {
   type: 'button',
   className: null,
-  text: null,
+  text: 'Submit',
   disabled: false,
   imgSrc: null
 }

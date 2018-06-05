@@ -46,16 +46,16 @@ const Radio = ({
         </div>
       ))}
       {
-        hint &&
-            <span className='hint'>
-              {hint}
-            </span>
+        error &&
+          <span className='error'>
+            {error}
+          </span>
       }
       {
-        error &&
-            <span className='error'>
-              {error}
-            </span>
+        hint &&
+          <span className='hint'>
+            {hint}
+          </span>
       }
     </div>
   )
