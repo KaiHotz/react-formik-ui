@@ -14,6 +14,7 @@ class Datepicker extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
     label: PropTypes.string,
+    hint: PropTypes.string,
     placeholder: PropTypes.string,
     className: PropTypes.string,
     disabled: PropTypes.bool,
@@ -30,6 +31,7 @@ class Datepicker extends Component {
     minDate: null,
     maxDate: null,
     label: null,
+    hint: null,
     placeholder: null,
     disabled: false,
     required: false,
@@ -88,16 +90,17 @@ class Datepicker extends Component {
       maxDate,
       required,
       className,
+      hint,
       ...rest
     } = this.props
 
     const { formik } = this.context
     const { touched, errors, values } = formik
     const momentDate = moment(get(values, name))
-    const error = get(errors, name)
+    const error = get(touched, name) && get(errors, name)
 
     return (
-      <div className={cx('datePicker-wrapper', className, { 'hasError': error })}>
+      <div className={cx('form-element datePicker-wrapper', className, { 'hasError': !!error })}>
         {
           label &&
           <label
@@ -123,9 +126,15 @@ class Datepicker extends Component {
           {...rest}
         />
         {
+          hint &&
+          <span className='hint'>
+            { hint}
+          </span>
+        }
+        {
           error &&
           <span className='error'>
-            {get(touched, name) && error}
+            { error}
           </span>
         }
       </div>

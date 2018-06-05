@@ -5,7 +5,7 @@ import cx from 'classnames'
 const SubmitBtn = ({
   type,
   className,
-  content,
+  text,
   disabled,
   imgSrc,
   ...rest
@@ -17,7 +17,7 @@ const SubmitBtn = ({
     disabled={disabled}
     {...rest}
   >
-    {content}
+    {text}
     {
       imgSrc &&
       <img
@@ -35,7 +35,7 @@ SubmitBtn.contextTypes = {
 SubmitBtn.propTypes = {
   type: PropTypes.string,
   className: PropTypes.string,
-  content: PropTypes.string,
+  text: PropTypes.string,
   disabled: PropTypes.bool,
   imgSrc: PropTypes.string
 }
@@ -43,7 +43,7 @@ SubmitBtn.propTypes = {
 SubmitBtn.defaultProps = {
   type: 'button',
   className: null,
-  content: null,
+  text: null,
   disabled: false,
   imgSrc: null
 }

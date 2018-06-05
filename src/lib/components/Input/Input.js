@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-
 import { get } from '../../utils/helper'
 
 const Input = ({
@@ -17,10 +16,9 @@ const Input = ({
 }, context) => {
   const { formik } = context
   const { touched, errors, values } = formik
-  const error = get(errors, name)
-
+  const error = get(touched, name) && get(errors, name)
   return (
-    <div className={cx('input-wrapper', className, { 'hasError': error })}>
+    <div className={cx('form-element input-wrapper', className, { 'hasError': !!error })}>
       {
         label &&
           <label htmlFor={name}>
@@ -39,15 +37,15 @@ const Input = ({
         {...rest}
       />
       {
-        error &&
-          <span className='error'>
-            {get(touched, name) && error}
-          </span>
-      }
-      {
         hint &&
           <span className='hint'>
             {hint}
+          </span>
+      }
+      {
+        error &&
+          <span className='error'>
+            {error}
           </span>
       }
     </div>
