@@ -44,23 +44,23 @@ class Datepicker extends Component {
     className: null
   }
 
-  handleChangeRaw = (e) => {
-    const { formik } = this.context;
-    const { name, value } = e.target;
+  handleChangeRaw = e => {
+    const { formik } = this.context
+    const { name, value } = e.target
 
-    const validChars = /^\d{0,2}[.]{0,1}\d{0,2}[.]{0,1}\d{0,4}$/;
+    const validChars = /^\d{0,2}[.]{0,1}\d{0,2}[.]{0,1}\d{0,4}$/
     if (!validChars.test(value)) {
-      e.preventDefault();
-      return;
+      e.preventDefault()
+      return
     }
 
     const momentDate = moment(
       value,
       this.props.dateFormat,
       true
-    );
+    )
 
-    const updatedValue = momentDate.isValid() ? momentDate.format('YYYY-MM-DD') : '';
+    const updatedValue = momentDate.isValid() ? momentDate.format('YYYY-MM-DD') : ''
 
     formik.setFieldValue(name, updatedValue)
     formik.setFieldTouched(name, true)

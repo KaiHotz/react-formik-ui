@@ -1,14 +1,11 @@
 .git
-artefacts
-docs
-dist
+build
+coverage
+public
 node_modules
-vendor
 
 .git/*
-artefacts/*
-docs/*
-dist/*
+build/*
+coverage/*
+public/*
 node_modules/*
-vendor/*
-server/Host/wwwroot/lib/*

@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import cx from 'classnames';
+import React from 'react'
+import PropTypes from 'prop-types'
+import cx from 'classnames'
 import { get } from '../../utils/helper'
 
 const Checkbox = ({
@@ -59,8 +59,8 @@ const Checkbox = ({
           </span>
       }
     </div>
-  );
-};
+  )
+}
 
 Checkbox.contextTypes = {
   formik: PropTypes.shape({})
@@ -74,7 +74,7 @@ Checkbox.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-};
+}
 
 Checkbox.defaultProps = {
   hint: null,
@@ -83,6 +83,6 @@ Checkbox.defaultProps = {
   disabled: false,
   label: null,
   text: null
-};
+}
 
-export default Checkbox;
+export default Checkbox

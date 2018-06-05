@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { get } from '../../utils/helper'
 
@@ -13,8 +13,8 @@ const Radio = ({
   className,
   ...rest
 }, context) => {
-  const { formik } = context;
-  const { touched, errors, values } = formik;
+  const { formik } = context
+  const { touched, errors, values } = formik
   const error = get(touched, name) && get(errors, name)
 
   return (
@@ -58,12 +58,12 @@ const Radio = ({
             </span>
       }
     </div>
-  );
-};
+  )
+}
 
 Radio.contextTypes = {
   formik: PropTypes.shape({})
-};
+}
 
 Radio.propTypes = {
   name: PropTypes.string.isRequired,
@@ -82,7 +82,7 @@ Radio.propTypes = {
     ]).isRequired
   })).isRequired,
   required: PropTypes.bool
-};
+}
 
 Radio.defaultProps = {
   label: null,
@@ -90,6 +90,6 @@ Radio.defaultProps = {
   className: null,
   disabled: false,
   required: false
-};
+}
 
-export default Radio;
+export default Radio

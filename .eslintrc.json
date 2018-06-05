@@ -1,9 +1,12 @@
 {
   "root": true,
   "extends": [
-    "eslint:recommended",
     "standard",
     "plugin:react/recommended"
+  ],
+  "plugins": [
+    "jest",
+    "react"
   ],
   "parser": "babel-eslint",
   "parserOptions": {
@@ -18,7 +21,7 @@
     "browser": true,
     "node": true,
     "es6": true,
-    "jest": true
+    "jest/globals": true
   },
   "rules": {
     "import/no-unresolved": [
@@ -27,17 +30,16 @@
         "caseSensitive": false
       }
     ],
-    "linebreak-style": 0,
-    "jsx-a11y/anchor-is-valid": 0,
-    "arrow-parens": 0,
-    "no-invalid-this": 0,
-    "semi": 0,
+    "arrow-parens": [
+      "error",
+      "as-needed"
+    ],
+    "semi": [
+      2,
+      "never"
+    ],
     "max-len": 0,
-    "require-jsdoc": 0,
-    "jest/no-disabled-tests": 0,
-    "jest/no-focused-tests": 0,
-    "jest/no-identical-title": 0,
-    "import/prefer-default-export": 0,
-    "no-underscore-dangle": 0
+    "no-underscore-dangle": 0,
+    "no-invalid-this": 0
   }
 }
