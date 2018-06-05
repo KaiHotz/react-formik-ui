@@ -73,7 +73,7 @@ Checkbox.propTypes = {
   disabled: PropTypes.bool,
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
-  text: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  text: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
 };
 
 Checkbox.defaultProps = {
@@ -82,7 +82,7 @@ Checkbox.defaultProps = {
   required: false,
   disabled: false,
   label: null,
-  text: null,
+  text: null
 };
 
 export default Checkbox;

@@ -100,5 +100,4 @@ Select.defaultProps = {
   className: null
 }
 
-
 export default Select

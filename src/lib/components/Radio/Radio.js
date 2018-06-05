@@ -44,25 +44,25 @@ const Radio = ({
             {option.label}
           </label>
         </div>
-        ))}
-        {
-          hint &&
+      ))}
+      {
+        hint &&
             <span className='hint'>
               {hint}
             </span>
-        }
-        {
-          error &&
+      }
+      {
+        error &&
             <span className='error'>
               {error}
             </span>
-        }
+      }
     </div>
   );
 };
 
 Radio.contextTypes = {
-  formik: PropTypes.shape({}),
+  formik: PropTypes.shape({})
 };
 
 Radio.propTypes = {
@@ -81,17 +81,15 @@ Radio.propTypes = {
       PropTypes.number
     ]).isRequired
   })).isRequired,
-  required: PropTypes.bool,
+  required: PropTypes.bool
 };
-
 
 Radio.defaultProps = {
   label: null,
   hint: null,
   className: null,
   disabled: false,
-  required: false,
+  required: false
 };
 
 export default Radio;
-
