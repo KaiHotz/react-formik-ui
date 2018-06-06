@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import DatePickerCmp from 'react-datepicker'
 import moment from 'moment'
+import DatePickerCmp from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 import cx from 'classnames'
 import { get } from '../../utils/helper'
-import 'react-datepicker/dist/react-datepicker.css'
 
 class Datepicker extends Component {
   static contextTypes = {

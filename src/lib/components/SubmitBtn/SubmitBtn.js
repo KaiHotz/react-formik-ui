@@ -7,7 +7,7 @@ const SubmitBtn = ({
   className,
   text,
   disabled,
-  imgSrc,
+  children,
   ...rest
 }, context) => (
   <button
@@ -18,13 +18,7 @@ const SubmitBtn = ({
     {...rest}
   >
     {text}
-    {
-      imgSrc &&
-      <img
-        src={imgSrc}
-        alt='btn icon'
-      />
-    }
+    {children}
   </button>
 )
 
@@ -37,7 +31,10 @@ SubmitBtn.propTypes = {
   className: PropTypes.string,
   text: PropTypes.string,
   disabled: PropTypes.bool,
-  imgSrc: PropTypes.string
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node
+  ])
 }
 
 SubmitBtn.defaultProps = {
@@ -45,7 +42,7 @@ SubmitBtn.defaultProps = {
   className: null,
   text: 'Submit',
   disabled: false,
-  imgSrc: null
+  children: null
 }
 
 export default SubmitBtn
