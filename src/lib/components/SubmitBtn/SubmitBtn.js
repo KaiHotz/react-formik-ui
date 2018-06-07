@@ -5,9 +5,8 @@ import cx from 'classnames'
 const SubmitBtn = ({
   type,
   className,
-  text,
   disabled,
-  children,
+  text,
   ...rest
 }, context) => (
   <button
@@ -18,7 +17,6 @@ const SubmitBtn = ({
     {...rest}
   >
     {text}
-    {children}
   </button>
 )
 
@@ -29,20 +27,18 @@ SubmitBtn.contextTypes = {
 SubmitBtn.propTypes = {
   type: PropTypes.string,
   className: PropTypes.string,
-  text: PropTypes.string,
   disabled: PropTypes.bool,
-  children: PropTypes.oneOfType([
+  text: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.node
-  ])
+  ]),
 }
 
 SubmitBtn.defaultProps = {
-  type: 'button',
+  type: 'submit',
   className: null,
+  disabled: false
   text: 'Submit',
-  disabled: false,
-  children: null
 }
 
 export default SubmitBtn
