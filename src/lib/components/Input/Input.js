@@ -18,7 +18,7 @@ const Input = ({
   const { touched, errors, values } = formik
   const error = get(touched, name) && get(errors, name)
   return (
-    <div className={cx('form-element input-wrapper', className, { 'hasError': !!error })}>
+    <div className={cx('form-element input-wrapper', className, { 'hasError': !!error, disabled })}>
       {
         label &&
           <label htmlFor={name}>

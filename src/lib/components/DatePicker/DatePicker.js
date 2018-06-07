@@ -100,7 +100,7 @@ class Datepicker extends Component {
     const error = get(touched, name) && get(errors, name)
 
     return (
-      <div className={cx('form-element datePicker-wrapper', className, { 'hasError': !!error })}>
+      <div className={cx('form-element datePicker-wrapper', className, { 'hasError': !!error, disabled })}>
         {
           label &&
           <label

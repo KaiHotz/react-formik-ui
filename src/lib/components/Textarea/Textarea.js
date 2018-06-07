@@ -17,7 +17,7 @@ const Textarea = ({
   const { touched, errors, values } = formik
   const error = get(touched, name) && get(errors, name)
   return (
-    <div className={cx('form-element textarea-wrapper', className, { 'hasError': !!error })}>
+    <div className={cx('form-element textarea-wrapper', className, { 'hasError': !!error, disabled })}>
       {label &&
         <label htmlFor={name}>
           {label} {required ? '*' : ''}

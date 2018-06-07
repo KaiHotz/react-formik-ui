@@ -18,7 +18,7 @@ const Select = ({
   const error = get(touched, name) && get(errors, name)
 
   return (
-    <div className={cx('form-element select-wrapper', className, { 'hasError': !!error })} >
+    <div className={cx('form-element select-wrapper', className, { 'hasError': !!error, disabled })} >
       {
         label &&
         <label htmlFor={name}>
