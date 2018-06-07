@@ -18,7 +18,7 @@ const Radio = ({
   const error = get(touched, name) && get(errors, name)
 
   return (
-    <div className={cx('form-element radio-wrapper', className, { 'hasError': !!error, disabled})}>
+    <div className={cx('form-element radio-wrapper', className, { 'hasError': !!error, disabled })}>
       {
         label &&
           <label htmlFor={name}>

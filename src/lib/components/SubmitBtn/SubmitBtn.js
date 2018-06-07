@@ -31,14 +31,14 @@ SubmitBtn.propTypes = {
   text: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.node
-  ]),
+  ])
 }
 
 SubmitBtn.defaultProps = {
   type: 'submit',
   className: null,
   disabled: false,
-  text: 'Submit',
+  text: 'Submit'
 }
 
 export default SubmitBtn
