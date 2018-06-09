@@ -1,0 +1,42 @@
+form label,
+form span {
+  display: block;
+  margin-bottom: 5px;
+}
+
+form {
+  width: 500px;
+  margin: 0 auto;
+}
+
+form .form-element {
+  margin-bottom: 15px;
+}
+
+form .checkbox-input-wrapper{
+  display: flex;
+  align-items: flex-start;
+}
+
+form .radio-options {
+  display: flex;
+  align-items: center;
+}
+
+form .radio-options label {
+  margin-bottom: 0;
+}
+
+form .checkbox-text {
+  display: initial;
+  margin-bottom: 0;
+}
+
+form .error {
+  color: red;
+  font-size: .8rem;
+}
+
+form .hint {
+  font-size: .8rem;
+}
