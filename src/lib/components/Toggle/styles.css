@@ -1,0 +1,35 @@
+.toggle {
+  background-color: #999;
+  border: none;
+  border-radius: 13px;
+  cursor: pointer;
+  height: 26px;
+  outline: none;
+  position: relative;
+  width: 45px;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+.toggle:hover .toggle__toggle {
+  background-color: #242424;
+}
+
+.toggle__toggle {
+  background-color: #333;
+  border-radius: 13px;
+  height: 22px;
+  left: 2px;
+  top: 2px;
+  transform: translate(0, 0);
+  transition: 150ms ease-out;
+  position: absolute;
+  width: 22px;
+}
+
+.toggle--active {
+  background-color: #00adef;
+}
+
+.toggle--active .toggle__toggle {
+  transform: translate(19px, 0);
+}
