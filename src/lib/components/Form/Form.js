@@ -6,10 +6,11 @@ import './styles.css'
 const Form = ({
   children,
   className,
+  styled,
   ...rest
 }, context) => (
   <form
-    className={cx('form-wrapper', className)}
+    className={cx('form-wrapper', {styled}, className)}
     onSubmit={context.formik.handleSubmit}
     {...rest}
   >
@@ -23,11 +24,13 @@ Form.contextTypes = {
 
 Form.propTypes = {
   children: PropTypes.node.isRequired,
-  className: PropTypes.string
+  className: PropTypes.string,
+  styled: PropTypes.bool
 }
 
 Form.defaultProps = {
-  className: null
+  className: null,
+  styled: false
 }
 
 export default Form

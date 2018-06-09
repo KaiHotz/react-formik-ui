@@ -1,42 +1,42 @@
-form label,
-form span {
+form.styled label,
+form.styled span {
   display: block;
   margin-bottom: 5px;
 }
 
-form {
+form.styled {
   width: 500px;
   margin: 0 auto;
 }
 
-form .form-element {
+form.styled .form-element {
   margin-bottom: 15px;
 }
 
-form .checkbox-input-wrapper{
+form.styled .checkbox-input-wrapper{
   display: flex;
   align-items: flex-start;
 }
 
-form .radio-options {
+form.styled .radio-options {
   display: flex;
   align-items: center;
 }
 
-form .radio-options label {
+form.styled .radio-options label {
   margin-bottom: 0;
 }
 
-form .checkbox-text {
+form.styled .checkbox-text {
   display: initial;
   margin-bottom: 0;
 }
 
-form .error {
+form.styled .error {
   color: red;
   font-size: .8rem;
 }
 
-form .hint {
+form.styled .hint {
   font-size: .8rem;
 }
