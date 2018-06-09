@@ -4,11 +4,6 @@ form.styled span {
   margin-bottom: 5px;
 }
 
-form.styled {
-  width: 500px;
-  margin: 0 auto;
-}
-
 form.styled .form-element {
   margin-bottom: 15px;
 }
