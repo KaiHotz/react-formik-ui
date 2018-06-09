@@ -1,41 +1,41 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import cx from 'classnames';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import cx from 'classnames'
 import Button from '../Button'
-import { get } from '../../utils/helper';
+import { get } from '../../utils/helper'
 import './styles.css'
 
 class Toggle extends Component {
   static contextTypes = {
-    formik: PropTypes.shape({}),
+    formik: PropTypes.shape({})
   }
 
   static propTypes = {
     disabled: PropTypes.bool,
     className: PropTypes.string,
-    name: PropTypes.string,
+    name: PropTypes.string
   }
 
   static defaultProps = {
     disabled: false,
     className: null,
-    name: null,
+    name: null
   }
 
   onChange = () => {
-    const { formik } = this.context;
-    const { values } = formik;
-    const { name } = this.props;
+    const { formik } = this.context
+    const { values } = formik
+    const { name } = this.props
 
-    formik.setFieldValue(name, !get(values, name));
-    formik.setFieldTouched(name, true);
+    formik.setFieldValue(name, !get(values, name))
+    formik.setFieldTouched(name, true)
   }
 
-  render() {
-    const { className, disabled, name, ...rest } = this.props;
-    const { formik } = this.context;
-    const { values } = formik;
-    const active = get(values, name);
+  render () {
+    const { className, disabled, name, ...rest } = this.props
+    const { formik } = this.context
+    const { values } = formik
+    const active = get(values, name)
 
     return (
       <Button
@@ -49,9 +49,8 @@ class Toggle extends Component {
       >
         <span className={`toggle__toggle`} />
       </Button>
-    );
+    )
   }
 }
 
-
-export default Toggle;
+export default Toggle
