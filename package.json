@@ -97,7 +97,6 @@
     "formik": ">=0.11.11"
   },
   "jest": {
-    "verbose": true,
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,mjs}"
     ],
