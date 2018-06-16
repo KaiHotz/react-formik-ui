@@ -1,12 +1,12 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Button from './index'
-
-const baseProps = {
-  onClick: jest.fn(),
-}
+import Button from './Button'
 
 describe('<Button />', () => {
+  const baseProps = {
+    onClick: jest.fn(),
+  }
+
   it('should render', () => {
     const wrapper = shallow(<Button {...baseProps} />)
 
