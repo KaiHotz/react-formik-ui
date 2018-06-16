@@ -37,6 +37,13 @@ describe('<Button />', () => {
     expect(wrapper.prop('type')).toBe(props.type)
   })
 
+  it('should be disableable', () => {
+    const wrapper = shallow(<Button {...baseProps} disabled />)
+
+    expect(wrapper.prop('disabled')).toBe(true)
+    expect(wrapper.prop('className').includes('disabled'))
+  })
+
   it('should allow custom className', () => {
     const props = {
       ...baseProps,

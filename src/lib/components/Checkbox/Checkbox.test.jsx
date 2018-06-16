@@ -1,8 +1,8 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import Input from './Input'
+import Checkbox from './Checkbox'
 
-describe('<Input />', () => {
+describe('<Checkbox />', () => {
   const context = {
     formik: {
       handleChange: jest.fn(),
@@ -16,11 +16,11 @@ describe('<Input />', () => {
   }
 
   const baseProps = {
-    name: 'textField',
+    name: 'Checkbox',
   }
 
   it('should render', () => {
-    const wrapper = shallow(<Input {...baseProps} />, { context })
+    const wrapper = shallow(<Checkbox {...baseProps} />, { context })
 
     expect(wrapper).toBeDefined()
   })
@@ -30,33 +30,21 @@ describe('<Input />', () => {
       ...baseProps,
       className: 'Custom',
     }
-    const wrapper = shallow(<Input {...props} />, { context })
+    const wrapper = shallow(<Checkbox {...props} />, { context })
 
     expect(wrapper.hasClass(props.className)).toBe(true)
   })
 
-  it('should have custom type', () => {
-    const props = {
-      ...baseProps,
-      type: 'text',
-    }
-    const wrapper = mount(<Input {...props} />, { context })
-
-    expect(wrapper.find('input').prop('type')).toBe(props.type)
-  })
-
   it('should be disableable', () => {
-    const wrapper = shallow(<Input {...baseProps} disabled />, { context })
+    const wrapper = shallow(<Checkbox {...baseProps} disabled />, { context })
 
     expect(wrapper.find('input').prop('disabled')).toBe(true)
     expect(wrapper.prop('className').includes('disabled'))
   })
 
   it('should call onChange', () => {
-    const props = {
-      ...baseProps,
-    }
-    const wrapper = mount(<Input {...props} />, { context })
+    const wrapper = mount(<Checkbox {...baseProps} />, { context })
+
     wrapper.find('input').simulate('change')
 
     expect(context.formik.handleChange).toHaveBeenCalled()
