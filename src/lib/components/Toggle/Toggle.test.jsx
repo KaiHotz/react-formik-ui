@@ -36,7 +36,7 @@ describe('<Toggle />', () => {
   })
 
 
-  it('should be disableable', () => {
+  it('should be disabled', () => {
     const wrapper = shallow(<Toggle {...baseProps} disabled />, { context })
 
     expect(wrapper.prop('disabled')).toBe(true)
