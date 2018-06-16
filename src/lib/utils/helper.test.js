@@ -4,13 +4,13 @@ describe('Helper', () => {
   it('should work', () => {
     const obj = {
       name: {
-        first: 'Hans'
+        first: 'Hans',
       },
       queries: [
         {
-          title: 'felix'
-        }
-      ]
+          title: 'felix',
+        },
+      ],
     }
 
     expect(get(obj, 'name.first')).toBe(obj.name.first)

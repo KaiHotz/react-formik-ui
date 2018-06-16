@@ -5,8 +5,8 @@ import SubmitBtn from './SubmitBtn'
 describe('<SubmitBtn />', () => {
   const context = {
     formik: {
-      handleSubmit: jest.fn()
-    }
+      handleSubmit: jest.fn(),
+    },
   }
 
   it('should render', () => {
@@ -17,7 +17,7 @@ describe('<SubmitBtn />', () => {
 
   it('should display text', () => {
     const props = {
-      text: 'Content'
+      text: 'Content',
     }
     const wrapper = shallow(<SubmitBtn {...props} />, { context })
 
@@ -40,7 +40,7 @@ describe('<SubmitBtn />', () => {
 
   it('should have custom type', () => {
     const props = {
-      type: 'button'
+      type: 'button',
     }
     const wrapper = shallow(<SubmitBtn {...props} />, { context })
 
@@ -49,7 +49,7 @@ describe('<SubmitBtn />', () => {
 
   it('should allow custom className', () => {
     const props = {
-      className: 'Custom'
+      className: 'Custom',
     }
     const wrapper = shallow(<SubmitBtn {...props} />, { context })
 

@@ -11,7 +11,7 @@ const Button = ({
   ...rest
 }) => (
   <button
-    className={cx('btn', className, {disabled})}
+    className={cx('btn', className, { disabled })}
     onClick={onClick}
     type={type}
     disabled={disabled}
@@ -28,15 +28,15 @@ Button.propTypes = {
   onClick: PropTypes.func.isRequired,
   children: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.node
-  ])
+    PropTypes.node,
+  ]),
 }
 
 Button.defaultProps = {
   type: 'button',
   className: null,
   disabled: false,
-  children: null
+  children: null,
 }
 
 export default Button

@@ -17,8 +17,9 @@ const Input = ({
   const { formik } = context
   const { touched, errors, values } = formik
   const error = get(touched, name) && get(errors, name)
+
   return (
-    <div className={cx('form-element input-wrapper', className, { 'hasError': !!error, disabled })}>
+    <div className={cx('form-element input-wrapper', className, { hasError: !!error, disabled })}>
       {
         label &&
           <label htmlFor={name}>
@@ -38,13 +39,13 @@ const Input = ({
       />
       {
         error &&
-          <span className='error'>
+          <span className="error">
             {error}
           </span>
       }
       {
         hint &&
-          <span className='hint'>
+          <span className="hint">
             {hint}
           </span>
       }
@@ -53,7 +54,7 @@ const Input = ({
 }
 
 Input.contextTypes = {
-  formik: PropTypes.shape({})
+  formik: PropTypes.shape({}),
 }
 
 Input.propTypes = {
@@ -64,7 +65,7 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   disabled: PropTypes.bool,
-  hint: PropTypes.string
+  hint: PropTypes.string,
 }
 
 Input.defaultProps = {
@@ -74,7 +75,7 @@ Input.defaultProps = {
   placeholder: null,
   required: false,
   disabled: false,
-  hint: null
+  hint: null,
 }
 
 export default Input

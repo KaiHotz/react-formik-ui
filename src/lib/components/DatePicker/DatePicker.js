@@ -7,10 +7,6 @@ import cx from 'classnames'
 import { get } from '../../utils/helper'
 
 class Datepicker extends Component {
-  static contextTypes = {
-    formik: PropTypes.shape({})
-  }
-
   static propTypes = {
     name: PropTypes.string.isRequired,
     label: PropTypes.string,
@@ -21,10 +17,13 @@ class Datepicker extends Component {
     required: PropTypes.bool,
     dateFormat: PropTypes.oneOfType([
       PropTypes.string,
-      PropTypes.arrayOf(PropTypes.string)
+      PropTypes.arrayOf(PropTypes.string),
     ]),
     minDate: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    maxDate: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    maxDate: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  }
+  static contextTypes = {
+    formik: PropTypes.shape({}),
   }
 
   static defaultProps = {
@@ -39,9 +38,9 @@ class Datepicker extends Component {
       'DD.MM.YYYY',
       'D.M.YYYY',
       'MM/DD/YYYY',
-      'M/D/YYYY'
+      'M/D/YYYY',
     ],
-    className: null
+    className: null,
   }
 
   handleChangeRaw = e => {
@@ -51,13 +50,14 @@ class Datepicker extends Component {
     const validChars = /^\d{0,2}[.]{0,1}\d{0,2}[.]{0,1}\d{0,4}$/
     if (!validChars.test(value)) {
       e.preventDefault()
+
       return
     }
 
     const momentDate = moment(
       value,
       this.props.dateFormat,
-      true
+      true,
     )
 
     const updatedValue = momentDate.isValid() ? momentDate.format('YYYY-MM-DD') : ''
@@ -79,7 +79,7 @@ class Datepicker extends Component {
     document.getElementById(name).focus()
   }
 
-  render () {
+  render() {
     const {
       disabled,
       label,
@@ -100,12 +100,14 @@ class Datepicker extends Component {
     const error = get(touched, name) && get(errors, name)
 
     return (
-      <div className={cx('form-element datePicker-wrapper', className, { 'hasError': !!error, disabled })}>
+      <div className={cx('form-element datePicker-wrapper', className, { hasError: !!error, disabled })}>
         {
           label &&
           <label
             htmlFor={name}
             onClick={() => this.handleFocus(name)}
+            onKeypress={() => this.handleFocus(name)}
+            role="none"
           >
             {`${label}${required ? ' *' : ''}`}
           </label>
@@ -127,13 +129,13 @@ class Datepicker extends Component {
         />
         {
           error &&
-            <span className='error'>
+            <span className="error">
               {error}
             </span>
         }
         {
           hint &&
-          <span className='hint'>
+          <span className="hint">
             { hint}
           </span>
         }

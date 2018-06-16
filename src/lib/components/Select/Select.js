@@ -11,14 +11,14 @@ const Select = ({
   options,
   required,
   disabled,
-  className
+  className,
 }, context) => {
   const { formik } = context
   const { touched, errors, values } = formik
   const error = get(touched, name) && get(errors, name)
 
   return (
-    <div className={cx('form-element select-wrapper', className, { 'hasError': !!error, disabled })} >
+    <div className={cx('form-element select-wrapper', className, { hasError: !!error, disabled })} >
       {
         label &&
         <label htmlFor={name}>
@@ -34,32 +34,30 @@ const Select = ({
       >
         {
           placeholder &&
-            <option value=''>
+            <option value="">
               {placeholder}
             </option>
         }
         {
-          options.map(opt => {
-            return (
-              <option
-                key={opt.label}
-                value={opt.value}
-              >
-                {opt.label}
-              </option>
-            )
-          })
+          options.map(opt => (
+            <option
+              key={opt.label}
+              value={opt.value}
+            >
+              {opt.label}
+            </option>
+            ))
         }
       </select>
       {
         error &&
-          <span className='error'>
+          <span className="error">
             {error}
           </span>
       }
       {
         hint &&
-          <span className='hint'>
+          <span className="hint">
             {hint}
           </span>
       }
@@ -68,7 +66,7 @@ const Select = ({
 }
 
 Select.contextTypes = {
-  formik: PropTypes.shape({})
+  formik: PropTypes.shape({}),
 }
 
 Select.propTypes = {
@@ -79,16 +77,16 @@ Select.propTypes = {
   options: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.oneOfType([
       PropTypes.string,
-      PropTypes.number
+      PropTypes.number,
     ]).isRequired,
     value: PropTypes.oneOfType([
       PropTypes.string,
-      PropTypes.number
-    ]).isRequired
+      PropTypes.number,
+    ]).isRequired,
   })).isRequired,
   required: PropTypes.bool,
   disabled: PropTypes.bool,
-  className: PropTypes.string
+  className: PropTypes.string,
 }
 
 Select.defaultProps = {
@@ -97,7 +95,7 @@ Select.defaultProps = {
   hint: null,
   required: false,
   disabled: false,
-  className: null
+  className: null,
 }
 
 export default Select

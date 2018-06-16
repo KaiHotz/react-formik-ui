@@ -5,16 +5,16 @@ import Form from './Form'
 describe('<Form />', () => {
   const context = {
     formik: {
-      handleSubmit: jest.fn()
-    }
+      handleSubmit: jest.fn(),
+    },
   }
 
   const baseProps = {
-    children: 'dwadaw'
+    children: 'dwadaw',
   }
 
   it('should render', () => {
-    const wrapper = shallow(<Form {...baseProps}/>, { context })
+    const wrapper = shallow(<Form {...baseProps} />, { context })
 
     expect(wrapper).toBeDefined()
   })
@@ -22,7 +22,7 @@ describe('<Form />', () => {
   it('should allow custom className', () => {
     const props = {
       ...baseProps,
-      className: 'Custom'
+      className: 'Custom',
     }
     const wrapper = shallow(<Form {...props} />, { context })
 
@@ -36,7 +36,7 @@ describe('<Form />', () => {
   })
 
   it('should call onSubmit', () => {
-    const wrapper = shallow(<Form {...baseProps}/>, { context })
+    const wrapper = shallow(<Form {...baseProps} />, { context })
     wrapper.simulate('submit')
 
     expect(context.formik.handleSubmit).toHaveBeenCalled()

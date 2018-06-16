@@ -18,17 +18,17 @@ const Checkbox = ({
   const error = get(touched, name) && get(errors, name)
 
   return (
-    <div className={cx('form-element checkbox-wrapper', className, { 'hasError': !!error, disabled })}>
+    <div className={cx('form-element checkbox-wrapper', className, { hasError: !!error, disabled })}>
       {
         label &&
           <label
             htmlFor={name}
-            className='checkbox-label'
+            className="checkbox-label"
           >
             {`${label}${required ? ' *' : ''}`}
           </label>
       }
-      <div className='checkbox-input-wrapper'>
+      <div className="checkbox-input-wrapper">
         <input
           id={name}
           name={name}
@@ -41,20 +41,20 @@ const Checkbox = ({
         />
         <label
           htmlFor={name}
-          className='checkbox-text'
+          className="checkbox-text"
         >
           {text}
         </label>
       </div>
       {
         error &&
-          <span className='error'>
+          <span className="error">
             {error}
           </span>
       }
       {
         hint &&
-          <span className='hint'>
+          <span className="hint">
             {hint}
           </span>
       }
@@ -63,7 +63,7 @@ const Checkbox = ({
 }
 
 Checkbox.contextTypes = {
-  formik: PropTypes.shape({})
+  formik: PropTypes.shape({}),
 }
 
 Checkbox.propTypes = {
@@ -73,7 +73,7 @@ Checkbox.propTypes = {
   disabled: PropTypes.bool,
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
-  text: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+  text: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 }
 
 Checkbox.defaultProps = {
@@ -82,7 +82,7 @@ Checkbox.defaultProps = {
   required: false,
   disabled: false,
   label: null,
-  text: null
+  text: null,
 }
 
 export default Checkbox

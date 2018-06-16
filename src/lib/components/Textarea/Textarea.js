@@ -16,12 +16,13 @@ const Textarea = ({
   const { formik } = context
   const { touched, errors, values } = formik
   const error = get(touched, name) && get(errors, name)
+
   return (
-    <div className={cx('form-element textarea-wrapper', className, { 'hasError': !!error, disabled })}>
+    <div className={cx('form-element textarea-wrapper', className, { hasError: !!error, disabled })}>
       {label &&
-        <label htmlFor={name}>
-          {label} {required ? '*' : ''}
-        </label>
+      <label htmlFor={name}>
+        {label} {required ? '*' : ''}
+      </label>
       }
       <textarea
         id={name}
@@ -32,17 +33,16 @@ const Textarea = ({
         onBlur={formik.handleBlur}
         disabled={disabled}
         {...rest}
-      >
-      </textarea>
+      />
       {
         error &&
-          <span className='error'>
+          <span className="error">
             {error}
           </span>
       }
       {
         hint &&
-          <span className='hint'>
+          <span className="hint">
             {hint}
           </span>
       }
@@ -51,7 +51,7 @@ const Textarea = ({
 }
 
 Textarea.contextTypes = {
-  formik: PropTypes.shape({})
+  formik: PropTypes.shape({}),
 }
 
 Textarea.propTypes = {
@@ -61,7 +61,7 @@ Textarea.propTypes = {
   disabled: PropTypes.bool,
   name: PropTypes.string,
   placeholder: PropTypes.string,
-  required: PropTypes.bool
+  required: PropTypes.bool,
 }
 
 Textarea.defaultProps = {
@@ -71,7 +71,7 @@ Textarea.defaultProps = {
   disabled: false,
   name: 'textarea',
   placeholder: null,
-  required: false
+  required: false,
 }
 
 export default Textarea

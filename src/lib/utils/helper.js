@@ -10,5 +10,5 @@ export const get = (pObject, pKeys, defaultVal = null) => {
 }
 
 export default {
-  get
+  get,
 }

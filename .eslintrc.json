@@ -1,7 +1,7 @@
 {
   "root": true,
   "extends": [
-    "standard",
+    "airbnb",
     "plugin:react/recommended"
   ],
   "plugins": [
@@ -21,13 +21,56 @@
     "browser": true,
     "node": true,
     "es6": true,
-    "jest/globals": true
+    "jest": true
   },
   "rules": {
+    "no-shadow": 0,
+    "newline-before-return": "error",
+    "import/extensions": 0,
+    "react/forbid-prop-types": 0,
+    "no-param-reassign": 0,
+    "func-names": 0,
+    "no-console": 0,
+    "react/jsx-filename-extension": 0,
+    "consistent-return": 0,
+    "import/no-dynamic-require": 0,
+    "import/no-extraneous-dependencies": 0,
+    "array-callback-return": 0,
     "import/no-unresolved": [
       2,
       {
         "caseSensitive": false
+      }
+    ],
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    },
+    "no-return-assign": [
+      2,
+      "except-parens"
+    ],
+    "no-invalid-this": 0,
+    "global-require": 0,
+    "camelcase": 0,
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": [
+          "Link"
+        ],
+        "specialLink": [
+          "to"
+        ],
+        "aspects": [
+          "noHref",
+          "invalidHref",
+          "preferButton"
+        ]
       }
     ],
     "arrow-parens": [
@@ -40,6 +83,14 @@
     ],
     "max-len": 0,
     "no-underscore-dangle": 0,
-    "no-invalid-this": 0
-  }
-}
+    "jsx-a11y/label-has-for": [
+      2,
+      {
+        "required": {
+          "every": [
+            "id"
+          ]
+        }
+      }
+    ]
+  }}

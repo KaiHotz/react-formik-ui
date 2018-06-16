@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import Button from './index'
 
 const baseProps = {
-  onClick: jest.fn()
+  onClick: jest.fn(),
 }
 
 describe('<Button />', () => {
@@ -30,7 +30,7 @@ describe('<Button />', () => {
   it('should have custom type', () => {
     const props = {
       ...baseProps,
-      type: 'search'
+      type: 'search',
     }
     const wrapper = shallow(<Button {...props} />)
 
@@ -40,7 +40,7 @@ describe('<Button />', () => {
   it('should allow custom className', () => {
     const props = {
       ...baseProps,
-      className: 'Custom'
+      className: 'Custom',
     }
     const wrapper = shallow(<Button {...props} />)
 

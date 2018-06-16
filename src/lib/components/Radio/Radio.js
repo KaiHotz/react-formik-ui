@@ -18,15 +18,15 @@ const Radio = ({
   const error = get(touched, name) && get(errors, name)
 
   return (
-    <div className={cx('form-element radio-wrapper', className, { 'hasError': !!error, disabled })}>
+    <div className={cx('form-element radio-wrapper', className, { hasError: !!error, disabled })}>
       {
         label &&
           <label htmlFor={name}>
             {`${label}${required ? ' *' : ''}`}
           </label>
       }
-      {options.map((option, i) => (
-        <div key={option.label} className='radio-options'>
+      {options.map(option => (
+        <div key={option.label} className="radio-options">
           <input
             type="radio"
             checked={get(values, name) === option.value}
@@ -47,13 +47,13 @@ const Radio = ({
       ))}
       {
         error &&
-          <span className='error'>
+          <span className="error">
             {error}
           </span>
       }
       {
         hint &&
-          <span className='hint'>
+          <span className="hint">
             {hint}
           </span>
       }
@@ -62,7 +62,7 @@ const Radio = ({
 }
 
 Radio.contextTypes = {
-  formik: PropTypes.shape({})
+  formik: PropTypes.shape({}),
 }
 
 Radio.propTypes = {
@@ -74,14 +74,14 @@ Radio.propTypes = {
   options: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.oneOfType([
       PropTypes.string,
-      PropTypes.number
+      PropTypes.number,
     ]).isRequired,
     value: PropTypes.oneOfType([
       PropTypes.string,
-      PropTypes.number
-    ]).isRequired
+      PropTypes.number,
+    ]).isRequired,
   })).isRequired,
-  required: PropTypes.bool
+  required: PropTypes.bool,
 }
 
 Radio.defaultProps = {
@@ -89,7 +89,7 @@ Radio.defaultProps = {
   hint: null,
   className: null,
   disabled: false,
-  required: false
+  required: false,
 }
 
 export default Radio

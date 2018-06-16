@@ -6,20 +6,18 @@ import { get } from '../../utils/helper'
 import './styles.css'
 
 class Toggle extends Component {
-  static contextTypes = {
-    formik: PropTypes.shape({})
-  }
-
   static propTypes = {
     disabled: PropTypes.bool,
     className: PropTypes.string,
-    name: PropTypes.string
+    name: PropTypes.string,
   }
-
+  static contextTypes = {
+    formik: PropTypes.shape({}),
+  }
   static defaultProps = {
     disabled: false,
     className: null,
-    name: null
+    name: null,
   }
 
   onChange = () => {
@@ -31,8 +29,10 @@ class Toggle extends Component {
     formik.setFieldTouched(name, true)
   }
 
-  render () {
-    const { className, disabled, name, ...rest } = this.props
+  render() {
+    const {
+      className, disabled, name, ...rest
+    } = this.props
     const { formik } = this.context
     const { values } = formik
     const active = get(values, name)
@@ -47,7 +47,7 @@ class Toggle extends Component {
         aria-label="toggle"
         aria-checked={active}
       >
-        <span className={`toggle__toggle`} />
+        <span className="toggle__toggle" />
       </Button>
     )
   }
