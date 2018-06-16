@@ -7,6 +7,8 @@ describe('<Input />', () => {
     formik: {
       handleChange: jest.fn(),
       handleBlur: jest.fn(),
+      touched: {},
+      errors: {},
       values: {
         textField: '',
       },
