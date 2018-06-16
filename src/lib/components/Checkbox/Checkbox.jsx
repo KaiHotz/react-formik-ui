@@ -4,6 +4,7 @@ import cx from 'classnames'
 import { get } from '../../utils/helper'
 
 const Checkbox = ({
+  id,
   hint,
   className,
   required,
@@ -30,7 +31,7 @@ const Checkbox = ({
       }
       <div className="checkbox-input-wrapper">
         <input
-          id={name}
+          id={id || name}
           name={name}
           type="checkbox"
           checked={get(values, name)}
@@ -67,6 +68,7 @@ Checkbox.contextTypes = {
 }
 
 Checkbox.propTypes = {
+  id: PropTypes.string,
   hint: PropTypes.string,
   className: PropTypes.string,
   required: PropTypes.bool,
@@ -77,6 +79,7 @@ Checkbox.propTypes = {
 }
 
 Checkbox.defaultProps = {
+  id: null,
   hint: null,
   className: null,
   required: false,

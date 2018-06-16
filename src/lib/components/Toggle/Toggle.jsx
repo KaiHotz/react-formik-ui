@@ -9,7 +9,7 @@ class Toggle extends Component {
   static propTypes = {
     disabled: PropTypes.bool,
     className: PropTypes.string,
-    name: PropTypes.string,
+    name: PropTypes.string.isRequired,
   }
   static contextTypes = {
     formik: PropTypes.shape({}),
@@ -17,7 +17,6 @@ class Toggle extends Component {
   static defaultProps = {
     disabled: false,
     className: null,
-    name: null,
   }
 
   onChange = () => {

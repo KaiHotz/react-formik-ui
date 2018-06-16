@@ -40,6 +40,17 @@ describe('<Radio />', () => {
     expect(wrapper.hasClass(props.className)).toBe(true)
   })
 
+  it('should have a hint', () => {
+    const props = {
+      ...baseProps,
+      hint: 'hintTest',
+    }
+    const wrapper = shallow(<Radio {...props} />, { context })
+
+    expect(wrapper.find('.hint').length).toBe(1)
+    expect(wrapper.find('.hint').text()).toBe(props.hint)
+  })
+
   it('should be disabled', () => {
     const wrapper = shallow(<Radio {...baseProps} disabled />, { context })
 

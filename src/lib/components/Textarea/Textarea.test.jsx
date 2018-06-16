@@ -1,10 +1,10 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 
-import Select from './Select'
+import Textarea from './Textarea'
 
 
-describe('<Select />', () => {
+describe('<Textarea />', () => {
   const context = {
     formik: {
       handleChange: jest.fn(),
@@ -12,23 +12,17 @@ describe('<Select />', () => {
       touched: {},
       errors: {},
       values: {
-        SelectTest: '',
+        textAreaTest: '',
       },
     },
   }
 
   const baseProps = {
-    name: 'SelectTest',
-    placeholder: 'Placeholder',
-    options: [
-      { value: '0', label: 'Option 1' },
-      { value: '1', label: 'Option 2' },
-      { value: '2', label: 'Option 3' },
-    ],
+    name: 'textAreaTest',
   }
 
   it('should render', () => {
-    const wrapper = shallow(<Select {...baseProps} />, { context })
+    const wrapper = shallow(<Textarea {...baseProps} />, { context })
 
     expect(wrapper).toBeDefined()
   })
@@ -36,9 +30,9 @@ describe('<Select />', () => {
   it('should allow custom className', () => {
     const props = {
       ...baseProps,
-      className: 'customClass',
+      className: 'Custom',
     }
-    const wrapper = shallow(<Select {...props} />, { context })
+    const wrapper = shallow(<Textarea {...props} />, { context })
 
     expect(wrapper.hasClass(props.className)).toBe(true)
   })
@@ -48,7 +42,7 @@ describe('<Select />', () => {
       ...baseProps,
       label: 'Custom',
     }
-    const wrapper = shallow(<Select {...props} />, { context })
+    const wrapper = shallow(<Textarea {...props} />, { context })
 
     expect(wrapper.find('label').length).toBe(1)
   })
@@ -58,23 +52,25 @@ describe('<Select />', () => {
       ...baseProps,
       hint: 'hintTest',
     }
-    const wrapper = shallow(<Select {...props} />, { context })
+    const wrapper = shallow(<Textarea {...props} />, { context })
 
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)
   })
 
+  it('should render children', () => {
+    const props = {
+      ...baseProps,
+      children: 'test',
+    }
+    const wrapper = shallow(<Textarea {...props} />, { context })
 
-  it('should be disabled', () => {
-    const wrapper = shallow(<Select {...baseProps} disabled />, { context })
-
-    expect(wrapper.find('select').prop('disabled')).toBe(true)
-    expect(wrapper.prop('className').includes('disabled'))
+    expect(wrapper.text().includes(props.children)).toBe(true)
   })
 
   it('should call onChange', () => {
-    const wrapper = mount(<Select {...baseProps} />, { context })
-    wrapper.find('select').simulate('change')
+    const wrapper = mount(<Textarea {...baseProps} />, { context })
+    wrapper.find('textarea').simulate('change')
 
     expect(context.formik.handleChange).toHaveBeenCalled()
   })

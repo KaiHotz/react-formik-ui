@@ -45,6 +45,28 @@ describe('<Input />', () => {
     expect(wrapper.find('input').prop('type')).toBe(props.type)
   })
 
+  it('should have a label', () => {
+    const props = {
+      ...baseProps,
+      label: 'Custom',
+    }
+    const wrapper = shallow(<Input {...props} />, { context })
+
+    expect(wrapper.find('label').length).toBe(1)
+  })
+
+  it('should have a hint', () => {
+    const props = {
+      ...baseProps,
+      hint: 'hintTest',
+    }
+    const wrapper = shallow(<Input {...props} />, { context })
+
+    expect(wrapper.find('.hint').length).toBe(1)
+    expect(wrapper.find('.hint').text()).toBe(props.hint)
+  })
+
+
   it('should be disabled', () => {
     const wrapper = shallow(<Input {...baseProps} disabled />, { context })
 

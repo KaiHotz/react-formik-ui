@@ -59,7 +59,7 @@ Textarea.propTypes = {
   label: PropTypes.string,
   hint: PropTypes.string,
   disabled: PropTypes.bool,
-  name: PropTypes.string,
+  name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
 }
@@ -69,7 +69,6 @@ Textarea.defaultProps = {
   label: null,
   hint: null,
   disabled: false,
-  name: 'textarea',
   placeholder: null,
   required: false,
 }
