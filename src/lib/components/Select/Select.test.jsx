@@ -1,8 +1,10 @@
 import React from 'react'
-import { shallow } from 'enzyme'
-import Radio from './Radio'
+import { shallow, mount } from 'enzyme'
 
-describe('<Radio />', () => {
+import Select from './Select'
+
+
+describe('<Select />', () => {
   const context = {
     formik: {
       handleChange: jest.fn(),
@@ -10,13 +12,14 @@ describe('<Radio />', () => {
       touched: {},
       errors: {},
       values: {
-        radioTest: '',
+        SelectTest: '',
       },
     },
   }
 
   const baseProps = {
-    name: 'radioTest',
+    name: 'SelectTest',
+    placeholder: 'Placeholder',
     options: [
       { value: '0', label: 'Option 1' },
       { value: '1', label: 'Option 2' },
@@ -25,7 +28,7 @@ describe('<Radio />', () => {
   }
 
   it('should render', () => {
-    const wrapper = shallow(<Radio {...baseProps} />, { context })
+    const wrapper = shallow(<Select {...baseProps} />, { context })
 
     expect(wrapper).toBeDefined()
   })
@@ -33,25 +36,24 @@ describe('<Radio />', () => {
   it('should allow custom className', () => {
     const props = {
       ...baseProps,
-      className: 'Custom',
+      className: 'customClass',
     }
-    const wrapper = shallow(<Radio {...props} />, { context })
+    const wrapper = shallow(<Select {...props} />, { context })
 
     expect(wrapper.hasClass(props.className)).toBe(true)
   })
 
   it('should be disabled', () => {
-    const wrapper = shallow(<Radio {...baseProps} disabled />, { context })
+    const wrapper = shallow(<Select {...baseProps} disabled />, { context })
 
+    expect(wrapper.find('select').prop('disabled')).toBe(true)
     expect(wrapper.prop('className').includes('disabled'))
   })
 
   it('should call onChange', () => {
-    const wrapper = shallow(<Radio {...baseProps} />, { context })
-    wrapper.find('input').forEach(node => {
-      node.simulate('change')
-      expect(context.formik.handleChange).toHaveBeenCalled()
-    })
+    const wrapper = mount(<Select {...baseProps} />, { context })
+    wrapper.find('select').simulate('change')
+
+    expect(context.formik.handleChange).toHaveBeenCalled()
   })
 })
-

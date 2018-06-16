@@ -10,13 +10,13 @@ describe('<Checkbox />', () => {
       touched: {},
       errors: {},
       values: {
-        textField: '',
+        checkboxTest: '',
       },
     },
   }
 
   const baseProps = {
-    name: 'Checkbox',
+    name: 'checkboxTest',
   }
 
   it('should render', () => {
@@ -35,7 +35,7 @@ describe('<Checkbox />', () => {
     expect(wrapper.hasClass(props.className)).toBe(true)
   })
 
-  it('should be disableable', () => {
+  it('should be disabled', () => {
     const wrapper = shallow(<Checkbox {...baseProps} disabled />, { context })
 
     expect(wrapper.find('input').prop('disabled')).toBe(true)

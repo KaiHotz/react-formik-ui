@@ -37,7 +37,7 @@ describe('<Button />', () => {
     expect(wrapper.prop('type')).toBe(props.type)
   })
 
-  it('should be disableable', () => {
+  it('should be disabled', () => {
     const wrapper = shallow(<Button {...baseProps} disabled />)
 
     expect(wrapper.prop('disabled')).toBe(true)

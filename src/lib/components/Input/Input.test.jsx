@@ -10,13 +10,13 @@ describe('<Input />', () => {
       touched: {},
       errors: {},
       values: {
-        textField: '',
+        inputTest: '',
       },
     },
   }
 
   const baseProps = {
-    name: 'textField',
+    name: 'inputTest',
   }
 
   it('should render', () => {
@@ -45,7 +45,7 @@ describe('<Input />', () => {
     expect(wrapper.find('input').prop('type')).toBe(props.type)
   })
 
-  it('should be disableable', () => {
+  it('should be disabled', () => {
     const wrapper = shallow(<Input {...baseProps} disabled />, { context })
 
     expect(wrapper.find('input').prop('disabled')).toBe(true)
@@ -53,10 +53,7 @@ describe('<Input />', () => {
   })
 
   it('should call onChange', () => {
-    const props = {
-      ...baseProps,
-    }
-    const wrapper = mount(<Input {...props} />, { context })
+    const wrapper = mount(<Input {...baseProps} />, { context })
     wrapper.find('input').simulate('change')
 
     expect(context.formik.handleChange).toHaveBeenCalled()

@@ -31,7 +31,7 @@ describe('<SubmitBtn />', () => {
     expect(context.formik.handleSubmit).toHaveBeenCalled()
   })
 
-  it('should be disableable', () => {
+  it('should be disabled', () => {
     const wrapper = shallow(<SubmitBtn disabled />, { context })
 
     expect(wrapper.prop('disabled')).toBe(true)
