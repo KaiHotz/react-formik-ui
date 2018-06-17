@@ -1,37 +1,37 @@
-form.styled label,
-form.styled span {
+form.react-formik-ui.styled label,
+form.react-formik-ui.styled span {
   display: block;
   margin-bottom: 5px;
 }
 
-form.styled .form-element {
+form.react-formik-ui.styled .form-element {
   margin-bottom: 15px;
 }
 
-form.styled .checkbox-input-wrapper{
+form.react-formik-ui.styled .checkbox-input-wrapper{
   display: flex;
   align-items: flex-start;
 }
 
-form.styled .radio-options {
+form.react-formik-ui.styled .radio-options {
   display: flex;
   align-items: center;
 }
 
-form.styled .radio-options label {
+form.react-formik-ui.styled .radio-options label {
   margin-bottom: 0;
 }
 
-form.styled .checkbox-text {
+form.react-formik-ui.styled .checkbox-text {
   display: initial;
   margin-bottom: 0;
 }
 
-form.styled .error {
+form.react-formik-ui.styled .error {
   color: red;
   font-size: .8rem;
 }
 
-form.styled .hint {
+form.react-formik-ui.styled .hint {
   font-size: .8rem;
 }

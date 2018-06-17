@@ -10,7 +10,7 @@ const Form = ({
   ...rest
 }, context) => (
   <form
-    className={cx('form-wrapper', { styled }, className)}
+    className={cx('react-formik-ui form-wrapper', { styled }, className)}
     onSubmit={context.formik.handleSubmit}
     {...rest}
   >

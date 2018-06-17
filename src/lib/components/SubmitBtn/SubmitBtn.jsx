@@ -10,7 +10,7 @@ const SubmitBtn = ({
   ...rest
 }, context) => (
   <button
-    className={cx('submit-btn', className, { disabled })}
+    className={cx('form-element submit-btn', className, { disabled })}
     onClick={context.formik.handleSubmit}
     type={type}
     disabled={disabled}

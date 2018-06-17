@@ -38,7 +38,7 @@ class Toggle extends Component {
 
     return (
       <Button
-        className={cx('toggle', { 'toggle--active': active }, className)}
+        className={cx('toggle-btn', { 'toggle-btn--active': active }, className)}
         onClick={this.handleChange}
         disabled={disabled}
         role="switch"
@@ -46,7 +46,7 @@ class Toggle extends Component {
         aria-label="toggle"
         aria-checked={active}
       >
-        <span className="toggle__toggle" />
+        <span className="toggle-btn__toggle" />
       </Button>
     )
   }
