@@ -18,7 +18,7 @@ so you dont have to write any HTML markup or extra components for your forms.
 
 ```sh
 // with npm
-npm nstall --save react-formik-ui
+npm install --save react-formik-ui
 
 // with yarn
 yarn add react-formik-ui
