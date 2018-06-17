@@ -106,7 +106,7 @@ class Datepicker extends Component {
           <label
             htmlFor={name}
             onClick={this.handleFocus(name)}
-            onKeypress={this.handleFocus(name)}
+            onKeyPress={this.handleFocus(name)}
             role="none"
           >
             {`${label}${required ? ' *' : ''}`}
