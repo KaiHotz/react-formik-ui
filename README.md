@@ -2,7 +2,7 @@
 
 >
 
-[![NPM](https://img.shields.io/npm/v/react-formik-ui.svg)](https://www.npmjs.com/package/react-formik-ui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/react-formik-ui.svg)](https://www.npmjs.com/package/react-formik-ui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-airbnb-style-brightgreen.svg)](https://www.npmjs.com/package/airbnb-style)
 
 ## Install
 
