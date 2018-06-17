@@ -26,7 +26,6 @@
     "classnames": "^2.2.5",
     "moment": "^2.20.1",
     "prop-types": "^15.6.0",
-    "react-click-outside": "^3.0.0",
     "react-datepicker": "^1.0.4"
   },
   "devDependencies": {
