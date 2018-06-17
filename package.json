@@ -6,12 +6,13 @@
   "license": "MIT",
   "main": "build/index.js",
   "scripts": {
-    "build": "node scripts/build.js",
+    "clean": "rimraf build",
+    "build": "npm run clean && npm run lint && npm run test:coverage && node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "test:coverage": "node scripts/test.js -b --env=jsdom --coverage --forceExit --colors",
     "lint": "esw --ext .jsx --ext .js --color",
     "lint:fix": "npm run lint -- --fix",
-    "prerelease": "npm run lint && npm run test:coverage && npm run build",
+    "prerelease": "npm run build",
     "release": "npm run prerelease && npm publish"
   },
   "engines": {
@@ -69,6 +70,7 @@
     "react-dom": "^16.4.1",
     "react-error-overlay": "^4.0.0",
     "react-test-renderer": "^16.4.1",
+    "rimraf": "^2.6.2",
     "style-loader": "0.18.2",
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "^1.0.1",
