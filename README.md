@@ -2,7 +2,7 @@
 
 >
 
-[![NPM](https://img.shields.io/npm/v/react-formik-ui.svg)](https://www.npmjs.com/package/react-formik-ui) [![JavaScript Style Guide](https://img.shields.io/badge/eslint%20config-airbnb-brightgreen.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
+[![NPM](https://img.shields.io/npm/v/react-formik-ui.svg)](https://www.npmjs.com/package/react-formik-ui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-Airbnb-brightgreen.svg)](https://github.com/airbnb/javascript)
 
 ## Install
 
