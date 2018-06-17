@@ -1,11 +1,9 @@
 .git
 build
 coverage
-public
 node_modules
 
 .git/*
 build/*
 coverage/*
-public/*
 node_modules/*

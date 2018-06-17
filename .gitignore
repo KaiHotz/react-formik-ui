@@ -1,18 +1,21 @@
-# OSX
-.DS_Store
+# See https://help.github.com/ignore-files/ for more about ignoring files.
 
-# NPM
+# dependencies
 /node_modules
 
-# yarn
-yarn-error.log
-
-# coverage
+# testing
 /coverage
 
-# build
+# production
 /build
 
-# for CI
-package-lock.json
-styleguide
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
