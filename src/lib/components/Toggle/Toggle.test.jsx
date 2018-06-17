@@ -7,10 +7,12 @@ describe('<Toggle />', () => {
     formik: {
       handleChange: jest.fn(),
       handleBlur: jest.fn(),
+      setFieldValue: jest.fn(),
+      setFieldTouched: jest.fn(),
       touched: {},
       errors: {},
       values: {
-        toggleTest: '',
+        toggleTest: false,
       },
     },
   }
@@ -35,6 +37,13 @@ describe('<Toggle />', () => {
     expect(wrapper.hasClass(props.className)).toBe(true)
   })
 
+  it('should call handleChange', () => {
+    const wrapper = shallow(<Toggle {...baseProps} />, { context })
+    wrapper.instance().handleChange()
+
+    expect(context.formik.setFieldValue).toHaveBeenCalled()
+    expect(context.formik.setFieldTouched).toHaveBeenCalled()
+  })
 
   it('should be disabled', () => {
     const wrapper = shallow(<Toggle {...baseProps} disabled />, { context })

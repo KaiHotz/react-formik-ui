@@ -9,16 +9,18 @@ describe('<Select />', () => {
     formik: {
       handleChange: jest.fn(),
       handleBlur: jest.fn(),
+      setFieldValue: jest.fn(),
+      setFieldTouched: jest.fn(),
       touched: {},
       errors: {},
       values: {
-        SelectTest: '',
+        selectTest: '',
       },
     },
   }
 
   const baseProps = {
-    name: 'SelectTest',
+    name: 'selectTest',
     placeholder: 'Placeholder',
     options: [
       { value: '0', label: 'Option 1' },

@@ -19,7 +19,7 @@ class Toggle extends Component {
     className: null,
   }
 
-  onChange = () => {
+  handleChange = () => {
     const { formik } = this.context
     const { values } = formik
     const { name } = this.props
@@ -39,7 +39,7 @@ class Toggle extends Component {
     return (
       <Button
         className={cx('toggle', { 'toggle--active': active }, className)}
-        onClick={this.onChange}
+        onClick={this.handleChange}
         disabled={disabled}
         role="switch"
         {...rest}

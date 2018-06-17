@@ -12,13 +12,13 @@ describe('<DatePicker />', () => {
       touched: {},
       errors: {},
       values: {
-        DatePickerTest: '',
+        datePickerTest: '',
       },
     },
   }
 
   const baseProps = {
-    name: 'DatePickerTest',
+    name: 'datePickerTest',
   }
 
   it('should render', () => {
@@ -54,6 +54,14 @@ describe('<DatePicker />', () => {
     const wrapper = shallow(<DatePicker {...props} />, { context })
 
     expect(wrapper.find('label').length).toBe(1)
+  })
+
+  it('should call handleChange', () => {
+    const wrapper = shallow(<DatePicker {...baseProps} />, { context })
+    wrapper.instance().handleChange()
+
+    expect(context.formik.setFieldValue).toHaveBeenCalled()
+    expect(context.formik.setFieldTouched).toHaveBeenCalled()
   })
 
   it('should have a hint', () => {

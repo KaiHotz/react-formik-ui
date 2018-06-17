@@ -75,7 +75,7 @@ class Datepicker extends Component {
     formik.setFieldTouched(name, true)
   }
 
-  handleFocus = name => {
+  handleFocus = name => () => {
     document.getElementById(name).focus()
   }
 
@@ -105,8 +105,8 @@ class Datepicker extends Component {
           label &&
           <label
             htmlFor={name}
-            onClick={() => this.handleFocus(name)}
-            onKeypress={() => this.handleFocus(name)}
+            onClick={this.handleFocus(name)}
+            onKeypress={this.handleFocus(name)}
             role="none"
           >
             {`${label}${required ? ' *' : ''}`}
