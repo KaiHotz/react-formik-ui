@@ -4,6 +4,7 @@ import cx from 'classnames'
 import { get } from '../../utils/helper'
 
 const Input = ({
+  id,
   name,
   type,
   label,
@@ -27,7 +28,7 @@ const Input = ({
           </label>
       }
       <input
-        id={name}
+        id={id || name}
         name={name}
         type={type}
         placeholder={placeholder}
@@ -58,6 +59,7 @@ Input.contextTypes = {
 }
 
 Input.propTypes = {
+  id: PropTypes.string,
   name: PropTypes.string.isRequired,
   type: PropTypes.string,
   label: PropTypes.string,
@@ -69,6 +71,7 @@ Input.propTypes = {
 }
 
 Input.defaultProps = {
+  id: null,
   type: 'text',
   label: null,
   className: null,
