@@ -248,7 +248,7 @@ class Example extends Component {
 ```
 
 ## Select
-The Select component renders with the classNames `form-elemnt` and `input-wrapper`</br>
+The Select component renders with the classNames `form-elemnt` and `select-wrapper`</br>
 A custom class can be passed through the `className` prop
 
 #### Props:
@@ -371,7 +371,7 @@ class Example extends Component {
 
 
 ## Radio
-The Select component renders with the classNames `form-elemnt` and `input-wrapper`</br>
+The Radio component renders with the classNames `form-elemnt` and `radio-wrapper`</br>
 A custom class can be passed through the `className` prop
 
 #### Props:
