@@ -269,7 +269,7 @@ A custom class can be passed through the `className` prop
     <td>options</td>
     <td>array</td>
     <td>Required</td>
-    <td>Array in the shape of [ { value: string, label: string } ]</td>
+    <td>Array in the shape of [ { value: string or number, label: string } ]</td>
   </tr>
   <tr>
     <td>id</td>
