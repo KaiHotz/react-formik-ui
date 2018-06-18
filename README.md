@@ -38,8 +38,8 @@ Anyhow if you pass the prop `styled` to the Form component a minimal styling wil
 # Usage
 
 ### Peer Dependency
-React-Formik-UI has a Peer dependency of [Formik](https://github.com/jaredpalmer/formik).
-This means that you need to add [Formik](https://github.com/jaredpalmer/formik) to your project.
+React-Formik-UI has a Peer dependency of [Formik](https://github.com/jaredpalmer/formik).</br>
+This means that you need to add [Formik](https://github.com/jaredpalmer/formik) to your project.</br>
 
 ```sh
 npm install --save formik
@@ -972,6 +972,80 @@ class Example extends Component {
   }
 }
 ```
+
+## SubmitBtn
+The SubmitBtn component renders with the classNames `form-element`, `btn` and `submit-btn`</br>
+A custom class can be passed through the `className` prop</br>
+
+By default the SubmitBtn handles the submition, no further handler or configuration needed
+
+#### Props:
+<table style="font-size: 12px">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>className</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Adds a custom class to the SubmitBtn</td>
+  </tr>
+  <tr>
+    <td>disabled</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Disables the SubmitBtn</td>
+  </tr>
+  <tr>
+    <td>text</td>
+    <td>string / node</td>
+    <td>Submit</td>
+    <td>Sets the text shown on the SubmitBtn</td>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td>string</td>
+    <td>submit</td>
+    <td>Sets the type for the SubmitBtn</td>
+  </tr>
+</table>
+
+#### Code example:
+```jsx
+import React, { Component } from 'react'
+import { Formik } from 'formik'
+import * as yup from 'yup';
+
+import Form, { SubmitBtn } from 'react-formik-ui'
+
+class Example extends Component {
+
+  onSubmit = data => {
+    // here you hanlde the data to be submited
+  }
+
+  render () {
+    return (
+      <Formik
+        initialValues={ /* inital values setup */ }
+        validationSchema={ /* validation schema setup */ }
+        onSubmit={this.onSubmit}
+        render={({ handleSubmit }) => (
+          <Form styled>
+
+            <SubmitBtn />
+
+          </Form>
+        )}
+      />
+    )
+  }
+}
+```
+
 
 
 
