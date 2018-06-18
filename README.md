@@ -696,6 +696,130 @@ class Example extends Component {
 }
 ```
 
+## Datepicker
+The Datepicker component uses [ReactJS Datepicker](https://reactdatepicker.com/) under the hood.</br>
+It renders with the classNames `form-elemnt` and `datePicker-wrapper`</br>
+A custom class can be passed through the `className` prop</br>
+
+For aditional configuration options and layouts please refere to [ReactJS Datepicker](https://reactdatepicker.com/)</br>
+You can then pass the desired configuration as props just like on the you would on a ReactJS Datepicker
+
+#### Props:
+<table style="font-size: 12px">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>string</td>
+    <td>Required</td>
+    <td>Sets the Name of your Datepicker Field</td>
+  </tr>
+  <tr>
+    <td>label</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets the main Label for the Datepicker Field</td>
+  </tr>
+  <tr>
+    <td>placeholder</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets the Placeholder text</td>
+  </tr>
+  <tr>
+    <td>required</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in your yup validation schema</td>
+  </tr>
+  <tr>
+    <td>disabled</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Disables the Input Field</td>
+  </tr>
+  <tr>
+    <td>hint</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets a hint text after/below the Input Field</td>
+  </tr>
+  <tr>
+    <td>className</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Adds a custom class to the Input wrapper div</td>
+  </tr>
+  <tr>
+    <td>dateFormat</td>
+    <td>string / Array of strings</td>
+    <td>[ 'DD.MM.YYYY', 'D.M.YYYY', 'MM/DD/YYYY', 'M/D/YYYY' ]</td>
+    <td>Sets the desired date format</td>
+  </tr>
+  <tr>
+    <td>minDate</td>
+    <td>string / number</td>
+    <td>null</td>
+    <td>Sets the min. Date</td>
+  </tr>
+  <tr>
+    <td>maxDate</td>
+    <td>string / number</td>
+    <td>null</td>
+    <td>Sets the max. Date</td>
+  </tr>
+</table>
+
+#### Code example:
+```jsx
+import React, { Component } from 'react'
+import { Formik } from 'formik'
+import * as yup from 'yup';
+
+import Form, { Datepicker, SubmitBtn } from 'react-formik-ui'
+
+class Example extends Component {
+
+  onSubmit = data => {
+    // here you hanlde your data to be submited
+  }
+
+  // example of validation with yup
+  getSchema = () => {
+    return yup.object().shape({
+      birthday: yup
+        .date(),
+    })
+  }
+
+  render () {
+    return (
+      <Formik
+        initialValues={{
+          birthday: ''
+        }}
+        validationSchema={this.getSchema}
+        onSubmit={this.onSubmit}
+        render={({ handleSubmit }) => (
+          <Form styled>
+
+            <Datepicker
+              name='birthDay'
+              label='Birthdate'
+            />
+
+            <SubmitBtn />
+          </Form>
+        )}
+      />
+    )
+  }
+}
+```
 
 
 

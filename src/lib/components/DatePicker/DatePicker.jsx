@@ -22,6 +22,7 @@ class Datepicker extends Component {
     minDate: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     maxDate: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   }
+
   static contextTypes = {
     formik: PropTypes.shape({}),
   }
@@ -34,13 +35,13 @@ class Datepicker extends Component {
     placeholder: null,
     disabled: false,
     required: false,
+    className: null,
     dateFormat: [
       'DD.MM.YYYY',
       'D.M.YYYY',
       'MM/DD/YYYY',
       'M/D/YYYY',
     ],
-    className: null,
   }
 
   handleChangeRaw = e => {
