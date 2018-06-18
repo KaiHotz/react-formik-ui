@@ -459,7 +459,7 @@ class Example extends Component {
 
             <Radio
               name='radioOptions'
-              label='This is the label'
+              label='Radio Options label'
               options={[
                 { value: '1', label: 'Option 1' },
                 { value: '2', label: 'Option 2' },
@@ -475,6 +475,118 @@ class Example extends Component {
   }
 }
 ```
+
+
+## Checkbox
+The Checkbox component renders with the classNames `form-elemnt` and `checkbox-wrapper`</br>
+A custom class can be passed through the `className` prop
+
+#### Props:
+<table style="font-size: 12px">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>string</td>
+    <td>Required</td>
+    <td>Sets the Name of your Checkbox</td>
+  </tr>
+    <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets an Id for your Checkbox, if not passed, the id will be the name</td>
+  </tr>
+  <tr>
+    <td>label</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets the main Label for the Input Field</td>
+  </tr>
+  <tr>
+    <td>text</td>
+    <td>string / node</td>
+    <td>null</td>
+    <td>Sets the to shown beside the checkbox </td>
+  </tr>
+  <tr>
+    <td>required</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Sets the Checkbox as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in your yup validation schema</td>
+  </tr>
+  <tr>
+    <td>disabled</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Disables the Checkbox</td>
+  </tr>
+  <tr>
+    <td>hint</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets a hint text after/below the Checkbox</td>
+  </tr>
+  <tr>
+    <td>className</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Adds a custom class to the Checkbox wrapper div</td>
+  </tr>
+</table>
+
+#### Code example:
+```jsx
+import React, { Component } from 'react'
+import { Formik } from 'formik'
+import * as yup from 'yup';
+
+import Form, { Checkbox, SubmitBtn } from 'react-formik-ui'
+
+class Example extends Component {
+
+  onSubmit = data => {
+    // here you hanlde your data to be submited
+  }
+
+  // example of validation with yup
+  getSchema = () => {
+    return yup.object().shape({
+      agreement: yup
+        .boolean(),
+    })
+  }
+
+  render () {
+    return (
+      <Formik
+        initialValues={{
+          agreement: false
+        }}
+        validationSchema={this.getSchema}
+        onSubmit={this.onSubmit}
+        render={({ handleSubmit }) => (
+          <Form styled>
+
+              <Checkbox
+                name='agreement'
+                label='Checkbox label'
+                text='Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+              />
+
+            <SubmitBtn />
+          </Form>
+        )}
+      />
+    )
+  }
+}
+```
+
 
 
 
