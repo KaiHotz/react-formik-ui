@@ -587,6 +587,114 @@ class Example extends Component {
 }
 ```
 
+## Textarea
+The Textarea component renders with the classNames `form-elemnt` and `textarea-wrapper`</br>
+A custom class can be passed through the `className` prop
+
+#### Props:
+<table style="font-size: 12px">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>string</td>
+    <td>Required</td>
+    <td>Sets the Name of your Textarea</td>
+  </tr>
+    <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets an Id for your Textarea, if not passed, the id will be the name</td>
+  </tr>
+  <tr>
+    <td>label</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets the main Label for the Textarea</td>
+  </tr>
+  <tr>
+    <td>placeholder</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets the Placeholder text</td>
+  </tr>
+  <tr>
+    <td>required</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in your yup validation schema</td>
+  </tr>
+  <tr>
+    <td>disabled</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Disables the Textarea</td>
+  </tr>
+  <tr>
+    <td>hint</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets a hint text after/below the Textarea</td>
+  </tr>
+  <tr>
+    <td>className</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Adds a custom class to the Textarea wrapper div</td>
+  </tr>
+</table>
+
+#### Code example:
+```jsx
+import React, { Component } from 'react'
+import { Formik } from 'formik'
+import * as yup from 'yup';
+
+import Form, { Textarea, SubmitBtn } from 'react-formik-ui'
+
+class Example extends Component {
+
+  onSubmit = data => {
+    // here you hanlde your data to be submited
+  }
+
+  // example of validation with yup
+  getSchema = () => {
+    return yup.object().shape({
+      comment: yup
+        .string(),
+    })
+  }
+
+  render () {
+    return (
+      <Formik
+        initialValues={{
+          comment: ''
+        }}
+        validationSchema={this.getSchema}
+        onSubmit={this.onSubmit}
+        render={({ handleSubmit }) => (
+          <Form styled>
+
+            <Textarea
+              name='comment'
+              label='Write a comment'
+            />
+
+            <SubmitBtn />
+          </Form>
+        )}
+      />
+    )
+  }
+}
+```
 
 
 

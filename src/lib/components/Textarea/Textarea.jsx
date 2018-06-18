@@ -4,6 +4,7 @@ import cx from 'classnames'
 import { get } from '../../utils/helper'
 
 const Textarea = ({
+  id,
   name,
   placeholder,
   disabled,
@@ -25,7 +26,7 @@ const Textarea = ({
       </label>
       }
       <textarea
-        id={name}
+        id={id || name}
         name={name}
         placeholder={placeholder}
         value={get(values, name, '')}
@@ -55,16 +56,18 @@ Textarea.contextTypes = {
 }
 
 Textarea.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string.isRequired,
   className: PropTypes.string,
   label: PropTypes.string,
   hint: PropTypes.string,
   disabled: PropTypes.bool,
-  name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
 }
 
 Textarea.defaultProps = {
+  id: null,
   className: null,
   label: null,
   hint: null,
