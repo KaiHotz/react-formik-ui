@@ -74,7 +74,7 @@ It renders with the classNames `react-formik-ui` and `form-wrapper`</br>
 A custom class can be passed with the `className` prop
 
 #### Props:
-<table style="font-size: 14px">
+<table style="font-size: 12px">
   <tr>
     <th>Name</th>
     <th>Type</th>
@@ -133,7 +133,7 @@ The Input component renders with the classNames `form-elemnt` and `input-wrapper
 A custom class can be passed through the `className` prop
 
 #### Props:
-<table style="font-size: 14px">
+<table style="font-size: 12px">
   <tr>
     <th>Name</th>
     <th>Type</th>
@@ -252,7 +252,7 @@ The Select component renders with the classNames `form-elemnt` and `select-wrapp
 A custom class can be passed through the `className` prop
 
 #### Props:
-<table style="font-size: 14px">
+<table style="font-size: 12px">
   <tr>
     <th>Name</th>
     <th>Type</th>
@@ -368,14 +368,12 @@ class Example extends Component {
 }
 ```
 
-
-
 ## Radio
 The Radio component renders with the classNames `form-elemnt` and `radio-wrapper`</br>
 A custom class can be passed through the `className` prop
 
 #### Props:
-<table style="font-size: 14px">
+<table style="font-size: 12px">
   <tr>
     <th>Name</th>
     <th>Type</th>
