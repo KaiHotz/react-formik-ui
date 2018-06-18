@@ -15,7 +15,19 @@ form, input, select, checkbox, radio and textarea.
 The Idea behind React-Formik-UI is to make the composition of forms with React and Formik even easier,
 so you don't have to write any HTML markup or extra components for your forms.
 
-Each component makes use of Formiks context, there for you need to have Formik installed in project
+Each component makes use of Formiks context, there for you need to have Formik installed in your project.
+
+## Markup, Styling and ClassNames
+The markup for the components input, select, checkbox, radio, textarea and Datepicker consists of a wrapper div, label, the main component, hint, and error message.
+
+By default all component have NO styling applied.</br>
+This is intentionally, so you have the posibility to apply your own styling.</br>
+All the components used in the form are scoped by the default classes, situated on the Form component, `react-formik-ui form-wrapper`
+
+Each component has its corresponding wrapper class (eg: Input component  `input-wrapper` ), as well as the class `form-element`.</br>
+you also can pass your own custom class to the wrapper of each component bay passing the `className` prop.
+
+Anyhow if you pass the prop `styled` to the Form component a minimal styling will be applied to add some structure to the form and each form element.
 
 ## Installation
 
@@ -23,23 +35,11 @@ Each component makes use of Formiks context, there for you need to have Formik i
 npm install --save react-formik-ui
 ```
 
-## Markup, Styling and ClassNames
-The markup for the components input, select, checkbox, radio, textarea and Datepicker consists of a wrapper div, label, the main component, hint, and error message.
-
-By default all component have NO styling applied.</br>
-This is intentionally, so you have the posibility to apply your own styling.</br>
-All the components used in your form are scoped by the default class on the Form component `react-formik-ui form-wrapper`
-
-Each component has its corresponding wrapper class (eg: Input component  `input-wrapper` ), as well as the class `form-element`.</br>
-you also can pass your own custom class to the wrapper of each component bay passing the `className` prop.
-
-Anyhow if you pass the prop `styled` to the Form component a minimal styling will be applied to add some structure to each form element.
-
 # Usage
 
 ### Peer Dependency
 React-Formik-UI has a Peer dependency of [Formik](https://github.com/jaredpalmer/formik).</br>
-This means that you need to add [Formik](https://github.com/jaredpalmer/formik) to your project.</br>
+This means that you need to add [Formik](https://github.com/jaredpalmer/formik) to your project to make use of React-Formik-UI.</br>
 
 ```sh
 npm install --save formik
@@ -54,7 +54,7 @@ npm install --save yup
 
 
 ### Complete Form Examples
-- [Form Example](#form-example)
+- [Example Form](#complete-form-example)
 
 ### Components
 - [Form](#form)
@@ -71,8 +71,10 @@ npm install --save yup
 
 ## Form
 The Form component, like in a normal HTML form is the main wrapper for your form.</br>
-It renders with the classNames `react-formik-ui` and `form-wrapper`</br>
-A custom class can be passed with the `className` prop
+It renders with the classNames `react-formik-ui` and `form-wrapper`.</br>
+A custom class can be passed with the `className` prop.
+
+You don't need to pass an `onSubmit` handler, since this is already handled under the hood.
 
 #### Props:
 <table style="font-size: 12px">
@@ -126,8 +128,8 @@ class Example extends Component {
 ```
 
 ## Input
-The Input component renders with the classNames `form-element` and `input-wrapper`</br>
-A custom class can be passed through the `className` prop
+The Input component renders with the classNames `form-element` and `input-wrapper`.</br>
+A custom class can be passed through the `className` prop.
 
 #### Props:
 <table style="font-size: 12px">
@@ -245,8 +247,8 @@ class Example extends Component {
 ```
 
 ## Select
-The Select component renders with the classNames `form-element` and `select-wrapper`</br>
-A custom class can be passed through the `className` prop
+The Select component renders with the classNames `form-element` and `select-wrapper`.</br>
+A custom class can be passed through the `className` prop.
 
 #### Props:
 <table style="font-size: 12px">
@@ -366,8 +368,8 @@ class Example extends Component {
 ```
 
 ## Radio
-The Radio component renders with the classNames `form-element` and `radio-wrapper`</br>
-A custom class can be passed through the `className` prop
+The Radio component renders with the classNames `form-element` and `radio-wrapper`.</br>
+A custom class can be passed through the `className` prop.
 
 #### Props:
 <table style="font-size: 12px">
@@ -474,8 +476,8 @@ class Example extends Component {
 ```
 
 ## Checkbox
-The Checkbox component renders with the classNames `form-element` and `checkbox-wrapper`</br>
-A custom class can be passed through the `className` prop
+The Checkbox component renders with the classNames `form-element` and `checkbox-wrapper`.</br>
+A custom class can be passed through the `className` prop.
 
 #### Props:
 <table style="font-size: 12px">
@@ -584,8 +586,8 @@ class Example extends Component {
 ```
 
 ## Textarea
-The Textarea component renders with the classNames `form-element` and `textarea-wrapper`</br>
-A custom class can be passed through the `className` prop
+The Textarea component renders with the classNames `form-element` and `textarea-wrapper`.</br>
+A custom class can be passed through the `className` prop.
 
 #### Props:
 <table style="font-size: 12px">
@@ -694,11 +696,11 @@ class Example extends Component {
 
 ## Datepicker
 The Datepicker component uses [ReactJS Datepicker](https://reactdatepicker.com/) under the hood.</br>
-It renders with the classNames `form-element` and `datePicker-wrapper`</br>
-A custom class can be passed through the `className` prop</br>
+It renders with the classNames `form-element` and `datePicker-wrapper`.</br>
+A custom class can be passed through the `className` prop.</br>
 
-For aditional configuration options and layouts, please refere to [ReactJS Datepicker](https://reactdatepicker.com/)</br>
-You can then pass the desired configuration as props just like you would on ReactJS Datepicker
+For aditional configuration options and layouts, please refere to [ReactJS Datepicker](https://reactdatepicker.com/).</br>
+You can then pass the desired configuration as props just like you would on ReactJS Datepicker.
 
 #### Props:
 <table style="font-size: 12px">
@@ -818,8 +820,8 @@ class Example extends Component {
 ```
 
 ## Button
-The Button component renders with the classNames `form-element` and `btn`</br>
-A custom class can be passed through the `className` prop</br>
+The Button component renders with the classNames `form-element` and `btn`.</br>
+A custom class can be passed through the `className` prop.</br>
 
 #### Props:
 <table style="font-size: 12px">
@@ -898,8 +900,8 @@ class Example extends Component {
 
 ## Toggle
 The Toggle button component, is the only component so far who has its own styling.</br>
-Since it uses the Button component, it renders with the classNames `form-element` and `btn`, and also `toggle-btn`</br>
-A custom class can be passed through the `className` prop</br>
+Since it uses the Button component, it renders with the classNames `form-element` and `btn`, and also `toggle-btn`.</br>
+A custom class can be passed through the `className` prop.</br>
 
 #### Props:
 <table style="font-size: 12px">
@@ -974,10 +976,10 @@ class Example extends Component {
 ```
 
 ## SubmitBtn
-The SubmitBtn component renders with the classNames `form-element`, `btn` and `submit-btn`</br>
-A custom class can be passed through the `className` prop</br>
+The SubmitBtn component renders with the classNames `form-element`, `btn` and `submit-btn`.</br>
+A custom class can be passed through the `className` prop.</br>
 
-By default the SubmitBtn handles the submition, no further handler or configuration needed
+By default the SubmitBtn handles the submition, no further handler or configuration is needed.
 
 #### Props:
 <table style="font-size: 12px">
@@ -1046,7 +1048,7 @@ class Example extends Component {
 }
 ```
 
-## Form Example
+## Complete Form Example
 ```jsx
 import React, { Component } from 'react'
 import { Formik } from 'formik'
