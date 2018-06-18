@@ -98,7 +98,7 @@ A custom class can be passed with the `className` prop
 #### Code example:
 ```jsx
 import React, { Component } from 'react'
-import {Formik} from 'formik'
+import { Formik } from 'formik'
 import Form from 'react-formik-ui'
 
 class Example extends Component {
