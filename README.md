@@ -20,11 +20,7 @@ Each component makes use of Formiks context, there for you need to have Formik i
 ## Installation
 
 ```sh
-// with npm
 npm install --save react-formik-ui
-
-// with yarn
-yarn add react-formik-ui
 ```
 
 ## Markup, Styling and ClassNames
@@ -46,23 +42,16 @@ React-Formik-UI has a Peer dependency of [Formik](https://github.com/jaredpalmer
 This means that you need to add [Formik](https://github.com/jaredpalmer/formik) to your project.
 
 ```sh
-// with npm
 npm install --save formik
-
-// with yarn
-yarn add formik
 ```
 
 ### Form validatios
 To validate your form fields, the use of [Yup](https://github.com/jquense/yup) is recommended.
 
 ```sh
-// with npm
 npm install --save yup
-
-// with yarn
-yarn add yup
 ```
+
 ### Complete Form Examples
 - [Form Example](#form-example)
 
