@@ -1,7 +1,7 @@
 {
   "name": "react-formik-ui",
   "author": "Kai Hotz",
-  "version": "0.1.22",
+  "version": "0.1.23",
   "description": "Plain form components for make use of formik even easier",
   "license": "MIT",
   "main": "build/index.js",

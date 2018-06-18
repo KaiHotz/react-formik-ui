@@ -1105,6 +1105,13 @@ class ExampleForm extends Component {
   }
 
   render() {
+    const styledDiv = {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: '15px'
+    }
+
     return (
       <Formik
         initialValues={{
@@ -1176,33 +1183,23 @@ class ExampleForm extends Component {
                 ]}
               />
 
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  marginBottom: '15px'
-                }}
-              >
-                <div>Do you have a drivers license</div>
+              <div style={styledDiv}>
+                <div>
+                  {`Do you have a drivers license ? ${values.driverLicense ? 'Yes' : 'No'}`}
+                </div>
                 <Toggle
                   name='driverLicense'
                   style={{ marginBottom: 0 }}
                 />
               </div>
 
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  marginBottom: '15px'
-                }}
-              >
-                <div>Do you own pets</div>
+              <div style={styledDiv}>
+                <div>
+                  {`Do you own pets ? ${values.pets ? 'Yes' : 'No'}`}
+                </div>
                 <Toggle
                   name='pets'
-                  style={{marginBottom: 0}}
+                  style={{ marginBottom: 0 }}
                 />
               </div>
 
