@@ -110,12 +110,8 @@ class Example extends Component {
   render () {
     return (
       <Formik
-        initialValues={
-          // here you define the initial values
-        }
-        validationSchema={
-          // here you define the validation schema
-        }
+        initialValues={ /* inital values setup */ }
+        validationSchema={ /* validation schema setup */ }
         onSubmit={this.onSubmit}
         render={({ handleSubmit }) => (
           <Form styled>
@@ -879,20 +875,11 @@ class Example extends Component {
     // here you hanlde the data to be submited
   }
 
-  // example of validation with yup
-  getSchema = () => {
-    return yup.object().shape({
-
-    })
-  }
-
   render () {
     return (
       <Formik
-        initialValues={{
-          toggleBtn: false
-        }}
-        validationSchema={this.getSchema}
+        initialValues={ /* inital values setup */ }
+        validationSchema={ /* ivalidation schema setup */ }
         onSubmit={this.onSubmit}
         render={({ handleSubmit }) => (
           <Form styled>
