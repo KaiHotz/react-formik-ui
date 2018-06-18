@@ -52,6 +52,7 @@ To validate the form fields, the use of [Yup](https://github.com/jquense/yup) is
 npm install --save yup
 ```
 
+
 ### Complete Form Examples
 - [Form Example](#form-example)
 
@@ -1176,7 +1177,14 @@ class ExampleForm extends Component {
                 ]}
               />
 
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px'}}>
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  marginBottom: '15px'
+                }}
+              >
                 <div>Do you have a drivers license</div>
                 <Toggle
                   name='driverLicense'
@@ -1184,7 +1192,14 @@ class ExampleForm extends Component {
                 />
               </div>
 
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  marginBottom: '15px'
+                }}
+              >
                 <div>Do you own pets</div>
                 <Toggle
                   name='pets'
@@ -1211,7 +1226,7 @@ class ExampleForm extends Component {
               <Checkbox
                 name='termsAndConitions'
                 label='Terms and Conditions'
-                text='Please check this box to accept the terms and conditions'
+                text='Click to accept the terms and conditions'
               />
 
               <SubmitBtn disabled={!values.termsAndConitions} />
