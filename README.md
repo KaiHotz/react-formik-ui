@@ -473,7 +473,6 @@ class Example extends Component {
 }
 ```
 
-
 ## Checkbox
 The Checkbox component renders with the classNames `form-element` and `checkbox-wrapper`</br>
 A custom class can be passed through the `className` prop
