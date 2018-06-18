@@ -879,7 +879,7 @@ class Example extends Component {
     return (
       <Formik
         initialValues={ /* inital values setup */ }
-        validationSchema={ /* ivalidation schema setup */ }
+        validationSchema={ /* validation schema setup */ }
         onSubmit={this.onSubmit}
         render={({ handleSubmit }) => (
           <Form styled>
