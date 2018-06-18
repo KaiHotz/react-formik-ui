@@ -1046,59 +1046,10 @@ class Example extends Component {
 }
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Form Example
 ```jsx
 import React, { Component } from 'react'
-import {Formik} from 'formik'
+import { Formik } from 'formik'
 import Form, {
   Input,
   Datepicker,
@@ -1113,7 +1064,7 @@ import Form, {
 
 import * as yup from 'yup';
 
-class Example extends Component {
+class ExampleForm extends Component {
 
   onSubmit = data => {
     // here you hanlde the data to be submited
@@ -1123,28 +1074,52 @@ class Example extends Component {
   // example of validation with yup
   getSchema = () => {
     return yup.object().shape({
-      name: yup
+      salutation: yup
+        .string(),
+      firstName: yup
         .string()
-        .required('Name Is required'),
-      myTextarea: yup
+        .required('First name is required'),
+      lastName: yup
         .string()
-        .required('Comment Is required'),
-
+        .required('Last name is required'),
+      email: yup
+        .string()
+        .email('Wrong format')
+        .required('Email is required'),
+      birthDay: yup
+        .date(),
+      maritalStatus: yup
+        .string(),
+      driverLicense: yup
+        .boolean(),
+      pets: yup
+        .boolean(),
+      income: yup
+        .string()
+        .required('Income is required'),
+      additionalInfo: yup
+        .string(),
+      termsAndConitions: yup
+        .boolean(),
     });
   }
 
-  render () {
+  render() {
     return (
       <Formik
         initialValues={{
-          name: '',
-          range: '',
+          salutation: 'Mr',
+          firstName: '',
+          lastName: '',
+          email: '',
           birthDay: '',
+          maritalStatus: '',
           dropdown: '',
-          myCheckBox: false,
-          myRadio: '2',
-          myTextarea: '',
-          myToggle: true,
+          driverLicense: false,
+          pets: false,
+          income: '',
+          additionalInfo: '',
+          termsAndConitions: false,
         }}
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
@@ -1152,57 +1127,94 @@ class Example extends Component {
           <Form styled>
             <fieldset>
               <legend>Form Example:</legend>
-              <Toggle name='myToggle'/>
-                <Input
-                  name='name'
-                  label='Input'
-                  hint='this is a hint'
-                  required
+
+              <Radio
+                name='salutation'
+                label='Salutation'
+                options={[
+                  { value: 'Mr', label: 'Mr.' },
+                  { value: 'Mrs', label: 'Mrs.' },
+                  { value: 'Ms', label: 'Ms.' }
+                ]}
+              />
+
+              <Input
+                name='firstName'
+                label='First name'
+                required
+              />
+
+              <Input
+                name='lastName'
+                label='Last name'
+                required
+              />
+
+              <Input
+                name='email'
+                label='Enter your Email'
+                required
+              />
+
+              <Datepicker
+                name='birthDay'
+                label='Birthday'
+                dateFormat='D.M.YYYY'
+                placeholder='D.M.YYYY'
+                hint='Please enter your birth date'
+              />
+
+              <Select
+                name='maritalStatus'
+                label='Marital Status'
+                placeholder='Select an Option'
+                options={[
+                  { value: '1', label: 'Married' },
+                  { value: '2', label: 'Single' },
+                  { value: '3', label: 'Divorced' },
+                  { value: '4', label: 'Widowed' }
+                ]}
+              />
+
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px'}}>
+                <div>Do you have a drivers license</div>
+                <Toggle
+                  name='driverLicense'
+                  style={{ marginBottom: 0 }}
                 />
-                <Input
-                  name='range'
-                  label='Input as Range'
-                  hint='this is a hint'
-                  type='range'
-                  required
+              </div>
+
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
+                <div>Do you own pets</div>
+                <Toggle
+                  name='pets'
+                  style={{marginBottom: 0}}
                 />
-                <Datepicker
-                  name='birthDay'
-                  label='Birthdate'
-                  dateFormat='D.M.YYYY'
-                  required
-                />
-                <Select
-                  name='dropdown'
-                  label='DropDown'
-                  placeholder='Select an Option'
-                  options={[
-                    { value: '1', label: 'Option 1' },
-                    { value: '2', label: 'Option 2' },
-                    { value: '3', label: 'Option 3' }
-                  ]}
-                />
-                <Checkbox
-                  name='myCheckBox'
-                  label='Checkbox label'
-                  text='Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna.'
-                />
-                <Radio
-                  name='myRadio'
-                  label='Select one Radio option'
-                  options={[
-                    {value: '1', label: 'Option 1'},
-                    {value: '2', label: 'Option 2'},
-                    {value: '3', label: 'Option 3'}
-                  ]}
-                />
-                <Textarea
-                  name='myTextarea'
-                  label='Write a comment'
-                  hint='this is a hint'
-                  required
-                />
-              <SubmitBtn disabled={!values.myToggle}/>
+              </div>
+
+              <Input
+                name='income'
+                label={`What is your monthly income $${values.income}`}
+                type='range'
+                min='0'
+                max='10000'
+                step='500'
+                required
+              />
+
+              <Textarea
+                name='additionalInfo'
+                label='Aditional information'
+                hint='this is optional'
+              />
+
+              <Checkbox
+                name='termsAndConitions'
+                label='Terms and Conditions'
+                text='Please check this box to accept the terms and conditions'
+              />
+
+              <SubmitBtn disabled={!values.termsAndConitions} />
               <Button onClick={(() => alert('Cancel'))}>Cancel</Button>
             </fieldset>
           </Form>
@@ -1211,6 +1223,8 @@ class Example extends Component {
     )
   }
 }
+
+export default ExampleForm;
 ```
 
 ## License
