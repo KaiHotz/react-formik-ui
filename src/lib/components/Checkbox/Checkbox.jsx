@@ -4,13 +4,13 @@ import cx from 'classnames'
 import { get } from '../../utils/helper'
 
 const Checkbox = ({
-  id,
-  hint,
   className,
-  required,
   disabled,
+  hint,
+  id,
   label,
   name,
+  required,
   text,
   ...rest
 }, context) => {
@@ -68,23 +68,23 @@ Checkbox.contextTypes = {
 }
 
 Checkbox.propTypes = {
-  id: PropTypes.string,
-  hint: PropTypes.string,
   className: PropTypes.string,
-  required: PropTypes.bool,
   disabled: PropTypes.bool,
+  hint: PropTypes.string,
+  id: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
+  required: PropTypes.bool,
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 }
 
 Checkbox.defaultProps = {
-  id: null,
-  hint: null,
   className: null,
-  required: false,
   disabled: false,
+  hint: null,
+  id: null,
   label: null,
+  required: false,
   text: null,
 }
 
