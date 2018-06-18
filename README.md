@@ -46,7 +46,7 @@ npm install --save formik
 ```
 
 ### Form validatios
-To validate your form fields, the use of [Yup](https://github.com/jquense/yup) is recommended.
+To validate the form fields, the use of [Yup](https://github.com/jquense/yup) is recommended.
 
 ```sh
 npm install --save yup
@@ -63,8 +63,8 @@ npm install --save yup
 - [Checkbox](#checkbox)
 - [Textarea](#textarea)
 - [DatePicker](#datepicker)
-- [Toggle](#toggle)
 - [Button](#button)
+- [Toggle](#toggle)
 - [SubmitBtn](#submitbtn)
 
 
@@ -85,13 +85,13 @@ A custom class can be passed with the `className` prop
     <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to your form</td>
+    <td>Adds a custom class to the form</td>
   </tr>
   <tr>
     <td>styled</td>
     <td>boolean</td>
     <td>false</td>
-    <td>If passed adds a minimal style and structure to your form </td>
+    <td>If passed adds a minimal style and structure to the form </td>
   </tr>
 </table>
 
@@ -104,7 +104,7 @@ import Form from 'react-formik-ui'
 class Example extends Component {
 
   onSubmit = data => {
-    // here you hanlde your data to be submited
+    // here you hanlde the data to be submited
   }
 
   render () {
@@ -114,7 +114,7 @@ class Example extends Component {
           // here you define the initial values
         }
         validationSchema={
-          // here you define your validation schema
+          // here you define the validation schema
         }
         onSubmit={this.onSubmit}
         render={({ handleSubmit }) => (
@@ -162,7 +162,7 @@ A custom class can be passed through the `className` prop
     <td>id</td>
     <td>string</td>
     <td>null</td>
-    <td>Sets an Id for your Input Field, if not passed, the id will be the name</td>
+    <td>Sets an Id for the Input Field, if not passed, the id will be the name</td>
   </tr>
   <tr>
     <td>label</td>
@@ -174,7 +174,7 @@ A custom class can be passed through the `className` prop
     <td>name</td>
     <td>string</td>
     <td>Required</td>
-    <td>Sets the Name of your Input Field</td>
+    <td>Sets the Name of the Input Field</td>
   </tr>
   <tr>
     <td>placeholder</td>
@@ -186,7 +186,7 @@ A custom class can be passed through the `className` prop
     <td>required</td>
     <td>boolean</td>
     <td>false</td>
-    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in your yup validation schema</td>
+    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
   </tr>
   <tr>
     <td>type</td>
@@ -207,7 +207,7 @@ import Form, { Input, SubmitBtn } from 'react-formik-ui'
 class Example extends Component {
 
   onSubmit = data => {
-    // here you hanlde your data to be submited
+    // here you hanlde the data to be submited
   }
 
   // example of validation with yup
@@ -281,7 +281,7 @@ A custom class can be passed through the `className` prop
     <td>id</td>
     <td>string</td>
     <td>null</td>
-    <td>Sets an Id for your Select Field, if not passed, the id will be the name</td>
+    <td>Sets an Id for the Select Field, if not passed, the id will be the name</td>
   </tr>
   <tr>
     <td>label</td>
@@ -293,7 +293,7 @@ A custom class can be passed through the `className` prop
     <td>name</td>
     <td>string</td>
     <td>Required</td>
-    <td>Sets the Name of your Select Field</td>
+    <td>Sets the Name of the Select Field</td>
   </tr>
   <tr>
     <td>options</td>
@@ -311,7 +311,7 @@ A custom class can be passed through the `className` prop
     <td>required</td>
     <td>boolean</td>
     <td>false</td>
-    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in your yup validation schema</td>
+    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
   </tr>
 </table>
 
@@ -326,7 +326,7 @@ import Form, { Select, SubmitBtn } from 'react-formik-ui'
 class Example extends Component {
 
   onSubmit = data => {
-    // here you hanlde your data to be submited
+    // here you hanlde the data to be submited
   }
 
   // example of validation with yup
@@ -408,7 +408,7 @@ A custom class can be passed through the `className` prop
     <td>name</td>
     <td>string</td>
     <td>Required</td>
-    <td>Sets the Name of your Radio Fields</td>
+    <td>Sets the Name of the Radio Fields</td>
   </tr>
   <tr>
     <td>options</td>
@@ -420,7 +420,7 @@ A custom class can be passed through the `className` prop
     <td>required</td>
     <td>boolean</td>
     <td>false</td>
-    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in your yup validation schema</td>
+    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
   </tr>
 </table>
 
@@ -435,7 +435,7 @@ import Form, { Radio, SubmitBtn } from 'react-formik-ui'
 class Example extends Component {
 
   onSubmit = data => {
-    // here you hanlde your data to be submited
+    // here you hanlde the data to be submited
   }
 
   // example of validation with yup
@@ -511,7 +511,7 @@ A custom class can be passed through the `className` prop
     <td>id</td>
     <td>string</td>
     <td>null</td>
-    <td>Sets an Id for your Checkbox, if not passed, the id will be the name</td>
+    <td>Sets an Id for the Checkbox, if not passed, the id will be the name</td>
   </tr>
   <tr>
     <td>label</td>
@@ -523,13 +523,13 @@ A custom class can be passed through the `className` prop
     <td>name</td>
     <td>string</td>
     <td>Required</td>
-    <td>Sets the Name of your Checkbox</td>
+    <td>Sets the Name of the Checkbox</td>
   </tr>
   <tr>
     <td>required</td>
     <td>boolean</td>
     <td>false</td>
-    <td>Sets the Checkbox as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in your yup validation schema</td>
+    <td>Sets the Checkbox as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
   </tr>
   <tr>
     <td>text</td>
@@ -550,7 +550,7 @@ import Form, { Checkbox, SubmitBtn } from 'react-formik-ui'
 class Example extends Component {
 
   onSubmit = data => {
-    // here you hanlde your data to be submited
+    // here you hanlde the data to be submited
   }
 
   // example of validation with yup
@@ -621,7 +621,7 @@ A custom class can be passed through the `className` prop
     <td>id</td>
     <td>string</td>
     <td>null</td>
-    <td>Sets an Id for your Textarea, if not passed, the id will be the name</td>
+    <td>Sets an Id for the Textarea, if not passed, the id will be the name</td>
   </tr>
   <tr>
     <td>label</td>
@@ -633,7 +633,7 @@ A custom class can be passed through the `className` prop
     <td>name</td>
     <td>string</td>
     <td>Required</td>
-    <td>Sets the Name of your Textarea</td>
+    <td>Sets the Name of the Textarea</td>
   </tr>
   <tr>
     <td>placeholder</td>
@@ -645,7 +645,7 @@ A custom class can be passed through the `className` prop
     <td>required</td>
     <td>boolean</td>
     <td>false</td>
-    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in your yup validation schema</td>
+    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
   </tr>
 </table>
 
@@ -660,7 +660,7 @@ import Form, { Textarea, SubmitBtn } from 'react-formik-ui'
 class Example extends Component {
 
   onSubmit = data => {
-    // here you hanlde your data to be submited
+    // here you hanlde the data to be submited
   }
 
   // example of validation with yup
@@ -728,13 +728,13 @@ You can then pass the desired configuration as props just like you would on Reac
     <td>disabled</td>
     <td>boolean</td>
     <td>false</td>
-    <td>Disables the Input Field</td>
+    <td>Disables the Datepicker Field</td>
   </tr>
   <tr>
     <td>hint</td>
     <td>string</td>
     <td>null</td>
-    <td>Sets a hint text after/below the Input Field</td>
+    <td>Sets a hint text after/below the Datepicker Field</td>
   </tr>
   <tr>
     <td>label</td>
@@ -758,7 +758,7 @@ You can then pass the desired configuration as props just like you would on Reac
     <td>name</td>
     <td>string</td>
     <td>Required</td>
-    <td>Sets the Name of your Datepicker Field</td>
+    <td>Sets the Name of the Datepicker Field</td>
   </tr>
   <tr>
     <td>placeholder</td>
@@ -770,7 +770,7 @@ You can then pass the desired configuration as props just like you would on Reac
     <td>required</td>
     <td>boolean</td>
     <td>false</td>
-    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in your yup validation schema</td>
+    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
   </tr>
 </table>
 
@@ -785,7 +785,7 @@ import Form, { Datepicker, SubmitBtn } from 'react-formik-ui'
 class Example extends Component {
 
   onSubmit = data => {
-    // here you hanlde your data to be submited
+    // here you hanlde the data to be submited
   }
 
   // example of validation with yup
@@ -820,6 +820,172 @@ class Example extends Component {
   }
 }
 ```
+
+## Button
+The Button component renders with the classNames `form-element` and `btn`</br>
+A custom class can be passed through the `className` prop</br>
+
+#### Props:
+<table style="font-size: 12px">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>children</td>
+    <td>string / node</td>
+    <td>null</td>
+    <td>Renders the children passed to the button components</td>
+  </tr>
+  <tr>
+    <td>className</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Adds a custom class to the button</td>
+  </tr>
+  <tr>
+    <td>disabled</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Disables the Toggle button</td>
+  </tr>
+  <tr>
+    <td>onClick</td>
+    <td>function</td>
+    <td>Required</td>
+    <td>Sets onClick handler for the button</td>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td>string</td>
+    <td>button</td>
+    <td>Sets the type for the button</td>
+  </tr>
+</table>
+
+#### Code example:
+```jsx
+import React, { Component } from 'react'
+import { Formik } from 'formik'
+import * as yup from 'yup';
+
+import Form, { Button } from 'react-formik-ui'
+
+class Example extends Component {
+
+  onSubmit = data => {
+    // here you hanlde the data to be submited
+  }
+
+  // example of validation with yup
+  getSchema = () => {
+    return yup.object().shape({
+
+    })
+  }
+
+  render () {
+    return (
+      <Formik
+        initialValues={{
+          toggleBtn: false
+        }}
+        validationSchema={this.getSchema}
+        onSubmit={this.onSubmit}
+        render={({ handleSubmit }) => (
+          <Form styled>
+
+            <Button onClick={(() => alert('Cancel'))}>
+              Cancel
+            </Button>
+
+          </Form>
+        )}
+      />
+    )
+  }
+}
+```
+
+## Toggle
+The Toggle button component, is the only component so far who has its own styling.</br>
+Since it uses the Button component, it renders with the classNames `form-element` and `btn`, and also `toggle-btn`</br>
+A custom class can be passed through the `className` prop</br>
+
+#### Props:
+<table style="font-size: 12px">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>className</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Adds a custom class to the Toggle button</td>
+  </tr>
+  <tr>
+    <td>disabled</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Disables the Toggle button</td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>string</td>
+    <td>Required</td>
+    <td>Sets the Name of the Toggle button</td>
+  </tr>
+</table>
+
+#### Code example:
+```jsx
+import React, { Component } from 'react'
+import { Formik } from 'formik'
+import * as yup from 'yup';
+
+import Form, { Toggle, SubmitBtn } from 'react-formik-ui'
+
+class Example extends Component {
+
+  onSubmit = data => {
+    // here you hanlde the data to be submited
+  }
+
+  // example of validation with yup
+  getSchema = () => {
+    return yup.object().shape({
+      toggleBtn: yup
+        .boolean(),
+    })
+  }
+
+  render () {
+    return (
+      <Formik
+        initialValues={{
+          toggleBtn: false
+        }}
+        validationSchema={this.getSchema}
+        onSubmit={this.onSubmit}
+        render={({ handleSubmit }) => (
+          <Form styled>
+
+            <Toggle name='toggleBtn'/>
+
+            <SubmitBtn />
+          </Form>
+        )}
+      />
+    )
+  }
+}
+```
+
 
 
 
@@ -889,7 +1055,7 @@ import * as yup from 'yup';
 class Example extends Component {
 
   onSubmit = data => {
-    // here you hanlde your data to be submited
+    // here you hanlde the data to be submited
     console.log(data)
   }
 

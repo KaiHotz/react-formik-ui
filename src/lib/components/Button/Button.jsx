@@ -22,21 +22,21 @@ const Button = ({
 )
 
 Button.propTypes = {
-  type: PropTypes.string,
-  className: PropTypes.string,
-  disabled: PropTypes.bool,
-  onClick: PropTypes.func.isRequired,
   children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.node,
   ]),
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func.isRequired,
+  type: PropTypes.string,
 }
 
 Button.defaultProps = {
-  type: 'button',
+  children: null,
   className: null,
   disabled: false,
-  children: null,
+  type: 'button',
 }
 
 export default Button

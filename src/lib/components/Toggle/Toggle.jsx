@@ -7,16 +7,16 @@ import './styles.css'
 
 class Toggle extends Component {
   static propTypes = {
-    disabled: PropTypes.bool,
     className: PropTypes.string,
+    disabled: PropTypes.bool,
     name: PropTypes.string.isRequired,
   }
   static contextTypes = {
     formik: PropTypes.shape({}),
   }
   static defaultProps = {
-    disabled: false,
     className: null,
+    disabled: false,
   }
 
   handleChange = () => {
