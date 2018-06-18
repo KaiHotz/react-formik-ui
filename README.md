@@ -174,7 +174,7 @@ A custom class can be passed through the `className` prop
     <td>required</td>
     <td>boolean</td>
     <td>false</td>
-    <td>Sets the field as requierd, if label is passed an * is added to the end of the label. This will only work if you pass the required() method in your yup validation schema</td>
+    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in your yup validation schema</td>
   </tr>
   <tr>
     <td>disabled</td>
@@ -293,7 +293,7 @@ A custom class can be passed through the `className` prop
     <td>required</td>
     <td>boolean</td>
     <td>false</td>
-    <td>Sets the field as requierd, if label is passed an * is added to the end of the label. This will only work if you pass the required() method in your yup validation schema</td>
+    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in your yup validation schema</td>
   </tr>
   <tr>
     <td>disabled</td>
@@ -404,7 +404,7 @@ A custom class can be passed through the `className` prop
     <td>required</td>
     <td>boolean</td>
     <td>false</td>
-    <td>Sets the field as requierd, if label is passed, an * is added to the end of the label. Validation will only work if you pass the required() method in your yup validation schema</td>
+    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in your yup validation schema</td>
   </tr>
   <tr>
     <td>disabled</td>
