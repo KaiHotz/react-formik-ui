@@ -572,11 +572,11 @@ class Example extends Component {
         render={({ handleSubmit }) => (
           <Form styled>
 
-              <Checkbox
-                name='agreement'
-                label='Checkbox main label'
-                text='Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
-              />
+            <Checkbox
+              name='agreement'
+              label='Checkbox main label'
+              text='Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+            />
 
             <SubmitBtn />
           </Form>
