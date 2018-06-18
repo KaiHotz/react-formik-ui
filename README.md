@@ -511,7 +511,7 @@ A custom class can be passed through the `className` prop
     <td>text</td>
     <td>string / node</td>
     <td>null</td>
-    <td>Sets the to shown beside the checkbox </td>
+    <td>Sets the text shown beside the checkbox </td>
   </tr>
   <tr>
     <td>required</td>
