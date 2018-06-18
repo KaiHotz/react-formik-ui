@@ -4,6 +4,7 @@ import cx from 'classnames'
 import { get } from '../../utils/helper'
 
 const Select = ({
+  id,
   label,
   name,
   placeholder,
@@ -26,7 +27,7 @@ const Select = ({
         </label>
       }
       <select
-        id={name}
+        id={id || name}
         name={name}
         value={get(values, name)}
         disabled={disabled}
@@ -70,6 +71,7 @@ Select.contextTypes = {
 }
 
 Select.propTypes = {
+  id: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
@@ -90,6 +92,7 @@ Select.propTypes = {
 }
 
 Select.defaultProps = {
+  id: null,
   label: null,
   placeholder: null,
   hint: null,

@@ -58,13 +58,13 @@ npm install --save yup
 ### Components
 - [Form](#form)
 - [Input](#input)
-- [DatePicker](#datepicker)
 - [Select](#select)
 - [Checkbox](#checkbox)
 - [Radio](#radio)
 - [Textarea](#textarea)
 - [Button](#button)
 - [Toggle](#toggle)
+- [DatePicker](#datepicker)
 - [SubmitBtn](submitbtn)
 
 
@@ -150,7 +150,7 @@ A custom class can be passed through the `className` prop
     <td>id</td>
     <td>string</td>
     <td>null</td>
-    <td>Sets an Id for your Input Field, if not passed the id will be the name</td>
+    <td>Sets an Id for your Input Field, if not passed, the id will be the name</td>
   </tr>
   <tr>
     <td>type</td>
@@ -174,7 +174,7 @@ A custom class can be passed through the `className` prop
     <td>required</td>
     <td>boolean</td>
     <td>false</td>
-    <td>Sets the field as requierd, if label is passed an * is added to the end of the label. This will only work if you pas the required() method in your yup validation schema</td>
+    <td>Sets the field as requierd, if label is passed an * is added to the end of the label. This will only work if you pass the required() method in your yup validation schema</td>
   </tr>
   <tr>
     <td>disabled</td>
@@ -245,6 +245,124 @@ class Example extends Component {
 }
 ```
 
+## Select
+The Select component renders with the classNames `form-elemnt` and `input-wrapper`</br>
+A custom class can be passed through the `className` prop
+
+#### Props:
+<table style="font-size: 14px">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>string</td>
+    <td>Required</td>
+    <td>Sets the Name of your Select Field</td>
+  </tr>
+  <tr>
+    <td>options</td>
+    <td>array</td>
+    <td>Required</td>
+    <td>Array in the shape of [ { value: string, label: string } ]</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets an Id for your Select Field, if not passed, the id will be the name</td>
+  </tr>
+  <tr>
+    <td>label</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets the Label for the Select Field</td>
+  </tr>
+  <tr>
+    <td>placeholder</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets a Placeholder as the first option with no value</td>
+  </tr>
+  <tr>
+    <td>required</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Sets the field as requierd, if label is passed an * is added to the end of the label. This will only work if you pass the required() method in your yup validation schema</td>
+  </tr>
+  <tr>
+    <td>disabled</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Disables the Select Field</td>
+  </tr>
+  <tr>
+    <td>hint</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets a hint text after/below the Select component</td>
+  </tr>
+  <tr>
+    <td>className</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Adds a custom class to the Select wrapper div</td>
+  </tr>
+</table>
+
+#### Code example:
+```jsx
+import React, { Component } from 'react'
+import {Formik} from 'formik'
+import * as yup from 'yup';
+
+import Form, { Input, SubmitBtn } from 'react-formik-ui'
+
+class Example extends Component {
+
+  onSubmit = data => {
+    // here you hanlde your data to be submited
+  }
+
+  // example of validation with yup
+  getSchema = () => {
+    return yup.object().shape({
+      dropdown: yup
+        .string(),
+    })
+  }
+
+  render () {
+    return (
+      <Formik
+        initialValues={{
+          nameField: ''
+        }}
+        validationSchema={this.getSchema}
+        onSubmit={this.onSubmit}
+        render={({ handleSubmit }) => (
+          <Form styled>
+            <Select
+              name='dropdown'
+              label='This is the label'
+              placeholder='Select an Option'
+              options={[
+                { value: '1', label: 'Option 1' },
+                { value: '2', label: 'Option 2' },
+                { value: '3', label: 'Option 3' }
+              ]}
+            />
+            <SubmitBtn />
+          </Form>
+        )}
+      />
+    )
+  }
+}
+```
 
 
 
