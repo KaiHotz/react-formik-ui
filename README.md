@@ -341,7 +341,7 @@ class Example extends Component {
     return (
       <Formik
         initialValues={{
-          nameField: ''
+          dropdown: ''
         }}
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
