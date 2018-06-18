@@ -199,7 +199,7 @@ A custom class can be passed through the `className` prop
 #### Code example:
 ```jsx
 import React, { Component } from 'react'
-import {Formik} from 'formik'
+import { Formik } from 'formik'
 import * as yup from 'yup';
 
 import Form, { Input, SubmitBtn } from 'react-formik-ui'
@@ -229,6 +229,7 @@ class Example extends Component {
         onSubmit={this.onSubmit}
         render={({ handleSubmit }) => (
           <Form styled>
+
             <Input
               name='nameField'
               label='This is the label'
@@ -236,6 +237,7 @@ class Example extends Component {
               hint='This is a hint'
               required
             />
+
             <SubmitBtn />
           </Form>
         )}
@@ -316,10 +318,10 @@ A custom class can be passed through the `className` prop
 #### Code example:
 ```jsx
 import React, { Component } from 'react'
-import {Formik} from 'formik'
+import { Formik } from 'formik'
 import * as yup from 'yup';
 
-import Form, { Input, SubmitBtn } from 'react-formik-ui'
+import Form, { Select, SubmitBtn } from 'react-formik-ui'
 
 class Example extends Component {
 
@@ -345,6 +347,7 @@ class Example extends Component {
         onSubmit={this.onSubmit}
         render={({ handleSubmit }) => (
           <Form styled>
+
             <Select
               name='dropdown'
               label='This is the label'
@@ -355,6 +358,7 @@ class Example extends Component {
                 { value: '3', label: 'Option 3' }
               ]}
             />
+
             <SubmitBtn />
           </Form>
         )}
