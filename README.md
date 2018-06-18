@@ -837,7 +837,7 @@ A custom class can be passed through the `className` prop</br>
     <td>children</td>
     <td>string / node</td>
     <td>null</td>
-    <td>Renders the children passed to the button components</td>
+    <td>Renders the children passed to the button</td>
   </tr>
   <tr>
     <td>className</td>
@@ -849,13 +849,13 @@ A custom class can be passed through the `className` prop</br>
     <td>disabled</td>
     <td>boolean</td>
     <td>false</td>
-    <td>Disables the Toggle button</td>
+    <td>Disables the button</td>
   </tr>
   <tr>
     <td>onClick</td>
     <td>function</td>
     <td>Required</td>
-    <td>Sets onClick handler for the button</td>
+    <td>Sets the onClick handler for the button</td>
   </tr>
   <tr>
     <td>type</td>
