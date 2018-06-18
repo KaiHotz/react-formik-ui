@@ -4,15 +4,15 @@ import cx from 'classnames'
 import { get } from '../../utils/helper'
 
 const Input = ({
-  id,
-  name,
-  type,
-  label,
   className,
-  placeholder,
-  required,
   disabled,
   hint,
+  id,
+  label,
+  name,
+  placeholder,
+  required,
+  type,
   ...rest
 }, context) => {
   const { formik } = context
@@ -59,26 +59,26 @@ Input.contextTypes = {
 }
 
 Input.propTypes = {
-  id: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  type: PropTypes.string,
-  label: PropTypes.string,
   className: PropTypes.string,
-  placeholder: PropTypes.string,
-  required: PropTypes.bool,
   disabled: PropTypes.bool,
   hint: PropTypes.string,
+  id: PropTypes.string,
+  label: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  required: PropTypes.bool,
+  type: PropTypes.string,
 }
 
 Input.defaultProps = {
-  id: null,
-  type: 'text',
-  label: null,
   className: null,
-  placeholder: null,
-  required: false,
   disabled: false,
   hint: null,
+  id: null,
+  label: null,
+  placeholder: null,
+  required: false,
+  type: 'text',
 }
 
 export default Input

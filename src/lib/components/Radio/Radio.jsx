@@ -4,13 +4,13 @@ import cx from 'classnames'
 import { get } from '../../utils/helper'
 
 const Radio = ({
-  name,
-  label,
-  options,
-  hint,
-  required,
-  disabled,
   className,
+  disabled,
+  hint,
+  label,
+  name,
+  options,
+  required,
   ...rest
 }, context) => {
   const { formik } = context
@@ -66,11 +66,11 @@ Radio.contextTypes = {
 }
 
 Radio.propTypes = {
-  name: PropTypes.string.isRequired,
-  label: PropTypes.string,
-  hint: PropTypes.string,
-  disabled: PropTypes.bool,
   className: PropTypes.string,
+  disabled: PropTypes.bool,
+  hint: PropTypes.string,
+  label: PropTypes.string,
+  name: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string.isRequired,
     value: PropTypes.oneOfType([
@@ -82,10 +82,10 @@ Radio.propTypes = {
 }
 
 Radio.defaultProps = {
-  label: null,
-  hint: null,
   className: null,
   disabled: false,
+  hint: null,
+  label: null,
   required: false,
 }
 

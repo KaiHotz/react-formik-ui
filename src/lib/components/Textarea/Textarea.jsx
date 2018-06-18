@@ -4,14 +4,14 @@ import cx from 'classnames'
 import { get } from '../../utils/helper'
 
 const Textarea = ({
+  className,
+  disabled,
+  hint,
   id,
+  label,
   name,
   placeholder,
-  disabled,
   required,
-  className,
-  label,
-  hint,
   ...rest
 }, context) => {
   const { formik } = context
@@ -56,22 +56,22 @@ Textarea.contextTypes = {
 }
 
 Textarea.propTypes = {
-  id: PropTypes.string,
-  name: PropTypes.string.isRequired,
   className: PropTypes.string,
-  label: PropTypes.string,
-  hint: PropTypes.string,
   disabled: PropTypes.bool,
+  hint: PropTypes.string,
+  id: PropTypes.string,
+  label: PropTypes.string,
+  name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
 }
 
 Textarea.defaultProps = {
-  id: null,
   className: null,
-  label: null,
-  hint: null,
   disabled: false,
+  hint: null,
+  id: null,
+  label: null,
   placeholder: null,
   required: false,
 }

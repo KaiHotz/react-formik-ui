@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 const Button = ({
-  type,
+  children,
   className,
   disabled,
   onClick,
-  children,
+  type,
   ...rest
 }) => (
   <button

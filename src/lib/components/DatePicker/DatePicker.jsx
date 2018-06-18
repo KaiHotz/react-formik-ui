@@ -8,19 +8,19 @@ import { get } from '../../utils/helper'
 
 class Datepicker extends Component {
   static propTypes = {
-    name: PropTypes.string.isRequired,
-    label: PropTypes.string,
-    hint: PropTypes.string,
-    placeholder: PropTypes.string,
     className: PropTypes.string,
-    disabled: PropTypes.bool,
-    required: PropTypes.bool,
     dateFormat: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.arrayOf(PropTypes.string),
     ]),
-    minDate: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    disabled: PropTypes.bool,
+    hint: PropTypes.string,
+    label: PropTypes.string,
     maxDate: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    minDate: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    name: PropTypes.string.isRequired,
+    placeholder: PropTypes.string,
+    required: PropTypes.bool,
   }
 
   static contextTypes = {
@@ -28,13 +28,6 @@ class Datepicker extends Component {
   }
 
   static defaultProps = {
-    minDate: null,
-    maxDate: null,
-    label: null,
-    hint: null,
-    placeholder: null,
-    disabled: false,
-    required: false,
     className: null,
     dateFormat: [
       'DD.MM.YYYY',
@@ -42,6 +35,13 @@ class Datepicker extends Component {
       'MM/DD/YYYY',
       'M/D/YYYY',
     ],
+    disabled: false,
+    hint: null,
+    label: null,
+    maxDate: null,
+    minDate: null,
+    placeholder: null,
+    required: false,
   }
 
   handleChangeRaw = e => {
@@ -82,16 +82,16 @@ class Datepicker extends Component {
 
   render() {
     const {
-      disabled,
-      label,
-      placeholder,
-      dateFormat,
-      name,
-      minDate,
-      maxDate,
-      required,
       className,
+      dateFormat,
+      disabled,
       hint,
+      label,
+      maxDate,
+      minDate,
+      name,
+      placeholder,
+      required,
       ...rest
     } = this.props
 

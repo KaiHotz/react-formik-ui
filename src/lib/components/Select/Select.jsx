@@ -4,15 +4,15 @@ import cx from 'classnames'
 import { get } from '../../utils/helper'
 
 const Select = ({
+  className,
+  disabled,
+  hint,
   id,
   label,
   name,
-  placeholder,
-  hint,
   options,
+  placeholder,
   required,
-  disabled,
-  className,
 }, context) => {
   const { formik } = context
   const { touched, errors, values } = formik
@@ -71,11 +71,13 @@ Select.contextTypes = {
 }
 
 Select.propTypes = {
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  hint: PropTypes.string,
   id: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
-  hint: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string.isRequired,
     value: PropTypes.oneOfType([
@@ -84,18 +86,16 @@ Select.propTypes = {
     ]).isRequired,
   })).isRequired,
   required: PropTypes.bool,
-  disabled: PropTypes.bool,
-  className: PropTypes.string,
 }
 
 Select.defaultProps = {
+  className: null,
+  disabled: false,
+  hint: null,
   id: null,
   label: null,
   placeholder: null,
-  hint: null,
   required: false,
-  disabled: false,
-  className: null,
 }
 
 export default Select
