@@ -4,12 +4,12 @@ import cx from 'classnames'
 import { get } from '../../utils/helper'
 
 const Radio = ({
-  disabled,
   name,
   label,
   options,
   hint,
   required,
+  disabled,
   className,
   ...rest
 }, context) => {
@@ -72,10 +72,7 @@ Radio.propTypes = {
   disabled: PropTypes.bool,
   className: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-    ]).isRequired,
+    label: PropTypes.string.isRequired,
     value: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.number,

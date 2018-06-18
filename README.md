@@ -59,13 +59,13 @@ npm install --save yup
 - [Form](#form)
 - [Input](#input)
 - [Select](#select)
-- [Checkbox](#checkbox)
 - [Radio](#radio)
+- [Checkbox](#checkbox)
 - [Textarea](#textarea)
-- [Button](#button)
-- [Toggle](#toggle)
 - [DatePicker](#datepicker)
-- [SubmitBtn](submitbtn)
+- [Toggle](#toggle)
+- [Button](#button)
+- [SubmitBtn](#submitbtn)
 
 
 ## Form
@@ -162,7 +162,7 @@ A custom class can be passed through the `className` prop
     <td>label</td>
     <td>string</td>
     <td>null</td>
-    <td>Sets the Label for the Input Field</td>
+    <td>Sets the main Label for the Input Field</td>
   </tr>
   <tr>
     <td>placeholder</td>
@@ -281,7 +281,7 @@ A custom class can be passed through the `className` prop
     <td>label</td>
     <td>string</td>
     <td>null</td>
-    <td>Sets the Label for the Select Field</td>
+    <td>Sets the main Label for the Select Field</td>
   </tr>
   <tr>
     <td>placeholder</td>
@@ -367,6 +367,118 @@ class Example extends Component {
   }
 }
 ```
+
+
+
+## Radio
+The Select component renders with the classNames `form-elemnt` and `input-wrapper`</br>
+A custom class can be passed through the `className` prop
+
+#### Props:
+<table style="font-size: 14px">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>string</td>
+    <td>Required</td>
+    <td>Sets the Name of your Radio Fields</td>
+  </tr>
+  <tr>
+    <td>options</td>
+    <td>array</td>
+    <td>Required</td>
+    <td>Array in the shape of [ { value: string or number, label: string } ]</td>
+  </tr>
+  <tr>
+    <td>label</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets the main Label for the Radio Fields</td>
+  </tr>
+  <tr>
+    <td>required</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Sets the field as requierd, if label is passed, an * is added to the end of the label. Validation will only work if you pass the required() method in your yup validation schema</td>
+  </tr>
+  <tr>
+    <td>disabled</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Disables the Radio Fields</td>
+  </tr>
+  <tr>
+    <td>hint</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets a hint text after/below the Radio component</td>
+  </tr>
+  <tr>
+    <td>className</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Adds a custom class to the Radio wrapper div</td>
+  </tr>
+</table>
+
+#### Code example:
+```jsx
+import React, { Component } from 'react'
+import { Formik } from 'formik'
+import * as yup from 'yup';
+
+import Form, { Radio, SubmitBtn } from 'react-formik-ui'
+
+class Example extends Component {
+
+  onSubmit = data => {
+    // here you hanlde your data to be submited
+  }
+
+  // example of validation with yup
+  getSchema = () => {
+    return yup.object().shape({
+      radioOptions: yup
+        .string(),
+    })
+  }
+
+  render () {
+    return (
+      <Formik
+        initialValues={{
+          radioOptions: ''
+        }}
+        validationSchema={this.getSchema}
+        onSubmit={this.onSubmit}
+        render={({ handleSubmit }) => (
+          <Form styled>
+
+            <Radio
+              name='radioOptions'
+              label='This is the label'
+              options={[
+                { value: '1', label: 'Option 1' },
+                { value: '2', label: 'Option 2' },
+                { value: '3', label: 'Option 3' }
+              ]}
+            />
+
+            <SubmitBtn />
+          </Form>
+        )}
+      />
+    )
+  }
+}
+```
+
+
 
 
 
