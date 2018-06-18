@@ -232,7 +232,7 @@ class Example extends Component {
 
             <Input
               name='nameField'
-              label='This is the label'
+              label='Input field main label'
               placeholder='Your Name'
               hint='This is a hint'
               required
@@ -350,7 +350,7 @@ class Example extends Component {
 
             <Select
               name='dropdown'
-              label='This is the label'
+              label='Select options main label'
               placeholder='Select an Option'
               options={[
                 { value: '1', label: 'Option 1' },
@@ -459,7 +459,7 @@ class Example extends Component {
 
             <Radio
               name='radioOptions'
-              label='Radio Options label'
+              label='Radio options main label'
               options={[
                 { value: '1', label: 'Option 1' },
                 { value: '2', label: 'Option 2' },
@@ -505,7 +505,7 @@ A custom class can be passed through the `className` prop
     <td>label</td>
     <td>string</td>
     <td>null</td>
-    <td>Sets the main Label for the Input Field</td>
+    <td>Sets the main Label for the Checkbox</td>
   </tr>
   <tr>
     <td>text</td>
@@ -574,7 +574,7 @@ class Example extends Component {
 
               <Checkbox
                 name='agreement'
-                label='Checkbox label'
+                label='Checkbox main label'
                 text='Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
               />
 
