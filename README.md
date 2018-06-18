@@ -82,16 +82,16 @@ A custom class can be passed with the `className` prop
     <th>Description</th>
   </tr>
   <tr>
-    <td>styled</td>
-    <td>boolean</td>
-    <td>false</td>
-    <td>If passed adds a minimal style and structure to your form </td>
-  </tr>
-  <tr>
     <td>className</td>
     <td>string</td>
     <td>null</td>
     <td>Adds a custom class to your form</td>
+  </tr>
+  <tr>
+    <td>styled</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>If passed adds a minimal style and structure to your form </td>
   </tr>
 </table>
 
@@ -141,40 +141,10 @@ A custom class can be passed through the `className` prop
     <th>Description</th>
   </tr>
   <tr>
-    <td>name</td>
-    <td>string</td>
-    <td>Required</td>
-    <td>Sets the Name of your Input Field</td>
-  </tr>
-    <tr>
-    <td>id</td>
+    <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Sets an Id for your Input Field, if not passed, the id will be the name</td>
-  </tr>
-  <tr>
-    <td>type</td>
-    <td>string</td>
-    <td>text</td>
-    <td>Defines the type of the Input Filed</td>
-  </tr>
-  <tr>
-    <td>label</td>
-    <td>string</td>
-    <td>null</td>
-    <td>Sets the main Label for the Input Field</td>
-  </tr>
-  <tr>
-    <td>placeholder</td>
-    <td>string</td>
-    <td>null</td>
-    <td>Sets the Placeholder text</td>
-  </tr>
-  <tr>
-    <td>required</td>
-    <td>boolean</td>
-    <td>false</td>
-    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in your yup validation schema</td>
+    <td>Adds a custom class to the Input wrapper div</td>
   </tr>
   <tr>
     <td>disabled</td>
@@ -189,10 +159,40 @@ A custom class can be passed through the `className` prop
     <td>Sets a hint text after/below the Input Field</td>
   </tr>
   <tr>
-    <td>className</td>
+    <td>id</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to the Input wrapper div</td>
+    <td>Sets an Id for your Input Field, if not passed, the id will be the name</td>
+  </tr>
+  <tr>
+    <td>label</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets the main Label for the Input Field</td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>string</td>
+    <td>Required</td>
+    <td>Sets the Name of your Input Field</td>
+  </tr>
+  <tr>
+    <td>placeholder</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets the Placeholder text</td>
+  </tr>
+  <tr>
+    <td>required</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in your yup validation schema</td>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td>string</td>
+    <td>text</td>
+    <td>Defines the type of the Input Filed</td>
   </tr>
 </table>
 
@@ -260,40 +260,10 @@ A custom class can be passed through the `className` prop
     <th>Description</th>
   </tr>
   <tr>
-    <td>name</td>
-    <td>string</td>
-    <td>Required</td>
-    <td>Sets the Name of your Select Field</td>
-  </tr>
-  <tr>
-    <td>options</td>
-    <td>array</td>
-    <td>Required</td>
-    <td>Array in the shape of [ { value: string or number, label: string } ]</td>
-  </tr>
-  <tr>
-    <td>id</td>
+    <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Sets an Id for your Select Field, if not passed, the id will be the name</td>
-  </tr>
-  <tr>
-    <td>label</td>
-    <td>string</td>
-    <td>null</td>
-    <td>Sets the main Label for the Select Field</td>
-  </tr>
-  <tr>
-    <td>placeholder</td>
-    <td>string</td>
-    <td>null</td>
-    <td>Sets a Placeholder as the first option with no value</td>
-  </tr>
-  <tr>
-    <td>required</td>
-    <td>boolean</td>
-    <td>false</td>
-    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in your yup validation schema</td>
+    <td>Adds a custom class to the Select wrapper div</td>
   </tr>
   <tr>
     <td>disabled</td>
@@ -308,10 +278,40 @@ A custom class can be passed through the `className` prop
     <td>Sets a hint text after/below the Select component</td>
   </tr>
   <tr>
-    <td>className</td>
+    <td>id</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to the Select wrapper div</td>
+    <td>Sets an Id for your Select Field, if not passed, the id will be the name</td>
+  </tr>
+  <tr>
+    <td>label</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets the main Label for the Select Field</td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>string</td>
+    <td>Required</td>
+    <td>Sets the Name of your Select Field</td>
+  </tr>
+  <tr>
+    <td>options</td>
+    <td>array</td>
+    <td>Required</td>
+    <td>Array in the shape of [ { value: string or number, label: string } ]</td>
+  </tr>
+  <tr>
+    <td>placeholder</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets a Placeholder as the first option with no value</td>
+  </tr>
+  <tr>
+    <td>required</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in your yup validation schema</td>
   </tr>
 </table>
 
@@ -381,28 +381,10 @@ A custom class can be passed through the `className` prop
     <th>Description</th>
   </tr>
   <tr>
-    <td>name</td>
-    <td>string</td>
-    <td>Required</td>
-    <td>Sets the Name of your Radio Fields</td>
-  </tr>
-  <tr>
-    <td>options</td>
-    <td>array</td>
-    <td>Required</td>
-    <td>Array in the shape of [ { value: string or number, label: string } ]</td>
-  </tr>
-  <tr>
-    <td>label</td>
+    <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Sets the main Label for the Radio Fields</td>
-  </tr>
-  <tr>
-    <td>required</td>
-    <td>boolean</td>
-    <td>false</td>
-    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in your yup validation schema</td>
+    <td>Adds a custom class to the Radio wrapper div</td>
   </tr>
   <tr>
     <td>disabled</td>
@@ -417,10 +399,28 @@ A custom class can be passed through the `className` prop
     <td>Sets a hint text after/below the Radio component</td>
   </tr>
   <tr>
-    <td>className</td>
+    <td>label</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to the Radio wrapper div</td>
+    <td>Sets the main Label for the Radio Fields</td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>string</td>
+    <td>Required</td>
+    <td>Sets the Name of your Radio Fields</td>
+  </tr>
+  <tr>
+    <td>options</td>
+    <td>array</td>
+    <td>Required</td>
+    <td>Array in the shape of [ { value: string or number, label: string } ]</td>
+  </tr>
+  <tr>
+    <td>required</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in your yup validation schema</td>
   </tr>
 </table>
 
@@ -490,34 +490,10 @@ A custom class can be passed through the `className` prop
     <th>Description</th>
   </tr>
   <tr>
-    <td>name</td>
-    <td>string</td>
-    <td>Required</td>
-    <td>Sets the Name of your Checkbox</td>
-  </tr>
-    <tr>
-    <td>id</td>
+    <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Sets an Id for your Checkbox, if not passed, the id will be the name</td>
-  </tr>
-  <tr>
-    <td>label</td>
-    <td>string</td>
-    <td>null</td>
-    <td>Sets the main Label for the Checkbox</td>
-  </tr>
-  <tr>
-    <td>text</td>
-    <td>string / node</td>
-    <td>null</td>
-    <td>Sets the text shown beside the checkbox </td>
-  </tr>
-  <tr>
-    <td>required</td>
-    <td>boolean</td>
-    <td>false</td>
-    <td>Sets the Checkbox as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in your yup validation schema</td>
+    <td>Adds a custom class to the Checkbox wrapper div</td>
   </tr>
   <tr>
     <td>disabled</td>
@@ -532,10 +508,34 @@ A custom class can be passed through the `className` prop
     <td>Sets a hint text after/below the Checkbox</td>
   </tr>
   <tr>
-    <td>className</td>
+    <td>id</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to the Checkbox wrapper div</td>
+    <td>Sets an Id for your Checkbox, if not passed, the id will be the name</td>
+  </tr>
+  <tr>
+    <td>label</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets the main Label for the Checkbox</td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>string</td>
+    <td>Required</td>
+    <td>Sets the Name of your Checkbox</td>
+  </tr>
+  <tr>
+    <td>required</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Sets the Checkbox as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in your yup validation schema</td>
+  </tr>
+  <tr>
+    <td>text</td>
+    <td>string / node</td>
+    <td>null</td>
+    <td>Sets the text shown beside the checkbox </td>
   </tr>
 </table>
 
@@ -600,34 +600,10 @@ A custom class can be passed through the `className` prop
     <th>Description</th>
   </tr>
   <tr>
-    <td>name</td>
-    <td>string</td>
-    <td>Required</td>
-    <td>Sets the Name of your Textarea</td>
-  </tr>
-    <tr>
-    <td>id</td>
+    <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Sets an Id for your Textarea, if not passed, the id will be the name</td>
-  </tr>
-  <tr>
-    <td>label</td>
-    <td>string</td>
-    <td>null</td>
-    <td>Sets the main Label for the Textarea</td>
-  </tr>
-  <tr>
-    <td>placeholder</td>
-    <td>string</td>
-    <td>null</td>
-    <td>Sets the Placeholder text</td>
-  </tr>
-  <tr>
-    <td>required</td>
-    <td>boolean</td>
-    <td>false</td>
-    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in your yup validation schema</td>
+    <td>Adds a custom class to the Textarea wrapper div</td>
   </tr>
   <tr>
     <td>disabled</td>
@@ -642,10 +618,34 @@ A custom class can be passed through the `className` prop
     <td>Sets a hint text after/below the Textarea</td>
   </tr>
   <tr>
-    <td>className</td>
+    <td>id</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to the Textarea wrapper div</td>
+    <td>Sets an Id for your Textarea, if not passed, the id will be the name</td>
+  </tr>
+  <tr>
+    <td>label</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets the main Label for the Textarea</td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>string</td>
+    <td>Required</td>
+    <td>Sets the Name of your Textarea</td>
+  </tr>
+  <tr>
+    <td>placeholder</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets the Placeholder text</td>
+  </tr>
+  <tr>
+    <td>required</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in your yup validation schema</td>
   </tr>
 </table>
 
@@ -713,28 +713,16 @@ You can then pass the desired configuration as props just like you would on Reac
     <th>Description</th>
   </tr>
   <tr>
-    <td>name</td>
-    <td>string</td>
-    <td>Required</td>
-    <td>Sets the Name of your Datepicker Field</td>
-  </tr>
-  <tr>
-    <td>label</td>
+    <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Sets the main Label for the Datepicker Field</td>
+    <td>Adds a custom class to the Input wrapper div</td>
   </tr>
   <tr>
-    <td>placeholder</td>
-    <td>string</td>
-    <td>null</td>
-    <td>Sets the Placeholder text</td>
-  </tr>
-  <tr>
-    <td>required</td>
-    <td>boolean</td>
-    <td>false</td>
-    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in your yup validation schema</td>
+    <td>dateFormat</td>
+    <td>string / Array of strings</td>
+    <td>[ 'DD.MM.YYYY', 'D.M.YYYY', 'MM/DD/YYYY', 'M/D/YYYY' ]</td>
+    <td>Sets the desired date format</td>
   </tr>
   <tr>
     <td>disabled</td>
@@ -749,16 +737,16 @@ You can then pass the desired configuration as props just like you would on Reac
     <td>Sets a hint text after/below the Input Field</td>
   </tr>
   <tr>
-    <td>className</td>
+    <td>label</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to the Input wrapper div</td>
+    <td>Sets the main Label for the Datepicker Field</td>
   </tr>
   <tr>
-    <td>dateFormat</td>
-    <td>string / Array of strings</td>
-    <td>[ 'DD.MM.YYYY', 'D.M.YYYY', 'MM/DD/YYYY', 'M/D/YYYY' ]</td>
-    <td>Sets the desired date format</td>
+    <td>maxDate</td>
+    <td>string / number</td>
+    <td>null</td>
+    <td>Sets the max. Date</td>
   </tr>
   <tr>
     <td>minDate</td>
@@ -767,10 +755,22 @@ You can then pass the desired configuration as props just like you would on Reac
     <td>Sets the min. Date</td>
   </tr>
   <tr>
-    <td>maxDate</td>
-    <td>string / number</td>
+    <td>name</td>
+    <td>string</td>
+    <td>Required</td>
+    <td>Sets the Name of your Datepicker Field</td>
+  </tr>
+  <tr>
+    <td>placeholder</td>
+    <td>string</td>
     <td>null</td>
-    <td>Sets the max. Date</td>
+    <td>Sets the Placeholder text</td>
+  </tr>
+  <tr>
+    <td>required</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in your yup validation schema</td>
   </tr>
 </table>
 
