@@ -77,7 +77,7 @@ Select.propTypes = {
   placeholder: PropTypes.string,
   hint: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string,.isRequired,
+    label: PropTypes.string.isRequired,
     value: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.number,
