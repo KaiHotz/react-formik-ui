@@ -9,7 +9,7 @@
 </div>
 
 ## Overview
-React-Formik-UI is a simple component libarary, composed out of pure HTML form elements like:
+React-Formik-UI is a simple component library, composed out of pure HTML form elements like:
 form, input, select, checkbox, radio and textarea.
 
 The Idea behind React-Formik-UI is to make the composition of forms with React and Formik even easier,
