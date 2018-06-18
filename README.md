@@ -129,7 +129,7 @@ class Example extends Component {
 ```
 
 ## Input
-The Input component renders with the classNames `form-elemnt` and `input-wrapper`</br>
+The Input component renders with the classNames `form-element` and `input-wrapper`</br>
 A custom class can be passed through the `className` prop
 
 #### Props:
@@ -248,7 +248,7 @@ class Example extends Component {
 ```
 
 ## Select
-The Select component renders with the classNames `form-elemnt` and `select-wrapper`</br>
+The Select component renders with the classNames `form-element` and `select-wrapper`</br>
 A custom class can be passed through the `className` prop
 
 #### Props:
@@ -369,7 +369,7 @@ class Example extends Component {
 ```
 
 ## Radio
-The Radio component renders with the classNames `form-elemnt` and `radio-wrapper`</br>
+The Radio component renders with the classNames `form-element` and `radio-wrapper`</br>
 A custom class can be passed through the `className` prop
 
 #### Props:
@@ -478,7 +478,7 @@ class Example extends Component {
 
 
 ## Checkbox
-The Checkbox component renders with the classNames `form-elemnt` and `checkbox-wrapper`</br>
+The Checkbox component renders with the classNames `form-element` and `checkbox-wrapper`</br>
 A custom class can be passed through the `className` prop
 
 #### Props:
@@ -588,7 +588,7 @@ class Example extends Component {
 ```
 
 ## Textarea
-The Textarea component renders with the classNames `form-elemnt` and `textarea-wrapper`</br>
+The Textarea component renders with the classNames `form-element` and `textarea-wrapper`</br>
 A custom class can be passed through the `className` prop
 
 #### Props:
@@ -698,11 +698,11 @@ class Example extends Component {
 
 ## Datepicker
 The Datepicker component uses [ReactJS Datepicker](https://reactdatepicker.com/) under the hood.</br>
-It renders with the classNames `form-elemnt` and `datePicker-wrapper`</br>
+It renders with the classNames `form-element` and `datePicker-wrapper`</br>
 A custom class can be passed through the `className` prop</br>
 
-For aditional configuration options and layouts please refere to [ReactJS Datepicker](https://reactdatepicker.com/)</br>
-You can then pass the desired configuration as props just like on the you would on a ReactJS Datepicker
+For aditional configuration options and layouts, please refere to [ReactJS Datepicker](https://reactdatepicker.com/)</br>
+You can then pass the desired configuration as props just like you would on ReactJS Datepicker
 
 #### Props:
 <table style="font-size: 12px">
