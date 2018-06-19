@@ -820,7 +820,7 @@ class Example extends Component {
 ```
 
 ## Button
-The Button component renders with the classNames `form-element` and `btn`.</br>
+The Button component renders with the className `btn`.</br>
 A custom class can be passed through the `className` prop.</br>
 
 #### Props:
@@ -900,7 +900,7 @@ class Example extends Component {
 
 ## Toggle
 The Toggle button component, is the only component so far who has its own styling.</br>
-Since it uses the Button component, it renders with the classNames `form-element` and `btn`, and also `toggle-btn`.</br>
+Since it uses the Button component, it renders with the classNames `btn` and also `toggle-btn`.</br>
 A custom class can be passed through the `className` prop.</br>
 
 #### Props:
@@ -976,7 +976,7 @@ class Example extends Component {
 ```
 
 ## SubmitBtn
-The SubmitBtn component renders with the classNames `form-element`, `btn` and `submit-btn`.</br>
+The SubmitBtn component renders with the classNames `btn` and `submit-btn`.</br>
 A custom class can be passed through the `className` prop.</br>
 
 By default the SubmitBtn handles the submition, no further handler or configuration is needed.
@@ -1189,20 +1189,14 @@ class ExampleForm extends Component {
                 <div>
                   {`Do you have a drivers license ? ${values.driverLicense ? 'Yes' : 'No'}`}
                 </div>
-                <Toggle
-                  name='driverLicense'
-                  style={{ marginBottom: 0 }}
-                />
+                <Toggle name='driverLicense'/>
               </div>
 
               <div style={styledDiv}>
                 <div>
                   {`Do you own pets ? ${values.pets ? 'Yes' : 'No'}`}
                 </div>
-                <Toggle
-                  name='pets'
-                  style={{ marginBottom: 0 }}
-                />
+                <Toggle name='pets'/>
               </div>
 
               <Input
