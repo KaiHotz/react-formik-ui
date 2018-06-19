@@ -116,7 +116,7 @@ class Example extends Component {
         initialValues={ /* inital values setup */ }
         validationSchema={ /* validation schema setup */ }
         onSubmit={this.onSubmit}
-        render={({ handleSubmit }) => (
+        render={() => (
           <Form styled>
 
           </Form>
@@ -226,7 +226,7 @@ class Example extends Component {
         }}
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
-        render={({ handleSubmit }) => (
+        render={() => (
           <Form styled>
 
             <Input
@@ -344,7 +344,7 @@ class Example extends Component {
         }}
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
-        render={({ handleSubmit }) => (
+        render={() => (
           <Form styled>
 
             <Select
@@ -453,7 +453,7 @@ class Example extends Component {
         }}
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
-        render={({ handleSubmit }) => (
+        render={() => (
           <Form styled>
 
             <Radio
@@ -567,7 +567,7 @@ class Example extends Component {
         }}
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
-        render={({ handleSubmit }) => (
+        render={() => (
           <Form styled>
 
             <Checkbox
@@ -677,7 +677,7 @@ class Example extends Component {
         }}
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
-        render={({ handleSubmit }) => (
+        render={() => (
           <Form styled>
 
             <Textarea
@@ -802,7 +802,7 @@ class Example extends Component {
         }}
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
-        render={({ handleSubmit }) => (
+        render={() => (
           <Form styled>
 
             <Datepicker
@@ -883,7 +883,7 @@ class Example extends Component {
         initialValues={ /* inital values setup */ }
         validationSchema={ /* validation schema setup */ }
         onSubmit={this.onSubmit}
-        render={({ handleSubmit }) => (
+        render={() => (
           <Form styled>
 
             <Button onClick={(() => alert('Cancel'))}>
@@ -961,7 +961,7 @@ class Example extends Component {
         }}
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
-        render={({ handleSubmit }) => (
+        render={() => (
           <Form styled>
 
             <Toggle name='toggleBtn'/>
@@ -1035,7 +1035,7 @@ class Example extends Component {
         initialValues={ /* inital values setup */ }
         validationSchema={ /* validation schema setup */ }
         onSubmit={this.onSubmit}
-        render={({ handleSubmit }) => (
+        render={() => (
           <Form styled>
 
             <SubmitBtn />
@@ -1132,7 +1132,7 @@ class ExampleForm extends Component {
         }}
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
-        render={({ handleSubmit, values }) => (
+        render={({ values }) => (
           <Form styled>
             <fieldset>
               <legend>Form Example:</legend>
