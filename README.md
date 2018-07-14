@@ -398,6 +398,12 @@ A custom class can be passed through the `className` prop.
     <td>Sets a hint text after/below the Radio component</td>
   </tr>
   <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets an Id for the Radio component, if not passed, the id will be the name</td>
+  </tr>
+  <tr>
     <td>label</td>
     <td>string</td>
     <td>null</td>

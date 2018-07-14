@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { FormikConsumer } from 'formik'
 import cx from 'classnames'
 
 const SubmitBtn = ({
@@ -8,21 +9,23 @@ const SubmitBtn = ({
   text,
   type,
   ...rest
-}, context) => (
-  <button
-    className={cx('btn submit-btn', className, { disabled })}
-    onClick={context.formik.handleSubmit}
-    type={type}
-    disabled={disabled}
-    {...rest}
-  >
-    {text}
-  </button>
+}) => (
+  <FormikConsumer>
+    {
+      formik => (
+        <button
+          className={cx('btn submit-btn', className, { disabled })}
+          onClick={formik.handleSubmit}
+          type={type}
+          disabled={disabled}
+          {...rest}
+        >
+          {text}
+        </button>
+      )
+    }
+  </FormikConsumer>
 )
-
-SubmitBtn.contextTypes = {
-  formik: PropTypes.shape({}),
-}
 
 SubmitBtn.propTypes = {
   className: PropTypes.string,
