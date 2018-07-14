@@ -9,4 +9,29 @@ export const get = (pObject, pKeys, defaultVal = null) => {
   return object === undefined ? defaultVal : object
 }
 
-export default get
+export const context = {
+  formik: {
+    handleSubmit: jest.fn(),
+    handleChange: jest.fn(),
+    handleBlur: jest.fn(),
+    setFieldValue: jest.fn(),
+    setFieldTouched: jest.fn(),
+    touched: {},
+    errors: {},
+    values: {
+      checkboxTest: false,
+      toggleTest: false,
+      datePickerTest: '',
+      inputTest: '',
+      radioTest: '0',
+      selectTest: '',
+      textAreaTest: '',
+    },
+  },
+}
+
+export const MyContext = ({
+  Consumer(props) {
+    return props.children(context)
+  },
+})
