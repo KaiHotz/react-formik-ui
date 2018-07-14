@@ -43,7 +43,7 @@ Anyhow if you pass the prop `styled` to the Form component a minimal styling wil
 npm install --save react-formik-ui@latest
 ```
 
-#### For use with React versions before 16.3 and Formik up to 0.11.11
+#### For use with React versions before 16.3 and Formik up to v0.11.11
 ```sh
 npm install --save react-formik-ui@0.1.26
 ```
