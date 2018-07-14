@@ -9,6 +9,4 @@ export const get = (pObject, pKeys, defaultVal = null) => {
   return object === undefined ? defaultVal : object
 }
 
-export default {
-  get,
-}
+export default get
