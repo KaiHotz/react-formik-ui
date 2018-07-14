@@ -8,6 +8,12 @@
 
 </div>
 
+## Update
+React-Formik-UI v1.0.0 needs at least React 16.3.1 and Formik 1.0.0-beta.0
+
+For older versions of React and Formik please install React-Formik-UI v 0.1.26
+
+
 ## Overview
 React-Formik-UI is a simple component library, composed out of pure HTML form elements like:
 form, input, select, checkbox, radio and textarea.
@@ -31,9 +37,18 @@ Anyhow if you pass the prop `styled` to the Form component a minimal styling wil
 
 ## Installation
 
+#### For use with latest React and latest Formik versions
+
 ```sh
-npm install --save react-formik-ui
+npm install --save react-formik-ui@latest
 ```
+
+#### For use with React versions before 16.3 and Formik up to 0.11.11
+```sh
+npm install --save react-formik-ui@0.1.26
+```
+
+
 
 # Usage
 
@@ -1129,7 +1144,6 @@ class ExampleForm extends Component {
           email: '',
           birthDay: '',
           maritalStatus: '',
-          dropdown: '',
           driverLicense: false,
           pets: false,
           income: '',
