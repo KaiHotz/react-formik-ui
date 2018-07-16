@@ -1,24 +1,11 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-
 import Select from './Select'
+import { context } from '../../__mocks__/context'
 
+jest.mock('../../__mocks__/Provider')
 
 describe('<Select />', () => {
-  const context = {
-    formik: {
-      handleChange: jest.fn(),
-      handleBlur: jest.fn(),
-      setFieldValue: jest.fn(),
-      setFieldTouched: jest.fn(),
-      touched: {},
-      errors: {},
-      values: {
-        selectTest: '',
-      },
-    },
-  }
-
   const baseProps = {
     name: 'selectTest',
     placeholder: 'Placeholder',
@@ -30,7 +17,7 @@ describe('<Select />', () => {
   }
 
   it('should render', () => {
-    const wrapper = shallow(<Select {...baseProps} />, { context })
+    const wrapper = shallow(<Select {...baseProps} />)
 
     expect(wrapper).toBeDefined()
   })
@@ -40,7 +27,7 @@ describe('<Select />', () => {
       ...baseProps,
       className: 'customClass',
     }
-    const wrapper = shallow(<Select {...props} />, { context })
+    const wrapper = shallow(<Select {...props} />)
 
     expect(wrapper.hasClass(props.className)).toBe(true)
   })
@@ -50,7 +37,7 @@ describe('<Select />', () => {
       ...baseProps,
       label: 'Custom',
     }
-    const wrapper = shallow(<Select {...props} />, { context })
+    const wrapper = shallow(<Select {...props} />)
 
     expect(wrapper.find('label').length).toBe(1)
   })
@@ -60,7 +47,7 @@ describe('<Select />', () => {
       ...baseProps,
       hint: 'hintTest',
     }
-    const wrapper = shallow(<Select {...props} />, { context })
+    const wrapper = shallow(<Select {...props} />)
 
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)
@@ -68,14 +55,14 @@ describe('<Select />', () => {
 
 
   it('should be disabled', () => {
-    const wrapper = shallow(<Select {...baseProps} disabled />, { context })
+    const wrapper = shallow(<Select {...baseProps} disabled />)
 
     expect(wrapper.find('select').prop('disabled')).toBe(true)
     expect(wrapper.prop('className').includes('disabled'))
   })
 
   it('should call onChange', () => {
-    const wrapper = mount(<Select {...baseProps} />, { context })
+    const wrapper = mount(<Select {...baseProps} />)
     wrapper.find('select').simulate('change')
 
     expect(context.formik.handleChange).toHaveBeenCalled()

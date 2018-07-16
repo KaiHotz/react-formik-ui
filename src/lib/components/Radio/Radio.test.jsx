@@ -1,22 +1,11 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import Radio from './Radio'
+import { context } from '../../__mocks__/context'
+
+jest.mock('../../__mocks__/Provider')
 
 describe('<Radio />', () => {
-  const context = {
-    formik: {
-      handleChange: jest.fn(),
-      handleBlur: jest.fn(),
-      setFieldValue: jest.fn(),
-      setFieldTouched: jest.fn(),
-      touched: {},
-      errors: {},
-      values: {
-        radioTest: '0',
-      },
-    },
-  }
-
   const baseProps = {
     name: 'radioTest',
     options: [
@@ -27,7 +16,7 @@ describe('<Radio />', () => {
   }
 
   it('should render', () => {
-    const wrapper = shallow(<Radio {...baseProps} />, { context })
+    const wrapper = shallow(<Radio {...baseProps} />)
 
     expect(wrapper).toBeDefined()
   })
@@ -37,7 +26,7 @@ describe('<Radio />', () => {
       ...baseProps,
       className: 'Custom',
     }
-    const wrapper = shallow(<Radio {...props} />, { context })
+    const wrapper = shallow(<Radio {...props} />)
 
     expect(wrapper.hasClass(props.className)).toBe(true)
   })
@@ -47,20 +36,20 @@ describe('<Radio />', () => {
       ...baseProps,
       hint: 'hintTest',
     }
-    const wrapper = shallow(<Radio {...props} />, { context })
+    const wrapper = shallow(<Radio {...props} />)
 
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)
   })
 
   it('should be disabled', () => {
-    const wrapper = shallow(<Radio {...baseProps} disabled />, { context })
+    const wrapper = shallow(<Radio {...baseProps} disabled />)
 
     expect(wrapper.prop('className').includes('disabled'))
   })
 
   it('should call onChange', () => {
-    const wrapper = shallow(<Radio {...baseProps} />, { context })
+    const wrapper = shallow(<Radio {...baseProps} />)
     wrapper.find('input').forEach(node => {
       node.simulate('change')
       expect(context.formik.handleChange).toHaveBeenCalled()

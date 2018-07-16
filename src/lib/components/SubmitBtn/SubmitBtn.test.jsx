@@ -1,16 +1,13 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import { context } from '../../__mocks__/context'
 import SubmitBtn from './SubmitBtn'
 
-describe('<SubmitBtn />', () => {
-  const context = {
-    formik: {
-      handleSubmit: jest.fn(),
-    },
-  }
+jest.mock('../../__mocks__/Provider')
 
+describe('<SubmitBtn />', () => {
   it('should render', () => {
-    const wrapper = shallow(<SubmitBtn />, { context })
+    const wrapper = shallow(<SubmitBtn />)
 
     expect(wrapper).toBeDefined()
   })
@@ -19,20 +16,20 @@ describe('<SubmitBtn />', () => {
     const props = {
       text: 'Content',
     }
-    const wrapper = shallow(<SubmitBtn {...props} />, { context })
+    const wrapper = shallow(<SubmitBtn {...props} />)
 
     expect(wrapper.text().includes(props.text)).toBeTruthy()
   })
 
   it('should call onClick', () => {
-    const wrapper = shallow(<SubmitBtn />, { context })
+    const wrapper = shallow(<SubmitBtn />)
     wrapper.simulate('click')
 
     expect(context.formik.handleSubmit).toHaveBeenCalled()
   })
 
   it('should be disabled', () => {
-    const wrapper = shallow(<SubmitBtn disabled />, { context })
+    const wrapper = shallow(<SubmitBtn disabled />)
 
     expect(wrapper.prop('disabled')).toBe(true)
     expect(wrapper.prop('className').includes('disabled'))
@@ -42,7 +39,7 @@ describe('<SubmitBtn />', () => {
     const props = {
       type: 'button',
     }
-    const wrapper = shallow(<SubmitBtn {...props} />, { context })
+    const wrapper = shallow(<SubmitBtn {...props} />)
 
     expect(wrapper.prop('type')).toBe(props.type)
   })
@@ -51,7 +48,7 @@ describe('<SubmitBtn />', () => {
     const props = {
       className: 'Custom',
     }
-    const wrapper = shallow(<SubmitBtn {...props} />, { context })
+    const wrapper = shallow(<SubmitBtn {...props} />)
 
     expect(wrapper.hasClass(props.className)).toBe(true)
   })
