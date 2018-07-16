@@ -21,16 +21,16 @@ describe('<Checkbox />', () => {
       ...baseProps,
       className: 'Custom',
     }
-    const wrapper = shallow(<Checkbox {...props} />)
+    const wrapper = mount(<Checkbox {...props} />)
 
-    expect(wrapper.hasClass(props.className)).toBe(true)
+    expect(wrapper.find('.checkbox-wrapper').hasClass(props.className)).toBe(true)
   })
 
   it('should be disabled', () => {
-    const wrapper = shallow(<Checkbox {...baseProps} disabled />)
+    const wrapper = mount(<Checkbox {...baseProps} disabled />)
 
     expect(wrapper.find('input').prop('disabled')).toBe(true)
-    expect(wrapper.prop('className').includes('disabled'))
+    expect(wrapper.find('.checkbox-wrapper').prop('className').includes('disabled'))
   })
 
   it('should have a hint', () => {
