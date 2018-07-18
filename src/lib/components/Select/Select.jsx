@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import { FormikConsumer } from 'formik'
 import { get } from '../../utils/helper'
 
 const Select = ({
@@ -13,62 +14,67 @@ const Select = ({
   options,
   placeholder,
   required,
-}, context) => {
-  const { formik } = context
-  const { touched, errors, values } = formik
-  const error = get(touched, name) && get(errors, name)
+}) => (
+  <FormikConsumer>
+    {
+      formik => {
+        const { touched, errors, values } = formik
+        const error = get(touched, name) && get(errors, name)
 
-  return (
-    <div className={cx('form-element select-wrapper', className, { hasError: !!error, disabled })} >
-      {
-        label &&
-        <label htmlFor={name}>
-          {`${label}${required ? ' *' : ''}`}
-        </label>
-      }
-      <select
-        id={id || name}
-        name={name}
-        value={get(values, name)}
-        disabled={disabled}
-        onChange={formik.handleChange}
-      >
-        {
-          placeholder &&
-            <option value="">
-              {placeholder}
-            </option>
-        }
-        {
-          options.map(option => (
-            <option
-              key={option.label}
-              value={option.value}
+        return (
+          <div className={cx('form-element select-wrapper', className, { hasError: !!error, disabled })} >
+            {
+              label && (
+                <label htmlFor={name}>
+                  {`${label}${required ? ' *' : ''}`}
+                </label>
+              )
+            }
+            <select
+              id={id || name}
+              name={name}
+              value={get(values, name)}
+              disabled={disabled}
+              onChange={formik.handleChange}
             >
-              {option.label}
-            </option>
-            ))
-        }
-      </select>
-      {
-        error &&
-          <span className="error">
-            {error}
-          </span>
+              {
+                placeholder && (
+                  <option value="">
+                    {placeholder}
+                  </option>
+                )
+              }
+              {
+                options.map(option => (
+                  <option
+                    key={option.label}
+                    value={option.value}
+                  >
+                    {option.label}
+                  </option>
+                ))
+              }
+            </select>
+            {
+              error && (
+                <span className="error">
+                  {error}
+                </span>
+              )
+            }
+            {
+              hint && (
+                <span className="hint">
+                  {hint}
+                </span>
+              )
+            }
+          </div>
+        )
       }
-      {
-        hint &&
-          <span className="hint">
-            {hint}
-          </span>
-      }
-    </div>
-  )
-}
-
-Select.contextTypes = {
-  formik: PropTypes.shape({}),
-}
+    }
+  </FormikConsumer>
+)
 
 Select.propTypes = {
   className: PropTypes.string,

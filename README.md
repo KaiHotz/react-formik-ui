@@ -8,6 +8,12 @@
 
 </div>
 
+## Update
+React-Formik-UI v1.0.0 needs at least React 16.3.1 and Formik 1.0.0-beta.0
+
+For older versions of React and Formik please install React-Formik-UI v 0.1.26
+
+
 ## Overview
 React-Formik-UI is a simple component library, composed out of pure HTML form elements like:
 form, input, select, checkbox, radio and textarea.
@@ -31,9 +37,18 @@ Anyhow if you pass the prop `styled` to the Form component a minimal styling wil
 
 ## Installation
 
+#### For use with latest React and latest Formik versions
+
 ```sh
-npm install --save react-formik-ui
+npm install --save react-formik-ui@latest
 ```
+
+#### For use with React versions before 16.3 and Formik up to v0.11.11
+```sh
+npm install --save react-formik-ui@0.1.26
+```
+
+
 
 # Usage
 
@@ -396,6 +411,12 @@ A custom class can be passed through the `className` prop.
     <td>string</td>
     <td>null</td>
     <td>Sets a hint text after/below the Radio component</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets an Id for the Radio component, if not passed, the id will be the name</td>
   </tr>
   <tr>
     <td>label</td>
@@ -1123,7 +1144,6 @@ class ExampleForm extends Component {
           email: '',
           birthDay: '',
           maritalStatus: '',
-          dropdown: '',
           driverLicense: false,
           pets: false,
           income: '',

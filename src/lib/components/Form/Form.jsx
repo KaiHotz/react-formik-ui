@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import { FormikConsumer } from 'formik'
 import './styles.css'
 
 const Form = ({
@@ -8,19 +9,21 @@ const Form = ({
   className,
   styled,
   ...rest
-}, context) => (
-  <form
-    className={cx('react-formik-ui form-wrapper', { styled }, className)}
-    onSubmit={context.formik.handleSubmit}
-    {...rest}
-  >
-    {children}
-  </form>
+}) => (
+  <FormikConsumer>
+    {
+      formik => (
+        <form
+          className={cx('react-formik-ui form-wrapper', { styled }, className)}
+          onSubmit={formik.handleSubmit}
+          {...rest}
+        >
+          {children}
+        </form>
+      )
+    }
+  </FormikConsumer>
 )
-
-Form.contextTypes = {
-  formik: PropTypes.shape({}),
-}
 
 Form.propTypes = {
   children: PropTypes.node.isRequired,

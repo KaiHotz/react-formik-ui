@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import { FormikConsumer } from 'formik'
 import { get } from '../../utils/helper'
 
 const Input = ({
@@ -14,49 +15,53 @@ const Input = ({
   required,
   type,
   ...rest
-}, context) => {
-  const { formik } = context
-  const { touched, errors, values } = formik
-  const error = get(touched, name) && get(errors, name)
+}) => (
+  <FormikConsumer>
+    {
+      formik => {
+        const { touched, errors, values } = formik
+        const error = get(touched, name) && get(errors, name)
 
-  return (
-    <div className={cx('form-element input-wrapper', className, { hasError: !!error, disabled })}>
-      {
-        label &&
-          <label htmlFor={name}>
-            {`${label}${required ? ' *' : ''}`}
-          </label>
+        return (
+          <div className={cx('form-element input-wrapper', className, { hasError: !!error, disabled })}>
+            {
+              label && (
+                <label htmlFor={name}>
+                  {`${label}${required ? ' *' : ''}`}
+                </label>
+              )
+            }
+            <input
+              id={id || name}
+              name={name}
+              type={type}
+              placeholder={placeholder}
+              value={get(values, name, '')}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              disabled={disabled}
+              {...rest}
+            />
+            {
+              error && (
+                <span className="error">
+                  {error}
+                </span>
+              )
+            }
+            {
+              hint && (
+                <span className="hint">
+                  {hint}
+                </span>
+              )
+            }
+          </div>
+        )
       }
-      <input
-        id={id || name}
-        name={name}
-        type={type}
-        placeholder={placeholder}
-        value={get(values, name, '')}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        disabled={disabled}
-        {...rest}
-      />
-      {
-        error &&
-          <span className="error">
-            {error}
-          </span>
-      }
-      {
-        hint &&
-          <span className="hint">
-            {hint}
-          </span>
-      }
-    </div>
-  )
-}
-
-Input.contextTypes = {
-  formik: PropTypes.shape({}),
-}
+    }
+  </FormikConsumer>
+)
 
 Input.propTypes = {
   className: PropTypes.string,

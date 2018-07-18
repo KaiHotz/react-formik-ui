@@ -4,6 +4,7 @@ import moment from 'moment'
 import DatePickerCmp from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import cx from 'classnames'
+import { FormikConsumer } from 'formik'
 import { get } from '../../utils/helper'
 
 class Datepicker extends Component {
@@ -23,10 +24,6 @@ class Datepicker extends Component {
     required: PropTypes.bool,
   }
 
-  static contextTypes = {
-    formik: PropTypes.shape({}),
-  }
-
   static defaultProps = {
     className: null,
     dateFormat: [
@@ -44,13 +41,12 @@ class Datepicker extends Component {
     required: false,
   }
 
-  handleChangeRaw = e => {
-    const { formik } = this.context
-    const { name, value } = e.target
+  handleChangeRaw = formik => event => {
+    const { name, value } = event.target
 
     const validChars = /^\d{0,2}[.]{0,1}\d{0,2}[.]{0,1}\d{0,4}$/
     if (!validChars.test(value)) {
-      e.preventDefault()
+      event.preventDefault()
 
       return
     }
@@ -67,8 +63,7 @@ class Datepicker extends Component {
     formik.setFieldTouched(name, true)
   }
 
-  handleChange = momentDate => {
-    const { formik } = this.context
+  handleChange = formik => momentDate => {
     const { name } = this.props
     const value = momentDate ? momentDate.format('YYYY-MM-DD') : ''
 
@@ -95,52 +90,62 @@ class Datepicker extends Component {
       ...rest
     } = this.props
 
-    const { formik } = this.context
-    const { touched, errors, values } = formik
-    const momentDate = moment(get(values, name))
-    const error = get(touched, name) && get(errors, name)
-
     return (
-      <div className={cx('form-element datePicker-wrapper', className, { hasError: !!error, disabled })}>
+      <FormikConsumer>
         {
-          label &&
-          <label
-            htmlFor={name}
-            onClick={this.handleFocus(name)}
-            onKeyPress={this.handleFocus(name)}
-            role="none"
-          >
-            {`${label}${required ? ' *' : ''}`}
-          </label>
+          formik => {
+            const { touched, errors, values } = formik
+            const momentDate = moment(get(values, name))
+            const error = get(touched, name) && get(errors, name)
+
+            return (
+              <div className={cx('form-element datePicker-wrapper', className, { hasError: !!error, disabled })}>
+                {
+                  label && (
+                    <label
+                      htmlFor={name}
+                      onClick={this.handleFocus(name)}
+                      onKeyPress={this.handleFocus(name)}
+                      role="none"
+                    >
+                      {`${label}${required ? ' *' : ''}`}
+                    </label>
+                  )
+                }
+                <DatePickerCmp
+                  id={name}
+                  name={name}
+                  selected={momentDate.isValid() ? momentDate : null}
+                  minDate={moment(minDate)}
+                  maxDate={moment(maxDate)}
+                  placeholderText={placeholder}
+                  dateFormat={dateFormat}
+                  disabledKeyboardNavigation
+                  onChangeRaw={this.handleChangeRaw(formik)}
+                  onChange={this.handleChange(formik)}
+                  onBlur={formik.handleBlur}
+                  disabled={disabled}
+                  {...rest}
+                />
+                {
+                  error && (
+                    <span className="error">
+                      {error}
+                    </span>
+                  )
+                }
+                {
+                  hint && (
+                    <span className="hint">
+                      { hint}
+                    </span>
+                  )
+                }
+              </div>
+            )
+          }
         }
-        <DatePickerCmp
-          id={name}
-          name={name}
-          selected={momentDate.isValid() ? momentDate : null}
-          minDate={moment(minDate)}
-          maxDate={moment(maxDate)}
-          placeholderText={placeholder}
-          dateFormat={dateFormat}
-          disabledKeyboardNavigation
-          onChangeRaw={this.handleChangeRaw}
-          onChange={this.handleChange}
-          onBlur={formik.handleBlur}
-          disabled={disabled}
-          {...rest}
-        />
-        {
-          error &&
-            <span className="error">
-              {error}
-            </span>
-        }
-        {
-          hint &&
-          <span className="hint">
-            { hint}
-          </span>
-        }
-      </div>
+      </FormikConsumer>
     )
   }
 }
