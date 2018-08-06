@@ -868,13 +868,13 @@ For aditional configuration options and layouts, please refere to [react-dropzon
     <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to the Input wrapper div</td>
+    <td>Adds a custom class to the DropZone wrapper div</td>
   </tr>
   <tr>
     <td>disabled</td>
     <td>boolean</td>
     <td>false</td>
-    <td>Disables the Datepicker Field</td>
+    <td>Disables the DropZone Field</td>
   </tr>
   <tr>
     <td>disabledText</td>
@@ -886,19 +886,19 @@ For aditional configuration options and layouts, please refere to [react-dropzon
     <td>hint</td>
     <td>string</td>
     <td>null</td>
-    <td>Sets a hint text after/below the Datepicker Field</td>
+    <td>Sets a hint text after/below the DropZone Field</td>
   </tr>
   <tr>
     <td>label</td>
     <td>string</td>
     <td>null</td>
-    <td>Sets the main Label for the Datepicker Field</td>
+    <td>Sets the main Label for the DropZone Field</td>
   </tr>
   <tr>
     <td>name</td>
     <td>string</td>
     <td>Required</td>
-    <td>Sets the Name of the Datepicker Field</td>
+    <td>Sets the Name of the DropZone Field</td>
   </tr>
   <tr>
     <td>placeholder</td>
