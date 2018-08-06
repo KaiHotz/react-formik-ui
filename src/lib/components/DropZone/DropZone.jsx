@@ -114,6 +114,5 @@ DropZone.defaultProps = {
   placeholder: 'Dropp some files here.',
 }
 
-
 export default DropZone
 
