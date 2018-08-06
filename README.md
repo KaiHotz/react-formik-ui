@@ -1210,6 +1210,7 @@ import Form, {
   Button,
   SubmitBtn,
   Toggle,
+  DropZone,
 } from 'react-formik-ui'
 
 import * as yup from 'yup';
@@ -1247,6 +1248,9 @@ class ExampleForm extends Component {
       income: yup
         .string()
         .required('Income is required'),
+      files: yup
+        .array()
+        .required('Image is required'),
       additionalInfo: yup
         .string(),
       termsAndConitions: yup
@@ -1274,6 +1278,7 @@ class ExampleForm extends Component {
           driverLicense: false,
           pets: false,
           income: '',
+          files: [],
           additionalInfo: '',
           termsAndConitions: false,
         }}
@@ -1354,6 +1359,11 @@ class ExampleForm extends Component {
                 max='10000'
                 step='500'
                 required
+              />
+
+              <DropZone
+                name='files'
+                label='File upload'
               />
 
               <Textarea
