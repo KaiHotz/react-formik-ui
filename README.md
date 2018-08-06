@@ -9,7 +9,7 @@
 </div>
 
 ## Update
-React-Formik-UI v1.0.0 needs at least React 16.3.1 and Formik 1.0.0-beta.0
+React-Formik-UI v1.1.0 needs at least React 16.3.1 and Formik 1.0.0-beta.0
 
 For older versions of React and Formik please install React-Formik-UI v 0.1.26
 
