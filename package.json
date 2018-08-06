@@ -1,7 +1,7 @@
 {
   "name": "react-formik-ui",
   "author": "Kai Hotz",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Plain form components for make use of formik even easier",
   "license": "MIT",
   "main": "build/index.js",
@@ -26,7 +26,8 @@
     "classnames": "^2.2.5",
     "moment": "^2.22.2",
     "prop-types": "^15.6.0",
-    "react-datepicker": "^1.5.0"
+    "react-datepicker": "^1.5.0",
+    "react-dropzone": "^4.2.13"
   },
   "devDependencies": {
     "autoprefixer": "7.1.2",

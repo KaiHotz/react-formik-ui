@@ -1,9 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import { context } from '../../__mocks__/context'
 import Form from './Form'
-
-jest.mock('../../__mocks__/Provider')
 
 describe('<Form />', () => {
   const baseProps = {
@@ -30,12 +27,5 @@ describe('<Form />', () => {
     const wrapper = mount(<Form {...baseProps} />)
 
     expect(wrapper.find('form').text()).toBe(baseProps.children)
-  })
-
-  it('should call onSubmit', () => {
-    const wrapper = mount(<Form {...baseProps} />)
-    wrapper.find('form').simulate('submit')
-    // expect(context.formik.handleSubmit.mock.calls.length).toBe(1)
-    expect(context.formik.handleSubmit).toHaveBeenCalled()
   })
 })
