@@ -79,6 +79,7 @@ npm install --save yup
 - [Checkbox](#checkbox)
 - [Textarea](#textarea)
 - [DatePicker](#datepicker)
+- [DropZone](#dropzone)
 - [Button](#button)
 - [Toggle](#toggle)
 - [SubmitBtn](#submitbtn)
@@ -830,6 +831,132 @@ class Example extends Component {
               name='birthDay'
               label='Birthdate'
             />
+
+            <SubmitBtn />
+          </Form>
+        )}
+      />
+    )
+  }
+}
+```
+
+## DropZone
+The DropZone component uses [react-dropzone](https://react-dropzone.js.org/) under the hood.</br>
+It renders with the classNames `form-element` and `dropzone-wrapper`.</br>
+A custom class can be passed through the `className` prop.</br>
+
+For aditional configuration options and layouts, please refere to [react-dropzone](https://react-dropzone.js.org/).</br>
+
+#### Props:
+<table style="font-size: 12px">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>accept</td>
+    <td>string</td>
+    <td>image/*</td>
+    <td>
+      Allow specific types of files. See https://github.com/okonet/attr-accept for more information. Keep in mind that mime type determination is not reliable across platforms. CSV files, for example, are reported as text/plain under macOS but as application/vnd.ms-excel under Windows. In some cases there might not be a mime type set at all. See: https://github.com/react-dropzone/react-dropzone/issues/276
+    </td>
+  </tr>
+  <tr>
+    <td>className</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Adds a custom class to the Input wrapper div</td>
+  </tr>
+  <tr>
+    <td>disabled</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Disables the Datepicker Field</td>
+  </tr>
+  <tr>
+    <td>disabledText</td>
+    <td>string</td>
+    <td>File upload disabled</td>
+    <td>text shown as placeholder if DropZone is disabled</td>
+  </tr>
+  <tr>
+    <td>hint</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets a hint text after/below the Datepicker Field</td>
+  </tr>
+  <tr>
+    <td>label</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets the main Label for the Datepicker Field</td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>string</td>
+    <td>Required</td>
+    <td>Sets the Name of the Datepicker Field</td>
+  </tr>
+  <tr>
+    <td>placeholder</td>
+    <td>string</td>
+    <td>Dropp some files here.</td>
+    <td>Sets the Placeholder text</td>
+  </tr>
+  <tr>
+    <td>required</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
+  </tr>
+  <tr>
+    <td>zoneActiveText</td>
+    <td>string</td>
+    <td>Drop file(s) here</td>
+    <td>Sets the text to be shown when draging files over the drop zone </td>
+  </tr>
+</table>
+
+#### Code example:
+```jsx
+import React, { Component } from 'react'
+import { Formik } from 'formik'
+import * as yup from 'yup';
+
+import Form, { DropZone, SubmitBtn } from 'react-formik-ui'
+
+class Example extends Component {
+
+  onSubmit = data => {
+    // here you hanlde the data to be submited
+  }
+
+  // example of validation with yup
+  getSchema = () => {
+    return yup.object().shape({
+      files: yup
+        .array()
+    })
+  }
+
+  render () {
+    return (
+      <Formik
+        initialValues={{
+          files: []
+        }}
+        validationSchema={this.getSchema}
+        onSubmit={this.onSubmit}
+        render={() => (
+          <Form styled>
+
+              <DropZone
+                name='files'
+                label='Image upload'
+              />
 
             <SubmitBtn />
           </Form>
