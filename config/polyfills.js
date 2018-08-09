@@ -16,6 +16,6 @@ Object.assign = require('object-assign')
 
 // setup file
 const Enzyme = require('enzyme')
-const Adapter = require('enzyme-react-adapter-future')
+const Adapter = require('enzyme-adapter-react-16.3')
 
 Enzyme.configure({ adapter: new Adapter() })
