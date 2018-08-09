@@ -93,7 +93,9 @@ class Datepicker extends Component {
     } = this.props
 
 
-    const { touched, errors, values } = formik
+    const {
+      touched, errors, values, handleBlur,
+    } = formik
     const momentDate = moment(get(values, name))
     const error = get(touched, name) && get(errors, name)
 
@@ -121,7 +123,7 @@ class Datepicker extends Component {
           disabledKeyboardNavigation
           onChangeRaw={this.handleChangeRaw(formik)}
           onChange={this.handleChange(formik)}
-          onBlur={formik.handleBlur}
+          onBlur={handleBlur}
           disabled={disabled}
           {...rest}
         />

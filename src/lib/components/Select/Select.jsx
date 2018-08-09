@@ -16,7 +16,9 @@ const Select = ({
   required,
   formik,
 }) => {
-  const { touched, errors, values } = formik
+  const {
+    touched, errors, values, handleChange,
+  } = formik
   const error = get(touched, name) && get(errors, name)
 
   return (
@@ -33,7 +35,7 @@ const Select = ({
         name={name}
         value={get(values, name)}
         disabled={disabled}
-        onChange={formik.handleChange}
+        onChange={handleChange}
       >
         {
           placeholder && (

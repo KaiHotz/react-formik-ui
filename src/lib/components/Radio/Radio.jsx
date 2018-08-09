@@ -16,7 +16,9 @@ const Radio = ({
   formik,
   ...rest
 }) => {
-  const { touched, errors, values } = formik
+  const {
+    touched, errors, values, handleChange, handleBlur,
+  } = formik
   const error = get(touched, name) && get(errors, name)
 
   return (
@@ -36,8 +38,8 @@ const Radio = ({
               checked={get(values, name) === option.value}
               id={id || (`${name}-id-${option.value}`)}
               value={option.value}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
+              onChange={handleChange}
+              onBlur={handleBlur}
               name={name}
               disabled={disabled}
               {...rest}

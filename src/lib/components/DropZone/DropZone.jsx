@@ -21,7 +21,9 @@ const DropZone = ({
   formik,
   ...rest
 }) => {
-  const { touched, errors, values } = formik
+  const {
+    touched, errors, values, setFieldValue, setFieldTouched,
+  } = formik
   const error = get(touched, name) && get(errors, name)
 
   return (
@@ -40,8 +42,8 @@ const DropZone = ({
         onDrop={acceptedFiles => {
           if (acceptedFiles.length === 0) { return }
 
-          formik.setFieldValue(name, formik.values[name].concat(acceptedFiles))
-          formik.setFieldTouched(name, true)
+          setFieldValue(name, values[name].concat(acceptedFiles))
+          setFieldTouched(name, true)
         }}
         {...rest}
       >

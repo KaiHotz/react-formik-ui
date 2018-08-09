@@ -16,7 +16,9 @@ const Checkbox = ({
   formik,
   ...rest
 }) => {
-  const { touched, errors, values } = formik
+  const {
+    touched, errors, values, handleChange, handleBlur,
+  } = formik
   const error = get(touched, name) && get(errors, name)
 
   return (
@@ -37,8 +39,8 @@ const Checkbox = ({
           name={name}
           type="checkbox"
           checked={get(values, name)}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
+          onChange={handleChange}
+          onBlur={handleBlur}
           disabled={disabled}
           {...rest}
         />

@@ -16,7 +16,9 @@ const Textarea = ({
   formik,
   ...rest
 }) => {
-  const { touched, errors, values } = formik
+  const {
+    touched, errors, values, handleChange, handleBlur,
+  } = formik
   const error = get(touched, name) && get(errors, name)
 
   return (
@@ -34,8 +36,8 @@ const Textarea = ({
         name={name}
         placeholder={placeholder}
         value={get(values, name, '')}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
+        onChange={handleChange}
+        onBlur={handleBlur}
         disabled={disabled}
         {...rest}
       />
