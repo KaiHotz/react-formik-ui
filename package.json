@@ -1,18 +1,17 @@
 {
   "name": "react-formik-ui",
   "author": "Kai Hotz",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Plain form components for make use of formik even easier",
   "license": "MIT",
   "main": "build/index.js",
   "scripts": {
-    "clean": "rimraf build",
-    "build": "npm run clean && npm run lint && npm run test:coverage && node scripts/build.js",
+    "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "test:coverage": "node scripts/test.js -b --env=jsdom --coverage --forceExit --colors",
     "lint": "esw --ext .jsx --ext .js --color",
-    "lint:fix": "npm run lint -- --fix",
-    "prerelease": "npm run build",
+    "lint:fix": "yarn lint -- --fix",
+    "prerelease": "yarn lint:fix && yarn test:coverage && yarn build",
     "release": "npm publish"
   },
   "engines": {
