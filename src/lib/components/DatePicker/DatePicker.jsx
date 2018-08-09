@@ -4,11 +4,12 @@ import moment from 'moment'
 import DatePickerCmp from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import cx from 'classnames'
-import { FormikConsumer } from 'formik'
+import { connect } from 'formik'
 import { get } from '../../utils/helper'
 
 class Datepicker extends Component {
   static propTypes = {
+    formik: PropTypes.object.isRequired,
     className: PropTypes.string,
     dateFormat: PropTypes.oneOfType([
       PropTypes.string,
@@ -87,67 +88,61 @@ class Datepicker extends Component {
       name,
       placeholder,
       required,
+      formik,
       ...rest
     } = this.props
 
-    return (
-      <FormikConsumer>
-        {
-          formik => {
-            const { touched, errors, values } = formik
-            const momentDate = moment(get(values, name))
-            const error = get(touched, name) && get(errors, name)
 
-            return (
-              <div className={cx('form-element datePicker-wrapper', className, { hasError: !!error, disabled })}>
-                {
-                  label && (
-                    <label
-                      htmlFor={name}
-                      onClick={this.handleFocus(name)}
-                      onKeyPress={this.handleFocus(name)}
-                      role="none"
-                    >
-                      {`${label}${required ? ' *' : ''}`}
-                    </label>
-                  )
-                }
-                <DatePickerCmp
-                  id={name}
-                  name={name}
-                  selected={momentDate.isValid() ? momentDate : null}
-                  minDate={moment(minDate)}
-                  maxDate={moment(maxDate)}
-                  placeholderText={placeholder}
-                  dateFormat={dateFormat}
-                  disabledKeyboardNavigation
-                  onChangeRaw={this.handleChangeRaw(formik)}
-                  onChange={this.handleChange(formik)}
-                  onBlur={formik.handleBlur}
-                  disabled={disabled}
-                  {...rest}
-                />
-                {
-                  error && (
-                    <span className="error">
-                      {error}
-                    </span>
-                  )
-                }
-                {
-                  hint && (
-                    <span className="hint">
-                      { hint}
-                    </span>
-                  )
-                }
-              </div>
-            )
-          }
+    const { touched, errors, values } = formik
+    const momentDate = moment(get(values, name))
+    const error = get(touched, name) && get(errors, name)
+
+    return (
+      <div className={cx('form-element datePicker-wrapper', className, { hasError: !!error, disabled })}>
+        {
+          label && (
+            <label
+              htmlFor={name}
+              onClick={this.handleFocus(name)}
+              onKeyPress={this.handleFocus(name)}
+              role="none"
+            >
+              {`${label}${required ? ' *' : ''}`}
+            </label>
+          )
         }
-      </FormikConsumer>
+        <DatePickerCmp
+          id={name}
+          name={name}
+          selected={momentDate.isValid() ? momentDate : null}
+          minDate={moment(minDate)}
+          maxDate={moment(maxDate)}
+          placeholderText={placeholder}
+          dateFormat={dateFormat}
+          disabledKeyboardNavigation
+          onChangeRaw={this.handleChangeRaw(formik)}
+          onChange={this.handleChange(formik)}
+          onBlur={formik.handleBlur}
+          disabled={disabled}
+          {...rest}
+        />
+        {
+          error && (
+            <span className="error">
+              {error}
+            </span>
+          )
+        }
+        {
+          hint && (
+            <span className="hint">
+              { hint}
+            </span>
+          )
+        }
+      </div>
     )
   }
 }
 
-export default Datepicker
+export default connect(Datepicker)

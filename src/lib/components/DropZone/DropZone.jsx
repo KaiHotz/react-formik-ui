@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { FormikConsumer } from 'formik'
+import { connect } from 'formik'
 import Dropzone from 'react-dropzone'
 import Thumb from './Thumb'
 import { get } from '../../utils/helper'
@@ -18,76 +18,72 @@ const DropZone = ({
   zoneActiveText,
   disabledText,
   placeholder,
+  formik,
   ...rest
-}) => (
-  <FormikConsumer>
-    {
-      formik => {
-        const { touched, errors, values } = formik
-        const error = get(touched, name) && get(errors, name)
+}) => {
+  const { touched, errors, values } = formik
+  const error = get(touched, name) && get(errors, name)
 
-        return (
-          <div className={cx('form-element dropzone-wrapper', className, { hasError: !!error, disabled })}>
-            {
-              label && (
-                <label htmlFor={name}>
-                  {`${label}${required ? ' *' : ''}`}
-                </label>
-              )
-            }
-            <Dropzone
-              className="dropzone"
-              accept={accept}
-              disabled={disabled}
-              onDrop={acceptedFiles => {
-                if (acceptedFiles.length === 0) { return }
-
-                formik.setFieldValue(name, formik.values[name].concat(acceptedFiles))
-                formik.setFieldTouched(name, true)
-              }}
-              {...rest}
-            >
-              {
-                ({ isDragActive, acceptedFiles, rejectedFiles }) => {
-                  if (disabled) { return disabledText }
-
-                  if (isDragActive) { return zoneActiveText }
-
-                  return acceptedFiles.length || rejectedFiles.length
-                    ? (
-                      <Fragment>
-                        {values[name].map(file => (<Thumb key={file.name} file={file} />))}
-                        <div className="fileInfo">
-                          {`Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`}
-                        </div>
-                      </Fragment>
-                    ) : placeholder
-                }
-              }
-            </Dropzone>
-            {
-              error && (
-                <span className="error">
-                  {error}
-                </span>
-              )
-            }
-            {
-              hint && (
-                <span className="hint">
-                  {hint}
-                </span>
-              )
-            }
-          </div>
+  return (
+    <div className={cx('form-element dropzone-wrapper', className, { hasError: !!error, disabled })}>
+      {
+        label && (
+          <label htmlFor={name}>
+            {`${label}${required ? ' *' : ''}`}
+          </label>
         )
       }
-    }
-  </FormikConsumer>
-)
+      <Dropzone
+        className="dropzone"
+        accept={accept}
+        disabled={disabled}
+        onDrop={acceptedFiles => {
+          if (acceptedFiles.length === 0) { return }
+
+          formik.setFieldValue(name, formik.values[name].concat(acceptedFiles))
+          formik.setFieldTouched(name, true)
+        }}
+        {...rest}
+      >
+        {
+          ({ isDragActive, acceptedFiles, rejectedFiles }) => {
+            if (disabled) { return disabledText }
+
+            if (isDragActive) { return zoneActiveText }
+
+            return acceptedFiles.length || rejectedFiles.length
+              ? (
+                <Fragment>
+                  {values[name].map(file => (<Thumb key={file.name} file={file} />))}
+                  <div className="fileInfo">
+                    {`Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`}
+                  </div>
+                </Fragment>
+              ) : placeholder
+          }
+        }
+      </Dropzone>
+      {
+        error && (
+          <span className="error">
+            {error}
+          </span>
+        )
+      }
+      {
+        hint && (
+          <span className="hint">
+            {hint}
+          </span>
+        )
+      }
+    </div>
+  )
+}
 
 
 DropZone.propTypes = {
+  formik: PropTypes.object.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   hint: PropTypes.string,
@@ -114,5 +110,5 @@ DropZone.defaultProps = {
   placeholder: 'Dropp some files here.',
 }
 
-export default DropZone
+export default connect(DropZone)
 

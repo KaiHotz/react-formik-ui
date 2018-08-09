@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { FormikConsumer } from 'formik'
+import { connect } from 'formik'
 import { get } from '../../utils/helper'
 
 const Textarea = ({
@@ -13,56 +13,52 @@ const Textarea = ({
   name,
   placeholder,
   required,
+  formik,
   ...rest
-}) => (
-  <FormikConsumer>
-    {
-      formik => {
-        const { touched, errors, values } = formik
-        const error = get(touched, name) && get(errors, name)
+}) => {
+  const { touched, errors, values } = formik
+  const error = get(touched, name) && get(errors, name)
 
-        return (
+  return (
 
-          <div className={cx('form-element textarea-wrapper', className, { hasError: !!error, disabled })}>
-            {
-              label && (
-                <label htmlFor={name}>
-                  {label} {required ? '*' : ''}
-                </label>
-              )
-            }
-            <textarea
-              id={id || name}
-              name={name}
-              placeholder={placeholder}
-              value={get(values, name, '')}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              disabled={disabled}
-              {...rest}
-            />
-            {
-              error && (
-                <span className="error">
-                  {error}
-                </span>
-              )
-            }
-            {
-              hint && (
-                <span className="hint">
-                  {hint}
-                </span>
-              )
-            }
-          </div>
+    <div className={cx('form-element textarea-wrapper', className, { hasError: !!error, disabled })}>
+      {
+        label && (
+          <label htmlFor={name}>
+            {label} {required ? '*' : ''}
+          </label>
         )
       }
-    }
-  </FormikConsumer>
-)
+      <textarea
+        id={id || name}
+        name={name}
+        placeholder={placeholder}
+        value={get(values, name, '')}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        disabled={disabled}
+        {...rest}
+      />
+      {
+        error && (
+          <span className="error">
+            {error}
+          </span>
+        )
+      }
+      {
+        hint && (
+          <span className="hint">
+            {hint}
+          </span>
+        )
+      }
+    </div>
+  )
+}
 
 Textarea.propTypes = {
+  formik: PropTypes.object.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   hint: PropTypes.string,
@@ -83,4 +79,4 @@ Textarea.defaultProps = {
   required: false,
 }
 
-export default Textarea
+export default connect(Textarea)

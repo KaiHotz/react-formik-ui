@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { FormikConsumer } from 'formik'
+import { connect } from 'formik'
 import { get } from '../../utils/helper'
 
 const Select = ({
@@ -14,69 +14,65 @@ const Select = ({
   options,
   placeholder,
   required,
-}) => (
-  <FormikConsumer>
-    {
-      formik => {
-        const { touched, errors, values } = formik
-        const error = get(touched, name) && get(errors, name)
+  formik,
+}) => {
+  const { touched, errors, values } = formik
+  const error = get(touched, name) && get(errors, name)
 
-        return (
-          <div className={cx('form-element select-wrapper', className, { hasError: !!error, disabled })} >
-            {
-              label && (
-                <label htmlFor={name}>
-                  {`${label}${required ? ' *' : ''}`}
-                </label>
-              )
-            }
-            <select
-              id={id || name}
-              name={name}
-              value={get(values, name)}
-              disabled={disabled}
-              onChange={formik.handleChange}
-            >
-              {
-                placeholder && (
-                  <option value="">
-                    {placeholder}
-                  </option>
-                )
-              }
-              {
-                options.map(option => (
-                  <option
-                    key={option.label}
-                    value={option.value}
-                  >
-                    {option.label}
-                  </option>
-                ))
-              }
-            </select>
-            {
-              error && (
-                <span className="error">
-                  {error}
-                </span>
-              )
-            }
-            {
-              hint && (
-                <span className="hint">
-                  {hint}
-                </span>
-              )
-            }
-          </div>
+  return (
+    <div className={cx('form-element select-wrapper', className, { hasError: !!error, disabled })} >
+      {
+        label && (
+          <label htmlFor={name}>
+            {`${label}${required ? ' *' : ''}`}
+          </label>
         )
       }
-    }
-  </FormikConsumer>
-)
+      <select
+        id={id || name}
+        name={name}
+        value={get(values, name)}
+        disabled={disabled}
+        onChange={formik.handleChange}
+      >
+        {
+          placeholder && (
+            <option value="">
+              {placeholder}
+            </option>
+          )
+        }
+        {
+          options.map(option => (
+            <option
+              key={option.label}
+              value={option.value}
+            >
+              {option.label}
+            </option>
+          ))
+        }
+      </select>
+      {
+        error && (
+          <span className="error">
+            {error}
+          </span>
+        )
+      }
+      {
+        hint && (
+          <span className="hint">
+            {hint}
+          </span>
+        )
+      }
+    </div>
+  )
+}
 
 Select.propTypes = {
+  formik: PropTypes.object.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   hint: PropTypes.string,
@@ -104,4 +100,4 @@ Select.defaultProps = {
   required: false,
 }
 
-export default Select
+export default connect(Select)

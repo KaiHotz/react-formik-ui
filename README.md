@@ -9,7 +9,7 @@
 </div>
 
 ## Update
-React-Formik-UI v1.1.0 needs at least React 16.3.1 and Formik 1.0.0-beta.0
+React-Formik-UI v1.x needs at least React 16.3.1 and Formik 1.x
 
 For older versions of React and Formik please install React-Formik-UI v 0.1.26
 
@@ -1198,8 +1198,9 @@ class Example extends Component {
 
 ## Complete Form Example
 ```jsx
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Formik } from 'formik'
+import *  as yup from 'yup'
 import Form, {
   Input,
   Datepicker,
@@ -1211,14 +1212,12 @@ import Form, {
   SubmitBtn,
   Toggle,
   DropZone,
-} from 'react-formik-ui'
-
-import * as yup from 'yup';
+} from './components'
+import logo from './logo.svg';
+import './App.css';
 
 class ExampleForm extends Component {
-
   onSubmit = data => {
-    // here you hanlde the data to be submited
     console.log(data)
   }
 
@@ -1240,7 +1239,8 @@ class ExampleForm extends Component {
       birthDay: yup
         .date(),
       maritalStatus: yup
-        .string(),
+        .string()
+        .nullable(),
       driverLicense: yup
         .boolean(),
       pets: yup
@@ -1284,107 +1284,109 @@ class ExampleForm extends Component {
         }}
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
-        render={({ values }) => (
-          <Form styled>
-            <fieldset>
-              <legend>Form Example:</legend>
+        render={({ values }) => {
+          return (
+            <Form styled>
+              <fieldset>
+                <legend>Form Example:</legend>
 
-              <Radio
-                name='salutation'
-                label='Salutation'
-                options={[
-                  { value: 'Mr', label: 'Mr.' },
-                  { value: 'Mrs', label: 'Mrs.' },
-                  { value: 'Ms', label: 'Ms.' }
-                ]}
-              />
+                <Radio
+                  name='salutation'
+                  label='Salutation'
+                  options={[
+                    { value: 'Mr', label: 'Mr.' },
+                    { value: 'Mrs', label: 'Mrs.' },
+                    { value: 'Ms', label: 'Ms.' }
+                  ]}
+                />
 
-              <Input
-                name='firstName'
-                label='First name'
-                required
-              />
+                <Input
+                  name='firstName'
+                  label='First name'
+                  required
+                />
 
-              <Input
-                name='lastName'
-                label='Last name'
-                required
-              />
+                <Input
+                  name='lastName'
+                  label='Last name'
+                  required
+                />
 
-              <Input
-                name='email'
-                label='Enter your Email'
-                required
-              />
+                <Input
+                  name='email'
+                  label='Enter your Email'
+                  required
+                />
 
-              <Datepicker
-                name='birthDay'
-                label='Birthday'
-                dateFormat='D.M.YYYY'
-                placeholder='D.M.YYYY'
-                hint='Please enter your birth date'
-              />
+                <Datepicker
+                  name='birthDay'
+                  label='Birthday'
+                  dateFormat='D.M.YYYY'
+                  placeholder='D.M.YYYY'
+                  hint='Please enter your birth date'
+                />
 
-              <Select
-                name='maritalStatus'
-                label='Marital Status'
-                placeholder='Select an Option'
-                options={[
-                  { value: '1', label: 'Married' },
-                  { value: '2', label: 'Single' },
-                  { value: '3', label: 'Divorced' },
-                  { value: '4', label: 'Widowed' }
-                ]}
-              />
+                <Select
+                  name='maritalStatus'
+                  label='Marital Status'
+                  placeholder='Select an Option'
+                  options={[
+                    { value: '1', label: 'Married' },
+                    { value: '2', label: 'Single' },
+                    { value: '3', label: 'Divorced' },
+                    { value: '4', label: 'Widowed' }
+                  ]}
+                />
 
-              <div style={styledDiv}>
-                <div>
-                  {`Do you have a drivers license ? ${values.driverLicense ? 'Yes' : 'No'}`}
+                <div style={styledDiv}>
+                  <div>
+                    {`Do you have a drivers license ? ${values.driverLicense ? 'Yes' : 'No'}`}
+                  </div>
+                  <Toggle name='driverLicense' />
                 </div>
-                <Toggle name='driverLicense'/>
-              </div>
 
-              <div style={styledDiv}>
-                <div>
-                  {`Do you own pets ? ${values.pets ? 'Yes' : 'No'}`}
+                <div style={styledDiv}>
+                  <div>
+                    {`Do you own pets ? ${values.pets ? 'Yes' : 'No'}`}
+                  </div>
+                  <Toggle name='pets' />
                 </div>
-                <Toggle name='pets'/>
-              </div>
 
-              <Input
-                name='income'
-                label={`What is your monthly income $${values.income}`}
-                type='range'
-                min='0'
-                max='10000'
-                step='500'
-                required
-              />
+                <Input
+                  name='income'
+                  label={`What is your monthly income $${values.income}`}
+                  type='range'
+                  min='0'
+                  max='10000'
+                  step='500'
+                  required
+                />
 
-              <DropZone
-                name='files'
-                label='File upload'
-              />
+                <DropZone
+                  name='files'
+                  label='File upload'
+                />
 
-              <Textarea
-                name='additionalInfo'
-                label='Aditional information'
-                hint='this is optional'
-              />
+                <Textarea
+                  name='additionalInfo'
+                  label='Aditional information'
+                  hint='this is optional'
+                />
 
-              <Checkbox
-                name='termsAndConitions'
-                label='Terms and Conditions'
-                text='Click to accept the terms and conditions'
-              />
+                <Checkbox
+                  name='termsAndConitions'
+                  label='Terms and Conditions'
+                  text='Click to accept the terms and conditions'
+                />
 
-              <SubmitBtn disabled={!values.termsAndConitions} />
-              <Button onClick={(() => alert('Cancel'))}>Cancel</Button>
-            </fieldset>
-          </Form>
-        )}
+                <SubmitBtn disabled={!values.termsAndConitions} />
+                <Button onClick={(() => alert('Cancel'))}>Cancel</Button>
+              </fieldset>
+            </Form>
+          );
+        }}
       />
-    )
+    );
   }
 }
 

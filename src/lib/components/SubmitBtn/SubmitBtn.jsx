@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FormikConsumer } from 'formik'
+import { connect } from 'formik'
 import cx from 'classnames'
 
 const SubmitBtn = ({
@@ -8,26 +8,22 @@ const SubmitBtn = ({
   disabled,
   text,
   type,
+  formik,
   ...rest
 }) => (
-  <FormikConsumer>
-    {
-      formik => (
-        <button
-          className={cx('btn submit-btn', className, { disabled })}
-          onClick={formik.handleSubmit}
-          type={type}
-          disabled={disabled}
-          {...rest}
-        >
-          {text}
-        </button>
-      )
-    }
-  </FormikConsumer>
+  <button
+    className={cx('btn submit-btn', className, { disabled })}
+    onClick={formik.handleSubmit}
+    type={type}
+    disabled={disabled}
+    {...rest}
+  >
+    {text}
+  </button>
 )
 
 SubmitBtn.propTypes = {
+  formik: PropTypes.object.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   text: PropTypes.oneOfType([
@@ -44,4 +40,4 @@ SubmitBtn.defaultProps = {
   type: 'submit',
 }
 
-export default SubmitBtn
+export default connect(SubmitBtn)

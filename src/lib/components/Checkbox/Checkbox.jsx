@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { FormikConsumer } from 'formik'
+import { connect } from 'formik'
 import { get } from '../../utils/helper'
 
 const Checkbox = ({
@@ -13,66 +13,62 @@ const Checkbox = ({
   name,
   required,
   text,
+  formik,
   ...rest
-}) => (
-  <FormikConsumer>
-    {
-      formik => {
-        const { touched, errors, values } = formik
-        const error = get(touched, name) && get(errors, name)
+}) => {
+  const { touched, errors, values } = formik
+  const error = get(touched, name) && get(errors, name)
 
-        return (
-          <div className={cx('form-element checkbox-wrapper', className, { hasError: !!error, disabled })}>
-            {
-              label && (
-                <label
-                  htmlFor={name}
-                  className="checkbox-label"
-                >
-                  {`${label}${required ? ' *' : ''}`}
-                </label>
-              )
-            }
-            <div className="checkbox-input-wrapper">
-              <input
-                id={id || name}
-                name={name}
-                type="checkbox"
-                checked={get(values, name)}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                disabled={disabled}
-                {...rest}
-              />
-              <label
-                htmlFor={name}
-                className="checkbox-text"
-              >
-                {text}
-              </label>
-            </div>
-            {
-              error && (
-                <span className="error">
-                  {error}
-                </span>
-              )
-            }
-            {
-              hint && (
-                <span className="hint">
-                  {hint}
-                </span>
-              )
-            }
-          </div>
+  return (
+    <div className={cx('form-element checkbox-wrapper', className, { hasError: !!error, disabled })}>
+      {
+        label && (
+          <label
+            htmlFor={name}
+            className="checkbox-label"
+          >
+            {`${label}${required ? ' *' : ''}`}
+          </label>
         )
       }
-    }
-  </FormikConsumer>
-)
+      <div className="checkbox-input-wrapper">
+        <input
+          id={id || name}
+          name={name}
+          type="checkbox"
+          checked={get(values, name)}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          disabled={disabled}
+          {...rest}
+        />
+        <label
+          htmlFor={name}
+          className="checkbox-text"
+        >
+          {text}
+        </label>
+      </div>
+      {
+        error && (
+          <span className="error">
+            {error}
+          </span>
+        )
+      }
+      {
+        hint && (
+          <span className="hint">
+            {hint}
+          </span>
+        )
+      }
+    </div>
+  )
+}
 
 Checkbox.propTypes = {
+  formik: PropTypes.object.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   hint: PropTypes.string,
@@ -93,4 +89,4 @@ Checkbox.defaultProps = {
   text: null,
 }
 
-export default Checkbox
+export default connect(Checkbox)

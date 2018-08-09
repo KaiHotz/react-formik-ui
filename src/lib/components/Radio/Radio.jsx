@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { FormikConsumer } from 'formik'
+import { connect } from 'formik'
 import { get } from '../../utils/helper'
 
 const Radio = ({
@@ -13,67 +13,63 @@ const Radio = ({
   name,
   options,
   required,
+  formik,
   ...rest
-}) => (
-  <FormikConsumer>
-    {
-      formik => {
-        const { touched, errors, values } = formik
-        const error = get(touched, name) && get(errors, name)
+}) => {
+  const { touched, errors, values } = formik
+  const error = get(touched, name) && get(errors, name)
 
-        return (
-          <div className={cx('form-element radio-wrapper', className, { hasError: !!error, disabled })}>
-            {
-              label && (
-                <label htmlFor={name}>
-                  {`${label}${required ? ' *' : ''}`}
-                </label>
-              )
-            }
-            {
-              options.map(option => (
-                <div key={option.label} className="radio-options">
-                  <input
-                    type="radio"
-                    checked={get(values, name) === option.value}
-                    id={id || (`${name}-id-${option.value}`)}
-                    value={option.value}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    name={name}
-                    disabled={disabled}
-                    {...rest}
-                  />
-                  <label
-                    htmlFor={id || (`${name}-id-${option.value}`)}
-                  >
-                    {option.label}
-                  </label>
-                </div>
-              ))
-            }
-            {
-              error && (
-                <span className="error">
-                  {error}
-                </span>
-              )
-            }
-            {
-              hint && (
-                <span className="hint">
-                  {hint}
-                </span>
-              )
-            }
-          </div>
+  return (
+    <div className={cx('form-element radio-wrapper', className, { hasError: !!error, disabled })}>
+      {
+        label && (
+          <label htmlFor={name}>
+            {`${label}${required ? ' *' : ''}`}
+          </label>
         )
       }
-    }
-  </FormikConsumer>
-)
+      {
+        options.map(option => (
+          <div key={option.label} className="radio-options">
+            <input
+              type="radio"
+              checked={get(values, name) === option.value}
+              id={id || (`${name}-id-${option.value}`)}
+              value={option.value}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              name={name}
+              disabled={disabled}
+              {...rest}
+            />
+            <label
+              htmlFor={id || (`${name}-id-${option.value}`)}
+            >
+              {option.label}
+            </label>
+          </div>
+        ))
+      }
+      {
+        error && (
+          <span className="error">
+            {error}
+          </span>
+        )
+      }
+      {
+        hint && (
+          <span className="hint">
+            {hint}
+          </span>
+        )
+      }
+    </div>
+  )
+}
 
 Radio.propTypes = {
+  formik: PropTypes.object.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   hint: PropTypes.string,
@@ -99,4 +95,4 @@ Radio.defaultProps = {
   required: false,
 }
 
-export default Radio
+export default connect(Radio)
