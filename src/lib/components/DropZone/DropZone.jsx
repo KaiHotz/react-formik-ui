@@ -40,14 +40,7 @@ const DropZone = ({
         disabled={disabled}
         onDrop={acceptedFiles => {
           if (acceptedFiles.length === 0) { return }
-          setFieldValue(name, values[name].concat(acceptedFiles))
-          setFieldTouched(name, true)
-        }}
-        {...rest}
-      >
-        {
-          ({ isDragActive, acceptedFiles, rejectedFiles }) => {
-            if (disabled) { return disabledText }
+
             if (isDragActive) { return zoneActiveText }
 
             return acceptedFiles.length || rejectedFiles.length

@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { get } from '../../utils/helper'
+import { connect } from 'formik'
+import _ from 'lodash'
 
 const Input = ({
   className,
@@ -13,52 +14,55 @@ const Input = ({
   placeholder,
   required,
   type,
+  formik,
   ...rest
-}, context) => {
-  const { formik } = context
-  const { touched, errors, values } = formik
-  const error = get(touched, name) && get(errors, name)
+}) => {
+  const {
+    touched, errors, values, handleChange, handleBlur,
+  } = formik
+  const error = _.get(touched, name, false) && _.get(errors, name, '')
 
   return (
     <div className={cx('form-element input-wrapper', className, { hasError: !!error, disabled })}>
       {
-        label &&
+        label && (
           <label htmlFor={name}>
             {`${label}${required ? ' *' : ''}`}
           </label>
+        )
       }
       <input
         id={id || name}
         name={name}
         type={type}
         placeholder={placeholder}
-        value={get(values, name, '')}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
+        value={_.get(values, name, '')}
+        onChange={handleChange}
+        onBlur={handleBlur}
         disabled={disabled}
         {...rest}
       />
       {
-        error &&
+        error && (
           <span className="error">
             {error}
           </span>
+        )
       }
       {
-        hint &&
+        hint && (
           <span className="hint">
             {hint}
           </span>
+        )
       }
     </div>
   )
 }
 
-Input.contextTypes = {
-  formik: PropTypes.shape({}),
-}
 
 Input.propTypes = {
+  formik: PropTypes.object.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   hint: PropTypes.string,
@@ -81,4 +85,4 @@ Input.defaultProps = {
   type: 'text',
 }
 
-export default Input
+export default connect(Input)

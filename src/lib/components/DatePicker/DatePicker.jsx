@@ -4,10 +4,12 @@ import moment from 'moment'
 import DatePickerCmp from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import cx from 'classnames'
+import { connect } from 'formik'
 import { get } from '../../utils/helper'
 
 class Datepicker extends Component {
   static propTypes = {
+    formik: PropTypes.object.isRequired,
     className: PropTypes.string,
     dateFormat: PropTypes.oneOfType([
       PropTypes.string,
@@ -21,10 +23,6 @@ class Datepicker extends Component {
     name: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
     required: PropTypes.bool,
-  }
-
-  static contextTypes = {
-    formik: PropTypes.shape({}),
   }
 
   static defaultProps = {
@@ -44,13 +42,12 @@ class Datepicker extends Component {
     required: false,
   }
 
-  handleChangeRaw = e => {
-    const { formik } = this.context
-    const { name, value } = e.target
+  handleChangeRaw = formik => event => {
+    const { name, value } = event.target
 
     const validChars = /^\d{0,2}[.]{0,1}\d{0,2}[.]{0,1}\d{0,4}$/
     if (!validChars.test(value)) {
-      e.preventDefault()
+      event.preventDefault()
 
       return
     }
@@ -67,8 +64,7 @@ class Datepicker extends Component {
     formik.setFieldTouched(name, true)
   }
 
-  handleChange = momentDate => {
-    const { formik } = this.context
+  handleChange = formik => momentDate => {
     const { name } = this.props
     const value = momentDate ? momentDate.format('YYYY-MM-DD') : ''
 
@@ -92,26 +88,29 @@ class Datepicker extends Component {
       name,
       placeholder,
       required,
+      formik,
       ...rest
     } = this.props
 
-    const { formik } = this.context
-    const { touched, errors, values } = formik
+
+    const {
+      touched, errors, values, handleBlur,
+    } = formik
     const momentDate = moment(get(values, name))
     const error = get(touched, name) && get(errors, name)
 
     return (
       <div className={cx('form-element datePicker-wrapper', className, { hasError: !!error, disabled })}>
         {
-          label &&
-          <label
-            htmlFor={name}
-            onClick={this.handleFocus(name)}
-            onKeyPress={this.handleFocus(name)}
-            role="none"
-          >
-            {`${label}${required ? ' *' : ''}`}
-          </label>
+          label && (
+            <label
+              htmlFor={name}
+              onClick={this.handleFocus(name)}
+              onKeyPress={this.handleFocus(name)}
+            >
+              {`${label}${required ? ' *' : ''}`}
+            </label>
+          )
         }
         <DatePickerCmp
           id={name}
@@ -122,27 +121,29 @@ class Datepicker extends Component {
           placeholderText={placeholder}
           dateFormat={dateFormat}
           disabledKeyboardNavigation
-          onChangeRaw={this.handleChangeRaw}
-          onChange={this.handleChange}
-          onBlur={formik.handleBlur}
+          onChangeRaw={this.handleChangeRaw(formik)}
+          onChange={this.handleChange(formik)}
+          onBlur={handleBlur}
           disabled={disabled}
           {...rest}
         />
         {
-          error &&
+          error && (
             <span className="error">
               {error}
             </span>
+          )
         }
         {
-          hint &&
-          <span className="hint">
-            { hint}
-          </span>
+          hint && (
+            <span className="hint">
+              { hint}
+            </span>
+          )
         }
       </div>
     )
   }
 }
 
-export default Datepicker
+export default connect(Datepicker)

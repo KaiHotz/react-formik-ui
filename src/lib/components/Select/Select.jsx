@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import { connect } from 'formik'
 import { get } from '../../utils/helper'
 
 const Select = ({
@@ -13,31 +14,35 @@ const Select = ({
   options,
   placeholder,
   required,
-}, context) => {
-  const { formik } = context
-  const { touched, errors, values } = formik
+  formik,
+}) => {
+  const {
+    touched, errors, values, handleChange,
+  } = formik
   const error = get(touched, name) && get(errors, name)
 
   return (
     <div className={cx('form-element select-wrapper', className, { hasError: !!error, disabled })} >
       {
-        label &&
-        <label htmlFor={name}>
-          {`${label}${required ? ' *' : ''}`}
-        </label>
+        label && (
+          <label htmlFor={name}>
+            {`${label}${required ? ' *' : ''}`}
+          </label>
+        )
       }
       <select
         id={id || name}
         name={name}
         value={get(values, name)}
         disabled={disabled}
-        onChange={formik.handleChange}
+        onChange={handleChange}
       >
         {
-          placeholder &&
+          placeholder && (
             <option value="">
               {placeholder}
             </option>
+          )
         }
         {
           options.map(option => (
@@ -47,30 +52,29 @@ const Select = ({
             >
               {option.label}
             </option>
-            ))
+          ))
         }
       </select>
       {
-        error &&
+        error && (
           <span className="error">
             {error}
           </span>
+        )
       }
       {
-        hint &&
+        hint && (
           <span className="hint">
             {hint}
           </span>
+        )
       }
     </div>
   )
 }
 
-Select.contextTypes = {
-  formik: PropTypes.shape({}),
-}
-
 Select.propTypes = {
+  formik: PropTypes.object.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   hint: PropTypes.string,
@@ -98,4 +102,4 @@ Select.defaultProps = {
   required: false,
 }
 
-export default Select
+export default connect(Select)

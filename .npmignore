@@ -17,7 +17,6 @@ yarn-error.log*
 
 # Development folders and files
 public
-src
 scripts
 config
 demo
