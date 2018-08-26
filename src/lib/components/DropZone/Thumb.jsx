@@ -50,5 +50,5 @@ class Thumb extends React.Component {
     )
   }
 }
-  
+
 export default Thumb

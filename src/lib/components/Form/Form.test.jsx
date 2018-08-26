@@ -1,14 +1,20 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
+import { shallow } from 'enzyme'
 import Form from './Form'
 
 describe('<Form />', () => {
+  const context = {
+    formik: {
+      handleSubmit: jest.fn(),
+    },
+  }
+
   const baseProps = {
     children: 'dwadaw',
   }
 
   it('should render', () => {
-    const wrapper = shallow(<Form {...baseProps} />)
+    const wrapper = shallow(<Form {...baseProps} />, { context })
 
     expect(wrapper).toBeDefined()
   })
@@ -18,14 +24,21 @@ describe('<Form />', () => {
       ...baseProps,
       className: 'Custom',
     }
-    const wrapper = mount(<Form {...props} />)
+    const wrapper = shallow(<Form {...props} />, { context })
 
-    expect(wrapper.find('form').hasClass(props.className)).toBe(true)
+    expect(wrapper.hasClass(props.className)).toBe(true)
   })
 
   it('should show children', () => {
-    const wrapper = mount(<Form {...baseProps} />)
+    const wrapper = shallow(<Form {...baseProps} />, { context })
 
-    expect(wrapper.find('form').text()).toBe(baseProps.children)
+    expect(wrapper.text()).toBe(baseProps.children)
+  })
+
+  it('should call onSubmit', () => {
+    const wrapper = shallow(<Form {...baseProps} />, { context })
+    wrapper.simulate('submit')
+
+    expect(context.formik.handleSubmit).toHaveBeenCalled()
   })
 })

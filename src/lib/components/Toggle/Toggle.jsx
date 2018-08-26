@@ -1,46 +1,45 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { connect } from 'formik'
 import Button from '../Button'
 import { get } from '../../utils/helper'
 import './styles.css'
 
 class Toggle extends Component {
   static propTypes = {
-    formik: PropTypes.object.isRequired,
     className: PropTypes.string,
     disabled: PropTypes.bool,
     name: PropTypes.string.isRequired,
   }
-
+  static contextTypes = {
+    formik: PropTypes.shape({}),
+  }
   static defaultProps = {
     className: null,
     disabled: false,
   }
 
-  handleChange = formik => () => {
+  handleChange = () => {
+    const { formik } = this.context
+    const { values } = formik
     const { name } = this.props
 
-    formik.setFieldValue(name, !get(formik.values, name))
+    formik.setFieldValue(name, !get(values, name))
     formik.setFieldTouched(name, true)
   }
 
   render() {
     const {
-      className,
-      disabled,
-      name,
-      formik,
-      ...rest
+      className, disabled, name, ...rest
     } = this.props
-
-    const active = get(formik.values, name)
+    const { formik } = this.context
+    const { values } = formik
+    const active = get(values, name)
 
     return (
       <Button
         className={cx('toggle-btn', { 'toggle-btn--active': active }, className)}
-        onClick={this.handleChange(formik)}
+        onClick={this.handleChange}
         disabled={disabled}
         role="switch"
         {...rest}
@@ -53,4 +52,4 @@ class Toggle extends Component {
   }
 }
 
-export default connect(Toggle)
+export default Toggle
