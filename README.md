@@ -57,7 +57,7 @@ React-Formik-UI has a Peer dependency of [Formik](https://github.com/jaredpalmer
 This means that you need to add [Formik](https://github.com/jaredpalmer/formik) to your project to make use of React-Formik-UI.</br>
 
 ```sh
-npm install --save formik
+npm install --save formik@1.0.0-alpha.6
 ```
 
 ### Form validatios

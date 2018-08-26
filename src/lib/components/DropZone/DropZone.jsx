@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { connect } from 'formik'
 import Dropzone from 'react-dropzone'
 import Thumb from './Thumb'
 import { get } from '../../utils/helper'
@@ -18,9 +17,9 @@ const DropZone = ({
   zoneActiveText,
   disabledText,
   placeholder,
-  formik,
   ...rest
-}) => {
+}, context) => {
+  const { formik } = context
   const {
     touched, errors, values, setFieldValue, setFieldTouched,
   } = formik
@@ -41,15 +40,6 @@ const DropZone = ({
         disabled={disabled}
         onDrop={acceptedFiles => {
           if (acceptedFiles.length === 0) { return }
-
-          setFieldValue(name, values[name].concat(acceptedFiles))
-          setFieldTouched(name, true)
-        }}
-        {...rest}
-      >
-        {
-          ({ isDragActive, acceptedFiles, rejectedFiles }) => {
-            if (disabled) { return disabledText }
 
             if (isDragActive) { return zoneActiveText }
 
@@ -83,9 +73,11 @@ const DropZone = ({
   )
 }
 
+DropZone.contextTypes = {
+  formik: PropTypes.shape({}),
+}
 
 DropZone.propTypes = {
-  formik: PropTypes.object.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   hint: PropTypes.string,
@@ -112,5 +104,4 @@ DropZone.defaultProps = {
   placeholder: 'Dropp some files here.',
 }
 
-export default connect(DropZone)
-
+export default DropZone
