@@ -42,7 +42,7 @@ React-Formik-UI has a Peer dependency of [Formik](https://github.com/jaredpalmer
 This means that you need to add [Formik](https://github.com/jaredpalmer/formik) to your project to make use of React-Formik-UI.</br>
 
 ```sh
-npm install --save formik
+npm install --save formik@1.0.0-alpha.6
 ```
 
 ### Form validatios
@@ -64,6 +64,7 @@ npm install --save yup
 - [Checkbox](#checkbox)
 - [Textarea](#textarea)
 - [DatePicker](#datepicker)
+- [DropZone](#dropzone)
 - [Button](#button)
 - [Toggle](#toggle)
 - [SubmitBtn](#submitbtn)
@@ -819,6 +820,132 @@ class Example extends Component {
 }
 ```
 
+## DropZone
+The DropZone component uses [react-dropzone](https://react-dropzone.js.org/) under the hood.</br>
+It renders with the classNames `form-element` and `dropzone-wrapper`.</br>
+A custom class can be passed through the `className` prop.</br>
+
+For aditional configuration options and layouts, please refere to [react-dropzone](https://react-dropzone.js.org/).</br>
+
+#### Props:
+<table style="font-size: 12px">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>accept</td>
+    <td>string</td>
+    <td>image/*</td>
+    <td>
+      Allow specific types of files. See https://github.com/okonet/attr-accept for more information. Keep in mind that mime type determination is not reliable across platforms. CSV files, for example, are reported as text/plain under macOS but as application/vnd.ms-excel under Windows. In some cases there might not be a mime type set at all. See: https://github.com/react-dropzone/react-dropzone/issues/276
+    </td>
+  </tr>
+  <tr>
+    <td>className</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Adds a custom class to the DropZone wrapper div</td>
+  </tr>
+  <tr>
+    <td>disabled</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Disables the DropZone Field</td>
+  </tr>
+  <tr>
+    <td>disabledText</td>
+    <td>string</td>
+    <td>File upload disabled</td>
+    <td>text shown as placeholder if DropZone is disabled</td>
+  </tr>
+  <tr>
+    <td>hint</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets a hint text after/below the DropZone Field</td>
+  </tr>
+  <tr>
+    <td>label</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets the main Label for the DropZone Field</td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>string</td>
+    <td>Required</td>
+    <td>Sets the Name of the DropZone Field</td>
+  </tr>
+  <tr>
+    <td>placeholder</td>
+    <td>string</td>
+    <td>Dropp some files here.</td>
+    <td>Sets the Placeholder text</td>
+  </tr>
+  <tr>
+    <td>required</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
+  </tr>
+  <tr>
+    <td>zoneActiveText</td>
+    <td>string</td>
+    <td>Drop file(s) here</td>
+    <td>Sets the text to be shown when draging files over the drop zone </td>
+  </tr>
+</table>
+
+#### Code example:
+```jsx
+import React, { Component } from 'react'
+import { Formik } from 'formik'
+import * as yup from 'yup';
+
+import Form, { DropZone, SubmitBtn } from 'react-formik-ui'
+
+class Example extends Component {
+
+  onSubmit = data => {
+    // here you hanlde the data to be submited
+  }
+
+  // example of validation with yup
+  getSchema = () => {
+    return yup.object().shape({
+      files: yup
+        .array()
+    })
+  }
+
+  render () {
+    return (
+      <Formik
+        initialValues={{
+          files: []
+        }}
+        validationSchema={this.getSchema}
+        onSubmit={this.onSubmit}
+        render={() => (
+          <Form styled>
+
+              <DropZone
+                name='files'
+                label='Image upload'
+              />
+
+            <SubmitBtn />
+          </Form>
+        )}
+      />
+    )
+  }
+}
+```
+
 ## Button
 The Button component renders with the className `btn`.</br>
 A custom class can be passed through the `className` prop.</br>
@@ -1050,8 +1177,9 @@ class Example extends Component {
 
 ## Complete Form Example
 ```jsx
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Formik } from 'formik'
+import *  as yup from 'yup'
 import Form, {
   Input,
   Datepicker,
@@ -1062,14 +1190,13 @@ import Form, {
   Button,
   SubmitBtn,
   Toggle,
-} from 'react-formik-ui'
-
-import * as yup from 'yup';
+  DropZone,
+} from './components'
+import logo from './logo.svg';
+import './App.css';
 
 class ExampleForm extends Component {
-
   onSubmit = data => {
-    // here you hanlde the data to be submited
     console.log(data)
   }
 
@@ -1091,7 +1218,8 @@ class ExampleForm extends Component {
       birthDay: yup
         .date(),
       maritalStatus: yup
-        .string(),
+        .string()
+        .nullable(),
       driverLicense: yup
         .boolean(),
       pets: yup
@@ -1099,6 +1227,9 @@ class ExampleForm extends Component {
       income: yup
         .string()
         .required('Income is required'),
+      files: yup
+        .array()
+        .required('Image is required'),
       additionalInfo: yup
         .string(),
       termsAndConitions: yup
@@ -1123,111 +1254,118 @@ class ExampleForm extends Component {
           email: '',
           birthDay: '',
           maritalStatus: '',
-          dropdown: '',
           driverLicense: false,
           pets: false,
           income: '',
+          files: [],
           additionalInfo: '',
           termsAndConitions: false,
         }}
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
-        render={({ values }) => (
-          <Form styled>
-            <fieldset>
-              <legend>Form Example:</legend>
+        render={({ values }) => {
+          return (
+            <Form styled>
+              <fieldset>
+                <legend>Form Example:</legend>
 
-              <Radio
-                name='salutation'
-                label='Salutation'
-                options={[
-                  { value: 'Mr', label: 'Mr.' },
-                  { value: 'Mrs', label: 'Mrs.' },
-                  { value: 'Ms', label: 'Ms.' }
-                ]}
-              />
+                <Radio
+                  name='salutation'
+                  label='Salutation'
+                  options={[
+                    { value: 'Mr', label: 'Mr.' },
+                    { value: 'Mrs', label: 'Mrs.' },
+                    { value: 'Ms', label: 'Ms.' }
+                  ]}
+                />
 
-              <Input
-                name='firstName'
-                label='First name'
-                required
-              />
+                <Input
+                  name='firstName'
+                  label='First name'
+                  required
+                />
 
-              <Input
-                name='lastName'
-                label='Last name'
-                required
-              />
+                <Input
+                  name='lastName'
+                  label='Last name'
+                  required
+                />
 
-              <Input
-                name='email'
-                label='Enter your Email'
-                required
-              />
+                <Input
+                  name='email'
+                  label='Enter your Email'
+                  required
+                />
 
-              <Datepicker
-                name='birthDay'
-                label='Birthday'
-                dateFormat='D.M.YYYY'
-                placeholder='D.M.YYYY'
-                hint='Please enter your birth date'
-              />
+                <Datepicker
+                  name='birthDay'
+                  label='Birthday'
+                  dateFormat='D.M.YYYY'
+                  placeholder='D.M.YYYY'
+                  hint='Please enter your birth date'
+                />
 
-              <Select
-                name='maritalStatus'
-                label='Marital Status'
-                placeholder='Select an Option'
-                options={[
-                  { value: '1', label: 'Married' },
-                  { value: '2', label: 'Single' },
-                  { value: '3', label: 'Divorced' },
-                  { value: '4', label: 'Widowed' }
-                ]}
-              />
+                <Select
+                  name='maritalStatus'
+                  label='Marital Status'
+                  placeholder='Select an Option'
+                  options={[
+                    { value: '1', label: 'Married' },
+                    { value: '2', label: 'Single' },
+                    { value: '3', label: 'Divorced' },
+                    { value: '4', label: 'Widowed' }
+                  ]}
+                />
 
-              <div style={styledDiv}>
-                <div>
-                  {`Do you have a drivers license ? ${values.driverLicense ? 'Yes' : 'No'}`}
+                <div style={styledDiv}>
+                  <div>
+                    {`Do you have a drivers license ? ${values.driverLicense ? 'Yes' : 'No'}`}
+                  </div>
+                  <Toggle name='driverLicense' />
                 </div>
-                <Toggle name='driverLicense'/>
-              </div>
 
-              <div style={styledDiv}>
-                <div>
-                  {`Do you own pets ? ${values.pets ? 'Yes' : 'No'}`}
+                <div style={styledDiv}>
+                  <div>
+                    {`Do you own pets ? ${values.pets ? 'Yes' : 'No'}`}
+                  </div>
+                  <Toggle name='pets' />
                 </div>
-                <Toggle name='pets'/>
-              </div>
 
-              <Input
-                name='income'
-                label={`What is your monthly income $${values.income}`}
-                type='range'
-                min='0'
-                max='10000'
-                step='500'
-                required
-              />
+                <Input
+                  name='income'
+                  label={`What is your monthly income $${values.income}`}
+                  type='range'
+                  min='0'
+                  max='10000'
+                  step='500'
+                  required
+                />
 
-              <Textarea
-                name='additionalInfo'
-                label='Aditional information'
-                hint='this is optional'
-              />
+                <DropZone
+                  name='files'
+                  label='File upload'
+                />
 
-              <Checkbox
-                name='termsAndConitions'
-                label='Terms and Conditions'
-                text='Click to accept the terms and conditions'
-              />
+                <Textarea
+                  name='additionalInfo'
+                  label='Aditional information'
+                  hint='this is optional'
+                />
 
-              <SubmitBtn disabled={!values.termsAndConitions} />
-              <Button onClick={(() => alert('Cancel'))}>Cancel</Button>
-            </fieldset>
-          </Form>
-        )}
+                <Checkbox
+                  name='termsAndConitions'
+                  label='Terms and Conditions'
+                  text='Click to accept the terms and conditions'
+                />
+
+                <SubmitBtn disabled={!values.termsAndConitions} />
+                <Button onClick={(() => alert('Cancel'))}>Cancel</Button>
+              </fieldset>
+            </Form>
+          );
+        }}
       />
-    )
+    );
   }
 }
 
