@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { connect } from 'formik'
-import { get } from '../../utils/helper'
+import _ from 'lodash'
 
 const Input = ({
   className,
@@ -20,7 +20,7 @@ const Input = ({
   const {
     touched, errors, values, handleChange, handleBlur,
   } = formik
-  const error = get(touched, name) && get(errors, name)
+  const error = _.get(touched, name, false) && _.get(errors, name, '')
 
   return (
     <div className={cx('form-element input-wrapper', className, { hasError: !!error, disabled })}>
@@ -36,7 +36,7 @@ const Input = ({
         name={name}
         type={type}
         placeholder={placeholder}
-        value={get(values, name, '')}
+        value={_.get(values, name, '')}
         onChange={handleChange}
         onBlur={handleBlur}
         disabled={disabled}
