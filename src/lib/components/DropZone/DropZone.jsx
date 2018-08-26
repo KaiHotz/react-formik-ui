@@ -85,7 +85,6 @@ DropZone.contextTypes = {
 }
 
 DropZone.propTypes = {
-  formik: PropTypes.object.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   hint: PropTypes.string,
