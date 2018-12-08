@@ -103,7 +103,7 @@ You don't need to pass an `onSubmit` handler, since this is already handled unde
 ```jsx
 import React, { Component } from 'react'
 import { Formik } from 'formik'
-import Form from 'react-formik-ui'
+import { Form } from 'react-formik-ui'
 
 class Example extends Component {
 
@@ -202,7 +202,7 @@ import React, { Component } from 'react'
 import { Formik } from 'formik'
 import * as yup from 'yup';
 
-import Form, { Input, SubmitBtn } from 'react-formik-ui'
+import { Form, Input, SubmitBtn } from 'react-formik-ui'
 
 class Example extends Component {
 
@@ -321,7 +321,7 @@ import React, { Component } from 'react'
 import { Formik } from 'formik'
 import * as yup from 'yup';
 
-import Form, { Select, SubmitBtn } from 'react-formik-ui'
+import { Form, Select, SubmitBtn } from 'react-formik-ui'
 
 class Example extends Component {
 
@@ -430,7 +430,7 @@ import React, { Component } from 'react'
 import { Formik } from 'formik'
 import * as yup from 'yup';
 
-import Form, { Radio, SubmitBtn } from 'react-formik-ui'
+import { Form, Radio, SubmitBtn } from 'react-formik-ui'
 
 class Example extends Component {
 
@@ -544,7 +544,7 @@ import React, { Component } from 'react'
 import { Formik } from 'formik'
 import * as yup from 'yup';
 
-import Form, { Checkbox, SubmitBtn } from 'react-formik-ui'
+import { Form, Checkbox, SubmitBtn } from 'react-formik-ui'
 
 class Example extends Component {
 
@@ -654,7 +654,7 @@ import React, { Component } from 'react'
 import { Formik } from 'formik'
 import * as yup from 'yup';
 
-import Form, { Textarea, SubmitBtn } from 'react-formik-ui'
+import { Form, Textarea, SubmitBtn } from 'react-formik-ui'
 
 class Example extends Component {
 
@@ -779,7 +779,7 @@ import React, { Component } from 'react'
 import { Formik } from 'formik'
 import * as yup from 'yup';
 
-import Form, { Datepicker, SubmitBtn } from 'react-formik-ui'
+import { Form, Datepicker, SubmitBtn } from 'react-formik-ui'
 
 class Example extends Component {
 
@@ -905,7 +905,7 @@ import React, { Component } from 'react'
 import { Formik } from 'formik'
 import * as yup from 'yup';
 
-import Form, { DropZone, SubmitBtn } from 'react-formik-ui'
+import { Form, DropZone, SubmitBtn } from 'react-formik-ui'
 
 class Example extends Component {
 
@@ -996,7 +996,7 @@ import React, { Component } from 'react'
 import { Formik } from 'formik'
 import * as yup from 'yup';
 
-import Form, { Button } from 'react-formik-ui'
+import { Form, Button } from 'react-formik-ui'
 
 class Example extends Component {
 
@@ -1064,7 +1064,7 @@ import React, { Component } from 'react'
 import { Formik } from 'formik'
 import * as yup from 'yup';
 
-import Form, { Toggle, SubmitBtn } from 'react-formik-ui'
+import { Form, Toggle, SubmitBtn } from 'react-formik-ui'
 
 class Example extends Component {
 
@@ -1148,7 +1148,7 @@ import React, { Component } from 'react'
 import { Formik } from 'formik'
 import * as yup from 'yup';
 
-import Form, { SubmitBtn } from 'react-formik-ui'
+import { Form, SubmitBtn } from 'react-formik-ui'
 
 class Example extends Component {
 
@@ -1180,7 +1180,8 @@ class Example extends Component {
 import React, { Component } from 'react';
 import { Formik } from 'formik'
 import *  as yup from 'yup'
-import Form, {
+import {
+  Form,
   Input,
   Datepicker,
   Select,
