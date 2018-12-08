@@ -1,7 +1,7 @@
 const path = require('path')
 
 const {
-  createConfig, babel, css, sass, setOutput, match, file,
+  createConfig, babel, css, sass, match, file,
 } = require('webpack-blocks')
 
 module.exports = {
@@ -36,7 +36,6 @@ module.exports = {
     },
   },
   webpackConfig: createConfig([
-    setOutput('./build/bundle.js'),
     babel(),
     css(),
     sass(),
