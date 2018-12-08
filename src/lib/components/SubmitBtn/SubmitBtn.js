@@ -6,13 +6,14 @@ const SubmitBtn = ({
   className,
   disabled,
   text,
-  type,
+  value,
   ...rest
 }, context) => (
   <button
     className={cx('btn submit-btn', className, { disabled })}
     onClick={context.formik.handleSubmit}
-    type={type}
+    type="submit"
+    value={value}
     disabled={disabled}
     {...rest}
   >
@@ -27,18 +28,21 @@ SubmitBtn.contextTypes = {
 SubmitBtn.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node,
+  ]),
   text: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.node,
   ]),
-  type: PropTypes.string,
 }
 
 SubmitBtn.defaultProps = {
   className: null,
   disabled: false,
+  value: null,
   text: 'Submit',
-  type: 'submit',
 }
 
 export default SubmitBtn

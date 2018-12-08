@@ -74,7 +74,19 @@ Input.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
-  type: PropTypes.string,
+  type: PropTypes.oneOf([
+    'text',
+    'color',
+    'email',
+    'hidden',
+    'image',
+    'number',
+    'password',
+    'range',
+    'search',
+    'tel',
+    'url'
+  ]),
 }
 
 Input.defaultProps = {

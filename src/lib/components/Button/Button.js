@@ -29,7 +29,7 @@ Button.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
-  type: PropTypes.string,
+  type: PropTypes.oneOf(['button', 'reset']),
 }
 
 Button.defaultProps = {
