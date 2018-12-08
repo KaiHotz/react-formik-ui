@@ -1,9 +1,9 @@
 .git
+.npmrc
+.yarnrc
 build
-coverage
+dist
 node_modules
-
-.git/*
-build/*
-coverage/*
-node_modules/*
+coverage
+scripts
+styleguide

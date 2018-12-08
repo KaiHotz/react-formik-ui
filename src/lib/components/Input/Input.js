@@ -1,9 +1,10 @@
+/*eslint-disable*/
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { get } from '../../utils/helper'
 
-const Textarea = ({
+const Input = ({
   className,
   disabled,
   hint,
@@ -12,6 +13,7 @@ const Textarea = ({
   name,
   placeholder,
   required,
+  type,
   ...rest
 }, context) => {
   const { formik } = context
@@ -19,15 +21,19 @@ const Textarea = ({
   const error = get(touched, name) && get(errors, name)
 
   return (
-    <div className={cx('form-element textarea-wrapper', className, { hasError: !!error, disabled })}>
-      {label &&
-      <label htmlFor={name}>
-        {label} {required ? '*' : ''}
-      </label>
+    <div className={cx('form-element input-wrapper', className, { hasError: !!error, disabled })}>
+      {
+        label
+          && (
+          <label htmlFor={name}>
+            {`${label}${required ? ' *' : ''}`}
+          </label>
+          )
       }
-      <textarea
+      <input
         id={id || name}
         name={name}
+        type={type}
         placeholder={placeholder}
         value={get(values, name, '')}
         onChange={formik.handleChange}
@@ -36,26 +42,30 @@ const Textarea = ({
         {...rest}
       />
       {
-        error &&
+        error
+          && (
           <span className="error">
             {error}
           </span>
+          )
       }
       {
-        hint &&
+        hint
+          && (
           <span className="hint">
             {hint}
           </span>
+          )
       }
     </div>
   )
 }
 
-Textarea.contextTypes = {
+Input.contextTypes = {
   formik: PropTypes.shape({}),
 }
 
-Textarea.propTypes = {
+Input.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
   hint: PropTypes.string,
@@ -64,9 +74,10 @@ Textarea.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
+  type: PropTypes.string,
 }
 
-Textarea.defaultProps = {
+Input.defaultProps = {
   className: null,
   disabled: false,
   hint: null,
@@ -74,6 +85,7 @@ Textarea.defaultProps = {
   label: null,
   placeholder: null,
   required: false,
+  type: 'text',
 }
 
-export default Textarea
+export default Input

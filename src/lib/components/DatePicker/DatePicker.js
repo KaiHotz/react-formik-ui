@@ -103,15 +103,17 @@ class Datepicker extends Component {
     return (
       <div className={cx('form-element datePicker-wrapper', className, { hasError: !!error, disabled })}>
         {
-          label &&
+          label
+          && (
           <label
             htmlFor={name}
             onClick={this.handleFocus(name)}
             onKeyPress={this.handleFocus(name)}
-            role="none"
+            role="row"
           >
             {`${label}${required ? ' *' : ''}`}
           </label>
+          )
         }
         <DatePickerCmp
           id={name}
@@ -129,16 +131,20 @@ class Datepicker extends Component {
           {...rest}
         />
         {
-          error &&
+          error
+            && (
             <span className="error">
               {error}
             </span>
+            )
         }
         {
-          hint &&
+          hint
+          && (
           <span className="hint">
             { hint}
           </span>
+          )
         }
       </div>
     )

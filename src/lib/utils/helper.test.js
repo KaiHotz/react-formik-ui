@@ -1,4 +1,4 @@
-import { get } from './helper'
+import { get } from './helper';
 
 describe('Helper', () => {
   it('should work', () => {
@@ -11,9 +11,9 @@ describe('Helper', () => {
           title: 'felix',
         },
       ],
-    }
+    };
 
-    expect(get(obj, 'name.first')).toBe(obj.name.first)
-    expect(get(obj, 'queries[0].title')).toBe(obj.queries[0].title)
-  })
-})
+    expect(get(obj, 'name.first')).toBe(obj.name.first);
+    expect(get(obj, 'queries[0].title')).toBe(obj.queries[0].title);
+  });
+});

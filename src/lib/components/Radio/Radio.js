@@ -20,10 +20,12 @@ const Radio = ({
   return (
     <div className={cx('form-element radio-wrapper', className, { hasError: !!error, disabled })}>
       {
-        label &&
+        label
+          && (
           <label htmlFor={name}>
             {`${label}${required ? ' *' : ''}`}
           </label>
+          )
       }
       {options.map(option => (
         <div key={option.label} className="radio-options">
@@ -46,16 +48,20 @@ const Radio = ({
         </div>
       ))}
       {
-        error &&
+        error
+          && (
           <span className="error">
             {error}
           </span>
+          )
       }
       {
-        hint &&
+        hint
+          && (
           <span className="hint">
             {hint}
           </span>
+          )
       }
     </div>
   )

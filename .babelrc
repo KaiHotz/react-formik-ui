@@ -1,43 +1,26 @@
 {
   "presets": [
-    "react",
-    "env",
-    "stage-1"
-  ],
-  "plugins": [
-    "transform-object-rest-spread",
-    "transform-class-properties"
+    [
+      "@babel/preset-env",
+      {
+        "modules": false
+      }
+    ],
+    "@babel/preset-react"
   ],
   "env": {
-    "production": {
-      "presets": [
-        ["env", {
-          "targets": {
-            "browsers": "last 2 Chrome versions"
-          },
-          "useBuiltIns": true
-        }]
-      ]
-    },
-    "development": {
-      "presets": [
-        ["env", {
-          "targets": {
-            "browsers": "last 2 Chrome versions"
-          },
-          "useBuiltIns": true
-        }]
-      ]
-    },
     "test": {
       "presets": [
-        ["env", {
-          "targets": {
-            "node": "current"
-          },
-          "useBuiltIns": true
-        }]
+        [
+          "react-app"
+        ]
       ]
     }
-  }
+  },
+  "plugins": [
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-proposal-optional-chaining",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-class-properties"
+  ]
 }

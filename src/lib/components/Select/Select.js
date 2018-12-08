@@ -19,12 +19,14 @@ const Select = ({
   const error = get(touched, name) && get(errors, name)
 
   return (
-    <div className={cx('form-element select-wrapper', className, { hasError: !!error, disabled })} >
+    <div className={cx('form-element select-wrapper', className, { hasError: !!error, disabled })}>
       {
-        label &&
+        label
+        && (
         <label htmlFor={name}>
           {`${label}${required ? ' *' : ''}`}
         </label>
+        )
       }
       <select
         id={id || name}
@@ -34,10 +36,12 @@ const Select = ({
         onChange={formik.handleChange}
       >
         {
-          placeholder &&
+          placeholder
+            && (
             <option value="">
               {placeholder}
             </option>
+            )
         }
         {
           options.map(option => (
@@ -47,20 +51,24 @@ const Select = ({
             >
               {option.label}
             </option>
-            ))
+          ))
         }
       </select>
       {
-        error &&
+        error
+          && (
           <span className="error">
             {error}
           </span>
+          )
       }
       {
-        hint &&
+        hint
+          && (
           <span className="hint">
             {hint}
           </span>
+          )
       }
     </div>
   )

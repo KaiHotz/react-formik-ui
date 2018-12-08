@@ -21,13 +21,15 @@ const Checkbox = ({
   return (
     <div className={cx('form-element checkbox-wrapper', className, { hasError: !!error, disabled })}>
       {
-        label &&
+        label
+          && (
           <label
             htmlFor={name}
             className="checkbox-label"
           >
             {`${label}${required ? ' *' : ''}`}
           </label>
+          )
       }
       <div className="checkbox-input-wrapper">
         <input
@@ -48,16 +50,20 @@ const Checkbox = ({
         </label>
       </div>
       {
-        error &&
+        error
+          && (
           <span className="error">
             {error}
           </span>
+          )
       }
       {
-        hint &&
+        hint
+          && (
           <span className="hint">
             {hint}
           </span>
+          )
       }
     </div>
   )
