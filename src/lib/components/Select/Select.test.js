@@ -3,7 +3,6 @@ import { shallow, mount } from 'enzyme'
 
 import Select from './Select'
 
-
 describe('<Select />', () => {
   const context = {
     formik: {
@@ -65,7 +64,6 @@ describe('<Select />', () => {
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)
   })
-
 
   it('should be disabled', () => {
     const wrapper = shallow(<Select {...baseProps} disabled />, { context })

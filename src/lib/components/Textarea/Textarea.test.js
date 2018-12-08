@@ -3,7 +3,6 @@ import { shallow, mount } from 'enzyme'
 
 import Textarea from './Textarea'
 
-
 describe('<Textarea />', () => {
   const context = {
     formik: {
