@@ -73,7 +73,7 @@ const  getSchema = () => {
   return (
     <Form styled>
       <fieldset>
-        <legend>All together:</legend>
+        <legend>Complete Form Example</legend>
 
           <Radio
             name='salutation'

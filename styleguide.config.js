@@ -15,17 +15,9 @@ module.exports = {
       link: '#1978c8',
       linkHover: '#00adef',
     },
-    fontFamily: {
-      base: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
-    },
+    font: ['Helvetica', 'sans-serif'],
   },
   styles: {
-    StyleGuide: {
-      content: {
-        maxWidth: 1000,
-        margin: 0,
-      },
-    },
     Heading: {
       heading2: {
         fontSize: 26,
@@ -34,6 +26,9 @@ module.exports = {
     ReactComponent: {
       root: {
         marginBottom: 20,
+      },
+      header: {
+        marginBottom: 0,
       },
       tabs: {
         marginBottom: 0,
