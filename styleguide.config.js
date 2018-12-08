@@ -5,7 +5,7 @@ const {
 } = require('webpack-blocks')
 
 module.exports = {
-  title: 'React Formik UI',
+  title: 'React Formik UI v0.3.0',
   components: 'src/lib/components/**/*.{js,jsx,ts,tsx}',
   showSidebar: true,
   usageMode: 'collapse',
