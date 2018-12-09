@@ -1,11 +1,12 @@
 const path = require('path')
-
 const {
   createConfig, babel, css, sass, match, file,
 } = require('webpack-blocks')
 
+const pkg = require('./package.json')
+
 module.exports = {
-  title: 'React Formik UI v0.3.1',
+  title: `React Formik UI v${pkg.version}`,
   components: 'src/lib/components/**/*.{js,jsx,ts,tsx}',
   showSidebar: true,
   usageMode: 'collapse',
