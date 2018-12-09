@@ -1,11 +1,9 @@
 ```jsx
-const onSubmit = data => (alert(JSON.stringify(data)));
-
 <Formik
   initialValues={{
     testFiled: 'Data was submitted'
   }}
-  onSubmit={onSubmit}
+  onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
     <Form styled>
 

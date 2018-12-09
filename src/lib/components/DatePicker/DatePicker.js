@@ -105,14 +105,14 @@ class Datepicker extends Component {
         {
           label
           && (
-          <label
-            htmlFor={name}
-            onClick={this.handleFocus(name)}
-            onKeyPress={this.handleFocus(name)}
-            role="row"
-          >
-            {`${label}${required ? ' *' : ''}`}
-          </label>
+            <label
+              htmlFor={name}
+              onClick={this.handleFocus(name)}
+              onKeyPress={this.handleFocus(name)}
+              role="row"
+            >
+              {`${label}${required ? ' *' : ''}`}
+            </label>
           )
         }
         <DatePickerCmp
@@ -126,24 +126,23 @@ class Datepicker extends Component {
           disabledKeyboardNavigation
           onChangeRaw={this.handleChangeRaw}
           onChange={this.handleChange}
-          onBlur={formik.handleBlur}
           disabled={disabled}
           {...rest}
         />
         {
           error
-            && (
+          && (
             <span className="error">
               {error}
             </span>
-            )
+          )
         }
         {
           hint
           && (
-          <span className="hint">
-            { hint}
-          </span>
+            <span className="hint">
+              {hint}
+            </span>
           )
         }
       </div>

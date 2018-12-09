@@ -3,6 +3,7 @@
   initialValues={{
     files: []
   }}
+  onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
     <Form styled>
 

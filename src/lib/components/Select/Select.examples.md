@@ -3,6 +3,7 @@
   initialValues={{
     dropdown: ''
   }}
+  onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
     <Form styled>
 

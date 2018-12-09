@@ -30,7 +30,7 @@ describe('<Button />', () => {
   it('should have custom type', () => {
     const props = {
       ...baseProps,
-      type: 'search',
+      type: 'reset',
     }
     const wrapper = shallow(<Button {...props} />)
 

@@ -3,6 +3,7 @@
   initialValues={{
     radioOptions: ''
   }}
+  onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
     <Form styled>
 

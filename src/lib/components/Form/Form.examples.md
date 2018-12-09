@@ -1,22 +1,4 @@
-### Form component
-```jsx
-<Formik
-  render={() => {
-  return (
-    <Form styled>
-
-      <Input
-        name='firstName'
-        label='First name'
-        required
-      />
-
-    </Form>
-  )}}
-/>
-```
-
-### All together
+#### All together
 ```jsx
 const onSubmit = data => (alert(JSON.stringify(data)));
 

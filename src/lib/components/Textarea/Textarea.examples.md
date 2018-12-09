@@ -3,6 +3,7 @@
   initialValues={{
     comment: ''
   }}
+  onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
     <Form styled>
 
