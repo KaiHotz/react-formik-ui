@@ -45,7 +45,7 @@ This means that you need to add [Formik](https://github.com/jaredpalmer/formik) 
 npm install --save formik@1.0.0-alpha.6
 ```
 
-### Form validatios
+### Form validations
 To validate the form fields, the use of [Yup](https://github.com/jquense/yup) is recommended.
 
 ```sh
