@@ -8,6 +8,7 @@
     "type": "git",
     "url": "git@github.com:KaiHotz/react-formik-ui.git"
   },
+  "homepage": "https://KaiHotz.github.io/react-formik-ui",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
