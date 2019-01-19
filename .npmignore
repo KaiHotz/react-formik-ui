@@ -30,6 +30,7 @@ coverage
 config
 demo
 public
+build
 src
 build
 scripts
