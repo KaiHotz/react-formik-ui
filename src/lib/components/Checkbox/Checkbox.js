@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { get } from '../../utils/helper'
+import { connect, getIn } from 'formik'
 
-const Checkbox = ({
+export const Checkbox = ({
+  formik,
   className,
   disabled,
   hint,
@@ -13,13 +14,14 @@ const Checkbox = ({
   required,
   text,
   ...rest
-}, context) => {
-  const { formik } = context
+}) => {
   const { touched, errors, values } = formik
-  const error = get(touched, name) && get(errors, name)
+  const error = getIn(errors, name)
+  const touch = getIn(touched, name)
+  const errorMsg = touch && error ? error : null
 
   return (
-    <div className={cx('form-element checkbox-wrapper', className, { hasError: !!error, disabled })}>
+    <div className={cx('form-element checkbox-wrapper', className, { hasError: !!errorMsg, disabled })}>
       {
         label
           && (
@@ -36,7 +38,7 @@ const Checkbox = ({
           id={id || name}
           name={name}
           type="checkbox"
-          checked={get(values, name)}
+          checked={getIn(values, name)}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           disabled={disabled}
@@ -50,10 +52,10 @@ const Checkbox = ({
         </label>
       </div>
       {
-        error
+        errorMsg
           && (
           <span className="error">
-            {error}
+            {errorMsg}
           </span>
           )
       }
@@ -69,11 +71,8 @@ const Checkbox = ({
   )
 }
 
-Checkbox.contextTypes = {
-  formik: PropTypes.shape({}),
-}
-
 Checkbox.propTypes = {
+  formik: PropTypes.shape({}).isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   hint: PropTypes.string,
@@ -94,4 +93,4 @@ Checkbox.defaultProps = {
   text: null,
 }
 
-export default Checkbox
+export default connect(Checkbox)

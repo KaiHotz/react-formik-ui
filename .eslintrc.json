@@ -34,6 +34,7 @@
     "jest/globals": true
   },
   "rules": {
+    "import/no-named-as-default": 0,
     "camelcase": 0,
     "react/button-has-type": 0,
     "semi": [

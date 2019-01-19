@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { get } from '../../utils/helper'
+import { connect, getIn } from 'formik'
 
-const Radio = ({
+export const Radio = ({
+  formik,
   className,
   disabled,
   hint,
@@ -12,10 +13,11 @@ const Radio = ({
   options,
   required,
   ...rest
-}, context) => {
-  const { formik } = context
+}) => {
   const { touched, errors, values } = formik
-  const error = get(touched, name) && get(errors, name)
+  const error = getIn(errors, name)
+  const touch = getIn(touched, name)
+  const errorMsg = touch && error ? error : null
 
   return (
     <div className={cx('form-element radio-wrapper', className, { hasError: !!error, disabled })}>
@@ -31,7 +33,7 @@ const Radio = ({
         <div key={option.label} className="radio-options">
           <input
             type="radio"
-            checked={get(values, name) === option.value}
+            checked={getIn(values, name) === option.value}
             id={`${name}-id-${option.value}`}
             value={option.value}
             onChange={formik.handleChange}
@@ -48,10 +50,10 @@ const Radio = ({
         </div>
       ))}
       {
-        error
+        errorMsg
           && (
           <span className="error">
-            {error}
+            {errorMsg}
           </span>
           )
       }
@@ -67,11 +69,8 @@ const Radio = ({
   )
 }
 
-Radio.contextTypes = {
-  formik: PropTypes.shape({}),
-}
-
 Radio.propTypes = {
+  formik: PropTypes.shape({}).isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   hint: PropTypes.string,
@@ -95,4 +94,4 @@ Radio.defaultProps = {
   required: false,
 }
 
-export default Radio
+export default connect(Radio)

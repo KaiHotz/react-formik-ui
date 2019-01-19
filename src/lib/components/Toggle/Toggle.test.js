@@ -1,9 +1,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Toggle from './Toggle'
+import { Toggle } from './Toggle'
 
 describe('<Toggle />', () => {
-  const context = {
+  const baseProps = {
+    name: 'toggleTest',
     formik: {
       handleChange: jest.fn(),
       handleBlur: jest.fn(),
@@ -17,12 +18,8 @@ describe('<Toggle />', () => {
     },
   }
 
-  const baseProps = {
-    name: 'toggleTest',
-  }
-
   it('should render', () => {
-    const wrapper = shallow(<Toggle {...baseProps} />, { context })
+    const wrapper = shallow(<Toggle {...baseProps} />)
 
     expect(wrapper).toBeDefined()
   })
@@ -32,21 +29,21 @@ describe('<Toggle />', () => {
       ...baseProps,
       className: 'Custom',
     }
-    const wrapper = shallow(<Toggle {...props} />, { context })
+    const wrapper = shallow(<Toggle {...props} />)
 
     expect(wrapper.hasClass(props.className)).toBe(true)
   })
 
   it('should call handleChange', () => {
-    const wrapper = shallow(<Toggle {...baseProps} />, { context })
+    const wrapper = shallow(<Toggle {...baseProps} />)
     wrapper.instance().handleChange()
 
-    expect(context.formik.setFieldValue).toHaveBeenCalled()
-    expect(context.formik.setFieldTouched).toHaveBeenCalled()
+    expect(baseProps.formik.setFieldValue).toHaveBeenCalled()
+    expect(baseProps.formik.setFieldTouched).toHaveBeenCalled()
   })
 
   it('should be disabled', () => {
-    const wrapper = shallow(<Toggle {...baseProps} disabled />, { context })
+    const wrapper = shallow(<Toggle {...baseProps} disabled />)
 
     expect(wrapper.prop('disabled')).toBe(true)
   })

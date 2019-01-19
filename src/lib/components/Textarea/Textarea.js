@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { get } from '../../utils/helper'
+import { connect, getIn } from 'formik'
 
-const Textarea = ({
+export const Textarea = ({
+  formik,
   className,
   disabled,
   hint,
@@ -13,10 +14,11 @@ const Textarea = ({
   placeholder,
   required,
   ...rest
-}, context) => {
-  const { formik } = context
+}) => {
   const { touched, errors, values } = formik
-  const error = get(touched, name) && get(errors, name)
+  const error = getIn(errors, name)
+  const touch = getIn(touched, name)
+  const errorMsg = touch && error ? error : null
 
   return (
     <div className={cx('form-element textarea-wrapper', className, { hasError: !!error, disabled })}>
@@ -33,17 +35,17 @@ const Textarea = ({
         id={id || name}
         name={name}
         placeholder={placeholder}
-        value={get(values, name, '')}
+        value={getIn(values, name)}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         disabled={disabled}
         {...rest}
       />
       {
-        error
+        errorMsg
           && (
           <span className="error">
-            {error}
+            {errorMsg}
           </span>
           )
       }
@@ -59,11 +61,8 @@ const Textarea = ({
   )
 }
 
-Textarea.contextTypes = {
-  formik: PropTypes.shape({}),
-}
-
 Textarea.propTypes = {
+  formik: PropTypes.shape({}).isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   hint: PropTypes.string,
@@ -84,4 +83,4 @@ Textarea.defaultProps = {
   required: false,
 }
 
-export default Textarea
+export default connect(Textarea)
