@@ -7,7 +7,7 @@ import './styles.css'
 
 export class Toggle extends Component {
   static propTypes = {
-    formik: PropTypes.shape({}).isRequired,
+    formik: PropTypes.object.isRequired,
     className: PropTypes.string,
     disabled: PropTypes.bool,
     name: PropTypes.string.isRequired,
@@ -20,10 +20,10 @@ export class Toggle extends Component {
 
   handleChange = () => {
     const { name, formik } = this.props
-    const { values } = formik
+    const { values, setFieldValue, setFieldTouched } = formik
 
-    formik.setFieldValue(name, !getIn(values, name))
-    formik.setFieldTouched(name, true)
+    setFieldValue(name, !getIn(values, name))
+    setFieldTouched(name, true)
   }
 
   render() {

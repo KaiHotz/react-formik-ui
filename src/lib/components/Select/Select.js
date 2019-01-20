@@ -15,7 +15,9 @@ export const Select = ({
   placeholder,
   required,
 }) => {
-  const { touched, errors, values } = formik
+  const {
+    touched, errors, values, handleChange,
+  } = formik
   const error = getIn(errors, name)
   const touch = getIn(touched, name)
   const errorMsg = touch && error ? error : null
@@ -23,8 +25,7 @@ export const Select = ({
   return (
     <div className={cx('form-element select-wrapper', className, { hasError: !!error, disabled })}>
       {
-        label
-        && (
+        label && (
         <label htmlFor={name}>
           {`${label}${required ? ' *' : ''}`}
         </label>
@@ -35,15 +36,14 @@ export const Select = ({
         name={name}
         value={getIn(values, name)}
         disabled={disabled}
-        onChange={formik.handleChange}
+        onChange={handleChange}
       >
         {
-          placeholder
-            && (
+          placeholder && (
             <option value="">
               {placeholder}
             </option>
-            )
+          )
         }
         {
           options.map(option => (
@@ -57,12 +57,11 @@ export const Select = ({
         }
       </select>
       {
-        errorMsg
-          && (
+        errorMsg && (
           <span className="error">
             {errorMsg}
           </span>
-          )
+        )
       }
       {
         hint
@@ -77,7 +76,7 @@ export const Select = ({
 }
 
 Select.propTypes = {
-  formik: PropTypes.shape({}).isRequired,
+  formik: PropTypes.object.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   hint: PropTypes.string,

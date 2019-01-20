@@ -15,7 +15,9 @@ export const Checkbox = ({
   text,
   ...rest
 }) => {
-  const { touched, errors, values } = formik
+  const {
+    touched, errors, values, handleChange, handleBlur,
+  } = formik
   const error = getIn(errors, name)
   const touch = getIn(touched, name)
   const errorMsg = touch && error ? error : null
@@ -23,15 +25,14 @@ export const Checkbox = ({
   return (
     <div className={cx('form-element checkbox-wrapper', className, { hasError: !!errorMsg, disabled })}>
       {
-        label
-          && (
+        label && (
           <label
             htmlFor={name}
             className="checkbox-label"
           >
             {`${label}${required ? ' *' : ''}`}
           </label>
-          )
+        )
       }
       <div className="checkbox-input-wrapper">
         <input
@@ -39,8 +40,8 @@ export const Checkbox = ({
           name={name}
           type="checkbox"
           checked={getIn(values, name)}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
+          onChange={handleChange}
+          onBlur={handleBlur}
           disabled={disabled}
           {...rest}
         />
@@ -52,27 +53,25 @@ export const Checkbox = ({
         </label>
       </div>
       {
-        errorMsg
-          && (
+        errorMsg && (
           <span className="error">
             {errorMsg}
           </span>
-          )
+        )
       }
       {
-        hint
-          && (
+        hint && (
           <span className="hint">
             {hint}
           </span>
-          )
+        )
       }
     </div>
   )
 }
 
 Checkbox.propTypes = {
-  formik: PropTypes.shape({}).isRequired,
+  formik: PropTypes.object.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   hint: PropTypes.string,

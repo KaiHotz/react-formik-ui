@@ -16,7 +16,9 @@ export const Input = ({
   type,
   ...rest
 }) => {
-  const { touched, errors, values } = formik
+  const {
+    touched, errors, values, handleChange, handleBlur,
+  } = formik
   const error = getIn(errors, name)
   const touch = getIn(touched, name)
   const errorMsg = touch && error ? error : null
@@ -36,8 +38,8 @@ export const Input = ({
         type={type}
         placeholder={placeholder}
         value={getIn(values, name, '')}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
+        onChange={handleChange}
+        onBlur={handleBlur}
         disabled={disabled}
         {...rest}
       />
@@ -60,7 +62,7 @@ export const Input = ({
 }
 
 Input.propTypes = {
-  formik: PropTypes.shape({}).isRequired,
+  formik: PropTypes.object.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   hint: PropTypes.string,

@@ -1,11 +1,7 @@
 {
   "name": "react-formik-ui",
   "author": "Kai Hotz",
-<<<<<<< HEAD
-  "version": "0.3.4",
-=======
   "version": "1.2.0",
->>>>>>> - changed usage of old context Api to use connect method from Formik
   "description": "Plain form components for make use of formik even easier",
   "license": "MIT",
   "repository": {
@@ -40,13 +36,8 @@
     "classnames": "^2.2.6",
     "moment": "^2.23.0",
     "react-click-outside": "^3.0.1",
-<<<<<<< HEAD
     "react-datepicker": "1.7.0",
     "react-dropzone": "7.0.1"
-=======
-    "react-datepicker": "^1.7.0",
-    "react-dropzone": "^7.0.1"
->>>>>>> - changed usage of old context Api to use connect method from Formik
   },
   "peerDependencies": {
     "formik": ">1.0.0-alpha.6",
@@ -78,11 +69,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.12.3",
     "eslint-watch": "^4.0.2",
-<<<<<<< HEAD
-    "formik": "1.0.0-alpha.6",
-=======
     "formik": "^1.4.2",
->>>>>>> - changed usage of old context Api to use connect method from Formik
     "gh-pages": "^2.0.1",
     "jasmine-expect": "^4.0.0",
     "jest": "^23.6.0",

@@ -14,7 +14,9 @@ export const Radio = ({
   required,
   ...rest
 }) => {
-  const { touched, errors, values } = formik
+  const {
+    touched, errors, values, handleChange, handleBlur,
+  } = formik
   const error = getIn(errors, name)
   const touch = getIn(touched, name)
   const errorMsg = touch && error ? error : null
@@ -22,55 +24,54 @@ export const Radio = ({
   return (
     <div className={cx('form-element radio-wrapper', className, { hasError: !!error, disabled })}>
       {
-        label
-          && (
+        label && (
           <label htmlFor={name}>
             {`${label}${required ? ' *' : ''}`}
           </label>
-          )
+        )
       }
-      {options.map(option => (
-        <div key={option.label} className="radio-options">
-          <input
-            type="radio"
-            checked={getIn(values, name) === option.value}
-            id={`${name}-id-${option.value}`}
-            value={option.value}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            name={name}
-            disabled={disabled}
-            {...rest}
-          />
-          <label
-            htmlFor={`${name}-id-${option.value}`}
-          >
-            {option.label}
-          </label>
-        </div>
-      ))}
       {
-        errorMsg
-          && (
+        options.map(option => (
+          <div key={option.label} className="radio-options">
+            <input
+              type="radio"
+              checked={getIn(values, name) === option.value}
+              id={`${name}-id-${option.value}`}
+              value={option.value}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              name={name}
+              disabled={disabled}
+              {...rest}
+            />
+            <label
+              htmlFor={`${name}-id-${option.value}`}
+            >
+              {option.label}
+            </label>
+          </div>
+        ))
+      }
+      {
+        errorMsg && (
           <span className="error">
             {errorMsg}
           </span>
-          )
+        )
       }
       {
-        hint
-          && (
+        hint && (
           <span className="hint">
             {hint}
           </span>
-          )
+        )
       }
     </div>
   )
 }
 
 Radio.propTypes = {
-  formik: PropTypes.shape({}).isRequired,
+  formik: PropTypes.object.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   hint: PropTypes.string,

@@ -21,7 +21,7 @@ export const Form = ({
 )
 
 Form.propTypes = {
-  formik: PropTypes.shape({}).isRequired,
+  formik: PropTypes.object.isRequired,
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   styled: PropTypes.bool,

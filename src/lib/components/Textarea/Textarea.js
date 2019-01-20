@@ -15,54 +15,54 @@ export const Textarea = ({
   required,
   ...rest
 }) => {
-  const { touched, errors, values } = formik
+  const {
+    touched, errors, values, handleChange, handleBlur,
+  } = formik
   const error = getIn(errors, name)
   const touch = getIn(touched, name)
   const errorMsg = touch && error ? error : null
 
   return (
     <div className={cx('form-element textarea-wrapper', className, { hasError: !!error, disabled })}>
-      {label
-      && (
-      <label htmlFor={name}>
-        {label}
-        {' '}
-        {required ? '*' : ''}
-      </label>
-      )
+      {
+        label && (
+          <label htmlFor={name}>
+            {label}
+            {' '}
+            {required ? '*' : ''}
+          </label>
+        )
       }
       <textarea
         id={id || name}
         name={name}
         placeholder={placeholder}
         value={getIn(values, name)}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
+        onChange={handleChange}
+        onBlur={handleBlur}
         disabled={disabled}
         {...rest}
       />
       {
-        errorMsg
-          && (
+        errorMsg && (
           <span className="error">
             {errorMsg}
           </span>
-          )
+        )
       }
       {
-        hint
-          && (
+        hint && (
           <span className="hint">
             {hint}
           </span>
-          )
+        )
       }
     </div>
   )
 }
 
 Textarea.propTypes = {
-  formik: PropTypes.shape({}).isRequired,
+  formik: PropTypes.object.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   hint: PropTypes.string,

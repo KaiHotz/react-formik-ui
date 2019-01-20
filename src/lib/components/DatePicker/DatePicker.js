@@ -8,7 +8,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 
 export class Datepicker extends Component {
   static propTypes = {
-    formik: PropTypes.shape({}).isRequired,
+    formik: PropTypes.object.isRequired,
     className: PropTypes.string,
     dateFormat: PropTypes.oneOfType([
       PropTypes.string,
