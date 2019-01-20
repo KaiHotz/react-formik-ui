@@ -7,7 +7,7 @@
   render={() => (
     <Form styled>
 
-      <Toggle name='toggleBtn'/>
+      <Toggle name='toggleSwitch'/>
 
     </Form>
   )}

@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { connect, getIn } from 'formik'
-import Button from '../Button'
-import './styles.css'
+import './styles.scss'
 
 export class Toggle extends Component {
   static propTypes = {
@@ -28,22 +27,21 @@ export class Toggle extends Component {
 
   render() {
     const {
-      formik, className, disabled, name, ...rest
+      formik, className, disabled, name,
     } = this.props
-    const active = getIn(formik.values, name)
+    const checked = getIn(formik.values, name)
 
     return (
-      <Button
-        className={cx('toggle-btn', { 'toggle-btn--active': active }, className)}
-        onClick={this.handleChange}
-        disabled={disabled}
-        role="switch"
-        {...rest}
-        aria-label="toggle"
-        aria-checked={active}
-      >
-        <span className="toggle-btn__toggle" />
-      </Button>
+      <label className={cx('toggle-switch', className, disabled)}>
+        <input
+          name={name}
+          type="checkbox"
+          checked={checked}
+          onChange={this.handleChange}
+          disabled={disabled}
+        />
+        <span className="slider" />
+      </label>
     )
   }
 }
