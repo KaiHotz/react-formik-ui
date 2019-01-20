@@ -1,7 +1,7 @@
 {
   "name": "react-formik-ui",
   "author": "Kai Hotz",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Plain form components for make use of formik even easier",
   "license": "MIT",
   "repository": {
@@ -34,11 +34,10 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "formik": "^1.0.0-alpha.6",
     "moment": "^2.23.0",
     "react-click-outside": "^3.0.1",
-    "react-datepicker": "^1.7.0",
-    "react-dropzone": "^8.0.3"
+    "react-datepicker": "1.7.0",
+    "react-dropzone": "7.0.1"
   },
   "peerDependencies": {
     "formik": "<=1.0.0-alpha.6",
@@ -71,6 +70,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.12.3",
     "eslint-watch": "^4.0.2",
+    "formik": "1.0.0-alpha.6",
     "gh-pages": "^2.0.1",
     "jasmine-expect": "^4.0.0",
     "jest": "^23.6.0",
@@ -102,7 +102,8 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/*.d.ts"
+      "!src/**/*.d.ts",
+      "!src/**/index.js"
     ],
     "resolver": "jest-pnp-resolver",
     "setupFiles": [
