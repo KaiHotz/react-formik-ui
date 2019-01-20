@@ -23,7 +23,7 @@ export const Textarea = ({
   const errorMsg = touch && error ? error : null
 
   return (
-    <div className={cx('form-element textarea-wrapper', className, { hasError: !!error, disabled })}>
+    <div className={cx('form-element textarea-wrapper', className, { hasError: !!errorMsg, disabled })}>
       {
         label && (
           <label htmlFor={name}>

@@ -99,7 +99,7 @@ export class Datepicker extends Component {
     const errorMsg = touch && error ? error : null
 
     return (
-      <div className={cx('form-element datePicker-wrapper', className, { hasError: !!error, disabled })}>
+      <div className={cx('form-element datePicker-wrapper', className, { hasError: !!errorMsg, disabled })}>
         {
           label && (
             <label
