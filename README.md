@@ -883,7 +883,7 @@ For aditional configuration options and layouts, please refere to [react-dropzon
   <tr>
     <td>placeholder</td>
     <td>string</td>
-    <td>Dropp some files here.</td>
+    <td>Drop some files here.</td>
     <td>Sets the Placeholder text</td>
   </tr>
   <tr>
