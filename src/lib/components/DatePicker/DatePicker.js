@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import moment from 'moment'
 import DatePickerCmp from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker.css'
 import cx from 'classnames'
-import { get } from '../../utils/helper'
+import { connect, getIn } from 'formik'
+import 'react-datepicker/dist/react-datepicker.css'
 
-class Datepicker extends Component {
+export class Datepicker extends Component {
   static propTypes = {
+    formik: PropTypes.object.isRequired,
     className: PropTypes.string,
     dateFormat: PropTypes.oneOfType([
       PropTypes.string,
@@ -21,10 +22,6 @@ class Datepicker extends Component {
     name: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
     required: PropTypes.bool,
-  }
-
-  static contextTypes = {
-    formik: PropTypes.shape({}),
   }
 
   static defaultProps = {
@@ -45,7 +42,7 @@ class Datepicker extends Component {
   }
 
   handleChangeRaw = e => {
-    const { formik } = this.context
+    const { formik } = this.props
     const { name, value } = e.target
 
     const validChars = /^\d{0,2}[.]{0,1}\d{0,2}[.]{0,1}\d{0,4}$/
@@ -68,8 +65,7 @@ class Datepicker extends Component {
   }
 
   handleChange = momentDate => {
-    const { formik } = this.context
-    const { name } = this.props
+    const { formik, name } = this.props
     const value = momentDate ? momentDate.format('YYYY-MM-DD') : ''
 
     formik.setFieldValue(name, value)
@@ -82,6 +78,7 @@ class Datepicker extends Component {
 
   render() {
     const {
+      formik,
       className,
       dateFormat,
       disabled,
@@ -95,16 +92,16 @@ class Datepicker extends Component {
       ...rest
     } = this.props
 
-    const { formik } = this.context
     const { touched, errors, values } = formik
-    const momentDate = moment(get(values, name))
-    const error = get(touched, name) && get(errors, name)
+    const momentDate = moment(getIn(values, name))
+    const error = getIn(errors, name)
+    const touch = getIn(touched, name)
+    const errorMsg = touch && error ? error : null
 
     return (
-      <div className={cx('form-element datePicker-wrapper', className, { hasError: !!error, disabled })}>
+      <div className={cx('form-element datePicker-wrapper', className, { hasError: !!errorMsg, disabled })}>
         {
-          label
-          && (
+          label && (
             <label
               htmlFor={name}
               onClick={this.handleFocus(name)}
@@ -130,16 +127,14 @@ class Datepicker extends Component {
           {...rest}
         />
         {
-          error
-          && (
+          errorMsg && (
             <span className="error">
-              {error}
+              {errorMsg}
             </span>
           )
         }
         {
-          hint
-          && (
+          hint && (
             <span className="hint">
               {hint}
             </span>
@@ -150,4 +145,4 @@ class Datepicker extends Component {
   }
 }
 
-export default Datepicker
+export default connect(Datepicker)

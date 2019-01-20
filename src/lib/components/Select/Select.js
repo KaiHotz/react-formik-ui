@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { get } from '../../utils/helper'
+import { connect, getIn } from 'formik'
 
-const Select = ({
+export const Select = ({
+  formik,
   className,
   disabled,
   hint,
@@ -13,16 +14,18 @@ const Select = ({
   options,
   placeholder,
   required,
-}, context) => {
-  const { formik } = context
-  const { touched, errors, values } = formik
-  const error = get(touched, name) && get(errors, name)
+}) => {
+  const {
+    touched, errors, values, handleChange,
+  } = formik
+  const error = getIn(errors, name)
+  const touch = getIn(touched, name)
+  const errorMsg = touch && error ? error : null
 
   return (
-    <div className={cx('form-element select-wrapper', className, { hasError: !!error, disabled })}>
+    <div className={cx('form-element select-wrapper', className, { hasError: !!errorMsg, disabled })}>
       {
-        label
-        && (
+        label && (
         <label htmlFor={name}>
           {`${label}${required ? ' *' : ''}`}
         </label>
@@ -31,17 +34,16 @@ const Select = ({
       <select
         id={id || name}
         name={name}
-        value={get(values, name)}
+        value={getIn(values, name)}
         disabled={disabled}
-        onChange={formik.handleChange}
+        onChange={handleChange}
       >
         {
-          placeholder
-            && (
+          placeholder && (
             <option value="">
               {placeholder}
             </option>
-            )
+          )
         }
         {
           options.map(option => (
@@ -55,12 +57,11 @@ const Select = ({
         }
       </select>
       {
-        error
-          && (
+        errorMsg && (
           <span className="error">
-            {error}
+            {errorMsg}
           </span>
-          )
+        )
       }
       {
         hint
@@ -74,11 +75,8 @@ const Select = ({
   )
 }
 
-Select.contextTypes = {
-  formik: PropTypes.shape({}),
-}
-
 Select.propTypes = {
+  formik: PropTypes.object.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   hint: PropTypes.string,
@@ -106,4 +104,4 @@ Select.defaultProps = {
   required: false,
 }
 
-export default Select
+export default connect(Select)

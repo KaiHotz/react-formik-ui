@@ -1,9 +1,10 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import Checkbox from './Checkbox'
+import { Checkbox } from './Checkbox'
 
 describe('<Checkbox />', () => {
-  const context = {
+  const baseProps = {
+    name: 'checkboxTest',
     formik: {
       handleChange: jest.fn(),
       handleBlur: jest.fn(),
@@ -17,12 +18,8 @@ describe('<Checkbox />', () => {
     },
   }
 
-  const baseProps = {
-    name: 'checkboxTest',
-  }
-
   it('should render', () => {
-    const wrapper = shallow(<Checkbox {...baseProps} />, { context })
+    const wrapper = shallow(<Checkbox {...baseProps} />)
 
     expect(wrapper).toBeDefined()
   })
@@ -32,16 +29,15 @@ describe('<Checkbox />', () => {
       ...baseProps,
       className: 'Custom',
     }
-    const wrapper = shallow(<Checkbox {...props} />, { context })
+    const wrapper = shallow(<Checkbox {...props} />)
 
     expect(wrapper.hasClass(props.className)).toBe(true)
   })
 
   it('should be disabled', () => {
-    const wrapper = shallow(<Checkbox {...baseProps} disabled />, { context })
+    const wrapper = shallow(<Checkbox {...baseProps} disabled />)
 
     expect(wrapper.find('input').prop('disabled')).toBe(true)
-    expect(wrapper.prop('className').includes('disabled'))
   })
 
   it('should have a hint', () => {
@@ -49,17 +45,17 @@ describe('<Checkbox />', () => {
       ...baseProps,
       hint: 'hintTest',
     }
-    const wrapper = shallow(<Checkbox {...props} />, { context })
+    const wrapper = shallow(<Checkbox {...props} />)
 
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)
   })
 
   it('should call onChange', () => {
-    const wrapper = mount(<Checkbox {...baseProps} />, { context })
+    const wrapper = mount(<Checkbox {...baseProps} />)
 
     wrapper.find('input').simulate('change')
 
-    expect(context.formik.handleChange).toHaveBeenCalled()
+    expect(baseProps.formik.handleChange).toHaveBeenCalled()
   })
 })

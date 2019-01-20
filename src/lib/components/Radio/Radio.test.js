@@ -1,9 +1,15 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Radio from './Radio'
+import { Radio } from './Radio'
 
 describe('<Radio />', () => {
-  const context = {
+  const baseProps = {
+    name: 'radioTest',
+    options: [
+      { value: '0', label: 'Option 1' },
+      { value: '1', label: 'Option 2' },
+      { value: '2', label: 'Option 3' },
+    ],
     formik: {
       handleChange: jest.fn(),
       handleBlur: jest.fn(),
@@ -17,17 +23,8 @@ describe('<Radio />', () => {
     },
   }
 
-  const baseProps = {
-    name: 'radioTest',
-    options: [
-      { value: '0', label: 'Option 1' },
-      { value: '1', label: 'Option 2' },
-      { value: '2', label: 'Option 3' },
-    ],
-  }
-
   it('should render', () => {
-    const wrapper = shallow(<Radio {...baseProps} />, { context })
+    const wrapper = shallow(<Radio {...baseProps} />)
 
     expect(wrapper).toBeDefined()
   })
@@ -37,7 +34,7 @@ describe('<Radio />', () => {
       ...baseProps,
       className: 'Custom',
     }
-    const wrapper = shallow(<Radio {...props} />, { context })
+    const wrapper = shallow(<Radio {...props} />)
 
     expect(wrapper.hasClass(props.className)).toBe(true)
   })
@@ -47,23 +44,23 @@ describe('<Radio />', () => {
       ...baseProps,
       hint: 'hintTest',
     }
-    const wrapper = shallow(<Radio {...props} />, { context })
+    const wrapper = shallow(<Radio {...props} />)
 
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)
   })
 
   it('should be disabled', () => {
-    const wrapper = shallow(<Radio {...baseProps} disabled />, { context })
+    const wrapper = shallow(<Radio {...baseProps} disabled />)
 
     expect(wrapper.prop('className').includes('disabled'))
   })
 
   it('should call onChange', () => {
-    const wrapper = shallow(<Radio {...baseProps} />, { context })
+    const wrapper = shallow(<Radio {...baseProps} />)
     wrapper.find('input').forEach(node => {
       node.simulate('change')
-      expect(context.formik.handleChange).toHaveBeenCalled()
+      expect(baseProps.formik.handleChange).toHaveBeenCalled()
     })
   })
 })

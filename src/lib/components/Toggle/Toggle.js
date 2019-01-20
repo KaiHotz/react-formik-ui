@@ -1,19 +1,16 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import { connect, getIn } from 'formik'
 import Button from '../Button'
-import { get } from '../../utils/helper'
 import './styles.css'
 
-class Toggle extends Component {
+export class Toggle extends Component {
   static propTypes = {
+    formik: PropTypes.object.isRequired,
     className: PropTypes.string,
     disabled: PropTypes.bool,
     name: PropTypes.string.isRequired,
-  }
-
-  static contextTypes = {
-    formik: PropTypes.shape({}),
   }
 
   static defaultProps = {
@@ -22,21 +19,18 @@ class Toggle extends Component {
   }
 
   handleChange = () => {
-    const { formik } = this.context
-    const { values } = formik
-    const { name } = this.props
+    const { name, formik } = this.props
+    const { values, setFieldValue, setFieldTouched } = formik
 
-    formik.setFieldValue(name, !get(values, name))
-    formik.setFieldTouched(name, true)
+    setFieldValue(name, !getIn(values, name))
+    setFieldTouched(name, true)
   }
 
   render() {
     const {
-      className, disabled, name, ...rest
+      formik, className, disabled, name, ...rest
     } = this.props
-    const { formik } = this.context
-    const { values } = formik
-    const active = get(values, name)
+    const active = getIn(formik.values, name)
 
     return (
       <Button
@@ -54,4 +48,4 @@ class Toggle extends Component {
   }
 }
 
-export default Toggle
+export default connect(Toggle)

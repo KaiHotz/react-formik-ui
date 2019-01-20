@@ -1,7 +1,7 @@
 {
   "name": "react-formik-ui",
   "author": "Kai Hotz",
-  "version": "0.3.4",
+  "version": "1.2.0",
   "description": "Plain form components for make use of formik even easier",
   "license": "MIT",
   "repository": {
@@ -10,8 +10,8 @@
   },
   "homepage": "https://KaiHotz.github.io/react-formik-ui",
   "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "jsnext:main": "dist/index.es.js",
+  "module": "dist/index.js",
+  "jsnext:main": "dist/index.js",
   "engines": {
     "node": ">=8",
     "npm": ">=5"
@@ -20,7 +20,7 @@
     "dev": "run-p build:watch start",
     "start": "styleguidist server --open",
     "styleguide:build": "styleguidist build",
-    "build": "rollup -c",
+    "build": "npm run test && rollup -c",
     "build:watch": "rollup -c -w",
     "test": "jest",
     "test:coverage": "jest --coverage --forceExit --colors",
@@ -29,6 +29,7 @@
     "prepare": "npm run build",
     "prerelease": "npm run lint:fix && npm run test:coverage && npm run build",
     "release": "npm publish",
+    "release:next": "npm publish --tag next",
     "predeploy": "npm run styleguide:build",
     "deploy": "gh-pages -d styleguide"
   },
@@ -40,8 +41,7 @@
     "react-dropzone": "7.0.1"
   },
   "peerDependencies": {
-    "formik": "<=1.0.0-alpha.6",
-    "prop-types": "^15.6.2",
+    "formik": ">1.0.0-alpha.6",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
   },
@@ -70,7 +70,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.12.3",
     "eslint-watch": "^4.0.2",
-    "formik": "1.0.0-alpha.6",
+    "formik": "^1.4.2",
     "gh-pages": "^2.0.1",
     "jasmine-expect": "^4.0.0",
     "jest": "^23.6.0",

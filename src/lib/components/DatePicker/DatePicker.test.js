@@ -1,9 +1,10 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import DatePicker from './DatePicker'
+import { Datepicker } from './Datepicker'
 
-describe('<DatePicker />', () => {
-  const context = {
+describe('<Datepicker />', () => {
+  const baseProps = {
+    name: 'DatepickerTest',
     formik: {
       handleChange: jest.fn(),
       handleBlur: jest.fn(),
@@ -12,17 +13,13 @@ describe('<DatePicker />', () => {
       touched: {},
       errors: {},
       values: {
-        datePickerTest: '',
+        DatepickerTest: '',
       },
     },
   }
 
-  const baseProps = {
-    name: 'datePickerTest',
-  }
-
   it('should render', () => {
-    const wrapper = shallow(<DatePicker {...baseProps} />, { context })
+    const wrapper = shallow(<Datepicker {...baseProps} />)
 
     expect(wrapper).toBeDefined()
   })
@@ -32,17 +29,18 @@ describe('<DatePicker />', () => {
       ...baseProps,
       className: 'customDatepicker',
     }
-    const wrapper = mount(<DatePicker {...props} />, { context })
+    const wrapper = mount(<Datepicker {...props} />)
 
     expect(wrapper.hasClass(props.className)).toBe(true)
   })
 
   it('should be disabled', () => {
     let wrapper
-    wrapper = mount(<DatePicker {...baseProps} disabled />, { context })
+    wrapper = mount(<Datepicker {...baseProps} disabled />)
     expect(wrapper.find('input').prop('disabled')).toBe(true)
 
-    wrapper = shallow(<DatePicker {...baseProps} disabled />, { context })
+    wrapper = shallow(<Datepicker {...baseProps} disabled />)
+
     expect(wrapper.prop('className').includes('disabled'))
   })
 
@@ -51,17 +49,17 @@ describe('<DatePicker />', () => {
       ...baseProps,
       label: 'Custom',
     }
-    const wrapper = shallow(<DatePicker {...props} />, { context })
+    const wrapper = shallow(<Datepicker {...props} />)
 
     expect(wrapper.find('label').length).toBe(1)
   })
 
   it('should call handleChange', () => {
-    const wrapper = shallow(<DatePicker {...baseProps} />, { context })
+    const wrapper = shallow(<Datepicker {...baseProps} />)
     wrapper.instance().handleChange()
 
-    expect(context.formik.setFieldValue).toHaveBeenCalled()
-    expect(context.formik.setFieldTouched).toHaveBeenCalled()
+    expect(baseProps.formik.setFieldValue).toHaveBeenCalled()
+    expect(baseProps.formik.setFieldTouched).toHaveBeenCalled()
   })
 
   it('should have a hint', () => {
@@ -69,7 +67,7 @@ describe('<DatePicker />', () => {
       ...baseProps,
       hint: 'hintTest',
     }
-    const wrapper = shallow(<DatePicker {...props} />, { context })
+    const wrapper = shallow(<Datepicker {...props} />)
 
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)

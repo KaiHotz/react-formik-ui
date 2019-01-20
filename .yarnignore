@@ -30,8 +30,8 @@ coverage
 config
 demo
 public
-src
 build
+src
 scripts
 styleguide*
 

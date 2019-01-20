@@ -18,16 +18,16 @@ so you don't have to write any HTML markup or extra components for your forms.
 Each component makes use of Formiks context, there for you need to have Formik installed in your project.
 
 ## Markup, Styling and ClassNames
-The markup for the components input, select, checkbox, radio, textarea and Datepicker consists of a wrapper div, label, the main component, hint, and error message.
+The markup for the components Input, Select, Checkbox, Radio, Textarea, Datepicker and DropZone consists of a wrapper div, label, the main component, hint, and error message.
 
-By default all component have NO styling applied.</br>
+By default all component have NO styling applied att all.</br>
 This is intentionally, so you have the posibility to apply your own styling.</br>
 All the components used in the form are scoped by the default classes, situated on the Form component, `react-formik-ui form-wrapper`
 
 Each component has its corresponding wrapper class (eg: Input component  `input-wrapper` ), as well as the class `form-element`.</br>
 you also can pass your own custom class to the wrapper of each component bay passing the `className` prop.
 
-Anyhow if you pass the prop `styled` to the Form component a minimal styling will be applied to add some structure to the form and each form element.
+Anyhow, if you pass the  `styled` prop to the Form component, minimal styling will be applied to add some structure to the form and each form element.
 
 ## Installation
 
@@ -42,7 +42,7 @@ React-Formik-UI has a Peer dependency of [Formik](https://github.com/jaredpalmer
 This means that you need to add [Formik](https://github.com/jaredpalmer/formik) to your project to make use of React-Formik-UI.</br>
 
 ```sh
-npm install --save formik@1.0.0-alpha.6
+npm install --save formik@latest
 ```
 
 ### Form validations

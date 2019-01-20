@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { get } from '../../utils/helper'
+import { connect, getIn } from 'formik'
 
-const Textarea = ({
+export const Textarea = ({
+  formik,
   className,
   disabled,
   hint,
@@ -13,57 +14,55 @@ const Textarea = ({
   placeholder,
   required,
   ...rest
-}, context) => {
-  const { formik } = context
-  const { touched, errors, values } = formik
-  const error = get(touched, name) && get(errors, name)
+}) => {
+  const {
+    touched, errors, values, handleChange, handleBlur,
+  } = formik
+  const error = getIn(errors, name)
+  const touch = getIn(touched, name)
+  const errorMsg = touch && error ? error : null
 
   return (
-    <div className={cx('form-element textarea-wrapper', className, { hasError: !!error, disabled })}>
-      {label
-      && (
-      <label htmlFor={name}>
-        {label}
-        {' '}
-        {required ? '*' : ''}
-      </label>
-      )
+    <div className={cx('form-element textarea-wrapper', className, { hasError: !!errorMsg, disabled })}>
+      {
+        label && (
+          <label htmlFor={name}>
+            {label}
+            {' '}
+            {required ? '*' : ''}
+          </label>
+        )
       }
       <textarea
         id={id || name}
         name={name}
         placeholder={placeholder}
-        value={get(values, name, '')}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
+        value={getIn(values, name)}
+        onChange={handleChange}
+        onBlur={handleBlur}
         disabled={disabled}
         {...rest}
       />
       {
-        error
-          && (
+        errorMsg && (
           <span className="error">
-            {error}
+            {errorMsg}
           </span>
-          )
+        )
       }
       {
-        hint
-          && (
+        hint && (
           <span className="hint">
             {hint}
           </span>
-          )
+        )
       }
     </div>
   )
 }
 
-Textarea.contextTypes = {
-  formik: PropTypes.shape({}),
-}
-
 Textarea.propTypes = {
+  formik: PropTypes.object.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   hint: PropTypes.string,
@@ -84,4 +83,4 @@ Textarea.defaultProps = {
   required: false,
 }
 
-export default Textarea
+export default connect(Textarea)

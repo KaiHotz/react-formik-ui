@@ -2,11 +2,12 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import Dropzone from 'react-dropzone'
+import { connect, getIn } from 'formik'
 import Thumb from './Thumb'
-import { get } from '../../utils/helper'
 import './styles.css'
 
 const DropZone = ({
+  formik,
   className,
   disabled,
   hint,
@@ -18,15 +19,16 @@ const DropZone = ({
   disabledText,
   placeholder,
   ...rest
-}, context) => {
-  const { formik } = context
+}) => {
   const {
     touched, errors, values, setFieldValue, setFieldTouched,
   } = formik
-  const error = get(touched, name) && get(errors, name)
+  const error = getIn(errors, name)
+  const touch = getIn(touched, name)
+  const errorMsg = touch && error ? error : null
 
   return (
-    <div className={cx('form-element dropzone-wrapper', className, { hasError: !!error, disabled })}>
+    <div className={cx('form-element dropzone-wrapper', className, { hasError: !!errorMsg, disabled })}>
       {
         label && (
           <label htmlFor={name}>
@@ -63,9 +65,9 @@ const DropZone = ({
         }
       </Dropzone>
       {
-        error && (
+        errorMsg && (
           <span className="error">
-            {error}
+            {errorMsg}
           </span>
         )
       }
@@ -80,11 +82,8 @@ const DropZone = ({
   )
 }
 
-DropZone.contextTypes = {
-  formik: PropTypes.shape({}),
-}
-
 DropZone.propTypes = {
+  formik: PropTypes.object.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   hint: PropTypes.string,
@@ -111,4 +110,4 @@ DropZone.defaultProps = {
   placeholder: 'Dropp some files here.',
 }
 
-export default DropZone
+export default connect(DropZone)
