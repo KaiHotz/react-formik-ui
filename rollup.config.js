@@ -20,7 +20,6 @@ export default {
     postcss({
       plugins: [],
       minimize: true,
-      sourceMap: 'inline',
     }),
     external({
       includeDependencies: false,
