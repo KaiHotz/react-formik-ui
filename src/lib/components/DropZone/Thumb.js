@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-class Thumb extends React.Component {
+export class Thumb extends React.Component {
   static propTypes = {
     file: PropTypes.shape().isRequired,
   }

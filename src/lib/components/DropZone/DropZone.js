@@ -6,7 +6,7 @@ import { connect, getIn } from 'formik'
 import Thumb from './Thumb'
 import './styles.css'
 
-const DropZone = ({
+export const DropZone = ({
   formik,
   className,
   disabled,
