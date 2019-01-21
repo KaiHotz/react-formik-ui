@@ -4,7 +4,7 @@ import cx from 'classnames'
 import Dropzone from 'react-dropzone'
 import { connect, getIn } from 'formik'
 import Thumb from './Thumb'
-import './styles.css'
+import './styles.scss'
 
 export const DropZone = ({
   formik,

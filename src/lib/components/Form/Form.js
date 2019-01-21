@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { connect } from 'formik'
-import './styles.css'
+import './styles.scss'
 
 export const Form = ({
   formik,

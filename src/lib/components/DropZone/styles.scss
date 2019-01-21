@@ -1,0 +1,43 @@
+form {
+  &.react-formik-ui {
+    .dropzone-wrapper {
+      .dropzone {
+        width: 100%;
+        min-height: 42px;
+        height: auto;
+        border: 1px dashed rgb(102, 102, 102);
+        border-radius: 5px;
+        padding: 10px 10px 0;
+        box-sizing: border-box;
+      }
+      &.disabled {
+        .dropzone {
+          background-color: #EBEBE4;
+          opacity: 0.4;
+          color: #aaa;
+        }
+      }
+      .dropzone {
+        .img-thumbnail {
+          margin: .5rem;
+          padding: .25rem;
+          background-color: #fff;
+          border: 1px solid #ddd;
+          border-radius: .25rem;
+          transition: all .2s ease-in-out;
+          width: 200px;
+          height: auto;
+          vertical-align: middle;
+          box-sizing: border-box;
+        }
+        .fileInfo {
+          width: 100%;
+          text-align: left;
+          border-top: 1px solid #ddd;
+          padding-top: 10px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}
