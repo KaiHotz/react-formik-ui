@@ -26,6 +26,12 @@ export const DropZone = ({
   const touch = getIn(touched, name)
   const errorMsg = touch && error ? error : null
 
+  const onDrop = acceptedFiles => {
+    if (acceptedFiles.length === 0) { return }
+    setFieldValue(name, values[name].concat(acceptedFiles))
+    setFieldTouched(name, true)
+  }
+
   return (
     <div className={cx('form-element dropzone-wrapper', className, { hasError: !!errorMsg, disabled })}>
       {
@@ -39,11 +45,7 @@ export const DropZone = ({
         className="dropzone"
         accept={accept}
         disabled={disabled}
-        onDrop={acceptedFiles => {
-          if (acceptedFiles.length === 0) { return }
-          setFieldValue(name, values[name].concat(acceptedFiles))
-          setFieldTouched(name, true)
-        }}
+        onDrop={onDrop}
         {...rest}
       >
         {

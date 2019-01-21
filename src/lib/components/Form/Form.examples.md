@@ -25,7 +25,7 @@ const  getSchema = () => {
      income: yup
        .string()
        .required('Income is required'),
-     files: yup
+     images: yup
        .array()
        .required('Image is required'),
      additionalInfo: yup
@@ -45,7 +45,7 @@ const  getSchema = () => {
     driverLicense: false,
     pets: false,
     income: '0',
-    files: [],
+    images: [],
     additionalInfo: '',
     termsAndConitions: false,
   }}
@@ -118,8 +118,8 @@ const  getSchema = () => {
           />
 
           <DropZone
-            name='files'
-            label='File upload'
+            name='images'
+            label='Image upload'
           />
 
           <Textarea
