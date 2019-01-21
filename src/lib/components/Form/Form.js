@@ -22,7 +22,7 @@ export const Form = ({
 
 Form.propTypes = {
   formik: PropTypes.object.isRequired,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   className: PropTypes.string,
   styled: PropTypes.bool,
 }
@@ -30,6 +30,7 @@ Form.propTypes = {
 Form.defaultProps = {
   className: null,
   styled: false,
+  children: null,
 }
 
 export default connect(Form)

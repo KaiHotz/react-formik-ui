@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import Dropzone from 'react-dropzone'
 import { connect, getIn } from 'formik'
-import Thumb from './Thumb'
 import './styles.scss'
 
 export const DropZone = ({
@@ -55,7 +54,18 @@ export const DropZone = ({
             return acceptedFiles.length || rejectedFiles.length
               ? (
                 <Fragment>
-                  {values[name].map(file => (<Thumb key={file.name} file={file} />))}
+                  {
+                    values[name].map(file => (
+                      <img
+                        key={file.name}
+                        src={URL.createObjectURL(file)}
+                        className="img-thumbnail"
+                        height={200}
+                        width={200}
+                        alt={file.name}
+                      />
+                    ))
+                  }
                   <div className="fileInfo">
                     {`Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`}
                   </div>
