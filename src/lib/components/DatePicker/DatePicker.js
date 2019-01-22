@@ -23,7 +23,12 @@ export class Datepicker extends Component {
 
   static defaultProps = {
     className: null,
-    dateFormat: 'dd/MM/yyyy',
+    dateFormat: [
+      'dd.MM.yyyy',
+      'd.M.yyyy',
+      'MM/dd/yyyy',
+      'M/d/yyyy',
+    ],
     disabled: false,
     hint: null,
     label: null,
