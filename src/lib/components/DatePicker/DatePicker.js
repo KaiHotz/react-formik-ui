@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import moment from 'moment'
 import DatePickerCmp from 'react-datepicker'
 import cx from 'classnames'
 import { connect, getIn } from 'formik'
@@ -17,8 +16,6 @@ export class Datepicker extends Component {
     disabled: PropTypes.bool,
     hint: PropTypes.string,
     label: PropTypes.string,
-    maxDate: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    minDate: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     name: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
     required: PropTypes.bool,
@@ -26,17 +23,10 @@ export class Datepicker extends Component {
 
   static defaultProps = {
     className: null,
-    dateFormat: [
-      'DD.MM.YYYY',
-      'D.M.YYYY',
-      'MM/DD/YYYY',
-      'M/D/YYYY',
-    ],
+    dateFormat: 'dd/MM/yyyy',
     disabled: false,
     hint: null,
     label: null,
-    maxDate: null,
-    minDate: null,
     placeholder: null,
     required: false,
   }
@@ -44,31 +34,19 @@ export class Datepicker extends Component {
   handleChangeRaw = e => {
     const { formik } = this.props
     const { name, value } = e.target
-
     const validChars = /^\d{0,2}[.]{0,1}\d{0,2}[.]{0,1}\d{0,4}$/
     if (!validChars.test(value)) {
       e.preventDefault()
-
-      return
     }
 
-    const momentDate = moment(
-      value,
-      this.props.dateFormat,
-      true,
-    )
-
-    const updatedValue = momentDate.isValid() ? momentDate.format('YYYY-MM-DD') : ''
-
-    formik.setFieldValue(name, updatedValue)
+    formik.setFieldValue(name, value)
     formik.setFieldTouched(name, true)
   }
 
-  handleChange = momentDate => {
+  handleChange = date => {
     const { formik, name } = this.props
-    const value = momentDate ? momentDate.format('YYYY-MM-DD') : ''
 
-    formik.setFieldValue(name, value)
+    formik.setFieldValue(name, date)
     formik.setFieldTouched(name, true)
   }
 
@@ -84,8 +62,6 @@ export class Datepicker extends Component {
       disabled,
       hint,
       label,
-      maxDate,
-      minDate,
       name,
       placeholder,
       required,
@@ -93,7 +69,8 @@ export class Datepicker extends Component {
     } = this.props
 
     const { touched, errors, values } = formik
-    const momentDate = moment(getIn(values, name))
+
+    const selectedDate = getIn(values, name) ? new Date(getIn(values, name)) : null
     const error = getIn(errors, name)
     const touch = getIn(touched, name)
     const errorMsg = touch && error ? error : null
@@ -115,9 +92,7 @@ export class Datepicker extends Component {
         <DatePickerCmp
           id={name}
           name={name}
-          selected={momentDate.isValid() ? momentDate : null}
-          minDate={moment(minDate)}
-          maxDate={moment(maxDate)}
+          selected={selectedDate}
           placeholderText={placeholder}
           dateFormat={dateFormat}
           disabledKeyboardNavigation
