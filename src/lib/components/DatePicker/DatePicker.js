@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import DatePickerCmp from 'react-datepicker'
 import cx from 'classnames'
 import { connect, getIn } from 'formik'
+import { format } from 'date-fns'
 import 'react-datepicker/dist/react-datepicker.css'
 
 export class Datepicker extends Component {
@@ -50,8 +51,9 @@ export class Datepicker extends Component {
 
   handleChange = date => {
     const { formik, name } = this.props
+    const formatedDate = format(date, 'yyyy-MM-dd')
 
-    formik.setFieldValue(name, date)
+    formik.setFieldValue(name, formatedDate)
     formik.setFieldTouched(name, true)
   }
 
