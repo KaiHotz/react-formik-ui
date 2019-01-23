@@ -721,7 +721,7 @@ You can then pass the desired configuration as props just like you would on Reac
   <tr>
     <td>dateFormat</td>
     <td>string / Array of strings</td>
-    <td>[ 'DD.MM.YYYY', 'D.M.YYYY', 'MM/DD/YYYY', 'M/D/YYYY' ]</td>
+    <td>[ 'MM/dd/yyyy', 'M/d/yyyy', 'dd.MM.yyyy', 'd.M.yyyy' ]</td>
     <td>Sets the desired date format</td>
   </tr>
   <tr>
@@ -741,18 +741,6 @@ You can then pass the desired configuration as props just like you would on Reac
     <td>string</td>
     <td>null</td>
     <td>Sets the main Label for the Datepicker Field</td>
-  </tr>
-  <tr>
-    <td>maxDate</td>
-    <td>string / number</td>
-    <td>null</td>
-    <td>Sets the max. Date</td>
-  </tr>
-  <tr>
-    <td>minDate</td>
-    <td>string / number</td>
-    <td>null</td>
-    <td>Sets the min. Date</td>
   </tr>
   <tr>
     <td>name</td>

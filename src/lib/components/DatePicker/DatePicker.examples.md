@@ -1,4 +1,4 @@
-For a list af all available props please refere to the [React-Datepicker documentation](https://github.com/Hacker0x01/react-datepicker/blob/master/docs/datepicker.md)
+For a list af all available props please refere to the [ReaJS Datepicker documentation](https://github.com/Hacker0x01/react-datepicker/blob/master/docs/datepicker.md)
 
 ```jsx
 <Formik
