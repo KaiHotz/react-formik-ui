@@ -83,7 +83,7 @@ const  getSchema = () => {
           <Datepicker
             name='birthDay'
             label='Birthday'
-            dateFormat='D.M.YYYY'
+            dateFormat='dd.MM.yyyy'
             placeholder='D.M.YYYY'
             hint='Please enter your birth date'
           />
