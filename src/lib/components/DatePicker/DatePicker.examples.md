@@ -9,7 +9,7 @@
 
       <Datepicker
         name='date'
-        label='Birthdate'
+        label='Select a date'
       />
 
     </Form>
