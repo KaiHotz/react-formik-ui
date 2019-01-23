@@ -54,14 +54,6 @@ describe('<Datepicker />', () => {
     expect(wrapper.find('label').length).toBe(1)
   })
 
-  it('should call handleChange', () => {
-    const wrapper = shallow(<Datepicker {...baseProps} />)
-    wrapper.instance().handleChange()
-
-    expect(baseProps.formik.setFieldValue).toHaveBeenCalled()
-    expect(baseProps.formik.setFieldTouched).toHaveBeenCalled()
-  })
-
   it('should have a hint', () => {
     const props = {
       ...baseProps,

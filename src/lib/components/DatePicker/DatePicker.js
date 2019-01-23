@@ -51,9 +51,8 @@ export class Datepicker extends Component {
 
   handleChange = date => {
     const { formik, name } = this.props
-    const formatedDate = format(date, 'yyyy-MM-dd')
 
-    formik.setFieldValue(name, formatedDate)
+    formik.setFieldValue(name, format(date, 'yyyy-MM-dd'))
     formik.setFieldTouched(name, true)
   }
 
