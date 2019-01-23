@@ -25,10 +25,10 @@ export class Datepicker extends Component {
   static defaultProps = {
     className: null,
     dateFormat: [
-      'dd.MM.yyyy',
-      'd.M.yyyy',
       'MM/dd/yyyy',
       'M/d/yyyy',
+      'dd.MM.yyyy',
+      'd.M.yyyy',
     ],
     disabled: false,
     hint: null,
@@ -40,7 +40,7 @@ export class Datepicker extends Component {
   handleChangeRaw = e => {
     const { formik } = this.props
     const { name, value } = e.target
-    const validChars = /^\d{0,2}[.]{0,1}\d{0,2}[.]{0,1}\d{0,4}$/
+    const validChars = /^\d{0,2}[./]{0,1}\d{0,2}[./]{0,1}\d{0,4}$/
     if (!validChars.test(value)) {
       e.preventDefault()
     }
