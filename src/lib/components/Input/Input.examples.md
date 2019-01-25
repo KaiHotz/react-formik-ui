@@ -128,10 +128,19 @@ const  getsecondSchema = () => {
 ###### with UI style as password field and password strength meter
 
 ```jsx
+const  getSchema = () => {
+  return yup.object().shape({
+    uiPassword: yup
+      .string()
+      .required('Password is required'),
+  });
+};
+
 <Formik
   initialValues={{
     uiPassword: ''
   }}
+  validationSchema={getSchema}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
     <Form styled='ui'>
@@ -144,6 +153,8 @@ const  getsecondSchema = () => {
         autoComplete="off"
         hint='This is a password field with strength meter'
       />
+
+      <SubmitBtn />
 
     </Form>
   )}
