@@ -43,11 +43,6 @@ form {
                 &:before {
                   border-bottom: 2px solid rgba(0, 0, 0, 0.87);
                 }
-                &.isDisabled {
-                  &:before {
-                    border-bottom: 1px dotted rgba(0, 0, 0, 0.42)
-                  }
-                }
               }
               &.isDisabled {
                 color: rgba(0, 0, 0, 0.38);

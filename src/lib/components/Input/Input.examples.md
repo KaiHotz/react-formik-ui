@@ -102,65 +102,27 @@ const  getsecondSchema = () => {
 />
 ```
 
-###### with UI style as password field
+###### with UI style disabled
 
 ```jsx
 <Formik
   initialValues={{
-    mayPassword: ''
+    anyTextInput: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
     <Form styled='ui'>
 
       <Input
-        name='mayPassword'
-        type='password'
-        label='Psssword'
-        hint='This is a password field'
+        name='anyTextInput'
+        label='Text Input'
+        hint='This field is disabled'
+        disabled
       />
 
     </Form>
   )}
 />
 ```
-
-###### with UI style as password field and password strength meter
-
-```jsx
-const  getSchema = () => {
-  return yup.object().shape({
-    uiPassword: yup
-      .string()
-      .required('Password is required'),
-  });
-};
-
-<Formik
-  initialValues={{
-    uiPassword: ''
-  }}
-  validationSchema={getSchema}
-  onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form styled='ui'>
-
-      <Input
-        name='uiPassword'
-        type='password'
-        label='Psssword'
-        withStrengthMeter
-        autoComplete="off"
-        hint='This is a password field with strength meter'
-      />
-
-      <SubmitBtn />
-
-    </Form>
-  )}
-/>
-```
-
-
 
 

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { connect, getIn } from 'formik'
-import StrengthMeter from '../StrengthMeter'
 
 import './styles.scss'
 
@@ -86,7 +85,6 @@ export class Input extends Component {
     const value = getIn(values, name)
     const touch = getIn(touched, name)
     const errorMsg = touch && error ? error : null
-    const showStrengthMeter = value && type === 'password' && withStrengthMeter
     const hidden = hide || focus || value || placeholder || (disabled && value)
     const styled = ['text', 'email', 'number', 'password', 'search', 'tel', 'url'].includes(type)
 
@@ -126,11 +124,6 @@ export class Input extends Component {
             <span className="hint">
               {hint}
             </span>
-          )
-        }
-        {
-          !!showStrengthMeter && (
-            <StrengthMeter value={value} />
           )
         }
       </div>

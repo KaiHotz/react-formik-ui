@@ -1,0 +1,76 @@
+form {
+  &.react-formik-ui {
+    &.ui {
+      .form-element {
+        &.checkbox-wrapper {
+          label {
+            display: block;
+            padding-bottom: 6px;
+          }
+          .checkbox-input-wrapper {
+            display: flex;
+            margin-bottom: 10px;
+            align-items: flex-end;
+            input {
+              outline: none;
+              position: absolute;
+              opacity: 0;
+              & + label {
+                align-self: flex-end;
+                position: relative;
+                cursor: pointer;
+                padding: 0;
+              }
+              & + label:before {
+                content: '';
+                margin-right: 5px;
+                display: inline-block;
+                vertical-align: text-top;
+                width: 18px;
+                height: 17px;
+                background: white;
+                border: 1px solid #999;
+              }
+              &:hover + label:before {
+                background: #065fd4;
+              }
+              &:checked + label:before {
+                background: #065fd4;
+              }
+              &:disabled + label {
+                color: #b8b8b8;
+                cursor: auto;
+              }
+              &:disabled + label:before {
+                box-shadow: none;
+                border: 1px dotted #999;
+                background: #ddd;
+              }
+              &:checked + label:after {
+                content: '';
+                position: absolute;
+                left: 5px;
+                top: 9px;
+                background: white;
+                width: 2px;
+                height: 2px;
+                box-shadow:
+                  2px 0 0 white,
+                  4px 0 0 white,
+                  4px -2px 0 white,
+                  4px -4px 0 white,
+                  4px -6px 0 white,
+                  4px -8px 0 white;
+                transform: rotate(45deg);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
