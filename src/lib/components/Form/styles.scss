@@ -32,6 +32,20 @@ form {
         font-size: .8rem;
       }
     }
+    &.ui {
+      .form-element {
+        .error {
+          color: #cc0000;
+          font-size: .8rem;
+        }
+        .hint {
+          display: block;
+          margin-top: 3px;
+          font-size: .8rem;
+          color: #909090;
+        }
+      }
+    }
   }
 }
 

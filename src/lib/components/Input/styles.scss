@@ -5,17 +5,6 @@ form {
   &.react-formik-ui {
     &.ui {
       .form-element {
-        .error {
-          color: #cc0000;
-          font-size: .8rem;
-        }
-        .hint {
-          display: block;
-          margin-top: 3px;
-          font-size: .8rem;
-          color: #909090;
-        }
-
         &.input-wrapper {
           margin-bottom: 30px;
           &.hasError {
