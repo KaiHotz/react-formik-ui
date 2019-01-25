@@ -1,100 +1,161 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { connect, getIn } from 'formik'
+import zxcvbn from 'zxcvbn'
 
-export const Input = ({
-  formik,
-  className,
-  disabled,
-  hint,
-  id,
-  label,
-  name,
-  placeholder,
-  required,
-  type,
-  ...rest
-}) => {
-  const {
-    touched, errors, values, handleChange, handleBlur,
-  } = formik
-  const error = getIn(errors, name)
-  const touch = getIn(touched, name)
-  const errorMsg = touch && error ? error : null
+export class Input extends Component {
+  static propTypes = {
+    formik: PropTypes.object.isRequired,
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    hint: PropTypes.string,
+    id: PropTypes.string,
+    label: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    placeholder: PropTypes.string,
+    required: PropTypes.bool,
+    withStrengthMeter: PropTypes.bool,
+    type: PropTypes.oneOf([
+      'text',
+      'color',
+      'email',
+      'hidden',
+      'image',
+      'number',
+      'password',
+      'range',
+      'search',
+      'tel',
+      'url',
+    ]),
+  }
 
-  return (
-    <div className={cx('form-element input-wrapper', className, { hasError: !!errorMsg, disabled })}>
-      {
-        label && (
-          <label htmlFor={name}>
-            {`${label}${required ? ' *' : ''}`}
-          </label>
-        )
-      }
-      <input
-        id={id || name}
-        name={name}
-        type={type}
-        placeholder={placeholder}
-        value={getIn(values, name, '')}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        disabled={disabled}
-        {...rest}
-      />
-      {
-        errorMsg && (
-          <span className="error">
-            {errorMsg}
-          </span>
-        )
-      }
-      {
-        hint && (
-          <span className="hint">
-            {hint}
-          </span>
-        )
-      }
-    </div>
-  )
-}
+  static defaultProps = {
+    className: null,
+    disabled: false,
+    hint: null,
+    id: null,
+    label: null,
+    placeholder: null,
+    required: false,
+    withStrengthMeter: false,
+    type: 'text',
+  }
 
-Input.propTypes = {
-  formik: PropTypes.object.isRequired,
-  className: PropTypes.string,
-  disabled: PropTypes.bool,
-  hint: PropTypes.string,
-  id: PropTypes.string,
-  label: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  placeholder: PropTypes.string,
-  required: PropTypes.bool,
-  type: PropTypes.oneOf([
-    'text',
-    'color',
-    'email',
-    'hidden',
-    'image',
-    'number',
-    'password',
-    'range',
-    'search',
-    'tel',
-    'url',
-  ]),
-}
+  state = {
+    hide: false,
+  }
 
-Input.defaultProps = {
-  className: null,
-  disabled: false,
-  hint: null,
-  id: null,
-  label: null,
-  placeholder: null,
-  required: false,
-  type: 'text',
+  handleAutoFill = e => {
+    this.setState({
+      hide: e.animationName === 'onAutoFillStart',
+    })
+  }
+
+  toggleFocus = () => {
+    const { formik: { setFieldTouched, touched }, name } = this.props
+    const touch = getIn(touched, name)
+
+    setFieldTouched(name, !touch)
+  }
+
+  handlePasswordLabel = score => {
+    switch (score) {
+      case 1:
+      case 2:
+        return 'Weak'
+      case 3:
+        return 'Fair'
+      case 4:
+        return 'Good'
+      case 5:
+        return 'Strong'
+      default:
+        return 'Weak'
+    }
+  }
+
+  render() {
+    const {
+      formik: {
+        touched, errors, values, handleChange,
+      },
+      className,
+      disabled,
+      hint,
+      id,
+      label,
+      name,
+      placeholder,
+      required,
+      withStrengthMeter,
+      type,
+      ...rest
+    } = this.props
+
+    const error = getIn(errors, name)
+    const value = getIn(values, name)
+    const touch = getIn(touched, name)
+    const errorMsg = touch && error ? error : null
+    const score = type === 'password' && (zxcvbn(value).score + 1)
+    const showStrengthMeter = value && type === 'password' && withStrengthMeter
+    const hide = this.state.hide || touch || value || placeholder || (disabled && value)
+
+    return (
+      <div className={cx('form-element input-wrapper', className, { hasError: !!errorMsg, disabled })}>
+        <label htmlFor={name} className={cx({ disabled })}>
+          {
+            label && (
+              <span className={cx({ hide })}>
+                {`${label}${required ? ' *' : ''}`}
+              </span>
+            )
+          }
+          <input
+            id={id || name}
+            name={name}
+            type={type}
+            onAnimationStart={this.handleAutoFill}
+            placeholder={placeholder}
+            value={getIn(values, name, '')}
+            onChange={handleChange}
+            onFocus={this.toggleFocus}
+            onBlur={this.toggleFocus}
+            disabled={disabled}
+            {...rest}
+          />
+        </label>
+        {
+          errorMsg && (
+            <span className="error">
+              {errorMsg}
+            </span>
+          )
+        }
+        {
+          hint && (
+            <span className="hint">
+              {hint}
+            </span>
+          )
+        }
+        {
+          showStrengthMeter && (
+            <div className="strength-meter">
+              <progress
+                className={`strength-${this.handlePasswordLabel(score)}`}
+                value={score}
+                max="5"
+              />
+              <strong>Password strength: </strong>
+              {this.handlePasswordLabel(score)}
+            </div>
+          )
+        }
+      </div>
+    )
+  }
 }
 
 export default connect(Input)

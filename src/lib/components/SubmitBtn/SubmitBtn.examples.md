@@ -5,7 +5,7 @@
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form styled>
+    <Form styled='min'>
 
       <SubmitBtn />
 

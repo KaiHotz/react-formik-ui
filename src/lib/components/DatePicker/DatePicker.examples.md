@@ -7,7 +7,7 @@ For a list af all available props please refere to the [ReaJS Datepicker documen
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form styled>
+    <Form styled='min'>
 
       <Datepicker
         name='date'
@@ -27,7 +27,7 @@ For a list af all available props please refere to the [ReaJS Datepicker documen
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form styled>
+    <Form styled='min'>
 
       <Datepicker
         name='date'
@@ -49,7 +49,7 @@ For a list af all available props please refere to the [ReaJS Datepicker documen
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form styled>
+    <Form styled='min'>
 
       <Datepicker
         name='date'

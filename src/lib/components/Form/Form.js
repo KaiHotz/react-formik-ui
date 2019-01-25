@@ -12,7 +12,7 @@ export const Form = ({
   ...rest
 }) => (
   <form
-    className={cx('react-formik-ui form-wrapper', { styled }, className)}
+    className={cx('react-formik-ui form-wrapper', styled, className)}
     onSubmit={formik.handleSubmit}
     {...rest}
   >
@@ -24,12 +24,12 @@ Form.propTypes = {
   formik: PropTypes.object.isRequired,
   children: PropTypes.node,
   className: PropTypes.string,
-  styled: PropTypes.bool,
+  styled: PropTypes.oneOf(['min', 'ui']),
 }
 
 Form.defaultProps = {
   className: null,
-  styled: false,
+  styled: null,
   children: null,
 }
 

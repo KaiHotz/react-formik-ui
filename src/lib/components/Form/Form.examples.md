@@ -53,7 +53,7 @@ const  getSchema = () => {
   onSubmit={onSubmit}
   render={({ values }) => {
   return (
-    <Form styled>
+    <Form styled='min'>
       <fieldset>
         <legend>Complete Form Example</legend>
 
