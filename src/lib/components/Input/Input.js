@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { connect, getIn } from 'formik'
-import zxcvbn from 'zxcvbn'
+import StrengthMeter from '../StrengthMeter'
+
+import './styles.scss'
 
 export class Input extends Component {
   static propTypes = {
@@ -60,22 +62,6 @@ export class Input extends Component {
     }))
   }
 
-  handlePasswordLabel = score => {
-    switch (score) {
-      case 1:
-      case 2:
-        return 'Weak'
-      case 3:
-        return 'Fair'
-      case 4:
-        return 'Good'
-      case 5:
-        return 'Strong'
-      default:
-        return 'Weak'
-    }
-  }
-
   render() {
     const {
       formik: {
@@ -100,13 +86,13 @@ export class Input extends Component {
     const value = getIn(values, name)
     const touch = getIn(touched, name)
     const errorMsg = touch && error ? error : null
-    const score = type === 'password' && (zxcvbn(value).score + 1)
     const showStrengthMeter = value && type === 'password' && withStrengthMeter
     const hidden = hide || focus || value || placeholder || (disabled && value)
+    const styled = ['text', 'email', 'number', 'password', 'search', 'tel', 'url'].includes(type)
 
     return (
       <div className={cx('form-element input-wrapper', className, { hasError: !!errorMsg, isDisabled: disabled })}>
-        <label htmlFor={name} className={cx({ isDisabled: disabled })}>
+        <label htmlFor={name} className={cx({ isStyled: styled, isDisabled: disabled })}>
           {
             label && (
               <span className={cx({ hide: hidden })}>
@@ -144,15 +130,7 @@ export class Input extends Component {
         }
         {
           showStrengthMeter && (
-            <div className="strength-meter">
-              <progress
-                className={`strength-${this.handlePasswordLabel(score)}`}
-                value={score}
-                max="5"
-              />
-              <strong>Password strength: </strong>
-              {this.handlePasswordLabel(score)}
-            </div>
+            <StrengthMeter value={value} />
           )
         }
       </div>

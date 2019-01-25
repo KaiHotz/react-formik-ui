@@ -75,8 +75,9 @@ const  getSchema = () => {
 
           <Input
             name='emailExample'
-            label='Enter your Email'
+            label='Email'
             placeholder='foo@bar.com'
+            hint='Please enter your Email'
             required
           />
 
@@ -216,13 +217,15 @@ const  getSchema = () => {
           <Input
             name='name'
             label='Name'
+            hint='This is a hint message'
             required
           />
 
           <Input
             name='email'
-            label='Enter your Email'
+            label='Email'
             placeholder='foo@bar.com'
+            hint='Please enter your birth date'
             required
           />
 
