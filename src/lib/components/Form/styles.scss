@@ -93,7 +93,7 @@ form {
         margin-bottom: 0;
       }
       .error {
-        color: red;
+        color: #cc0000;
         font-size: .8rem;
       }
       .hint {
@@ -103,7 +103,7 @@ form {
     &.ui {
       .form-element {
         .error {
-          color: red;
+          color: #cc0000;
           font-size: .8rem;
         }
         .hint {
@@ -111,6 +111,21 @@ form {
         }
 
         &.input-wrapper {
+          &.hasError {
+            label {
+              span {
+                color: #cc0000;
+              }
+              &:before {
+                border-bottom: 1px solid #cc0000;
+              }
+              &:hover {
+                &:before {
+                  border-bottom: 2px solid #cc0000;
+                }
+              }
+            }
+          }
           label {
             position: relative;
             display: flex;
@@ -131,13 +146,13 @@ form {
               &:before {
                 border-bottom: 2px solid rgba(0, 0, 0, 0.87);
               }
-              &.disabled {
+              &.isDisabled {
                 &:before {
                   border-bottom: 1px dotted rgba(0, 0, 0, 0.42)
                 }
               }
             }
-            &.disabled {
+            &.isDisabled {
               color: rgba(0, 0, 0, 0.38);
               &:before {
                 border-bottom: 1px dotted rgba(0, 0, 0, 0.42);

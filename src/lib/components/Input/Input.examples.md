@@ -16,7 +16,7 @@
         hint='This is a hint'
         required
       />
-
+      <SubmitBtn />
     </Form>
   )}
 />
@@ -25,16 +25,25 @@
 
 ##### with minimum styling
 ```jsx
+const  getsecondSchema = () => {
+  return yup.object().shape({
+    kaisName: yup
+      .string()
+      .required('Name is required'),
+  });
+};
+
 <Formik
   initialValues={{
-    nameField: ''
+    kaisName: ''
   }}
+  validationSchema={getsecondSchema}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
     <Form styled='min'>
 
       <Input
-        name='nameField'
+        name='kaisName'
         label='Input field label'
         placeholder='Your Name'
         hint='This is a hint'
@@ -52,14 +61,14 @@
 ```jsx
 <Formik
   initialValues={{
-    nameField: ''
+    uiNameField: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
     <Form styled='ui'>
 
       <Input
-        name='nameField'
+        name='uiNameField'
         label='Input field label'
         hint='This is a hint'
       />
@@ -74,14 +83,14 @@
 ```jsx
 <Formik
   initialValues={{
-    nameField: ''
+    myName: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
     <Form styled='ui'>
 
       <Input
-        name='nameField'
+        name='myName'
         label='Input field label'
         placeholder='Your Name'
         hint='This is a hint'
@@ -98,14 +107,14 @@
 ```jsx
 <Formik
   initialValues={{
-    password: ''
+    mayPassword: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
     <Form styled='ui'>
 
       <Input
-        name='password'
+        name='mayPassword'
         type='password'
         label='Psssword'
         hint='This is a password field'
@@ -121,14 +130,14 @@
 ```jsx
 <Formik
   initialValues={{
-    password: ''
+    uiPassword: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
     <Form styled='ui'>
 
       <Input
-        name='password'
+        name='uiPassword'
         type='password'
         label='Psssword'
         withStrengthMeter

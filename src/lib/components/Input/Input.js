@@ -45,6 +45,7 @@ export class Input extends Component {
 
   state = {
     hide: false,
+    focus: false,
   }
 
   handleAutoFill = e => {
@@ -54,10 +55,9 @@ export class Input extends Component {
   }
 
   toggleFocus = () => {
-    const { formik: { setFieldTouched, touched }, name } = this.props
-    const touch = getIn(touched, name)
-
-    setFieldTouched(name, !touch)
+    this.setState(prevState => ({
+      focus: !prevState.focus,
+    }))
   }
 
   handlePasswordLabel = score => {
@@ -94,20 +94,22 @@ export class Input extends Component {
       ...rest
     } = this.props
 
+    const { hide, focus } = this.state
+
     const error = getIn(errors, name)
     const value = getIn(values, name)
     const touch = getIn(touched, name)
     const errorMsg = touch && error ? error : null
     const score = type === 'password' && (zxcvbn(value).score + 1)
     const showStrengthMeter = value && type === 'password' && withStrengthMeter
-    const hide = this.state.hide || touch || value || placeholder || (disabled && value)
+    const hidden = hide || focus || value || placeholder || (disabled && value)
 
     return (
-      <div className={cx('form-element input-wrapper', className, { hasError: !!errorMsg, disabled })}>
-        <label htmlFor={name} className={cx({ disabled })}>
+      <div className={cx('form-element input-wrapper', className, { hasError: !!errorMsg, isDisabled: disabled })}>
+        <label htmlFor={name} className={cx({ isDisabled: disabled })}>
           {
             label && (
-              <span className={cx({ hide })}>
+              <span className={cx({ hide: hidden })}>
                 {`${label}${required ? ' *' : ''}`}
               </span>
             )

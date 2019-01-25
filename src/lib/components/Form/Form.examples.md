@@ -1,4 +1,150 @@
-#### All together
+#### All together with minimum style
+```jsx
+const onSubmit = data => (alert(JSON.stringify(data)));
+
+const  getSchema = () => {
+  return yup.object().shape({
+    salutationExample: yup
+      .string(),
+    nameExample: yup
+      .string()
+      .required('Name is required'),
+    emailExample: yup
+      .string()
+      .email('Wrong format')
+      .required('Email is required'),
+    birthDayExample: yup
+       .date(),
+    maritalStatusExample: yup
+      .string()
+      .nullable(),
+     driverLicenseExample: yup
+       .boolean(),
+     petsExample: yup
+       .boolean(),
+     incomeExample: yup
+       .string()
+       .required('Income is required'),
+     imagesExample: yup
+       .array()
+       .required('Image is required'),
+     additionalInfoExample: yup
+       .string(),
+     termsAndConitionsExample: yup
+       .boolean(),
+  });
+};
+
+<Formik
+  initialValues={{
+    salutationExample: 'Mr',
+    nameExample: '',
+    emailExample: '',
+    birthDayExample: '',
+    maritalStatusExample: '',
+    driverLicenseExample: false,
+    petsExample: false,
+    incomeExample: '0',
+    imagesExample: [],
+    additionalInfoExample: '',
+    termsAndConitionsExample: false,
+  }}
+  validationSchema={getSchema}
+  onSubmit={onSubmit}
+  render={({ values }) => {
+  return (
+    <Form styled='min'>
+      <fieldset>
+        <legend>Complete Form Example</legend>
+
+          <Radio
+            name='salutationExample'
+            label='Salutation'
+            options={[
+              { value: 'Mr', label: 'Mr.' },
+              { value: 'Mrs', label: 'Mrs.' },
+              { value: 'Ms', label: 'Ms.' }
+            ]}
+          />
+
+          <Input
+            name='nameExample'
+            label='Name'
+            required
+          />
+
+          <Input
+            name='emailExample'
+            label='Enter your Email'
+            placeholder='foo@bar.com'
+            required
+          />
+
+          <Datepicker
+            name='birthDayExample'
+            label='Birthday'
+            dateFormat='dd.MM.yyyy'
+            placeholder='D.M.YYYY'
+            hint='Please enter your birth date'
+          />
+
+          <Select
+            name='maritalStatusExample'
+            label='Marital Status'
+            placeholder='Select an Option'
+            options={[
+              { value: '1', label: 'Married' },
+              { value: '2', label: 'Single' },
+              { value: '3', label: 'Divorced' },
+              { value: '4', label: 'Widowed' }
+            ]}
+          />
+
+          <div style={{marginBottom: '15px'}}>
+            <div style={{marginBottom: '10px'}}>
+              {`Do you have a drivers license ? ${values.driverLicense ? 'Yes' : 'No'}`}
+            </div>
+            <Toggle name='driverLicenseExample' />
+          </div>
+
+          <Input
+            name='incomeExample'
+            label={`What is your monthly income $ ${values.income},-`}
+            type='range'
+            min='0'
+            max='10000'
+            step='5'
+            required
+          />
+
+          <DropZone
+            name='imagesExample'
+            label='Image upload'
+          />
+
+          <Textarea
+            name='additionalInfoExample'
+            label='Aditional information'
+            hint='this is optional'
+          />
+
+          <Checkbox
+            name='termsAndConitionsExample'
+            label='Terms and Conditions'
+            text='Click to accept the terms and conditions'
+          />
+
+          <SubmitBtn disabled={!values.termsAndConitions} />
+          <Button onClick={(() => alert('Cancel'))}>Cancel</Button>
+        </fieldset>
+      </Form>
+    );
+  }}
+/>
+```
+
+
+#### All together with minimum style
 ```jsx
 const onSubmit = data => (alert(JSON.stringify(data)));
 
@@ -53,7 +199,7 @@ const  getSchema = () => {
   onSubmit={onSubmit}
   render={({ values }) => {
   return (
-    <Form styled='min'>
+    <Form styled='ui'>
       <fieldset>
         <legend>Complete Form Example</legend>
 

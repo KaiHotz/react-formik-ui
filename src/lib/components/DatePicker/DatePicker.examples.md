@@ -3,14 +3,14 @@ For a list af all available props please refere to the [ReaJS Datepicker documen
 ```jsx
 <Formik
   initialValues={{
-    date: ''
+    myDate: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
     <Form styled='min'>
 
       <Datepicker
-        name='date'
+        name='myDate'
         label='Select a date'
       />
       <SubmitBtn />
@@ -23,14 +23,14 @@ For a list af all available props please refere to the [ReaJS Datepicker documen
 ```jsx
 <Formik
   initialValues={{
-    date: ''
+    testDate: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
     <Form styled='min'>
 
       <Datepicker
-        name='date'
+        name='testDate'
         label='Select a date'
         placeholder='DD.MM.YYYYY'
         dateFormat='dd.MM.yyyy'
@@ -45,14 +45,14 @@ For a list af all available props please refere to the [ReaJS Datepicker documen
 ```jsx
 <Formik
   initialValues={{
-    date: '2019-11-3'
+    exampleDate: '2019-11-3'
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
     <Form styled='min'>
 
       <Datepicker
-        name='date'
+        name='exampleDate'
         label='Select a date'
       />
       <SubmitBtn />
