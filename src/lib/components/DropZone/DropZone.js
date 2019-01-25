@@ -33,7 +33,7 @@ export const DropZone = ({
   }
 
   return (
-    <div className={cx('form-element dropzone-wrapper', className, { hasError: !!errorMsg, disabled })}>
+    <div className={cx('form-element dropzone-wrapper', className, { hasError: !!errorMsg, isDisabled: disabled })}>
       {
         label && (
           <label htmlFor={name}>

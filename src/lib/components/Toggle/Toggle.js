@@ -32,7 +32,7 @@ export class Toggle extends Component {
     const checked = getIn(formik.values, name)
 
     return (
-      <label className={cx('toggle-switch', className, disabled)}>
+      <label className={cx('toggle-switch', className, { isDisabled: disabled })}>
         <input
           name={name}
           type="checkbox"

@@ -22,7 +22,7 @@ export const Radio = ({
   const errorMsg = touch && error ? error : null
 
   return (
-    <div className={cx('form-element radio-wrapper', className, { hasError: !!errorMsg, disabled })}>
+    <div className={cx('form-element radio-wrapper', className, { hasError: !!errorMsg, isDisabled: disabled })}>
       {
         label && (
           <label htmlFor={name}>

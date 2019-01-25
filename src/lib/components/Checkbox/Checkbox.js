@@ -23,7 +23,7 @@ export const Checkbox = ({
   const errorMsg = touch && error ? error : null
 
   return (
-    <div className={cx('form-element checkbox-wrapper', className, { hasError: !!errorMsg, disabled })}>
+    <div className={cx('form-element checkbox-wrapper', className, { hasError: !!errorMsg, isDisabled: disabled })}>
       {
         label && (
           <label

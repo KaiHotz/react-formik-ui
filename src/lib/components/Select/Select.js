@@ -23,7 +23,7 @@ export const Select = ({
   const errorMsg = touch && error ? error : null
 
   return (
-    <div className={cx('form-element select-wrapper', className, { hasError: !!errorMsg, disabled })}>
+    <div className={cx('form-element select-wrapper', className, { hasError: !!errorMsg, isDisabled: disabled })}>
       {
         label && (
         <label htmlFor={name}>

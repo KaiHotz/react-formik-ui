@@ -32,7 +32,7 @@
       width: 20px;
       transform: translateY(-50%);
       background-color: #909090;
-      transition: all 0.2s;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       border-radius: 50%
     }
   }
