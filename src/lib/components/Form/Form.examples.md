@@ -110,7 +110,7 @@ const  getSchema = () => {
 
           <Input
             name='incomeExample'
-            label={`What is your monthly income $ ${values.income},-`}
+            label={`What is your monthly income $ ${values.incomeExample},-`}
             type='range'
             min='0'
             max='10000'

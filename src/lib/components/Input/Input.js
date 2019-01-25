@@ -89,6 +89,9 @@ export class Input extends Component {
     const showStrengthMeter = value && type === 'password' && withStrengthMeter
     const hidden = hide || focus || value || placeholder || (disabled && value)
     const styled = ['text', 'email', 'number', 'password', 'search', 'tel', 'url'].includes(type)
+    console.log('errorMsg', errorMsg); // eslint-disable-line
+    console.log('hint', hint); // eslint-disable-line
+    console.log('showStrengthMeter', showStrengthMeter); // eslint-disable-line
 
     return (
       <div className={cx('form-element input-wrapper', className, { hasError: !!errorMsg, isDisabled: disabled })}>
@@ -115,7 +118,7 @@ export class Input extends Component {
           />
         </label>
         {
-          errorMsg && (
+          !!errorMsg && (
             <span className="error">
               {errorMsg}
             </span>
@@ -129,7 +132,7 @@ export class Input extends Component {
           )
         }
         {
-          showStrengthMeter && (
+          !!showStrengthMeter && (
             <StrengthMeter value={value} />
           )
         }
