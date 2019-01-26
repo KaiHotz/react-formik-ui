@@ -11,7 +11,7 @@ form {
             display: flex;
             margin-bottom: 10px;
             align-items: flex-end;
-            input {
+            input[type="checkbox"] {
               outline: none;
               position: absolute;
               opacity: 0;
@@ -27,13 +27,14 @@ form {
                 vertical-align: text-top;
                 width: 18px;
                 height: 17px;
-                background: #eee;
+                border: 1px solid #ccc;
+                background: #fff;
               }
               &:hover + label:before {
-                background: #ccc;
+                background: #ddd;
               }
               &:checked + label:before {
-                background: #2196F3;
+                background: #065fd4;
               }
               &:disabled + label {
                 color: #b8b8b8;

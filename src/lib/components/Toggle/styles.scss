@@ -1,8 +1,8 @@
 .toggle-switch {
   position: relative;
   display: inline-block;
-  width: 36px;
-  height: 14px;
+  width: 40px;
+  height: 12px;
   > input {
      display: none;
      &:checked + .slider{
