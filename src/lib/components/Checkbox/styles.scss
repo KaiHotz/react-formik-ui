@@ -16,7 +16,6 @@ form {
               position: absolute;
               opacity: 0;
               & + label {
-                align-self: flex-end;
                 position: relative;
                 cursor: pointer;
                 padding: 0;
@@ -28,14 +27,13 @@ form {
                 vertical-align: text-top;
                 width: 18px;
                 height: 17px;
-                background: white;
-                border: 1px solid #999;
+                background: #eee;
               }
               &:hover + label:before {
-                background: #065fd4;
+                background: #ccc;
               }
               &:checked + label:before {
-                background: #065fd4;
+                background: #2196F3;
               }
               &:disabled + label {
                 color: #b8b8b8;
@@ -49,8 +47,8 @@ form {
               &:checked + label:after {
                 content: '';
                 position: absolute;
-                left: 5px;
-                top: 9px;
+                left: 4px;
+                top: 8px;
                 background: white;
                 width: 2px;
                 height: 2px;
