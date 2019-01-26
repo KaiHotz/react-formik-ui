@@ -34,6 +34,20 @@ form {
     }
     &.ui {
       .form-element {
+        margin-bottom: 30px;
+        &.datePicker-wrapper,
+        &.dropzone-wrapper,
+        &.select-wrapper,
+        &.textarea-wrapper,
+        &.color-input,
+        &.image-input,
+        &.range-input {
+          label,
+          span {
+            display: block;
+            margin-bottom: 5px;
+          }
+        }
         .error {
           color: #cc0000;
           font-size: .8rem;

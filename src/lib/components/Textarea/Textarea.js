@@ -44,7 +44,7 @@ export const Textarea = ({
         {...rest}
       />
       {
-        errorMsg && (
+        !!errorMsg && (
           <span className="error">
             {errorMsg}
           </span>

@@ -83,32 +83,36 @@ export class Datepicker extends Component {
 
     return (
       <div className={cx('form-element datePicker-wrapper', className, { hasError: !!errorMsg, isDisabled: disabled })}>
+        <label
+          htmlFor={name}
+          onClick={this.handleFocus(name)}
+          onKeyPress={this.handleFocus(name)}
+          className={cx({ isDisabled: disabled })}
+          role="row"
+        >
+          {
+            label && (
+              <span>
+                {`${label}${required ? ' *' : ''}`}
+              </span>
+            )
+          }
+          <DatePickerCmp
+            id={name}
+            name={name}
+            selected={selectedDate}
+            placeholderText={placeholder}
+            dateFormat={dateFormat}
+            disabledKeyboardNavigation
+            onChangeRaw={this.handleChangeRaw}
+            onChange={this.handleChange}
+            disabled={disabled}
+            {...rest}
+          />
+        </label>
+
         {
-          label && (
-            <label
-              htmlFor={name}
-              onClick={this.handleFocus(name)}
-              onKeyPress={this.handleFocus(name)}
-              role="row"
-            >
-              {`${label}${required ? ' *' : ''}`}
-            </label>
-          )
-        }
-        <DatePickerCmp
-          id={name}
-          name={name}
-          selected={selectedDate}
-          placeholderText={placeholder}
-          dateFormat={dateFormat}
-          disabledKeyboardNavigation
-          onChangeRaw={this.handleChangeRaw}
-          onChange={this.handleChange}
-          disabled={disabled}
-          {...rest}
-        />
-        {
-          errorMsg && (
+          !!errorMsg && (
             <span className="error">
               {errorMsg}
             </span>

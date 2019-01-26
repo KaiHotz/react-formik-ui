@@ -77,7 +77,7 @@ export const DropZone = ({
         }
       </Dropzone>
       {
-        errorMsg && (
+        !!errorMsg && (
           <span className="error">
             {errorMsg}
           </span>

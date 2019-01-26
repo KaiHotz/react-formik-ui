@@ -89,8 +89,11 @@ export class Input extends Component {
     const styled = ['text', 'email', 'number', 'password', 'search', 'tel', 'url'].includes(type)
 
     return (
-      <div className={cx('form-element input-wrapper', className, { hasError: !!errorMsg, isDisabled: disabled })}>
-        <label htmlFor={name} className={cx({ isStyled: styled, isDisabled: disabled })}>
+      <div className={cx('form-element input-wrapper', className, `${type}-input`, { hasError: !!errorMsg, isDisabled: disabled })}>
+        <label
+          htmlFor={name}
+          className={cx({ isStyled: styled, isDisabled: disabled })}
+        >
           {
             label && (
               <span className={cx({ hide: hidden })}>

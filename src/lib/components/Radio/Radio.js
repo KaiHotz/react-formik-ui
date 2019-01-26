@@ -50,14 +50,11 @@ export const Radio = ({
             >
               {option.label}
             </label>
-            <div className="check">
-              <div className="inside" />
-            </div>
           </div>
         ))
       }
       {
-        errorMsg && (
+        !!errorMsg && (
           <span className="error">
             {errorMsg}
           </span>

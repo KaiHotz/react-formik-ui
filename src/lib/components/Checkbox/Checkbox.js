@@ -54,7 +54,7 @@ export const Checkbox = ({
         </label>
       </div>
       {
-        errorMsg && (
+        !!errorMsg && (
           <span className="error">
             {errorMsg}
           </span>

@@ -23,8 +23,7 @@ const  getSchema = () => {
      petsExample: yup
        .boolean(),
      incomeExample: yup
-       .string()
-       .required('Income is required'),
+       .string(),
      imagesExample: yup
        .array()
        .required('Image is required'),
@@ -115,7 +114,6 @@ const  getSchema = () => {
             min='0'
             max='10000'
             step='5'
-            required
           />
 
           <DropZone
@@ -170,8 +168,7 @@ const  getSchema = () => {
      pets: yup
        .boolean(),
      income: yup
-       .string()
-       .required('Income is required'),
+       .string(),
      images: yup
        .array()
        .required('Image is required'),
@@ -263,7 +260,6 @@ const  getSchema = () => {
             min='0'
             max='10000'
             step='5'
-            required
           />
 
           <DropZone

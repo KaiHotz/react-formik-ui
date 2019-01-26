@@ -57,7 +57,7 @@ export const Select = ({
         }
       </select>
       {
-        errorMsg && (
+        !!errorMsg && (
           <span className="error">
             {errorMsg}
           </span>
