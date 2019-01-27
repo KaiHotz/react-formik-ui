@@ -5,7 +5,11 @@ form {
   &.react-formik-ui {
     &.ui {
       .form-element {
-        &.input-wrapper {
+        &.datePicker-wrapper {
+          width: 171px;
+        }
+        &.input-wrapper,
+        &.datePicker-wrapper {
           &.hasError {
             label {
               span {
@@ -79,6 +83,7 @@ form {
                 padding: 6px 2px 7px;
                 border-radius: none;
                 color: currentColor;
+                background: transparent;
                 &:-webkit-autofill {
                   animation-name: onAutoFillStart;
                   transition: background-color 50000s ease-in-out 0s;

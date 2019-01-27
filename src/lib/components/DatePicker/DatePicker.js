@@ -5,6 +5,7 @@ import cx from 'classnames'
 import { connect, getIn } from 'formik'
 import { format } from 'date-fns'
 import 'react-datepicker/dist/react-datepicker.css'
+import '../Input/styles.scss'
 
 export class Datepicker extends Component {
   static propTypes = {
@@ -37,6 +38,10 @@ export class Datepicker extends Component {
     required: false,
   }
 
+  state = {
+    focus: false,
+  }
+
   handleChangeRaw = e => {
     const { formik } = this.props
     const { name, value } = e.target
@@ -58,6 +63,15 @@ export class Datepicker extends Component {
 
   handleFocus = name => () => {
     document.getElementById(name).focus()
+    this.setState({
+      focus: true,
+    })
+  }
+
+  handleBlur = () => {
+    this.setState({
+      focus: false,
+    })
   }
 
   render() {
@@ -75,11 +89,14 @@ export class Datepicker extends Component {
     } = this.props
 
     const { touched, errors, values } = formik
+    const { focus } = this.state
 
     const selectedDate = getIn(values, name) ? new Date(getIn(values, name)) : null
+    const value = getIn(values, name)
     const error = getIn(errors, name)
     const touch = getIn(touched, name)
     const errorMsg = touch && error ? error : null
+    const hidden = focus || value || placeholder || (disabled && value)
 
     return (
       <div className={cx('form-element datePicker-wrapper', className, { hasError: !!errorMsg, isDisabled: disabled })}>
@@ -87,12 +104,12 @@ export class Datepicker extends Component {
           htmlFor={name}
           onClick={this.handleFocus(name)}
           onKeyPress={this.handleFocus(name)}
-          className={cx({ isDisabled: disabled })}
+          className={cx('isStyled', { isDisabled: disabled })}
           role="row"
         >
           {
             label && (
-              <span>
+              <span className={cx({ hide: hidden })}>
                 {`${label}${required ? ' *' : ''}`}
               </span>
             )
@@ -106,6 +123,8 @@ export class Datepicker extends Component {
             disabledKeyboardNavigation
             onChangeRaw={this.handleChangeRaw}
             onChange={this.handleChange}
+            onFocus={this.handleFocus}
+            onBlur={this.handleBlur}
             disabled={disabled}
             {...rest}
           />

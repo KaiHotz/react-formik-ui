@@ -133,7 +133,7 @@ const  getSchema = () => {
             text='Click to accept the terms and conditions'
           />
 
-          <SubmitBtn disabled={!values.termsAndConitions} />
+          <SubmitBtn disabled={!values.termsAndConitionsExample} />
           <Button onClick={(() => alert('Cancel'))}>Cancel</Button>
         </fieldset>
       </Form>
@@ -230,7 +230,6 @@ const  getSchema = () => {
             name='birthDay'
             label='Birthday'
             dateFormat='dd.MM.yyyy'
-            placeholder='D.M.YYYY'
             hint='Please enter your birth date'
           />
 
