@@ -10,21 +10,6 @@ form {
         }
         &.input-wrapper,
         &.datePicker-wrapper {
-          &.hasError {
-            label {
-              span {
-                color: #cc0000;
-              }
-              &:before {
-                border-bottom: 1px solid #cc0000;
-              }
-              &:hover {
-                &:before {
-                  border-bottom: 2px solid #cc0000;
-                }
-              }
-            }
-          }
           label {
             &.isStyled {
               position: relative;
@@ -89,6 +74,21 @@ form {
                 }
                 &:not(:-webkit-autofill) {
                   animation-name: onAutoFillCancel;
+                }
+              }
+            }
+          }
+          &.hasError {
+            label {
+              span {
+                color: #cc0000;
+              }
+              &:before {
+                border-bottom: 1px solid #cc0000;
+              }
+              &:hover {
+                &:before {
+                  border-bottom: 2px solid #cc0000;
                 }
               }
             }
