@@ -1,62 +1,44 @@
 form {
   &.react-formik-ui {
-    &.min {
-      label,
-      span {
-        display: block;
-        margin-bottom: 5px;
-      }
-      .form-element {
-        margin-bottom: 15px;
-      }
-      .checkbox-input-wrapper{
-        display: flex;
-        align-items: flex-start;
-      }
-      .radio-options {
-        display: flex;
-        align-items: center;
-        label {
-          margin-bottom: 0;
-        }
-      }
-      .checkbox-text {
-        display: initial;
-        margin-bottom: 0;
-      }
-      .error {
-        color: #cc0000;
-        font-size: .8rem;
-      }
-      .hint {
-        font-size: .8rem;
-      }
-    }
+    &.min,
     &.ui {
       .form-element {
         margin-bottom: 30px;
-        &.datePicker-wrapper,
-        &.dropzone-wrapper,
-        &.select-wrapper,
-        &.textarea-wrapper,
-        &.color-input,
-        &.image-input,
-        &.range-input {
-          label,
-          span {
-            display: block;
-            margin-bottom: 5px;
-          }
+        label,
+        span {
+          display: block;
+          margin-bottom: 5px;
+        }
+        .error,
+        .hint {
+          font-size: .8rem;
+          display: block;
+          margin-top: 3px;
         }
         .error {
           color: #cc0000;
-          font-size: .8rem;
         }
         .hint {
-          display: block;
-          margin-top: 3px;
-          font-size: .8rem;
           color: #909090;
+        }
+      }
+    }
+    &.min {
+      .form-element {
+        .checkbox-input-wrapper{
+          display: flex;
+          align-items: flex-start;
+        }
+        .radio-options {
+          display: flex;
+          align-items: center;
+          label {
+            margin-bottom: 0;
+          }
+        }
+        .checkbox-text {
+          display: initial;
+          margin-bottom: 0;
         }
       }
     }
