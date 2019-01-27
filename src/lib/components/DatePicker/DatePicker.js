@@ -61,8 +61,7 @@ export class Datepicker extends Component {
     formik.setFieldTouched(name, true)
   }
 
-  handleFocus = name => () => {
-    document.getElementById(name).focus()
+  handleFocus = () => {
     this.setState({
       focus: true,
     })
@@ -102,8 +101,6 @@ export class Datepicker extends Component {
       <div className={cx('form-element datePicker-wrapper', className, { hasError: !!errorMsg, isDisabled: disabled })}>
         <label
           htmlFor={name}
-          onClick={this.handleFocus(name)}
-          onKeyPress={this.handleFocus(name)}
           className={cx('isStyled', { isDisabled: disabled })}
           role="row"
         >
