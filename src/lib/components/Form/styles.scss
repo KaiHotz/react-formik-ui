@@ -3,7 +3,6 @@ form {
     &.min,
     &.ui {
       .form-element {
-        margin-bottom: 30px;
         label,
         span {
           display: block;
@@ -25,6 +24,7 @@ form {
     }
     &.min {
       .form-element {
+         margin-bottom: 15px;
         .checkbox-input-wrapper{
           display: flex;
           align-items: flex-start;
@@ -40,6 +40,11 @@ form {
           display: initial;
           margin-bottom: 0;
         }
+      }
+    }
+    &.ui {
+      .form-element {
+        margin-bottom: 30px;
       }
     }
   }
