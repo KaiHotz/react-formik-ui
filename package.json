@@ -35,7 +35,6 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "react-click-outside": "^3.0.1",
     "react-datepicker": "^2.0.0",
     "react-dropzone": "7.0.1"
   },
