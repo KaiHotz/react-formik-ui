@@ -58,12 +58,11 @@ form {
                 background-color: transparent;
               }
             }
-          }
-          &.hasError {
-            label {
+            &.hasError {
               color: #cc0000;
             }
           }
+
         }
       }
     }

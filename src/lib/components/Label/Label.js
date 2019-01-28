@@ -21,16 +21,14 @@ export const Label = ({
 
 }) => {
   const error = getIn(errors, name)
-
   const touch = getIn(touched, name)
-
   const errorMsg = touch && error ? error : null
 
   return (
     <Fragment>
       <label
         htmlFor={name}
-        className={cx({ isStyled: styled, isDisabled: disabled })}
+        className={cx({ isStyled: styled, isDisabled: disabled, hasError: !!errorMsg })}
       >
         {
           text && (
