@@ -162,11 +162,11 @@ const  getSchema = () => {
        .date(),
     maritalStatus: yup
       .string()
-      .required('Image is required')
+      .required('Is required')
       .nullable(),
     maritalStatus2: yup
       .string()
-      .required('Image is required')
+      .required('Is required')
       .nullable(),
      driverLicense: yup
        .boolean(),

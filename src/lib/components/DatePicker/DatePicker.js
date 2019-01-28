@@ -48,6 +48,8 @@ export class Datepicker extends Component {
     const validChars = /^\d{0,2}[./]{0,1}\d{0,2}[./]{0,1}\d{0,4}$/
     if (!validChars.test(value)) {
       e.preventDefault()
+
+      return
     }
 
     formik.setFieldValue(name, value)
