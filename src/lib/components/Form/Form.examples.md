@@ -84,7 +84,7 @@ const  getSchema = () => {
             name='birthDayExample'
             label='Birthday'
             dateFormat='dd.MM.yyyy'
-            placeholder='D.M.YYYY'
+            placeholder='dd.mm.yyyy'
             hint='Please enter your birth date'
           />
 
@@ -238,6 +238,7 @@ const  getSchema = () => {
             name='birthDay'
             label='Birthday'
             dateFormat='dd.MM.yyyy'
+            placeholder='dd.mm.yyyy'
             hint='Please enter your birth date'
             required
           />
