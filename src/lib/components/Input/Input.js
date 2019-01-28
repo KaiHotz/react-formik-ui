@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { connect, getIn } from 'formik'
 
+import Label from '../Label'
 import './styles.scss'
 
 export class Input extends Component {
@@ -78,9 +79,7 @@ export class Input extends Component {
       type,
       ...rest
     } = this.props
-
     const { hide, focus } = this.state
-
     const error = getIn(errors, name)
     const value = getIn(values, name)
     const touch = getIn(touched, name)
@@ -90,17 +89,14 @@ export class Input extends Component {
 
     return (
       <div className={cx('form-element input-wrapper', className, `${type}-input`, { hasError: !!errorMsg, isDisabled: disabled })}>
-        <label
-          htmlFor={name}
-          className={cx({ isStyled: styled, isDisabled: disabled })}
+        <Label
+          name={name}
+          styled={styled}
+          disabled={disabled}
+          hidden={hidden}
+          text={label}
+          required={required}
         >
-          {
-            label && (
-              <span className={cx({ hide: hidden })}>
-                {`${label}${required ? ' *' : ''}`}
-              </span>
-            )
-          }
           <input
             id={id || name}
             name={name}
@@ -114,7 +110,7 @@ export class Input extends Component {
             disabled={disabled}
             {...rest}
           />
-        </label>
+        </Label>
         {
           !!errorMsg && (
             <span className="error">

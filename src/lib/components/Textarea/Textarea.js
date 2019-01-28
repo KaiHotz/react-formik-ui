@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { connect, getIn } from 'formik'
+
+import Label from '../Label'
 import './styles.scss'
 
 export class Textarea extends Component {
@@ -31,9 +33,7 @@ export class Textarea extends Component {
     const {
       touched, errors, values, handleChange,
     } = formik
-
     const { focus } = this.state
-
     const error = getIn(errors, name)
     const value = getIn(values, name)
     const touch = getIn(touched, name)
@@ -42,17 +42,13 @@ export class Textarea extends Component {
 
     return (
       <div className={cx('form-element textarea-wrapper', className, { hasError: !!errorMsg, isDisabled: disabled })}>
-        <label
-          htmlFor={name}
-          className={cx({ isDisabled: disabled })}
+        <Label
+          name={name}
+          disabled={disabled}
+          hidden={hidden}
+          text={label}
+          required={required}
         >
-          {
-            label && (
-              <span className={cx({ hide: hidden })}>
-                {`${label}${required ? ' *' : ''}`}
-              </span>
-            )
-          }
           <textarea
             id={id || name}
             name={name}
@@ -64,7 +60,7 @@ export class Textarea extends Component {
             disabled={disabled}
             {...rest}
           />
-        </label>
+        </Label>
 
         {
           !!errorMsg && (

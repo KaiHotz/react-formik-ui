@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { connect, getIn } from 'formik'
+
+import Label from '../Label'
 import './styles.scss'
 
 export const Checkbox = ({
@@ -25,34 +27,32 @@ export const Checkbox = ({
 
   return (
     <div className={cx('form-element checkbox-wrapper', className, { hasError: !!errorMsg, isDisabled: disabled })}>
-      {
-        label && (
+      <Label
+        name={name}
+        disabled={disabled}
+        text={label}
+        required={required}
+        className="checkbox-label"
+      >
+        <div className="checkbox-input-wrapper">
+          <input
+            id={id || name}
+            name={name}
+            type="checkbox"
+            checked={getIn(values, name)}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            disabled={disabled}
+            {...rest}
+          />
           <label
             htmlFor={name}
-            className="checkbox-label"
+            className="checkbox-text"
           >
-            {`${label}${required ? ' *' : ''}`}
+            {text}
           </label>
-        )
-      }
-      <div className="checkbox-input-wrapper">
-        <input
-          id={id || name}
-          name={name}
-          type="checkbox"
-          checked={getIn(values, name)}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          disabled={disabled}
-          {...rest}
-        />
-        <label
-          htmlFor={name}
-          className="checkbox-text"
-        >
-          {text}
-        </label>
-      </div>
+        </div>
+      </Label>
       {
         !!errorMsg && (
           <span className="error">

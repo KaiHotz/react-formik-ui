@@ -3,10 +3,8 @@ form {
     &.with-theme {
       .form-element {
         &.radio-wrapper {
-          .radio-options {
-            margin-bottom: 5px;
+          .radio-option {
             input[type="radio"] {
-
               &:checked,
               &:not(:checked) {
                 position: absolute;

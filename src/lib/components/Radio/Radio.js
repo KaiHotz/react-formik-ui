@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { connect, getIn } from 'formik'
+
+import Label from '../Label'
 import './styles.scss'
 
 export const Radio = ({
@@ -24,35 +26,36 @@ export const Radio = ({
 
   return (
     <div className={cx('form-element radio-wrapper', className, { hasError: !!errorMsg, isDisabled: disabled })}>
-      {
-        label && (
-          <label htmlFor={name}>
-            {`${label}${required ? ' *' : ''}`}
-          </label>
-        )
-      }
-      {
-        options.map(option => (
-          <div key={option.label} className="radio-options">
-            <input
-              type="radio"
-              checked={getIn(values, name) === option.value}
-              id={`${name}-id-${option.value}`}
-              value={option.value}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              name={name}
-              disabled={disabled}
-              {...rest}
-            />
-            <label
-              htmlFor={`${name}-id-${option.value}`}
-            >
-              {option.label}
-            </label>
-          </div>
-        ))
-      }
+      <Label
+        name={name}
+        disabled={disabled}
+        text={label}
+        required={required}
+        className="radio-label"
+      >
+        {
+          options.map(option => (
+            <div key={option.label} className="radio-option">
+              <input
+                type="radio"
+                checked={getIn(values, name) === option.value}
+                id={`${name}-id-${option.value}`}
+                value={option.value}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                name={name}
+                disabled={disabled}
+                {...rest}
+              />
+              <label
+                htmlFor={`${name}-id-${option.value}`}
+              >
+                {option.label}
+              </label>
+            </div>
+          ))
+        }
+      </Label>
       {
         !!errorMsg && (
           <span className="error">

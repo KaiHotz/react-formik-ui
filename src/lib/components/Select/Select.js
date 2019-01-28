@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { connect, getIn } from 'formik'
 
+import Label from '../Label'
 import './styles.scss'
 
 export const Select = ({
@@ -26,17 +27,12 @@ export const Select = ({
 
   return (
     <div className={cx('form-element select-wrapper', className, { hasError: !!errorMsg, isDisabled: disabled })}>
-      <label
-        htmlFor={name}
-        className={cx({ isDisabled: disabled })}
+      <Label
+        name={name}
+        disabled={disabled}
+        text={label}
+        required={required}
       >
-        {
-        label && (
-          <span>
-            {`${label}${required ? ' *' : ''}`}
-          </span>
-        )
-      }
         <select
           id={id || name}
           name={name}
@@ -62,7 +58,7 @@ export const Select = ({
             ))
           }
         </select>
-      </label>
+      </Label>
       {
         !!errorMsg && (
           <span className="error">

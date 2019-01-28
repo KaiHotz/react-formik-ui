@@ -5,6 +5,8 @@ import cx from 'classnames'
 import { connect, getIn } from 'formik'
 import { format } from 'date-fns'
 import 'react-datepicker/dist/react-datepicker.css'
+
+import Label from '../Label'
 import '../Input/styles.scss'
 
 export class Datepicker extends Component {
@@ -88,10 +90,8 @@ export class Datepicker extends Component {
       required,
       ...rest
     } = this.props
-
     const { touched, errors, values } = formik
     const { focus } = this.state
-
     const selectedDate = getIn(values, name) ? new Date(getIn(values, name)) : null
     const value = getIn(values, name)
     const error = getIn(errors, name)
@@ -101,18 +101,14 @@ export class Datepicker extends Component {
 
     return (
       <div className={cx('form-element datePicker-wrapper', className, { hasError: !!errorMsg, isDisabled: disabled })}>
-        <label
-          htmlFor={name}
-          className={cx('isStyled', { isDisabled: disabled })}
-          role="row"
+        <Label
+          name={name}
+          styled
+          disabled={disabled}
+          hidden={hidden}
+          text={label}
+          required={required}
         >
-          {
-            label && (
-              <span className={cx({ hide: hidden })}>
-                {`${label}${required ? ' *' : ''}`}
-              </span>
-            )
-          }
           <DatePickerCmp
             id={name}
             name={name}
@@ -127,7 +123,7 @@ export class Datepicker extends Component {
             disabled={disabled}
             {...rest}
           />
-        </label>
+        </Label>
 
         {
           !!errorMsg && (
