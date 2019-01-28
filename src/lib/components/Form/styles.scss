@@ -1,7 +1,7 @@
 form {
   &.react-formik-ui {
-    &.min,
-    &.ui {
+    &.with-structure,
+    &.with-theme {
       .form-element {
         label,
         span {
@@ -22,7 +22,7 @@ form {
         }
       }
     }
-    &.min {
+    &.with-structure {
       .form-element {
          margin-bottom: 15px;
         .checkbox-input-wrapper{
@@ -42,7 +42,7 @@ form {
         }
       }
     }
-    &.ui {
+    &.with-theme {
       .form-element {
         margin-bottom: 30px;
       }

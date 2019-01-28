@@ -3,7 +3,7 @@
 
 form {
   &.react-formik-ui {
-    &.ui {
+    &.with-theme {
       .form-element {
         &.datePicker-wrapper {
           width: 171px;
@@ -15,7 +15,6 @@ form {
               position: relative;
               display: flex;
               flex-direction: column;
-              color: rgba(0, 0, 0, 0.87);
               &:before {
                 left: 0;
                 right: 0;
@@ -23,12 +22,12 @@ form {
                 content: "\00a0";
                 position: absolute;
                 transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+                border-bottom: 1px solid currentColor;
                 pointer-events: none;
               }
               &:hover {
                 &:before {
-                  border-bottom: 2px solid rgba(0, 0, 0, 0.87);
+                  border-bottom: 2px solid currentColor;
                 }
               }
               &.isDisabled {
@@ -80,17 +79,7 @@ form {
           }
           &.hasError {
             label {
-              span {
-                color: #cc0000;
-              }
-              &:before {
-                border-bottom: 1px solid #cc0000;
-              }
-              &:hover {
-                &:before {
-                  border-bottom: 2px solid #cc0000;
-                }
-              }
+              color: #cc0000;
             }
           }
         }

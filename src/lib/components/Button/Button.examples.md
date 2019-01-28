@@ -2,7 +2,7 @@
 <Formik
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form styled='min'>
+    <Form structured>
 
       <Button onClick={(() => alert('Button clicked'))}>
         Click me

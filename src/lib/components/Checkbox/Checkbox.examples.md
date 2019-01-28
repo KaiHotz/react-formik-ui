@@ -5,7 +5,7 @@
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form styled='min'>
+    <Form structured>
 
       <Checkbox
         name='agreement'
@@ -27,7 +27,7 @@
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form styled='ui'>
+    <Form themed>
 
       <Checkbox
         name='uiExample'

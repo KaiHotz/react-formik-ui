@@ -52,7 +52,7 @@ const  getSchema = () => {
   onSubmit={onSubmit}
   render={({ values }) => {
   return (
-    <Form styled='min'>
+    <Form structured>
       <fieldset>
         <legend>Complete Form Example</legend>
 
@@ -159,7 +159,8 @@ const  getSchema = () => {
       .email('Wrong format')
       .required('Email is required'),
     birthDay: yup
-       .date(),
+       .date()
+       .required('Is required'),
     maritalStatus: yup
       .string()
       .required('Is required')
@@ -203,7 +204,7 @@ const  getSchema = () => {
   onSubmit={onSubmit}
   render={({ values }) => {
   return (
-    <Form styled='ui'>
+    <Form themed>
       <fieldset>
         <legend>Complete Form Example</legend>
 
@@ -237,6 +238,7 @@ const  getSchema = () => {
             label='Birthday'
             dateFormat='dd.MM.yyyy'
             hint='Please enter your birth date'
+            required
           />
 
           <Select

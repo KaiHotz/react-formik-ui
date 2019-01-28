@@ -40,7 +40,7 @@ const  getsecondSchema = () => {
   validationSchema={getsecondSchema}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form styled='min'>
+    <Form structured>
 
       <Input
         name='kaisName'
@@ -65,7 +65,7 @@ const  getsecondSchema = () => {
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form styled='ui'>
+    <Form themed>
 
       <Input
         name='uiNameField'
@@ -87,7 +87,7 @@ const  getsecondSchema = () => {
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form styled='ui'>
+    <Form themed>
 
       <Input
         name='myName'
@@ -111,7 +111,7 @@ const  getsecondSchema = () => {
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form styled='ui'>
+    <Form themed>
 
       <Input
         name='anyTextInput'

@@ -26,14 +26,14 @@ export const Select = ({
 
   return (
     <div className={cx('form-element select-wrapper', className, { hasError: !!errorMsg, isDisabled: disabled })}>
-      {
+      <label htmlFor={name}>
+        {
         label && (
-        <label htmlFor={name}>
-          {`${label}${required ? ' *' : ''}`}
-        </label>
+          <span>
+            {`${label}${required ? ' *' : ''}`}
+          </span>
         )
       }
-      <div className="select-container">
         <select
           id={id || name}
           name={name}
@@ -59,7 +59,7 @@ export const Select = ({
             ))
           }
         </select>
-      </div>
+      </label>
       {
         !!errorMsg && (
           <span className="error">
