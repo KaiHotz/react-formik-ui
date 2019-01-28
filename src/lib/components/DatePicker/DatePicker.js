@@ -7,7 +7,6 @@ import { format } from 'date-fns'
 import 'react-datepicker/dist/react-datepicker.css'
 
 import Label from '../Label'
-import InfoMsg from '../InfoMsg'
 import '../Input/styles.scss'
 
 export class Datepicker extends Component {
@@ -80,7 +79,9 @@ export class Datepicker extends Component {
 
   render() {
     const {
-      formik,
+      formik: {
+        values,
+      },
       className,
       dateFormat,
       disabled,
@@ -91,17 +92,13 @@ export class Datepicker extends Component {
       required,
       ...rest
     } = this.props
-    const { touched, errors, values } = formik
     const { focus } = this.state
     const selectedDate = getIn(values, name) ? new Date(getIn(values, name)) : null
     const value = getIn(values, name)
-    const error = getIn(errors, name)
-    const touch = getIn(touched, name)
-    const errorMsg = touch && error ? error : null
     const hidden = focus || value || placeholder || (disabled && value)
 
     return (
-      <div className={cx('form-element datePicker-wrapper', className, { hasError: !!errorMsg, isDisabled: disabled })}>
+      <div className={cx('form-element datePicker-wrapper', className, { isDisabled: disabled })}>
         <Label
           name={name}
           styled
@@ -109,6 +106,7 @@ export class Datepicker extends Component {
           hide={hidden}
           text={label}
           required={required}
+          hint={hint}
         >
           <DatePickerCmp
             id={name}
@@ -125,12 +123,6 @@ export class Datepicker extends Component {
             {...rest}
           />
         </Label>
-        {
-          !!errorMsg && (<InfoMsg errorMsg={errorMsg} />)
-        }
-        {
-          hint && (<InfoMsg hintMsg={hint} />)
-        }
       </div>
     )
   }

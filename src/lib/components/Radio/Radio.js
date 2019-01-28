@@ -4,11 +4,12 @@ import cx from 'classnames'
 import { connect, getIn } from 'formik'
 
 import Label from '../Label'
-import InfoMsg from '../InfoMsg'
 import './styles.scss'
 
 export const Radio = ({
-  formik,
+  formik: {
+    values, handleChange, handleBlur,
+  },
   className,
   disabled,
   hint,
@@ -17,55 +18,41 @@ export const Radio = ({
   options,
   required,
   ...rest
-}) => {
-  const {
-    touched, errors, values, handleChange, handleBlur,
-  } = formik
-  const error = getIn(errors, name)
-  const touch = getIn(touched, name)
-  const errorMsg = touch && error ? error : null
-
-  return (
-    <div className={cx('form-element radio-wrapper', className, { hasError: !!errorMsg, isDisabled: disabled })}>
-      <Label
-        name={name}
-        disabled={disabled}
-        text={label}
-        required={required}
-        className="radio-label"
-      >
-        {
-          options.map(option => (
-            <div key={option.label} className="radio-option">
-              <input
-                type="radio"
-                checked={getIn(values, name) === option.value}
-                id={`${name}-id-${option.value}`}
-                value={option.value}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                name={name}
-                disabled={disabled}
-                {...rest}
-              />
-              <label
-                htmlFor={`${name}-id-${option.value}`}
-              >
-                {option.label}
-              </label>
-            </div>
-          ))
-        }
-      </Label>
+}) => (
+  <div className={cx('form-element radio-wrapper', className, { isDisabled: disabled })}>
+    <Label
+      name={name}
+      disabled={disabled}
+      text={label}
+      required={required}
+      hint={hint}
+      className="radio-label"
+    >
       {
-        !!errorMsg && (<InfoMsg errorMsg={errorMsg} />)
+        options.map(option => (
+          <div key={option.label} className="radio-option">
+            <input
+              type="radio"
+              checked={getIn(values, name) === option.value}
+              id={`${name}-id-${option.value}`}
+              value={option.value}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              name={name}
+              disabled={disabled}
+              {...rest}
+            />
+            <label
+              htmlFor={`${name}-id-${option.value}`}
+            >
+              {option.label}
+            </label>
+          </div>
+        ))
       }
-      {
-        hint && (<InfoMsg hintMsg={hint} />)
-      }
-    </div>
-  )
-}
+    </Label>
+  </div>
+)
 
 Radio.propTypes = {
   formik: PropTypes.object.isRequired,

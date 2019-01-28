@@ -4,7 +4,6 @@ import cx from 'classnames'
 import { connect, getIn } from 'formik'
 
 import Label from '../Label'
-import InfoMsg from '../InfoMsg'
 import './styles.scss'
 
 export class Input extends Component {
@@ -66,7 +65,7 @@ export class Input extends Component {
   render() {
     const {
       formik: {
-        touched, errors, values, handleChange,
+        values, handleChange,
       },
       className,
       disabled,
@@ -81,15 +80,12 @@ export class Input extends Component {
       ...rest
     } = this.props
     const { hide, focus } = this.state
-    const error = getIn(errors, name)
     const value = getIn(values, name)
-    const touch = getIn(touched, name)
-    const errorMsg = touch && error ? error : null
     const hidden = hide || focus || value || placeholder || (disabled && value)
     const styled = ['text', 'email', 'number', 'password', 'search', 'tel', 'url'].includes(type)
 
     return (
-      <div className={cx('form-element input-wrapper', className, `${type}-input`, { hasError: !!errorMsg, isDisabled: disabled })}>
+      <div className={cx('form-element input-wrapper', className, `${type}-input`, { isDisabled: disabled })}>
         <Label
           name={name}
           styled={styled}
@@ -97,6 +93,7 @@ export class Input extends Component {
           hide={hidden}
           text={label}
           required={required}
+          hint={hint}
         >
           <input
             id={id || name}
@@ -112,12 +109,6 @@ export class Input extends Component {
             {...rest}
           />
         </Label>
-        {
-          !!errorMsg && (<InfoMsg errorMsg={errorMsg} />)
-        }
-        {
-          hint && (<InfoMsg hintMsg={hint} />)
-        }
       </div>
     )
   }

@@ -4,7 +4,6 @@ import cx from 'classnames'
 import { connect, getIn } from 'formik'
 
 import Label from '../Label'
-import InfoMsg from '../InfoMsg'
 import './styles.scss'
 
 export class Textarea extends Component {
@@ -20,7 +19,9 @@ export class Textarea extends Component {
 
   render() {
     const {
-      formik,
+      formik: {
+        values, handleChange,
+      },
       className,
       disabled,
       hint,
@@ -31,24 +32,19 @@ export class Textarea extends Component {
       required,
       ...rest
     } = this.props
-    const {
-      touched, errors, values, handleChange,
-    } = formik
     const { focus } = this.state
-    const error = getIn(errors, name)
     const value = getIn(values, name)
-    const touch = getIn(touched, name)
-    const errorMsg = touch && error ? error : null
     const hidden = focus || value || placeholder || (disabled && value)
 
     return (
-      <div className={cx('form-element textarea-wrapper', className, { hasError: !!errorMsg, isDisabled: disabled })}>
+      <div className={cx('form-element textarea-wrapper', className, { isDisabled: disabled })}>
         <Label
           name={name}
           disabled={disabled}
           hide={hidden}
           text={label}
           required={required}
+          hint={hint}
         >
           <textarea
             id={id || name}
@@ -62,12 +58,6 @@ export class Textarea extends Component {
             {...rest}
           />
         </Label>
-        {
-          !!errorMsg && (<InfoMsg errorMsg={errorMsg} />)
-        }
-        {
-          hint && (<InfoMsg hintMsg={hint} />)
-        }
       </div>
     )
   }

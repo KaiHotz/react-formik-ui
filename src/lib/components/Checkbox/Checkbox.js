@@ -4,7 +4,6 @@ import cx from 'classnames'
 import { connect, getIn } from 'formik'
 
 import Label from '../Label'
-import InfoMsg from '../InfoMsg'
 import './styles.scss'
 
 export const Checkbox = ({
@@ -20,20 +19,18 @@ export const Checkbox = ({
   ...rest
 }) => {
   const {
-    touched, errors, values, handleChange, handleBlur,
+    values, handleChange, handleBlur,
   } = formik
-  const error = getIn(errors, name)
-  const touch = getIn(touched, name)
-  const errorMsg = touch && error ? error : null
 
   return (
-    <div className={cx('form-element checkbox-wrapper', className, { hasError: !!errorMsg, isDisabled: disabled })}>
+    <div className={cx('form-element checkbox-wrapper', className, { isDisabled: disabled })}>
       <Label
         name={name}
         disabled={disabled}
         text={label}
         required={required}
         className="checkbox-label"
+        hint={hint}
       >
         <div className="checkbox-input-wrapper">
           <input
@@ -54,12 +51,6 @@ export const Checkbox = ({
           </label>
         </div>
       </Label>
-      {
-        !!errorMsg && (<InfoMsg errorMsg={errorMsg} />)
-      }
-      {
-        hint && (<InfoMsg hintMsg={hint} />)
-      }
     </div>
   )
 }

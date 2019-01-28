@@ -4,11 +4,12 @@ import cx from 'classnames'
 import { connect, getIn } from 'formik'
 
 import Label from '../Label'
-import InfoMsg from '../InfoMsg'
 import './styles.scss'
 
 export const Select = ({
-  formik,
+  formik: {
+    values, handleChange,
+  },
   className,
   disabled,
   hint,
@@ -18,57 +19,43 @@ export const Select = ({
   options,
   placeholder,
   required,
-}) => {
-  const {
-    touched, errors, values, handleChange,
-  } = formik
-  const error = getIn(errors, name)
-  const touch = getIn(touched, name)
-  const errorMsg = touch && error ? error : null
-
-  return (
-    <div className={cx('form-element select-wrapper', className, { hasError: !!errorMsg, isDisabled: disabled })}>
-      <Label
+}) => (
+  <div className={cx('form-element select-wrapper', className, { isDisabled: disabled })}>
+    <Label
+      name={name}
+      disabled={disabled}
+      text={label}
+      required={required}
+      hint={hint}
+    >
+      <select
+        id={id || name}
         name={name}
+        value={getIn(values, name)}
         disabled={disabled}
-        text={label}
-        required={required}
+        onChange={handleChange}
       >
-        <select
-          id={id || name}
-          name={name}
-          value={getIn(values, name)}
-          disabled={disabled}
-          onChange={handleChange}
-        >
-          {
-            placeholder && (
-              <option value="">
-                {`${placeholder}${!label && required ? ' *' : ''}`}
-              </option>
-            )
-          }
-          {
-            options.map(option => (
-              <option
-                key={option.label}
-                value={option.value}
-              >
-                {option.label}
-              </option>
-            ))
-          }
-        </select>
-      </Label>
-      {
-        !!errorMsg && (<InfoMsg errorMsg={errorMsg} />)
-      }
-      {
-        hint && (<InfoMsg hintMsg={hint} />)
-      }
-    </div>
-  )
-}
+        {
+          placeholder && (
+            <option value="">
+              {`${placeholder}${!label && required ? ' *' : ''}`}
+            </option>
+          )
+        }
+        {
+          options.map(option => (
+            <option
+              key={option.label}
+              value={option.value}
+            >
+              {option.label}
+            </option>
+          ))
+        }
+      </select>
+    </Label>
+  </div>
+)
 
 Select.propTypes = {
   formik: PropTypes.object.isRequired,

@@ -2,10 +2,9 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import Dropzone from 'react-dropzone'
-import { connect, getIn } from 'formik'
+import { connect } from 'formik'
 
 import Label from '../Label'
-import InfoMsg from '../InfoMsg'
 import './styles.scss'
 
 export const DropZone = ({
@@ -23,11 +22,8 @@ export const DropZone = ({
   ...rest
 }) => {
   const {
-    touched, errors, values, setFieldValue, setFieldTouched,
+    values, setFieldValue, setFieldTouched,
   } = formik
-  const error = getIn(errors, name)
-  const touch = getIn(touched, name)
-  const errorMsg = touch && error ? error : null
 
   const onDrop = acceptedFiles => {
     if (acceptedFiles.length === 0) { return }
@@ -36,11 +32,12 @@ export const DropZone = ({
   }
 
   return (
-    <div className={cx('form-element dropzone-wrapper', className, { hasError: !!errorMsg, isDisabled: disabled })}>
+    <div className={cx('form-element dropzone-wrapper', className, { isDisabled: disabled })}>
       <Label
         name={name}
         text={label}
         required={required}
+        hint={hint}
       >
         <Dropzone
           className="dropzone"
@@ -78,12 +75,6 @@ export const DropZone = ({
           }
         </Dropzone>
       </Label>
-      {
-        !!errorMsg && (<InfoMsg errorMsg={errorMsg} />)
-      }
-      {
-        hint && (<InfoMsg hintMsg={hint} />)
-      }
     </div>
   )
 }
