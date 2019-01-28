@@ -179,7 +179,8 @@ const  getSchema = () => {
        .array()
        .required('Image is required'),
      additionalInfo: yup
-       .string(),
+       .string()
+       .required('Is required'),
      termsAndConitions: yup
        .boolean(),
   });

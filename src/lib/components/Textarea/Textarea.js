@@ -1,64 +1,86 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { connect, getIn } from 'formik'
+import './styles.scss'
 
-export const Textarea = ({
-  formik,
-  className,
-  disabled,
-  hint,
-  id,
-  label,
-  name,
-  placeholder,
-  required,
-  ...rest
-}) => {
-  const {
-    touched, errors, values, handleChange, handleBlur,
-  } = formik
-  const error = getIn(errors, name)
-  const touch = getIn(touched, name)
-  const errorMsg = touch && error ? error : null
+export class Textarea extends Component {
+  state = {
+    focus: false,
+  }
 
-  return (
-    <div className={cx('form-element textarea-wrapper', className, { hasError: !!errorMsg, isDisabled: disabled })}>
-      {
-        label && (
-          <label htmlFor={name}>
-            {label}
-            {' '}
-            {required ? '*' : ''}
-          </label>
-        )
-      }
-      <textarea
-        id={id || name}
-        name={name}
-        placeholder={placeholder}
-        value={getIn(values, name)}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        disabled={disabled}
-        {...rest}
-      />
-      {
-        !!errorMsg && (
-          <span className="error">
-            {errorMsg}
-          </span>
-        )
-      }
-      {
-        hint && (
-          <span className="hint">
-            {hint}
-          </span>
-        )
-      }
-    </div>
-  )
+  toggleFocus = () => {
+    this.setState(prevState => ({
+      focus: !prevState.focus,
+    }))
+  }
+
+  render() {
+    const {
+      formik,
+      className,
+      disabled,
+      hint,
+      id,
+      label,
+      name,
+      placeholder,
+      required,
+      ...rest
+    } = this.props
+    const {
+      touched, errors, values, handleChange,
+    } = formik
+
+    const { focus } = this.state
+
+    const error = getIn(errors, name)
+    const value = getIn(values, name)
+    const touch = getIn(touched, name)
+    const errorMsg = touch && error ? error : null
+    const hidden = focus || value || placeholder || (disabled && value)
+
+    return (
+      <div className={cx('form-element textarea-wrapper', className, { hasError: !!errorMsg, isDisabled: disabled })}>
+        <label htmlFor={name}>
+          {
+            label && (
+              <span className={cx({ hide: hidden })}>
+                {`${label}${required ? ' *' : ''}`}
+              </span>
+            )
+
+          }
+          <textarea
+            id={id || name}
+            name={name}
+            placeholder={placeholder}
+            value={getIn(values, name)}
+            onChange={handleChange}
+            onFocus={this.toggleFocus}
+            onBlur={this.toggleFocus}
+            disabled={disabled}
+            {...rest}
+          />
+        </label>
+
+        {
+          !!errorMsg && (
+            <span className="error">
+              {errorMsg}
+            </span>
+          )
+        }
+        {
+          hint && (
+            <span className="hint">
+              {hint}
+            </span>
+          )
+        }
+      </div>
+    )
+  }
 }
 
 Textarea.propTypes = {
