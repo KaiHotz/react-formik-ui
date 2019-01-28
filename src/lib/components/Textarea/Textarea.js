@@ -42,14 +42,16 @@ export class Textarea extends Component {
 
     return (
       <div className={cx('form-element textarea-wrapper', className, { hasError: !!errorMsg, isDisabled: disabled })}>
-        <label htmlFor={name}>
+        <label
+          htmlFor={name}
+          className={cx({ isDisabled: disabled })}
+        >
           {
             label && (
               <span className={cx({ hide: hidden })}>
                 {`${label}${required ? ' *' : ''}`}
               </span>
             )
-
           }
           <textarea
             id={id || name}
