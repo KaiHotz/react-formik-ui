@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import DatePickerCmp from 'react-datepicker'
 import cx from 'classnames'
 import { connect, getIn } from 'formik'
-import { format } from 'date-fns'
+import { format, isValid } from 'date-fns'
 import 'react-datepicker/dist/react-datepicker.css'
 
 import Label from '../Label'
@@ -27,12 +27,7 @@ export class Datepicker extends Component {
 
   static defaultProps = {
     className: null,
-    dateFormat: [
-      'MM/dd/yyyy',
-      'M/d/yyyy',
-      'dd.MM.yyyy',
-      'd.M.yyyy',
-    ],
+    dateFormat: 'dd.MM.yyyy',
     disabled: false,
     hint: null,
     label: null,
@@ -48,20 +43,16 @@ export class Datepicker extends Component {
     const { setFieldValue, setFieldTouched } = this.props.formik
     const { name, value } = e.target
     const validChars = /^\d{0,2}[./]{0,1}\d{0,2}[./]{0,1}\d{0,4}$/
-    if (!validChars.test(value)) {
-      e.preventDefault()
-
-      return
+    if (validChars.test(value) && isValid(new Date(value))) {
+      setFieldValue(name, value)
+      setFieldTouched(name, true)
     }
-
-    setFieldValue(name, value)
-    setFieldTouched(name, true)
   }
 
   handleChange = date => {
     const { formik: { setFieldValue, setFieldTouched }, name } = this.props
 
-    setFieldValue(name, format(date, 'yyyy-MM-dd'))
+    setFieldValue(name, format(date, 'yyyy-MM-dd h:mm aa'))
     setFieldTouched(name, true)
   }
 
