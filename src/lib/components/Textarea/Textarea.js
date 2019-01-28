@@ -46,7 +46,7 @@ export class Textarea extends Component {
         <Label
           name={name}
           disabled={disabled}
-          hidden={hidden}
+          hide={hidden}
           text={label}
           required={required}
         >

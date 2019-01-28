@@ -3,7 +3,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 export const Label = ({
-  name, styled, disabled, hidden, text, required, children, className,
+  name, styled, disabled, hide, text, required, children, className,
 }) => (
   <label
     htmlFor={name}
@@ -11,9 +11,9 @@ export const Label = ({
   >
     {
       text && (
-        <span className={cx({ hide: hidden }, className)}>
-          {`${text}${required ? ' *' : ''}`}
-        </span>
+      <span className={cx({ hide }, className)}>
+        {`${text}${required ? ' *' : ''}`}
+      </span>
       )
     }
     {children}
@@ -24,7 +24,7 @@ Label.propTypes = {
   name: PropTypes.string.isRequired,
   styled: PropTypes.bool,
   disabled: PropTypes.bool,
-  hidden: PropTypes.bool,
+  hide: PropTypes.bool,
   text: PropTypes.string,
   required: PropTypes.bool,
   children: PropTypes.node.isRequired,
@@ -34,7 +34,7 @@ Label.propTypes = {
 Label.defaultProps = {
   styled: false,
   disabled: false,
-  hidden: false,
+  hide: false,
   text: null,
   required: false,
   className: null,

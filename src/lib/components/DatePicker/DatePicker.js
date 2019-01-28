@@ -46,7 +46,7 @@ export class Datepicker extends Component {
   }
 
   handleChangeRaw = e => {
-    const { formik } = this.props
+    const { setFieldValue, setFieldTouched } = this.props.formik
     const { name, value } = e.target
     const validChars = /^\d{0,2}[./]{0,1}\d{0,2}[./]{0,1}\d{0,4}$/
     if (!validChars.test(value)) {
@@ -55,15 +55,15 @@ export class Datepicker extends Component {
       return
     }
 
-    formik.setFieldValue(name, value)
-    formik.setFieldTouched(name, true)
+    setFieldValue(name, value)
+    setFieldTouched(name, true)
   }
 
   handleChange = date => {
-    const { formik, name } = this.props
+    const { formik: { setFieldValue, setFieldTouched }, name } = this.props
 
-    formik.setFieldValue(name, format(date, 'yyyy-MM-dd'))
-    formik.setFieldTouched(name, true)
+    setFieldValue(name, format(date, 'yyyy-MM-dd'))
+    setFieldTouched(name, true)
   }
 
   handleFocus = () => {
@@ -106,7 +106,7 @@ export class Datepicker extends Component {
           name={name}
           styled
           disabled={disabled}
-          hidden={hidden}
+          hide={hidden}
           text={label}
           required={required}
         >
