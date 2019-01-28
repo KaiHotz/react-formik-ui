@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { connect, getIn } from 'formik'
 
+import './styles.scss'
+
 export const Select = ({
   formik,
   className,
@@ -31,31 +33,33 @@ export const Select = ({
         </label>
         )
       }
-      <select
-        id={id || name}
-        name={name}
-        value={getIn(values, name)}
-        disabled={disabled}
-        onChange={handleChange}
-      >
-        {
-          placeholder && (
-            <option value="">
-              {placeholder}
-            </option>
-          )
-        }
-        {
-          options.map(option => (
-            <option
-              key={option.label}
-              value={option.value}
-            >
-              {option.label}
-            </option>
-          ))
-        }
-      </select>
+      <div className="select-container">
+        <select
+          id={id || name}
+          name={name}
+          value={getIn(values, name)}
+          disabled={disabled}
+          onChange={handleChange}
+        >
+          {
+            placeholder && (
+              <option value="">
+                {`${placeholder}${!label && required ? ' *' : ''}`}
+              </option>
+            )
+          }
+          {
+            options.map(option => (
+              <option
+                key={option.label}
+                value={option.value}
+              >
+                {option.label}
+              </option>
+            ))
+          }
+        </select>
+      </div>
       {
         !!errorMsg && (
           <span className="error">
