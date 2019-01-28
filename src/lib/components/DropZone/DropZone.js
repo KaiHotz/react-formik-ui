@@ -5,6 +5,7 @@ import Dropzone from 'react-dropzone'
 import { connect, getIn } from 'formik'
 
 import Label from '../Label'
+import InfoMsg from '../InfoMsg'
 import './styles.scss'
 
 export const DropZone = ({
@@ -78,18 +79,10 @@ export const DropZone = ({
         </Dropzone>
       </Label>
       {
-        !!errorMsg && (
-          <span className="error">
-            {errorMsg}
-          </span>
-        )
+        !!errorMsg && (<InfoMsg errorMsg={errorMsg} />)
       }
       {
-        hint && (
-          <span className="hint">
-            {hint}
-          </span>
-        )
+        hint && (<InfoMsg hintMsg={hint} />)
       }
     </div>
   )

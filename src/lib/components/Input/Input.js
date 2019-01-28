@@ -4,6 +4,7 @@ import cx from 'classnames'
 import { connect, getIn } from 'formik'
 
 import Label from '../Label'
+import InfoMsg from '../InfoMsg'
 import './styles.scss'
 
 export class Input extends Component {
@@ -112,18 +113,10 @@ export class Input extends Component {
           />
         </Label>
         {
-          !!errorMsg && (
-            <span className="error">
-              {errorMsg}
-            </span>
-          )
+          !!errorMsg && (<InfoMsg errorMsg={errorMsg} />)
         }
         {
-          hint && (
-            <span className="hint">
-              {hint}
-            </span>
-          )
+          hint && (<InfoMsg hintMsg={hint} />)
         }
       </div>
     )

@@ -7,6 +7,7 @@ import { format } from 'date-fns'
 import 'react-datepicker/dist/react-datepicker.css'
 
 import Label from '../Label'
+import InfoMsg from '../InfoMsg'
 import '../Input/styles.scss'
 
 export class Datepicker extends Component {
@@ -124,20 +125,11 @@ export class Datepicker extends Component {
             {...rest}
           />
         </Label>
-
         {
-          !!errorMsg && (
-            <span className="error">
-              {errorMsg}
-            </span>
-          )
+          !!errorMsg && (<InfoMsg errorMsg={errorMsg} />)
         }
         {
-          hint && (
-            <span className="hint">
-              {hint}
-            </span>
-          )
+          hint && (<InfoMsg hintMsg={hint} />)
         }
       </div>
     )
