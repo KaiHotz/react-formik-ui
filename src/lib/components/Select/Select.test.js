@@ -46,7 +46,7 @@ describe('<Select />', () => {
       ...baseProps,
       label: 'Custom',
     }
-    const wrapper = shallow(<Select {...props} />)
+    const wrapper = mount(<Select {...props} />)
 
     expect(wrapper.find('label').length).toBe(1)
   })
@@ -56,7 +56,7 @@ describe('<Select />', () => {
       ...baseProps,
       hint: 'hintTest',
     }
-    const wrapper = shallow(<Select {...props} />)
+    const wrapper = mount(<Select {...props} />)
 
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)

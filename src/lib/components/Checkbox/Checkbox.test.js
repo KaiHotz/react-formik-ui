@@ -45,7 +45,7 @@ describe('<Checkbox />', () => {
       ...baseProps,
       hint: 'hintTest',
     }
-    const wrapper = shallow(<Checkbox {...props} />)
+    const wrapper = mount(<Checkbox {...props} />)
 
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)

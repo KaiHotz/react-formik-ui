@@ -103,7 +103,7 @@ export class Datepicker extends Component {
           name={name}
           styled
           disabled={disabled}
-          hide={hidden}
+          hide={!!hidden}
           text={label}
           required={required}
           hint={hint}

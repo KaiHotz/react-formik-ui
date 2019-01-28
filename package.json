@@ -36,7 +36,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "react-datepicker": "^2.0.0",
-    "react-dropzone": "7.0.1"
+    "react-dropzone": "^7.0.1"
   },
   "peerDependencies": {
     "formik": ">1.0.0-alpha.6",
@@ -58,6 +58,7 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.21",
     "babel-preset-react-app": "^7.0.0",
     "cross-env": "^5.2.0",
+    "css-loader": "^2.1.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
     "eslint": "^5.12.0",
@@ -90,7 +91,8 @@
     "rollup-plugin-postcss": "^2.0.1",
     "rollup-plugin-terser": "^4.0.1",
     "rollup-plugin-url": "^2.1.0",
-    "webpack": "^4.28.3",
+    "sass-loader": "^7.1.0",
+    "webpack": "^4.29.0",
     "webpack-blocks": "^2.0.0-alpha",
     "yup": "^0.26.6"
   },

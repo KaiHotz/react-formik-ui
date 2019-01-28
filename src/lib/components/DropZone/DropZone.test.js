@@ -45,7 +45,7 @@ describe('<DropZone />', () => {
       ...baseProps,
       label: 'Custom',
     }
-    const wrapper = shallow(<DropZone {...props} />)
+    const wrapper = mount(<DropZone {...props} />)
 
     expect(wrapper.find('label').length).toBe(1)
   })
@@ -55,7 +55,7 @@ describe('<DropZone />', () => {
       ...baseProps,
       hint: 'hintTest',
     }
-    const wrapper = shallow(<DropZone {...props} />)
+    const wrapper = mount(<DropZone {...props} />)
 
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)

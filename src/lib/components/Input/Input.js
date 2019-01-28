@@ -90,7 +90,7 @@ export class Input extends Component {
           name={name}
           styled={styled}
           disabled={disabled}
-          hide={hidden}
+          hide={!!hidden}
           text={label}
           required={required}
           hint={hint}

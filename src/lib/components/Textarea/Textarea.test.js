@@ -41,7 +41,7 @@ describe('<Textarea />', () => {
       ...baseProps,
       label: 'Custom',
     }
-    const wrapper = shallow(<Textarea {...props} />)
+    const wrapper = mount(<Textarea {...props} />)
 
     expect(wrapper.find('label').length).toBe(1)
   })
@@ -51,7 +51,7 @@ describe('<Textarea />', () => {
       ...baseProps,
       hint: 'hintTest',
     }
-    const wrapper = shallow(<Textarea {...props} />)
+    const wrapper = mount(<Textarea {...props} />)
 
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)

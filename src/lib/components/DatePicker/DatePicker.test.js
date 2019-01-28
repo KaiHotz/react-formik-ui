@@ -49,7 +49,7 @@ describe('<Datepicker />', () => {
       ...baseProps,
       label: 'Custom',
     }
-    const wrapper = shallow(<Datepicker {...props} />)
+    const wrapper = mount(<Datepicker {...props} />)
 
     expect(wrapper.find('label').length).toBe(1)
   })
@@ -59,7 +59,7 @@ describe('<Datepicker />', () => {
       ...baseProps,
       hint: 'hintTest',
     }
-    const wrapper = shallow(<Datepicker {...props} />)
+    const wrapper = mount(<Datepicker {...props} />)
 
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)

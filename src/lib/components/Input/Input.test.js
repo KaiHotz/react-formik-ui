@@ -50,7 +50,7 @@ describe('<Input />', () => {
       ...baseProps,
       label: 'Custom',
     }
-    const wrapper = shallow(<Input {...props} />)
+    const wrapper = mount(<Input {...props} />)
 
     expect(wrapper.find('label').length).toBe(1)
   })
@@ -60,7 +60,7 @@ describe('<Input />', () => {
       ...baseProps,
       hint: 'hintTest',
     }
-    const wrapper = shallow(<Input {...props} />)
+    const wrapper = mount(<Input {...props} />)
 
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)
