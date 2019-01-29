@@ -10,7 +10,7 @@ form {
         padding: 10px 10px 0;
         box-sizing: border-box;
       }
-      &.disabled {
+      &.isDisabled {
         .dropzone {
           background-color: #EBEBE4;
           opacity: 0.4;
