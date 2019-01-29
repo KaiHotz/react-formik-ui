@@ -3,6 +3,25 @@
 
 form {
   &.react-formik-ui {
+    &.with-structure,
+    &.with-theme {
+      .form-element {
+        label,
+        span {
+          display: block;
+          margin-bottom: 5px;
+        }
+        .error,
+        .hint {
+          font-size: .8rem;
+          display: block;
+          margin-top: 3px;
+        }
+        .hint {
+          color: #909090;
+        }
+      }
+    }
     &.with-theme {
       .form-element {
         &.input-wrapper,

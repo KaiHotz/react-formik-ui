@@ -1,5 +1,17 @@
 form {
   &.react-formik-ui {
+    &.with-structure {
+      .form-element {
+        .checkbox-input-wrapper{
+          display: flex;
+          align-items: flex-start;
+        }
+        .checkbox-text {
+          display: initial;
+          margin-bottom: 0;
+        }
+      }
+    }
     &.with-theme {
       .form-element {
         &.checkbox-wrapper {

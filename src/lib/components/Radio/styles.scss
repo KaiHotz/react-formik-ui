@@ -1,5 +1,16 @@
 form {
   &.react-formik-ui {
+    &.with-structure {
+      .form-element {
+        .radio-option {
+          display: flex;
+          align-items: center;
+          label {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
     &.with-theme {
       .form-element {
         &.radio-wrapper {

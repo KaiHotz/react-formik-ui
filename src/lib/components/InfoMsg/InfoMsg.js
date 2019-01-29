@@ -3,7 +3,7 @@ import PropTapes from 'prop-types'
 import cx from 'classnames'
 
 const InfoMsg = ({ hintMsg, errorMsg }) => (
-  <span className={cx({ hint: hintMsg, error: errorMsg })}>
+  <span className={cx({ hint: !!hintMsg, error: !!errorMsg })}>
     {errorMsg || hintMsg}
   </span>
 )
