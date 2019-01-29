@@ -1,67 +1,38 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import cx from 'classnames'
 import { connect, getIn } from 'formik'
 
-import Label from '../Label'
+import withLabel from '../withLabel'
 import './styles.scss'
 
-export class Textarea extends Component {
-  state = {
-    hide: false,
-  }
-
-  toggleFocus = () => {
-    this.setState(prevState => ({
-      hide: !prevState.hide,
-    }))
-  }
-
-  render() {
-    const {
-      formik: {
-        values, handleChange,
-      },
-      className,
-      disabled,
-      hint,
-      id,
-      label,
-      name,
-      placeholder,
-      required,
-      ...rest
-    } = this.props
-    const { hide } = this.state
-    const value = getIn(values, name)
-    const hidden = hide || value || placeholder || (disabled && value)
-
-    return (
-      <div className={cx('form-element textarea-wrapper', className, { isDisabled: disabled })}>
-        <Label
-          name={name}
-          disabled={disabled}
-          hide={!!hidden}
-          text={label}
-          required={required}
-          hint={hint}
-        >
-          <textarea
-            id={id || name}
-            name={name}
-            placeholder={placeholder}
-            value={getIn(values, name)}
-            onChange={handleChange}
-            onFocus={this.toggleFocus}
-            onBlur={this.toggleFocus}
-            disabled={disabled}
-            {...rest}
-          />
-        </Label>
-      </div>
-    )
-  }
-}
+export const Textarea = ({
+  formik: {
+    values, handleChange,
+  },
+  className,
+  disabled,
+  hint,
+  id,
+  label,
+  name,
+  placeholder,
+  required,
+  onFocus,
+  onBlur,
+  ...rest
+}) => (
+  <textarea
+    id={id || name}
+    name={name}
+    placeholder={placeholder}
+    value={getIn(values, name)}
+    onChange={handleChange}
+    onFocus={onFocus}
+    onBlur={onBlur}
+    disabled={disabled}
+    {...rest}
+  />
+)
 
 Textarea.propTypes = {
   formik: PropTypes.object.isRequired,
@@ -73,6 +44,9 @@ Textarea.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
+  onFocus: PropTypes.func.isRequired,
+  onBlur: PropTypes.func.isRequired,
+
 }
 
 Textarea.defaultProps = {
@@ -85,4 +59,4 @@ Textarea.defaultProps = {
   required: false,
 }
 
-export default connect(Textarea)
+export default connect(withLabel('textarea')(Textarea))

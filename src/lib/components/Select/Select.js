@@ -1,18 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import cx from 'classnames'
 import { connect, getIn } from 'formik'
 
-import Label from '../Label'
+import withLabel from '../withLabel'
 import './styles.scss'
 
 export const Select = ({
   formik: {
     values, handleChange,
   },
-  className,
   disabled,
-  hint,
   id,
   label,
   name,
@@ -20,48 +17,36 @@ export const Select = ({
   placeholder,
   required,
 }) => (
-  <div className={cx('form-element select-wrapper', className, { isDisabled: disabled })}>
-    <Label
-      name={name}
-      disabled={disabled}
-      text={label}
-      required={required}
-      hint={hint}
-    >
-      <select
-        id={id || name}
-        name={name}
-        value={getIn(values, name)}
-        disabled={disabled}
-        onChange={handleChange}
-      >
-        {
-          placeholder && (
-            <option value="">
-              {`${placeholder}${!label && required ? ' *' : ''}`}
-            </option>
-          )
-        }
-        {
-          options.map(option => (
-            <option
-              key={option.label}
-              value={option.value}
-            >
-              {option.label}
-            </option>
-          ))
-        }
-      </select>
-    </Label>
-  </div>
+  <select
+    id={id || name}
+    name={name}
+    value={getIn(values, name)}
+    disabled={disabled}
+    onChange={handleChange}
+  >
+    {
+      placeholder && (
+        <option value="">
+          {`${placeholder}${!label && required ? ' *' : ''}`}
+        </option>
+      )
+    }
+    {
+      options.map(option => (
+        <option
+          key={option.label}
+          value={option.value}
+        >
+          {option.label}
+        </option>
+      ))
+    }
+  </select>
 )
 
 Select.propTypes = {
   formik: PropTypes.object.isRequired,
-  className: PropTypes.string,
   disabled: PropTypes.bool,
-  hint: PropTypes.string,
   id: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
@@ -77,13 +62,11 @@ Select.propTypes = {
 }
 
 Select.defaultProps = {
-  className: null,
   disabled: false,
-  hint: null,
   id: null,
   label: null,
   placeholder: null,
   required: false,
 }
 
-export default connect(Select)
+export default connect(withLabel('select')(Select))

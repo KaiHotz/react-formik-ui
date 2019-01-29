@@ -1,29 +1,29 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import { connect, getIn } from 'formik'
+import { getIn } from 'formik'
 
 import InfoMsg from '../InfoMsg'
 
-const withLabel = (component, labelClass = null, animated = false) => WrappedComponent => class WithLabel extends Component {
+const withLabel = (component = 'input', labelClass = null) => WrappedComponent => class WithLabel extends PureComponent {
   static propTypes = {
     formik: PropTypes.object.isRequired,
     name: PropTypes.string.isRequired,
-    disabled: PropTypes.bool,
     label: PropTypes.string,
-    required: PropTypes.bool,
     className: PropTypes.string,
-    placeholder: PropTypes.string,
     hint: PropTypes.string,
+    placeholder: PropTypes.string,
+    disabled: PropTypes.bool,
+    required: PropTypes.bool,
   }
 
   static defaultProps = {
-    disabled: false,
     label: null,
-    required: false,
     className: null,
     hint: null,
     placeholder: null,
+    disabled: false,
+    required: false,
   }
 
   state = {
@@ -36,10 +36,16 @@ const withLabel = (component, labelClass = null, animated = false) => WrappedCom
     })
   }
 
-  toggleFocus = () => {
-    this.setState(prevState => ({
-      hide: !prevState.hide,
-    }))
+  handleFocus = () => {
+    this.setState({
+      hide: true,
+    })
+  }
+
+  handleBlur = () => {
+    this.setState({
+      hide: false,
+    })
   }
 
   render() {
@@ -49,24 +55,24 @@ const withLabel = (component, labelClass = null, animated = false) => WrappedCom
       },
       name,
       label,
-      required,
-      disabled,
-      hint,
       className,
+      hint,
       placeholder,
+      disabled,
+      required,
     } = this.props
     const { hide } = this.state
     const error = getIn(errors, name)
     const touch = getIn(touched, name)
     const value = getIn(values, name)
-    const hidden = hide || value || placeholder || (disabled && value)
+    const hidden = hide || !!value || !!placeholder || !!(disabled && value)
     const errorMsg = touch && error ? error : null
 
     return (
       <div className={cx('form-element', `${component}-wrapper`, className, { isDisabled: disabled })}>
         <label
           htmlFor={name}
-          className={cx({ isStyled: animated, isDisabled: disabled, hasError: !!errorMsg })}
+          className={cx({ isDisabled: disabled, hasError: !!errorMsg })}
         >
           {
             label && (
@@ -75,7 +81,12 @@ const withLabel = (component, labelClass = null, animated = false) => WrappedCom
               </span>
             )
           }
-          <WrappedComponent {...this.props} handleAutoFill={this.handleAutoFill} toggleFocus={this.toggleFocus} />
+          <WrappedComponent
+            onAnimationStart={this.handleAutoFill}
+            onFocus={this.handleFocus}
+            onBlur={this.handleBlur}
+            {...this.props}
+          />
         </label>
         {
           !!errorMsg && (<InfoMsg errorMsg={errorMsg} />)
@@ -88,4 +99,4 @@ const withLabel = (component, labelClass = null, animated = false) => WrappedCom
   }
 }
 
-export default connect(withLabel)
+export default withLabel

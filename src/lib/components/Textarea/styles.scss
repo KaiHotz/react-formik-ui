@@ -26,7 +26,7 @@ form {
               top: 24px;
               transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
               pointer-events: none;
-              &.hide {
+              &.hidden {
                 font-size: 0.9em;
                 top: 0px;
                 pointer-events: all;

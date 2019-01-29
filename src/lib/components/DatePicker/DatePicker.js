@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import DatePickerCmp from 'react-datepicker'
-import cx from 'classnames'
 import { connect, getIn } from 'formik'
 import { format, isValid } from 'date-fns'
 import 'react-datepicker/dist/react-datepicker.css'
 
-import Label from '../Label'
+import withLabel from '../withLabel'
 import '../Input/styles.scss'
 
 export class Datepicker extends Component {
@@ -23,6 +22,8 @@ export class Datepicker extends Component {
     name: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
     required: PropTypes.bool,
+    onFocus: PropTypes.func.isRequired,
+    onBlur: PropTypes.func.isRequired,
   }
 
   static defaultProps = {
@@ -33,10 +34,6 @@ export class Datepicker extends Component {
     label: null,
     placeholder: null,
     required: false,
-  }
-
-  state = {
-    hide: false,
   }
 
   handleChangeRaw = e => {
@@ -56,18 +53,6 @@ export class Datepicker extends Component {
     setFieldTouched(name, true)
   }
 
-  handleFocus = () => {
-    this.setState({
-      hide: true,
-    })
-  }
-
-  handleBlur = () => {
-    this.setState({
-      hide: false,
-    })
-  }
-
   render() {
     const {
       formik: {
@@ -81,42 +66,28 @@ export class Datepicker extends Component {
       name,
       placeholder,
       required,
+      onFocus,
+      onBlur,
       ...rest
     } = this.props
-    const { hide } = this.state
     const selectedDate = getIn(values, name) ? new Date(getIn(values, name)) : null
-    const value = getIn(values, name)
-    const hidden = hide || value || placeholder || (disabled && value)
 
     return (
-      <div className={cx('form-element datePicker-wrapper', className, { isDisabled: disabled })}>
-        <Label
-          name={name}
-          styled
-          disabled={disabled}
-          hide={!!hidden}
-          text={label}
-          required={required}
-          hint={hint}
-        >
-          <DatePickerCmp
-            id={name}
-            name={name}
-            selected={selectedDate}
-            placeholderText={placeholder}
-            dateFormat={dateFormat}
-            disabledKeyboardNavigation
-            onChangeRaw={this.handleChangeRaw}
-            onChange={this.handleChange}
-            onFocus={this.handleFocus}
-            onBlur={this.handleBlur}
-            disabled={disabled}
-            {...rest}
-          />
-        </Label>
-      </div>
+      <DatePickerCmp
+        id={name}
+        name={name}
+        selected={selectedDate}
+        placeholderText={placeholder}
+        dateFormat={dateFormat}
+        disabledKeyboardNavigation
+        onChangeRaw={this.handleChangeRaw}
+        onChange={this.handleChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        disabled={disabled}
+        {...rest}
+      />
     )
   }
 }
-
-export default connect(Datepicker)
+export default connect(withLabel('datePicker')(Datepicker))

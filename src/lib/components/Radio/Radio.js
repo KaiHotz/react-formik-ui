@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import cx from 'classnames'
 import { connect, getIn } from 'formik'
 
-import Label from '../Label'
+import withLabel from '../withLabel'
 import './styles.scss'
 
 export const Radio = ({
@@ -19,39 +18,30 @@ export const Radio = ({
   required,
   ...rest
 }) => (
-  <div className={cx('form-element radio-wrapper', className, { isDisabled: disabled })}>
-    <Label
-      name={name}
-      disabled={disabled}
-      text={label}
-      required={required}
-      hint={hint}
-      className="radio-label"
-    >
-      {
-        options.map(option => (
-          <div key={option.label} className="radio-option">
-            <input
-              type="radio"
-              checked={getIn(values, name) === option.value}
-              id={`${name}-id-${option.value}`}
-              value={option.value}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              name={name}
-              disabled={disabled}
-              {...rest}
-            />
-            <label
-              htmlFor={`${name}-id-${option.value}`}
-            >
-              {option.label}
-            </label>
-          </div>
-        ))
-      }
-    </Label>
-  </div>
+  <Fragment>
+    {
+      options.map(option => (
+        <div key={option.label} className="radio-option">
+          <input
+            type="radio"
+            checked={getIn(values, name) === option.value}
+            id={`${name}-id-${option.value}`}
+            value={option.value}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            name={name}
+            disabled={disabled}
+            {...rest}
+          />
+          <label
+            htmlFor={`${name}-id-${option.value}`}
+          >
+            {option.label}
+          </label>
+        </div>
+      ))
+    }
+  </Fragment>
 )
 
 Radio.propTypes = {
@@ -79,4 +69,4 @@ Radio.defaultProps = {
   required: false,
 }
 
-export default connect(Radio)
+export default connect(withLabel('radio')(Radio))

@@ -1,13 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import cx from 'classnames'
 import { connect, getIn } from 'formik'
 
-import Label from '../Label'
+import withLabel from '../withLabel'
 import './styles.scss'
 
 export const Checkbox = ({
-  formik,
+  formik: {
+    values, handleChange, handleBlur,
+  },
   className,
   disabled,
   hint,
@@ -17,43 +18,26 @@ export const Checkbox = ({
   required,
   text,
   ...rest
-}) => {
-  const {
-    values, handleChange, handleBlur,
-  } = formik
-
-  return (
-    <div className={cx('form-element checkbox-wrapper', className, { isDisabled: disabled })}>
-      <Label
-        name={name}
-        disabled={disabled}
-        text={label}
-        required={required}
-        className="checkbox-label"
-        hint={hint}
-      >
-        <div className="checkbox-input-wrapper">
-          <input
-            id={id || name}
-            name={name}
-            type="checkbox"
-            checked={getIn(values, name)}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            disabled={disabled}
-            {...rest}
-          />
-          <label
-            htmlFor={name}
-            className="checkbox-text"
-          >
-            {text}
-          </label>
-        </div>
-      </Label>
-    </div>
-  )
-}
+}) => (
+  <div className="checkbox-input-wrapper">
+    <input
+      id={id || name}
+      name={name}
+      type="checkbox"
+      checked={getIn(values, name)}
+      onChange={handleChange}
+      onBlur={handleBlur}
+      disabled={disabled}
+      {...rest}
+    />
+    <label
+      htmlFor={name}
+      className="checkbox-text"
+    >
+      {text}
+    </label>
+  </div>
+)
 
 Checkbox.propTypes = {
   formik: PropTypes.object.isRequired,
@@ -77,4 +61,4 @@ Checkbox.defaultProps = {
   text: null,
 }
 
-export default connect(Checkbox)
+export default connect(withLabel('checkbox')(Checkbox))

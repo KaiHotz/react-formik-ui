@@ -1,10 +1,9 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import cx from 'classnames'
 import Dropzone from 'react-dropzone'
 import { connect } from 'formik'
 
-import Label from '../Label'
+import withLabel from '../withLabel'
 import './styles.scss'
 
 export const DropZone = ({
@@ -32,50 +31,41 @@ export const DropZone = ({
   }
 
   return (
-    <div className={cx('form-element dropzone-wrapper', className, { isDisabled: disabled })}>
-      <Label
-        name={name}
-        text={label}
-        required={required}
-        hint={hint}
-      >
-        <Dropzone
-          className="dropzone"
-          accept={accept}
-          disabled={disabled}
-          onDrop={onDrop}
-          {...rest}
-        >
-          {
-            ({ isDragActive, acceptedFiles, rejectedFiles }) => {
-              if (disabled) { return disabledText }
-              if (isDragActive) { return zoneActiveText }
+    <Dropzone
+      className="dropzone"
+      accept={accept}
+      disabled={disabled}
+      onDrop={onDrop}
+      {...rest}
+    >
+      {
+        ({ isDragActive, acceptedFiles, rejectedFiles }) => {
+          if (disabled) { return disabledText }
+          if (isDragActive) { return zoneActiveText }
 
-              return acceptedFiles.length || rejectedFiles.length
-                ? (
-                  <Fragment>
-                    {
-                      values[name].map(file => (
-                        <img
-                          key={file.name}
-                          src={URL.createObjectURL(file)}
-                          className="img-thumbnail"
-                          height={200}
-                          width={200}
-                          alt={file.name}
-                        />
-                      ))
-                    }
-                    <div className="fileInfo">
-                      {`Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`}
-                    </div>
-                  </Fragment>
-                ) : placeholder
-            }
-          }
-        </Dropzone>
-      </Label>
-    </div>
+          return acceptedFiles.length || rejectedFiles.length
+            ? (
+              <Fragment>
+                {
+                  values[name].map(file => (
+                    <img
+                      key={file.name}
+                      src={URL.createObjectURL(file)}
+                      className="img-thumbnail"
+                      height={200}
+                      width={200}
+                      alt={file.name}
+                    />
+                  ))
+                }
+                <div className="fileInfo">
+                  {`Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`}
+                </div>
+              </Fragment>
+            ) : placeholder
+        }
+      }
+    </Dropzone>
   )
 }
 
@@ -107,4 +97,4 @@ DropZone.defaultProps = {
   placeholder: 'Dropp some files here.',
 }
 
-export default connect(DropZone)
+export default connect(withLabel('dropzone')(DropZone))

@@ -1,116 +1,68 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import cx from 'classnames'
 import { connect, getIn } from 'formik'
 
-import Label from '../Label'
+import withLabel from '../withLabel'
 import './styles.scss'
 
-export class Input extends Component {
-  static propTypes = {
-    formik: PropTypes.object.isRequired,
-    className: PropTypes.string,
-    disabled: PropTypes.bool,
-    hint: PropTypes.string,
-    id: PropTypes.string,
-    label: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    placeholder: PropTypes.string,
-    required: PropTypes.bool,
-    withStrengthMeter: PropTypes.bool,
-    type: PropTypes.oneOf([
-      'text',
-      'color',
-      'email',
-      'hidden',
-      'image',
-      'number',
-      'password',
-      'range',
-      'search',
-      'tel',
-      'url',
-    ]),
-  }
+export const Input = ({
+  formik: {
+    values, handleChange,
+  },
+  disabled,
+  id,
+  name,
+  placeholder,
+  type,
+  onAnimationStart,
+  onFocus,
+  onBlur,
+  ...rest
+}) => (
+  <input
+    id={id || name}
+    name={name}
+    type={type}
+    onAnimationStart={onAnimationStart}
+    placeholder={placeholder}
+    value={getIn(values, name, '')}
+    onChange={handleChange}
+    onFocus={onFocus}
+    onBlur={onBlur}
+    disabled={disabled}
+    {...rest}
+  />
+)
 
-  static defaultProps = {
-    className: null,
-    disabled: false,
-    hint: null,
-    id: null,
-    label: null,
-    placeholder: null,
-    required: false,
-    withStrengthMeter: false,
-    type: 'text',
-  }
-
-  state = {
-    hide: false,
-  }
-
-  handleAutoFill = e => {
-    this.setState({
-      hide: e.animationName === 'onAutoFillStart',
-    })
-  }
-
-  toggleFocus = () => {
-    this.setState(prevState => ({
-      hide: !prevState.hide,
-    }))
-  }
-
-  render() {
-    const {
-      formik: {
-        values, handleChange,
-      },
-      className,
-      disabled,
-      hint,
-      id,
-      label,
-      name,
-      placeholder,
-      required,
-      withStrengthMeter,
-      type,
-      ...rest
-    } = this.props
-    const { hide } = this.state
-    const value = getIn(values, name)
-    const hidden = hide || value || placeholder || (disabled && value)
-    const styled = ['text', 'email', 'number', 'password', 'search', 'tel', 'url'].includes(type)
-
-    return (
-      <div className={cx('form-element input-wrapper', className, `${type}-input`, { isDisabled: disabled })}>
-        <Label
-          name={name}
-          styled={styled}
-          disabled={disabled}
-          hide={!!hidden}
-          text={label}
-          required={required}
-          hint={hint}
-        >
-          <input
-            id={id || name}
-            name={name}
-            type={type}
-            onAnimationStart={this.handleAutoFill}
-            placeholder={placeholder}
-            value={getIn(values, name, '')}
-            onChange={handleChange}
-            onFocus={this.toggleFocus}
-            onBlur={this.toggleFocus}
-            disabled={disabled}
-            {...rest}
-          />
-        </Label>
-      </div>
-    )
-  }
+Input.propTypes = {
+  formik: PropTypes.object.isRequired,
+  disabled: PropTypes.bool,
+  id: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  onAnimationStart: PropTypes.func.isRequired,
+  onFocus: PropTypes.func.isRequired,
+  onBlur: PropTypes.func.isRequired,
+  type: PropTypes.oneOf([
+    'text',
+    'color',
+    'email',
+    'hidden',
+    'image',
+    'number',
+    'password',
+    'range',
+    'search',
+    'tel',
+    'url',
+  ]),
 }
 
-export default connect(Input)
+Input.defaultProps = {
+  disabled: false,
+  id: null,
+  placeholder: null,
+  type: 'text',
+}
+
+export default connect(withLabel('input')(Input))
