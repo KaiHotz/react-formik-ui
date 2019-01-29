@@ -63,11 +63,10 @@ const withLabel = (component = 'input') => (
         disabled,
         required,
       } = this.props
-      const { hide } = this.state
       const error = getIn(errors, name)
       const touch = getIn(touched, name)
       const value = getIn(values, name)
-      const hidden = hide || !!value || !!placeholder || !!(disabled && value)
+      const hidden = this.state.hide || !!value || !!placeholder || !!(disabled && value)
       const errorMsg = touch && error ? error : null
 
       return (
