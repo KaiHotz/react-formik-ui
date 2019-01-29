@@ -28,7 +28,6 @@ export const DropZone = ({
 
   return (
     <Dropzone
-      className="dropzone"
       accept={accept}
       disabled={disabled}
       onDrop={onDrop}

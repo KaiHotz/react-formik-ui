@@ -1,41 +1,47 @@
 form {
   &.react-formik-ui {
-    .dropzone-wrapper {
-      .dropzone {
-        width: 100%;
-        min-height: 42px;
-        height: auto;
-        border: 1px dashed rgb(102, 102, 102);
-        border-radius: 5px;
-        padding: 10px 10px 0;
-        box-sizing: border-box;
-      }
-      &.isDisabled {
-        .dropzone {
-          background-color: #EBEBE4;
-          opacity: 0.4;
-          color: #aaa;
-        }
-      }
-      .dropzone {
-        .img-thumbnail {
-          margin: .5rem;
-          padding: .25rem;
-          background-color: #fff;
-          border: 1px solid #ddd;
-          border-radius: .25rem;
-          transition: all .2s ease-in-out;
-          width: 200px;
-          height: auto;
-          vertical-align: middle;
-          box-sizing: border-box;
-        }
-        .fileInfo {
-          width: 100%;
-          text-align: left;
-          border-top: 1px solid #ddd;
-          padding-top: 10px;
-          margin-bottom: 10px;
+    .form-element{
+      &.dropzone-wrapper {
+        label {
+          > div {
+            width: 100% !important;
+            height: auto !important;
+            min-height: 142px;
+            display: flex;
+            flex-flow: row wrap;
+            margin-left: -8px; /* Adjustment for the gutter */
+            padding: 10px 10px 0;
+            box-sizing: border-box;
+            img {
+              flex: auto;
+              max-width: 250px;
+              margin: 0 8px 8px 0;
+              transition: .8s opacity;
+              border-radius: 5px;
+            }
+            .fileInfo {
+              width: 100%;
+              text-align: left;
+              border-top: 1px solid #ddd;
+              padding-top: 10px;
+              margin-bottom: 10px;
+            }
+            &:hover {
+              img {
+                opacity: 0.3;
+                &:hover {
+                  opacity: 1;
+                }
+              }
+            }
+          }
+          &.isDisabled {
+            > div {
+              background-color: #EBEBE4;
+              opacity: 0.2;
+              color: #777;
+            }
+          }
         }
       }
     }
