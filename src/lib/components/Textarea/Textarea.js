@@ -8,12 +8,12 @@ import './styles.scss'
 
 export class Textarea extends Component {
   state = {
-    focus: false,
+    hide: false,
   }
 
   toggleFocus = () => {
     this.setState(prevState => ({
-      focus: !prevState.focus,
+      hide: !prevState.hide,
     }))
   }
 
@@ -32,9 +32,9 @@ export class Textarea extends Component {
       required,
       ...rest
     } = this.props
-    const { focus } = this.state
+    const { hide } = this.state
     const value = getIn(values, name)
-    const hidden = focus || value || placeholder || (disabled && value)
+    const hidden = hide || value || placeholder || (disabled && value)
 
     return (
       <div className={cx('form-element textarea-wrapper', className, { isDisabled: disabled })}>

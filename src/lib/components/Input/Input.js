@@ -47,7 +47,6 @@ export class Input extends Component {
 
   state = {
     hide: false,
-    focus: false,
   }
 
   handleAutoFill = e => {
@@ -58,7 +57,7 @@ export class Input extends Component {
 
   toggleFocus = () => {
     this.setState(prevState => ({
-      focus: !prevState.focus,
+      hide: !prevState.hide,
     }))
   }
 
@@ -79,9 +78,9 @@ export class Input extends Component {
       type,
       ...rest
     } = this.props
-    const { hide, focus } = this.state
+    const { hide } = this.state
     const value = getIn(values, name)
-    const hidden = hide || focus || value || placeholder || (disabled && value)
+    const hidden = hide || value || placeholder || (disabled && value)
     const styled = ['text', 'email', 'number', 'password', 'search', 'tel', 'url'].includes(type)
 
     return (

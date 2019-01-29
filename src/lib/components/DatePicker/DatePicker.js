@@ -36,7 +36,7 @@ export class Datepicker extends Component {
   }
 
   state = {
-    focus: false,
+    hide: false,
   }
 
   handleChangeRaw = e => {
@@ -58,13 +58,13 @@ export class Datepicker extends Component {
 
   handleFocus = () => {
     this.setState({
-      focus: true,
+      hide: true,
     })
   }
 
   handleBlur = () => {
     this.setState({
-      focus: false,
+      hide: false,
     })
   }
 
@@ -83,10 +83,10 @@ export class Datepicker extends Component {
       required,
       ...rest
     } = this.props
-    const { focus } = this.state
+    const { hide } = this.state
     const selectedDate = getIn(values, name) ? new Date(getIn(values, name)) : null
     const value = getIn(values, name)
-    const hidden = focus || value || placeholder || (disabled && value)
+    const hidden = hide || value || placeholder || (disabled && value)
 
     return (
       <div className={cx('form-element datePicker-wrapper', className, { isDisabled: disabled })}>
