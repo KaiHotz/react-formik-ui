@@ -86,7 +86,6 @@ form {
             }
           }
         }
-
         &.select-wrapper {
           label {
             &:after {
@@ -99,6 +98,16 @@ form {
               color: currentColor;
               pointer-events: none;
               cursor: pointer;
+            }
+          }
+        }
+        &.textarea-wrapper {
+          label {
+            span {
+              top: 24px;
+              &.hidden {
+                top: 0px;
+              }
             }
           }
         }

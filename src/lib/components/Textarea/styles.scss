@@ -4,12 +4,6 @@ form {
       .form-element {
         &.textarea-wrapper {
           label {
-            span {
-              top: 24px;
-              &.hidden {
-                top: 0px;
-              }
-            }
             textarea {
               outline: none;
               resize: none;
