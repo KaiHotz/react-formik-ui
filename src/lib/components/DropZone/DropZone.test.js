@@ -1,5 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
+import withLabel from '../withLabel'
 import { DropZone } from './DropZone'
 
 describe('<DropZone />', () => {
@@ -18,8 +19,10 @@ describe('<DropZone />', () => {
     },
   }
 
+  const WrappedComponent = withLabel('dropzone')(DropZone)
+
   it('should render', () => {
-    const wrapper = shallow(<DropZone {...baseProps} />)
+    const wrapper = shallow(<WrappedComponent {...baseProps} />)
 
     expect(wrapper).toBeDefined()
   })
@@ -29,13 +32,13 @@ describe('<DropZone />', () => {
       ...baseProps,
       className: 'customDropZone',
     }
-    const wrapper = mount(<DropZone {...props} />)
+    const wrapper = mount(<WrappedComponent {...props} />)
 
     expect(wrapper.hasClass(props.className)).toBe(true)
   })
 
   it('should be disabled', () => {
-    const wrapper = shallow(<DropZone {...baseProps} disabled />)
+    const wrapper = shallow(<WrappedComponent {...baseProps} disabled />)
 
     expect(wrapper.prop('className').includes('disabled'))
   })
@@ -45,7 +48,8 @@ describe('<DropZone />', () => {
       ...baseProps,
       label: 'Custom',
     }
-    const wrapper = mount(<DropZone {...props} />)
+
+    const wrapper = mount(<WrappedComponent {...props} />)
 
     expect(wrapper.find('label').length).toBe(1)
   })
@@ -55,7 +59,7 @@ describe('<DropZone />', () => {
       ...baseProps,
       hint: 'hintTest',
     }
-    const wrapper = mount(<DropZone {...props} />)
+    const wrapper = mount(<WrappedComponent {...props} />)
 
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)

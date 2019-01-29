@@ -1,10 +1,14 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
+import withLabel from '../withLabel'
 import { Input } from './Input'
 
 describe('<Input />', () => {
   const baseProps = {
     name: 'inputTest',
+    onFocus: jest.fn(),
+    onBlur: jest.fn(),
+    onAnimationStart: jest.fn(),
     formik: {
       handleChange: jest.fn(),
       handleBlur: jest.fn(),
@@ -16,11 +20,12 @@ describe('<Input />', () => {
         inputTest: '',
       },
     },
-
   }
 
+  const WrappedComponent = withLabel('input')(Input)
+
   it('should render', () => {
-    const wrapper = shallow(<Input {...baseProps} />)
+    const wrapper = shallow(<WrappedComponent {...baseProps} />)
 
     expect(wrapper).toBeDefined()
   })
@@ -30,7 +35,7 @@ describe('<Input />', () => {
       ...baseProps,
       className: 'Custom',
     }
-    const wrapper = shallow(<Input {...props} />)
+    const wrapper = shallow(<WrappedComponent {...props} />)
 
     expect(wrapper.hasClass(props.className)).toBe(true)
   })
@@ -40,7 +45,7 @@ describe('<Input />', () => {
       ...baseProps,
       type: 'text',
     }
-    const wrapper = mount(<Input {...props} />)
+    const wrapper = mount(<WrappedComponent {...props} />)
 
     expect(wrapper.find('input').prop('type')).toBe(props.type)
   })
@@ -50,7 +55,7 @@ describe('<Input />', () => {
       ...baseProps,
       label: 'Custom',
     }
-    const wrapper = mount(<Input {...props} />)
+    const wrapper = mount(<WrappedComponent {...props} />)
 
     expect(wrapper.find('label').length).toBe(1)
   })
@@ -60,21 +65,24 @@ describe('<Input />', () => {
       ...baseProps,
       hint: 'hintTest',
     }
-    const wrapper = mount(<Input {...props} />)
+    const wrapper = mount(<WrappedComponent {...props} />)
 
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)
   })
 
   it('should be disabled', () => {
-    const wrapper = shallow(<Input {...baseProps} disabled />)
+    let wrapper
 
+    wrapper = mount(<WrappedComponent {...baseProps} disabled />)
     expect(wrapper.find('input').prop('disabled')).toBe(true)
+
+    wrapper = shallow(<WrappedComponent {...baseProps} disabled />)
     expect(wrapper.prop('className').includes('disabled'))
   })
 
   it('should call onChange', () => {
-    const wrapper = mount(<Input {...baseProps} />)
+    const wrapper = mount(<WrappedComponent {...baseProps} />)
     wrapper.find('input').simulate('change')
 
     expect(baseProps.formik.handleChange).toHaveBeenCalled()

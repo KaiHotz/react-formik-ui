@@ -1,5 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
+import withLabel from '../withLabel'
 import { Checkbox } from './Checkbox'
 
 describe('<Checkbox />', () => {
@@ -18,8 +19,10 @@ describe('<Checkbox />', () => {
     },
   }
 
+  const WrappedComponent = withLabel('checkbox')(Checkbox)
+
   it('should render', () => {
-    const wrapper = shallow(<Checkbox {...baseProps} />)
+    const wrapper = shallow(<WrappedComponent {...baseProps} />)
 
     expect(wrapper).toBeDefined()
   })
@@ -29,15 +32,19 @@ describe('<Checkbox />', () => {
       ...baseProps,
       className: 'Custom',
     }
-    const wrapper = shallow(<Checkbox {...props} />)
+    const wrapper = shallow(<WrappedComponent {...props} />)
 
     expect(wrapper.hasClass(props.className)).toBe(true)
   })
 
   it('should be disabled', () => {
-    const wrapper = shallow(<Checkbox {...baseProps} disabled />)
+    let wrapper
 
+    wrapper = mount(<WrappedComponent {...baseProps} disabled />)
     expect(wrapper.find('input').prop('disabled')).toBe(true)
+
+    wrapper = shallow(<WrappedComponent {...baseProps} disabled />)
+    expect(wrapper.prop('className').includes('disabled'))
   })
 
   it('should have a hint', () => {
@@ -45,14 +52,14 @@ describe('<Checkbox />', () => {
       ...baseProps,
       hint: 'hintTest',
     }
-    const wrapper = mount(<Checkbox {...props} />)
+    const wrapper = mount(<WrappedComponent {...props} />)
 
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)
   })
 
   it('should call onChange', () => {
-    const wrapper = mount(<Checkbox {...baseProps} />)
+    const wrapper = mount(<WrappedComponent {...baseProps} />)
 
     wrapper.find('input').simulate('change')
 
