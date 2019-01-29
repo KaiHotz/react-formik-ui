@@ -9,13 +9,9 @@ export const Radio = ({
   formik: {
     values, handleChange, handleBlur,
   },
-  className,
   disabled,
-  hint,
-  label,
   name,
   options,
-  required,
   ...rest
 }) => (
   <Fragment>
@@ -46,10 +42,7 @@ export const Radio = ({
 
 Radio.propTypes = {
   formik: PropTypes.object.isRequired,
-  className: PropTypes.string,
   disabled: PropTypes.bool,
-  hint: PropTypes.string,
-  label: PropTypes.string,
   name: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string.isRequired,
@@ -58,15 +51,10 @@ Radio.propTypes = {
       PropTypes.number,
     ]).isRequired,
   })).isRequired,
-  required: PropTypes.bool,
 }
 
 Radio.defaultProps = {
-  className: null,
   disabled: false,
-  hint: null,
-  label: null,
-  required: false,
 }
 
 export default connect(withLabel('radio')(Radio))

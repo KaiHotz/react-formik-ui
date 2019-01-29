@@ -9,13 +9,9 @@ export const Checkbox = ({
   formik: {
     values, handleChange, handleBlur,
   },
-  className,
   disabled,
-  hint,
   id,
-  label,
   name,
-  required,
   text,
   ...rest
 }) => (
@@ -41,23 +37,15 @@ export const Checkbox = ({
 
 Checkbox.propTypes = {
   formik: PropTypes.object.isRequired,
-  className: PropTypes.string,
   disabled: PropTypes.bool,
-  hint: PropTypes.string,
   id: PropTypes.string,
-  label: PropTypes.string,
   name: PropTypes.string.isRequired,
-  required: PropTypes.bool,
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 }
 
 Checkbox.defaultProps = {
-  className: null,
   disabled: false,
-  hint: null,
   id: null,
-  label: null,
-  required: false,
   text: null,
 }
 

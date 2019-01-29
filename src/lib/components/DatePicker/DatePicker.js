@@ -11,29 +11,21 @@ import '../Input/styles.scss'
 export class Datepicker extends Component {
   static propTypes = {
     formik: PropTypes.object.isRequired,
-    className: PropTypes.string,
     dateFormat: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.arrayOf(PropTypes.string),
     ]),
     disabled: PropTypes.bool,
-    hint: PropTypes.string,
-    label: PropTypes.string,
     name: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
-    required: PropTypes.bool,
     onFocus: PropTypes.func.isRequired,
     onBlur: PropTypes.func.isRequired,
   }
 
   static defaultProps = {
-    className: null,
     dateFormat: 'dd.MM.yyyy',
     disabled: false,
-    hint: null,
-    label: null,
     placeholder: null,
-    required: false,
   }
 
   handleChangeRaw = e => {
@@ -58,14 +50,10 @@ export class Datepicker extends Component {
       formik: {
         values,
       },
-      className,
       dateFormat,
       disabled,
-      hint,
-      label,
       name,
       placeholder,
-      required,
       onFocus,
       onBlur,
       ...rest

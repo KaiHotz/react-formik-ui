@@ -8,12 +8,8 @@ import './styles.scss'
 
 export const DropZone = ({
   formik,
-  className,
   disabled,
-  hint,
-  label,
   name,
-  required,
   accept,
   zoneActiveText,
   disabledText,
@@ -71,13 +67,9 @@ export const DropZone = ({
 
 DropZone.propTypes = {
   formik: PropTypes.object.isRequired,
-  className: PropTypes.string,
   disabled: PropTypes.bool,
-  hint: PropTypes.string,
   id: PropTypes.string,
-  label: PropTypes.string,
   name: PropTypes.string.isRequired,
-  required: PropTypes.bool,
   accept: PropTypes.string,
   zoneActiveText: PropTypes.string,
   disabledText: PropTypes.string,
@@ -85,12 +77,8 @@ DropZone.propTypes = {
 }
 
 DropZone.defaultProps = {
-  className: null,
   disabled: false,
-  hint: null,
   id: null,
-  label: null,
-  required: false,
   accept: 'image/*',
   zoneActiveText: 'Drop file(s) here',
   disabledText: 'File upload disabled',

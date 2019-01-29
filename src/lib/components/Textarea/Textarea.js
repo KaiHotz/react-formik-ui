@@ -9,14 +9,10 @@ export const Textarea = ({
   formik: {
     values, handleChange,
   },
-  className,
   disabled,
-  hint,
   id,
-  label,
   name,
   placeholder,
-  required,
   onFocus,
   onBlur,
   ...rest
@@ -36,27 +32,19 @@ export const Textarea = ({
 
 Textarea.propTypes = {
   formik: PropTypes.object.isRequired,
-  className: PropTypes.string,
   disabled: PropTypes.bool,
-  hint: PropTypes.string,
   id: PropTypes.string,
-  label: PropTypes.string,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
-  required: PropTypes.bool,
   onFocus: PropTypes.func.isRequired,
   onBlur: PropTypes.func.isRequired,
 
 }
 
 Textarea.defaultProps = {
-  className: null,
   disabled: false,
-  hint: null,
   id: null,
-  label: null,
   placeholder: null,
-  required: false,
 }
 
 export default connect(withLabel('textarea')(Textarea))
