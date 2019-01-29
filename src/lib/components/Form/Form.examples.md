@@ -119,6 +119,7 @@ const  getSchema = () => {
           <DropZone
             name='imagesExample'
             label='Image upload'
+            placeholder='Drop some image files here'
           />
 
           <Textarea
@@ -289,6 +290,7 @@ const  getSchema = () => {
           <DropZone
             name='images'
             label='Image upload'
+            placeholder='Drop some image files here'
           />
 
           <Textarea
