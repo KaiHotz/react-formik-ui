@@ -47,8 +47,6 @@ export const DropZone = ({
                       key={file.name}
                       src={URL.createObjectURL(file)}
                       className="img-thumbnail"
-                      height={200}
-                      width={200}
                       alt={file.name}
                     />
                   ))
