@@ -4,32 +4,10 @@ form {
       .form-element {
         &.textarea-wrapper {
           label {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            &:hover {
-              textarea {
-                border-bottom: 2px solid currentColor;
-              }
-            }
-            &.isDisabled {
-              color: rgba(0, 0, 0, 0.38);
-              textarea {
-                border-bottom: 1px dotted rgba(0, 0, 0, 0.42);
-              }
-            }
             span {
-              font-size: 1em;
-              line-height: 100%;
-              position: absolute;
-              left: 2px;
               top: 24px;
-              transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-              pointer-events: none;
               &.hidden {
-                font-size: 0.9em;
                 top: 0px;
-                pointer-events: all;
               }
             }
             textarea {
@@ -52,9 +30,6 @@ form {
               box-sizing: border-box;
               transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
               border-bottom: 1px solid currentColor;
-            }
-            &.hasError {
-              color: #cc0000;
             }
           }
         }

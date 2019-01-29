@@ -1,0 +1,89 @@
+@keyframes onAutoFillStart {}
+@keyframes onAutoFillCancel {}
+
+form {
+  &.react-formik-ui {
+    &.with-theme {
+      .form-element {
+        &.input-wrapper,
+        &.datePicker-wrapper,
+        &.textarea-wrapper,
+        &.select-wrapper {
+          label {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            &:before {
+              left: 0;
+              right: 0;
+              bottom: 0;
+              content: "\00a0";
+              position: absolute;
+              transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+              border-bottom: 1px solid currentColor;
+              pointer-events: none;
+            }
+            &:hover {
+              &:before {
+                border-bottom: 2px solid currentColor;
+              }
+              textarea {
+                border-bottom: 2px solid currentColor;
+              }
+            }
+            &.isDisabled {
+              color: rgba(0, 0, 0, 0.38);
+              &:before {
+                border-bottom: 1px dotted rgba(0, 0, 0, 0.42);
+              }
+              textarea {
+                border-bottom: 1px dotted rgba(0, 0, 0, 0.42);
+              }
+            }
+
+            &.hasError {
+              color: #cc0000;
+            }
+          }
+        }
+        &.input-wrapper,
+        &.datePicker-wrapper,
+        &.textarea-wrapper{
+          label {
+            span {
+              font-size: 1em;
+              line-height: 100%;
+              position: absolute;
+              left: 2px;
+              top: 50%;
+              transform: translateY(-50%);
+              transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+              pointer-events: none;
+              &.hidden {
+                font-size: 0.9em;
+                top: -5px;
+                pointer-events: all;
+              }
+            }
+          }
+        }
+
+        &.select-wrapper {
+          label {
+            &:after {
+              content: "\25BE";
+              font-size: 20px;
+              position: absolute;
+              right: 10px;
+              top: 50%;
+              transform: translateY(-50%);
+              color: currentColor;
+              pointer-events: none;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}

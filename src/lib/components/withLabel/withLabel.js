@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { getIn } from 'formik'
 
 import InfoMsg from '../InfoMsg'
+import './styles.scss'
 
 const withLabel = (component = 'input') => (
   WrappedComponent => class WithLabel extends PureComponent {
