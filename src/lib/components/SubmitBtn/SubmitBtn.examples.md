@@ -1,3 +1,4 @@
+#### Default / Structured / Themed
 ```jsx
 <Formik
   initialValues={{
@@ -5,7 +6,7 @@
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form structured>
+    <Form>
 
       <SubmitBtn />
 

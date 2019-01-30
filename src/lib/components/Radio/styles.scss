@@ -20,6 +20,15 @@ form {
               &:not(:checked) {
                 position: absolute;
                 left: -9999px;
+                &:disabled + label {
+                  color: rgba(0, 0, 0, 0.42);
+                  &:before {
+                    border: 1px dotted currentColor;
+                  }
+                }
+                &:disabled:hover +label:before {
+                  background: transparent;
+                }
               }
               &:checked + label,
               &:not(:checked) + label {
@@ -41,7 +50,7 @@ form {
                 border-radius: 100%;
               }
               &:not(:checked):hover + label:before {
-                background-color: #ddd
+                background: #ddd
               }
               &:checked + label:after {
                 content: '';
@@ -57,7 +66,9 @@ form {
                 transform: scale(1);
                 -webkit-transition: all 0.2s ease;
                 transition: all 0.2s ease;
-
+              }
+              &:checked:disabled + label:after {
+                background: rgba(0, 0, 0, 0.42);
               }
               &:not(:checked) + label:after {
                 content: '';

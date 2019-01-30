@@ -1,49 +1,81 @@
-##### with no styling
-
+##### Default
 ```jsx
 <Formik
   initialValues={{
-    nameField: ''
+    textFieldExample1: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
     <Form>
 
       <Input
-        name='nameField'
+        name='textFieldExample1'
         label='Input field label'
-        placeholder='Your Name'
         hint='This is a hint'
         required
       />
+
       <SubmitBtn />
     </Form>
   )}
 />
 ```
 
-
-##### with minimum styling
+##### Structured
 ```jsx
-const  getsecondSchema = () => {
-  return yup.object().shape({
-    kaisName: yup
-      .string()
-      .required('Name is required'),
-  });
-};
 
 <Formik
   initialValues={{
-    kaisName: ''
+    textFieldExample2: ''
   }}
-  validationSchema={getsecondSchema}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
     <Form structured>
 
       <Input
-        name='kaisName'
+        name='textFieldExample2'
+        label='Input field label'
+        hint='This is a hint'
+      />
+
+    </Form>
+  )}
+/>
+```
+
+##### Themed
+```jsx
+<Formik
+  initialValues={{
+    textFieldExample3: ''
+  }}
+  onSubmit={data => (alert(JSON.stringify(data)))}
+  render={() => (
+    <Form themed>
+
+      <Input
+        name='textFieldExample3'
+        label='Input field label'
+        hint='This is a hint'
+      />
+
+    </Form>
+  )}
+/>
+```
+
+###### Themed with placeholder
+```jsx
+<Formik
+  initialValues={{
+    textFieldExample4: ''
+  }}
+  onSubmit={data => (alert(JSON.stringify(data)))}
+  render={() => (
+    <Form themed>
+
+      <Input
+        name='textFieldExample4'
         label='Input field label'
         placeholder='Your Name'
         hint='This is a hint'
@@ -55,66 +87,18 @@ const  getsecondSchema = () => {
 />
 ```
 
-
-##### with UI style
-
+###### Themed and disabled
 ```jsx
 <Formik
   initialValues={{
-    uiNameField: ''
+    textFieldExample5: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
     <Form themed>
 
       <Input
-        name='uiNameField'
-        label='Input field label'
-        hint='This is a hint'
-      />
-
-    </Form>
-  )}
-/>
-```
-
-###### with UI style and placeholder
-
-```jsx
-<Formik
-  initialValues={{
-    myName: ''
-  }}
-  onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form themed>
-
-      <Input
-        name='myName'
-        label='Input field label'
-        placeholder='Your Name'
-        hint='This is a hint'
-        required
-      />
-
-    </Form>
-  )}
-/>
-```
-
-###### with UI style disabled
-
-```jsx
-<Formik
-  initialValues={{
-    anyTextInput: ''
-  }}
-  onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form themed>
-
-      <Input
-        name='anyTextInput'
+        name='textFieldExample5'
         label='Text Input'
         hint='This field is disabled'
         disabled

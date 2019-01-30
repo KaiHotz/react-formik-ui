@@ -51,11 +51,7 @@ form {
               }
             }
             &.isDisabled {
-              color: rgba(0, 0, 0, 0.38);
               &:before {
-                border-bottom: 1px dotted rgba(0, 0, 0, 0.42);
-              }
-              textarea {
                 border-bottom: 1px dotted rgba(0, 0, 0, 0.42);
               }
             }

@@ -1,16 +1,17 @@
 For a list af all available props please refere to the [ReaJS Datepicker documentation](https://github.com/Hacker0x01/react-datepicker/blob/master/docs/datepicker.md)
 
+##### Default
 ```jsx
 <Formik
   initialValues={{
-    myDate: ''
+    dateExample1: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form structured>
+    <Form>
 
       <Datepicker
-        name='myDate'
+        name='dateExample1'
         label='Select a date'
       />
       <SubmitBtn />
@@ -19,18 +20,58 @@ For a list af all available props please refere to the [ReaJS Datepicker documen
 />
 ```
 
-##### with Placeholder and custom Date Format
+##### Structured
 ```jsx
 <Formik
   initialValues={{
-    testDate: ''
+    dateExample2: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
     <Form structured>
 
       <Datepicker
-        name='testDate'
+        name='dateExample2'
+        label='Select a date'
+      />
+      <SubmitBtn />
+    </Form>
+  )}
+/>
+```
+
+##### Themed
+```jsx
+<Formik
+  initialValues={{
+    dateExample3: ''
+  }}
+  onSubmit={data => (alert(JSON.stringify(data)))}
+  render={() => (
+    <Form themed>
+
+      <Datepicker
+        name='dateExample3'
+        label='Select a date'
+      />
+      <SubmitBtn />
+    </Form>
+  )}
+/>
+```
+
+##### Themed with placeholder
+```jsx
+<Formik
+  initialValues={{
+    dateExample4: ''
+  }}
+  onSubmit={data => (alert(JSON.stringify(data)))}
+  render={() => (
+    <Form themed>
+
+      <Datepicker
+        name='dateExample4'
         label='Select a date'
         placeholder='DD.MM.YYYYY'
         dateFormat='dd.MM.yyyy'
@@ -41,24 +82,49 @@ For a list af all available props please refere to the [ReaJS Datepicker documen
 />
 ```
 
-##### with Populated Data
+##### Themed disabled
 ```jsx
 <Formik
   initialValues={{
-    exampleDate: '2019-11-3'
+    dateExample5: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form structured>
+    <Form themed>
 
       <Datepicker
-        name='exampleDate'
+        name='dateExample5'
         label='Select a date'
+        disabled
       />
       <SubmitBtn />
     </Form>
   )}
 />
 ```
+
+##### Themed disabled with placeholder
+```jsx
+<Formik
+  initialValues={{
+    dateExample6: ''
+  }}
+  onSubmit={data => (alert(JSON.stringify(data)))}
+  render={() => (
+    <Form themed>
+
+      <Datepicker
+        name='dateExample6'
+        label='Select a date'
+        placeholder='DD.MM.YYYYY'
+        dateFormat='dd.MM.yyyy'
+        disabled
+      />
+      <SubmitBtn />
+    </Form>
+  )}
+/>
+```
+
 
 

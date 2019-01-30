@@ -7,8 +7,8 @@ export const SubmitBtn = ({
   formik,
   className,
   disabled,
-  text,
   value,
+  children,
   ...rest
 }) => (
   <button
@@ -19,7 +19,7 @@ export const SubmitBtn = ({
     disabled={disabled}
     {...rest}
   >
-    {text}
+    {children}
   </button>
 )
 
@@ -31,7 +31,7 @@ SubmitBtn.propTypes = {
     PropTypes.string,
     PropTypes.node,
   ]),
-  text: PropTypes.oneOfType([
+  children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.node,
   ]),
@@ -41,7 +41,7 @@ SubmitBtn.defaultProps = {
   className: null,
   disabled: false,
   value: null,
-  text: 'Submit',
+  children: 'Submit',
 }
 
 export default connect(SubmitBtn)
