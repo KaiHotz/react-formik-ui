@@ -12,7 +12,6 @@
         name='textFieldExample1'
         label='Input field label'
         hint='This is a hint'
-        required
       />
 
       <SubmitBtn />
