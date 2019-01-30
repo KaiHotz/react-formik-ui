@@ -80,7 +80,7 @@
 ```
 
 
-##### Themed disabled
+##### Themed and disabled
 ```jsx
 <Formik
   initialValues={{

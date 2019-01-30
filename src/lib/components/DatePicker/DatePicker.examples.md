@@ -82,7 +82,7 @@ For a list af all available props please refere to the [ReaJS Datepicker documen
 />
 ```
 
-##### Themed disabled
+##### Themed and disabled
 ```jsx
 <Formik
   initialValues={{
