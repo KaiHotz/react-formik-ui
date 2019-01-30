@@ -24,6 +24,7 @@ export const SubmitBtn = ({
 )
 
 SubmitBtn.propTypes = {
+  /** @ignore */
   formik: PropTypes.object.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,

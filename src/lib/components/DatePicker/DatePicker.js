@@ -10,7 +10,12 @@ import '../Input/styles.scss'
 
 export class Datepicker extends Component {
   static propTypes = {
+    /** @ignore */
     formik: PropTypes.object.isRequired,
+    /** @ignore */
+    onFocus: PropTypes.func.isRequired,
+    /** @ignore */
+    onBlur: PropTypes.func.isRequired,
     dateFormat: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.arrayOf(PropTypes.string),
@@ -18,8 +23,6 @@ export class Datepicker extends Component {
     disabled: PropTypes.bool,
     name: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
-    onFocus: PropTypes.func.isRequired,
-    onBlur: PropTypes.func.isRequired,
   }
 
   static defaultProps = {

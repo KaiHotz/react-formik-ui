@@ -63,6 +63,7 @@ export const DropZone = ({
 }
 
 DropZone.propTypes = {
+  /** @ignore */
   formik: PropTypes.object.isRequired,
   disabled: PropTypes.bool,
   id: PropTypes.string,

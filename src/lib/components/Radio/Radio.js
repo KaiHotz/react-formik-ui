@@ -41,6 +41,7 @@ export const Radio = ({
 )
 
 Radio.propTypes = {
+  /** @ignore */
   formik: PropTypes.object.isRequired,
   disabled: PropTypes.bool,
   name: PropTypes.string.isRequired,

@@ -35,14 +35,18 @@ export const Input = ({
 )
 
 Input.propTypes = {
+  /** @ignore */
   formik: PropTypes.object.isRequired,
+  /** @ignore */
+  onAnimationStart: PropTypes.func.isRequired,
+  /** @ignore */
+  onFocus: PropTypes.func.isRequired,
+  /** @ignore */
+  onBlur: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
   id: PropTypes.string,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
-  onAnimationStart: PropTypes.func.isRequired,
-  onFocus: PropTypes.func.isRequired,
-  onBlur: PropTypes.func.isRequired,
   type: PropTypes.oneOf([
     'text',
     'color',

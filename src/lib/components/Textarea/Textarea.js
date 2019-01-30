@@ -31,14 +31,16 @@ export const Textarea = ({
 )
 
 Textarea.propTypes = {
+  /** @ignore */
   formik: PropTypes.object.isRequired,
+  /** @ignore */
+  onFocus: PropTypes.func.isRequired,
+  /** @ignore */
+  onBlur: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
   id: PropTypes.string,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
-  onFocus: PropTypes.func.isRequired,
-  onBlur: PropTypes.func.isRequired,
-
 }
 
 Textarea.defaultProps = {

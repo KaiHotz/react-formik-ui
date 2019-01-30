@@ -6,6 +6,7 @@ import './styles.scss'
 
 export class Toggle extends Component {
   static propTypes = {
+    /** @ignore */
     formik: PropTypes.object.isRequired,
     className: PropTypes.string,
     disabled: PropTypes.bool,
