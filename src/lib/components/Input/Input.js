@@ -82,7 +82,7 @@ Input.defaultProps = {
   label: null,
   placeholder: null,
   type: 'text',
-  hint: false,
+  hint: null,
   required: false,
 }
 
