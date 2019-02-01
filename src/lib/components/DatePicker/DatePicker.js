@@ -4,7 +4,6 @@ import DatePickerCmp from 'react-datepicker'
 import { connect, getIn } from 'formik'
 import { format, isValid } from 'date-fns'
 import 'react-datepicker/dist/react-datepicker.css'
-
 import withLabel from '../withLabel'
 import '../Input/styles.scss'
 

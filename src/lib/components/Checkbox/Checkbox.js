@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect, getIn } from 'formik'
-
 import withLabel from '../withLabel'
 import './styles.scss'
 
@@ -54,7 +53,6 @@ Checkbox.propTypes = {
   required: PropTypes.bool,
   /** Disables the Checkbox */
   disabled: PropTypes.bool,
-
 }
 
 Checkbox.defaultProps = {

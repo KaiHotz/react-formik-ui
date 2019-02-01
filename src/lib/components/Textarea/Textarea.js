@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect, getIn } from 'formik'
-
 import withLabel from '../withLabel'
 import './styles.scss'
 
