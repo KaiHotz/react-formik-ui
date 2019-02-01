@@ -24,17 +24,21 @@ export const Form = ({
 Form.propTypes = {
   /** @ignore */
   formik: PropTypes.object.isRequired,
-  children: PropTypes.node,
+  /** @ignore */
+  children: PropTypes.node.isRequired,
+  /** Adds a custom class to the form */
   className: PropTypes.string,
-  themed: PropTypes.bool,
+  /** If passed adds a minimal style that gives some structure to the form */
   structured: PropTypes.bool,
+  /** If passed adds the React-Formik-UI theme will be applied to each styled Form element */
+  themed: PropTypes.bool,
+
 }
 
 Form.defaultProps = {
   className: null,
-  themed: false,
   structured: false,
-  children: null,
+  themed: false,
 }
 
 export default connect(Form)

@@ -43,10 +43,17 @@ Input.propTypes = {
   onFocus: PropTypes.func.isRequired,
   /** @ignore */
   onBlur: PropTypes.func.isRequired,
-  disabled: PropTypes.bool,
+  /** Adds a custom class to the Input wrapper div */
+  className: PropTypes.string,
+  /** Sets an Id for the Input Field, if not passed, the id will be the name */
   id: PropTypes.string,
+  /** Sets the Name of the Input Field */
   name: PropTypes.string.isRequired,
+  /** Sets the main Label for the Input Field */
+  label: PropTypes.string,
+  /** Sets the Placeholder text */
   placeholder: PropTypes.string,
+  /** Defines the type of the Input Filed */
   type: PropTypes.oneOf([
     'text',
     'color',
@@ -60,13 +67,23 @@ Input.propTypes = {
     'tel',
     'url',
   ]),
+  /** Disables the Input Field */
+  disabled: PropTypes.bool,
+  /** Sets a hint text after/below the Input Field */
+  hint: PropTypes.string,
+  /** Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema */
+  required: PropTypes.bool,
 }
 
 Input.defaultProps = {
+  className: null,
   disabled: false,
   id: null,
+  label: null,
   placeholder: null,
   type: 'text',
+  hint: false,
+  required: false,
 }
 
 export default connect(withLabel('input')(Input))
