@@ -15,14 +15,14 @@ describe('<SubmitBtn />', () => {
     expect(wrapper).toBeDefined()
   })
 
-  it('should display text', () => {
+  it('should display children', () => {
     const props = {
-      text: 'Content',
+      children: 'Content',
       ...baseProps,
     }
     const wrapper = shallow(<SubmitBtn {...props} />)
 
-    expect(wrapper.text().includes(props.text)).toBeTruthy()
+    expect(wrapper.text().includes(props.children)).toBeTruthy()
   })
 
   it('should call onClick', () => {
