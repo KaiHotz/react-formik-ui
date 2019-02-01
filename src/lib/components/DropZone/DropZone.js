@@ -42,14 +42,18 @@ export const DropZone = ({
             ? (
               <Fragment>
                 {
-                  values[name].map(file => (
-                    <img
-                      key={file.name}
-                      src={URL.createObjectURL(file)}
-                      className="img-thumbnail"
-                      alt={file.name}
-                    />
-                  ))
+                  values[name].map(file => {
+                    console.log('file', file)
+
+                    return (
+                      <img
+                        key={file.name}
+                        src={URL.createObjectURL(file)}
+                        className="img-thumbnail"
+                        alt={file.name}
+                      />
+                    )
+                  })
                 }
                 <div className="fileInfo">
                   {`Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`}

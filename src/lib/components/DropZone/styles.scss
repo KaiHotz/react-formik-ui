@@ -9,15 +9,15 @@ form {
             min-height: 142px;
             display: flex;
             flex-flow: row wrap;
-            margin-left: -8px; /* Adjustment for the gutter */
+            margin-left: -8px;
             padding: 10px 10px 0;
             box-sizing: border-box;
             img {
-              flex: auto;
-              max-height: 100px;
+              max-height: 130px;
               margin: 0 8px 8px 0;
               transition: .8s opacity;
               border-radius: 5px;
+              object-fit: contain;
             }
             .fileInfo {
               width: 100%;
