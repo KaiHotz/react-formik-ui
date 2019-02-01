@@ -16,19 +16,35 @@ export class Datepicker extends Component {
     onFocus: PropTypes.func.isRequired,
     /** @ignore */
     onBlur: PropTypes.func.isRequired,
+    /** Sets the Name of the Datepicker Field */
+    name: PropTypes.string.isRequired,
+    /** Adds a custom class to the Datepicker wrapper div */
+    className: PropTypes.string,
+    /** Sets the main Label for the Datepicker */
+    label: PropTypes.string,
+    /** Sets a hint text after/below the Datepicker */
+    hint: PropTypes.string,
+    /**  Sets the desired date format */
     dateFormat: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.arrayOf(PropTypes.string),
     ]),
-    disabled: PropTypes.bool,
-    name: PropTypes.string.isRequired,
+    /** Sets the Placeholder text */
     placeholder: PropTypes.string,
+    /** Sets the Datepicker as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema */
+    required: PropTypes.bool,
+    /** Disables the Datepicker Field */
+    disabled: PropTypes.bool,
   }
 
   static defaultProps = {
+    className: null,
+    label: null,
+    hint: null,
     dateFormat: 'dd.MM.yyyy',
-    disabled: false,
     placeholder: null,
+    required: false,
+    disabled: false,
   }
 
   handleChangeRaw = e => {
