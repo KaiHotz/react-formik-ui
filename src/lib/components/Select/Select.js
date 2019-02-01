@@ -16,6 +16,7 @@ export const Select = ({
   options,
   placeholder,
   required,
+  ...rest
 }) => (
   <select
     id={id || name}
@@ -23,6 +24,7 @@ export const Select = ({
     value={getIn(values, name)}
     disabled={disabled}
     onChange={handleChange}
+    {...rest}
   >
     {
       placeholder && (
