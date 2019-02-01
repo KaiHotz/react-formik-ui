@@ -27,12 +27,17 @@ All the components used in the form are scoped by the default classes, situated 
 Each component has its corresponding wrapper class (eg: Input component  `input-wrapper` ), as well as the class `form-element`.</br>
 you also can pass your own custom class to the wrapper of each component bay passing the `className` prop.
 
-Anyhow, if you pass the  `styled` prop to the Form component, minimal styling will be applied to add some structure to the form and each form element.
+Anyhow, if you pass the  `structured` prop to the Form component, a minimal styling will be applied to add some structure to the form and each form element.
+
+NEW: If you pass `themed` instead of `structured` as prop to the form component, the React-Fomik-UI Theme will be applied to all components expet the Button and SubmitBtn components.
+The Button and SubmitBtn have been left out of styling due to most apps alrready have some styles for buttons established, there fore you can pass on those styles to the mentioned buttos by adde your cutom clasName
+
+IMPORTANT: There is no need to pass `structured` and `themed` together, but no harm if you do.
 
 ## Installation
 
 ```sh
-npm install --save react-formik-ui
+npm install --save react-formik-ui@next
 ```
 
 # Usage
