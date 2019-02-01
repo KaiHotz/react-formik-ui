@@ -8,8 +8,11 @@ export class Toggle extends Component {
   static propTypes = {
     /** @ignore */
     formik: PropTypes.object.isRequired,
+    /** Adds a custom class to the Toggle button */
     className: PropTypes.string,
+    /** Disables the Toggle button */
     disabled: PropTypes.bool,
+    /** Sets the Name of the Toggle button */
     name: PropTypes.string.isRequired,
   }
 
