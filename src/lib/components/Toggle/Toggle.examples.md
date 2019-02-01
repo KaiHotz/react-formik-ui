@@ -2,7 +2,7 @@
 ```jsx
 <Formik
   initialValues={{
-    toggleBtn: false
+    toggleSwitch: false
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (

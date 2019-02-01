@@ -1,53 +1,43 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { connect, getIn } from 'formik'
 import './styles.scss'
 
-export class Toggle extends Component {
-  static propTypes = {
-    /** @ignore */
-    formik: PropTypes.object.isRequired,
-    /** Adds a custom class to the Toggle button */
-    className: PropTypes.string,
-    /** Disables the Toggle button */
-    disabled: PropTypes.bool,
-    /** Sets the Name of the Toggle button */
-    name: PropTypes.string.isRequired,
-  }
+export const Toggle = ({
+  formik: {
+    values, handleChange,
+  },
+  className,
+  disabled,
+  name,
+}) => (
+  <label className={cx('toggle-switch', className, { isDisabled: disabled })}>
+    <input
+      name={name}
+      type="checkbox"
+      checked={getIn(values, name)}
+      onChange={handleChange}
+      disabled={disabled}
+    />
+    <span className="slider" />
+  </label>
+)
 
-  static defaultProps = {
-    className: null,
-    disabled: false,
-  }
+Toggle.propTypes = {
+/** @ignore */
+  formik: PropTypes.object.isRequired,
+  /** Adds a custom class to the Toggle button */
+  className: PropTypes.string,
+  /** Disables the Toggle button */
+  disabled: PropTypes.bool,
+  /** Sets the Name of the Toggle button */
+  name: PropTypes.string.isRequired,
+}
 
-  handleChange = () => {
-    const { name, formik } = this.props
-    const { values, setFieldValue, setFieldTouched } = formik
-
-    setFieldValue(name, !getIn(values, name))
-    setFieldTouched(name, true)
-  }
-
-  render() {
-    const {
-      formik, className, disabled, name,
-    } = this.props
-    const checked = getIn(formik.values, name)
-
-    return (
-      <label className={cx('toggle-switch', className, { isDisabled: disabled })}>
-        <input
-          name={name}
-          type="checkbox"
-          checked={checked}
-          onChange={this.handleChange}
-          disabled={disabled}
-        />
-        <span className="slider" />
-      </label>
-    )
-  }
+Toggle.defaultProps = {
+  className: null,
+  disabled: false,
 }
 
 export default connect(Toggle)
