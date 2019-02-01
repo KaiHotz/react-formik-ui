@@ -34,6 +34,11 @@ The Button and SubmitBtn have been left out of styling due to most apps alrready
 
 IMPORTANT: There is no need to pass `structured` and `themed` together, but no harm if you do.
 
+## MIGRATION v1 to v2:
+- In some cases might need to adjust some of your custom styles due to the HTML markup on most components has slightly changed.
+- If you used the `styled` prop on the `Form` component you need to change it to `structured` now.
+- The `DatePicker` component has been updated to use ReactJs Datepicker v2 and therfore does not make use of `moment` anymore, if you are using the `minDate` and `maxDate` props please refer to the [ReactJs Datepicker](https://reactdatepicker.com/)
+
 ## Installation
 
 ```sh
