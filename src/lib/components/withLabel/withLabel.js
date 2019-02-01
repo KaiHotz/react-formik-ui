@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import { getIn } from 'formik'
+import omit from 'lodash.omit'
 
 import InfoMsg from '../InfoMsg'
 import './styles.scss'
@@ -68,6 +69,7 @@ const withLabel = (component = 'input') => (
       const value = getIn(values, name)
       const hidden = this.state.hide || !!value || !!placeholder || !!(disabled && value)
       const errorMsg = touch && error ? error : null
+      const passableProps = omit(this.props, ['className', 'hint', 'label'])
 
       return (
         <div className={cx('form-element', `${component}-wrapper`, className)}>
@@ -86,7 +88,7 @@ const withLabel = (component = 'input') => (
               onAnimationStart={this.handleAutoFill}
               onFocus={this.handleFocus}
               onBlur={this.handleBlur}
-              {...this.props}
+              {...passableProps}
             />
           </label>
           {
