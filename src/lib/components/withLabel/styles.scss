@@ -106,13 +106,15 @@ form {
           margin: 0px 0px 30px;
           > label {
             &::after {
-              content: "\25BE";
-              font-size: 20px;
+              content: "";
+              width: 0;
+              height: 0;
+              border: 7px solid transparent;
+              border-color: currentColor transparent transparent transparent;
               position: absolute;
               right: 5px;
               top: 50%;
               transform: translateY(-50%);
-              color: currentColor;
               pointer-events: none;
               cursor: pointer;
             }
