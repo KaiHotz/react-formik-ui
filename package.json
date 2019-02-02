@@ -36,7 +36,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "lodash.omit": "^4.5.0",
-    "react-datepicker": "^2.0.0",
+    "react-datepicker": "^2.1.0",
     "react-dropzone": "^7.0.1"
   },
   "peerDependencies": {

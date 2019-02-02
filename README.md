@@ -790,7 +790,7 @@ You can then pass the desired configuration as props just like you would on Reac
   <tr>
     <td>dateFormat</td>
     <td>string / Array of strings</td>
-    <td>[ 'MM/dd/yyyy', 'M/d/yyyy', 'dd.MM.yyyy', 'd.M.yyyy' ]</td>
+    <td>dd.MM.yyyy</td>
     <td>Sets the desired date format.</td>
   </tr>
   <tr>
