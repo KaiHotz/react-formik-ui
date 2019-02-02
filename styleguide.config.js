@@ -39,7 +39,10 @@ module.exports = {
   webpackConfig: createConfig([
     babel(),
     css(),
-    sass(),
+    match(['*.scss', '!*node_modules*'], [
+      css(),
+      sass(),
+    ]),
     match(['*.gif', '*.jpg', '*.jpeg', '*.png', '*.svg', '*.webp'], [
       file(),
     ]),

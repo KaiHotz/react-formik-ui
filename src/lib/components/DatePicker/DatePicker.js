@@ -58,7 +58,7 @@ export class Datepicker extends Component {
       true,
     )
 
-    const updatedValue = momentDate.isValid() ? momentDate.format('YYYY-MM-DD') : ''
+    const updatedValue = momentDate.isValid() ? momentDate.format('YYYY-MM-DD hh:mm a') : ''
 
     formik.setFieldValue(name, updatedValue)
     formik.setFieldTouched(name, true)
@@ -66,7 +66,7 @@ export class Datepicker extends Component {
 
   handleChange = momentDate => {
     const { formik, name } = this.props
-    const value = momentDate ? momentDate.format('YYYY-MM-DD') : ''
+    const value = momentDate ? momentDate.format('YYYY-MM-DD hh:mm a') : ''
 
     formik.setFieldValue(name, value)
     formik.setFieldTouched(name, true)

@@ -1,7 +1,7 @@
 {
   "name": "react-formik-ui",
   "author": "Kai Hotz",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Plain form components for make use of formik even easier",
   "license": "MIT",
   "repository": {
@@ -37,8 +37,8 @@
     "classnames": "^2.2.6",
     "moment": "^2.23.0",
     "react-click-outside": "^3.0.1",
-    "react-datepicker": "1.7.0",
-    "react-dropzone": "7.0.1"
+    "react-datepicker": "^1.7.0",
+    "react-dropzone": "^7.0.1"
   },
   "peerDependencies": {
     "formik": ">1.0.0-alpha.6",
@@ -89,7 +89,7 @@
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^4.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
-    "rollup-plugin-postcss": "^1.6.3",
+    "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-terser": "^4.0.1",
     "rollup-plugin-url": "^2.1.0",
     "webpack": "^4.28.3",
