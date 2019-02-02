@@ -22,7 +22,7 @@ Each component makes use of Formiks context, there for you need to have Formik i
 - **THEME option:** React Formik UI now supports a theme option. This can be achieved by passing the `themed` prop to the `Form` component.
 - **Datepicker:** update of ReactJS Datepicker to v2 and therefor `moment` was removed
 - **Dropzone:** Bug fix that did not render correctly the img thumb of uploaded images. Now it also shows file icons for non img files.
-- **HTML markup:** The overall HTML markup forall of the components has sligtly changed and is now more solid and accesable throug css selectors
+- **HTML markup:** The overall HTML markup for all of the components has sligtly changed and is now more solid and accesable throug css selectors
 - **Overall** more stability and minor bug fixes
 
 
