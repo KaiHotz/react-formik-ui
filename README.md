@@ -24,6 +24,7 @@ Each component makes use of Formiks context, there for you need to have Formik i
 - **Dropzone:** Bug fix that did not render correctly the img thumb of uploaded images. Now it also shows file icons for non img files.
 - **HTML markup:** The overall HTML markup for all of the components has sligtly changed and is now more solid and accesable throug css selectors
 - **Overall** more stability and minor bug fixes
+- **Inline styles:** just like on any HTML element you are now abel to pass `style` prop on each component to add inline styles to the wrapper div of each componet.
 
 
 ## Markup, Styling and ClassNames
@@ -31,10 +32,12 @@ The markup for the components Input, Select, Checkbox, Radio, Textarea, Datepick
 
 By default all component have NO styling applied att all.</br>
 This is intentionally, so you have the posibility to apply your own styling.</br>
-All the components used in the form are scoped by the default classes, situated on the Form component, `react-formik-ui form-wrapper`
+All the components used in the Form are scoped by the default classes, situated on the Form component, `react-formik-ui form-wrapper`
 
 Each component has its corresponding wrapper class (eg: Input component  `input-wrapper` ), as well as the class `form-element`.</br>
 you also can pass your own custom class to the wrapper of each component bay passing the `className` prop.
+
+You also can pass the `style` prop on each component, to add custom inline styles to the wrapper div for each component.
 
 Anyhow, if you pass the  `structured` prop to the Form component, a minimal styling will be applied to add some structure to the form and each form element.
 
