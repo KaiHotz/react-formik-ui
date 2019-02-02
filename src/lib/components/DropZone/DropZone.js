@@ -55,8 +55,11 @@ export const DropZone = ({
                     }
 
                     return (
-                      <div className="icon" key={file.name}>
-                        <i title={file.name.split('.').pop()} />
+                      <div key={file.name} className="icon-wrapper">
+                        <div className="icon">
+                          <i title={file.name.split('.').pop()} />
+                        </div>
+                        <p>{file.name.split('.').shift()}</p>
                       </div>
                     )
                   })

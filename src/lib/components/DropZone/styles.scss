@@ -19,69 +19,75 @@ form {
               border-radius: 5px;
               object-fit: contain;
             }
-            .icon {
-              display: inline-block;
+            .icon-wrapper {
               width: 40px;
-              height: 50px;
-              border-radius: 2px;
-              cursor: pointer;
-              position: relative;
-              margin: 0 5px;
-              background-color: $doc;
-
-              &::after {
-                content: '';
-                position: absolute;
-                display: block;
-                top: 0;
-                right: 0;
-                width: 0;
-                height: 0;
-                border-radius: 0 2px;
-                transition: all 0.2s linear;
-                backface-visibility: hidden;
-                background: linear-gradient(45deg, lighten(#065fd4, 15%) 50%, #fff 50%);
-              }
-              i {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                display: block;
+              margin: 5px;
+              p {
                 font-size: 10px;
-                color: #fff;
-                font-weight: 500;
-                &::before,
-                &::after {
-                  display: block;
-                  transition: all 0.2s linear;
-                }
-                &::before {
-                  content: '< >';
-                  text-align: center;
-                  font-size: 12px;
-                  opacity: 0;
-                  transform: translateY(5px);
-                }
-                &::after {
-                  content: attr(title);
-                  text-align: center;
-                  transform: translateY(-5px);
-                }
+                text-align: center;
+                word-break: break-all;
               }
-              &:hover {
-                border-radius: 2px 4px 2px 2px;
+              .icon {
+                height: 50px;
+                border-radius: 2px;
+                cursor: pointer;
+                position: relative;
+                background-color: #065fd4;
+
                 &::after {
-                  width: 12px;
-                  height: 12px;
+                  content: '';
+                  position: absolute;
+                  display: block;
+                  top: 0;
+                  right: 0;
+                  width: 0;
+                  height: 0;
+                  border-radius: 0 2px;
+                  transition: all 0.2s linear;
+                  backface-visibility: hidden;
+                  background: linear-gradient(45deg, lighten(#065fd4, 15%) 50%, #fff 50%);
                 }
                 i {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  display: block;
+                  font-size: 10px;
+                  color: #fff;
+                  font-weight: 500;
+                  &::before,
+                  &::after {
+                    display: block;
+                    transition: all 0.2s linear;
+                  }
                   &::before {
-                    transform: translateY(0);
-                    opacity: 1;
+                    content: '< >';
+                    text-align: center;
+                    font-size: 12px;
+                    opacity: 0;
+                    transform: translateY(5px);
                   }
                   &::after {
-                    transform: translateY(0);
+                    content: attr(title);
+                    text-align: center;
+                    transform: translateY(-5px);
+                  }
+                }
+                &:hover {
+                  border-radius: 2px 4px 2px 2px;
+                  &::after {
+                    width: 12px;
+                    height: 12px;
+                  }
+                  i {
+                    &::before {
+                      transform: translateY(0);
+                      opacity: 1;
+                    }
+                    &::after {
+                      transform: translateY(0);
+                    }
                   }
                 }
               }

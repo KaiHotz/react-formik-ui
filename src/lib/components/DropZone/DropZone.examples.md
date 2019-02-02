@@ -10,7 +10,8 @@
 
       <DropZone
         name='files'
-        label='Image upload'
+        label='File upload'
+        placeholder='Drop some files here'
       />
 
     </Form>
@@ -31,7 +32,7 @@
 
       <DropZone
         name='files'
-        label='Image upload'
+        label='File upload'
         disabled
       />
 
