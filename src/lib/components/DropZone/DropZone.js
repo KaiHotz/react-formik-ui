@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import Dropzone from 'react-dropzone'
 import { connect, getIn } from 'formik'
-import './styles.css'
+import './styles.scss'
 
 const DropZone = ({
   formik,
@@ -60,6 +60,8 @@ const DropZone = ({
                         key={file.name}
                         src={URL.createObjectURL(file)}
                         className="img-thumbnail"
+                        height={200}
+                        width={200}
                         alt={file.name}
                       />
                     ))
