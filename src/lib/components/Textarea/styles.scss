@@ -3,7 +3,7 @@ form {
     &.with-theme {
       .form-element {
         &.textarea-wrapper {
-          label {
+          > label {
             textarea {
               outline: none;
               resize: none;

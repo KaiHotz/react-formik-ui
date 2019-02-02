@@ -15,7 +15,7 @@ form {
     &.with-theme {
       .form-element {
         &.checkbox-wrapper {
-          label {
+          > label {
             display: block;
             padding-bottom: 6px;
           }

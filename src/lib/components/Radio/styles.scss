@@ -5,7 +5,7 @@ form {
         .radio-option {
           display: flex;
           align-items: center;
-          label {
+          > label {
             margin-bottom: 0;
           }
         }

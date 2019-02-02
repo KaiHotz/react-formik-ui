@@ -4,10 +4,15 @@ form {
       .form-element {
         &.datePicker-wrapper {
           width: 171px;
+          > label {
+            .react-datepicker-popper {
+              min-width: 400px
+            }
+          }
         }
         &.input-wrapper,
         &.datePicker-wrapper {
-          label {
+          > label {
             input {
               outline: none;
               font-size: 1em;

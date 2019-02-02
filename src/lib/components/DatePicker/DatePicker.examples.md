@@ -81,8 +81,9 @@ See [ReaJS Datepicker documentation](https://github.com/Hacker0x01/react-datepic
 />
 ```
 
-##### Themed and disabled
+##### Themed with time picker
 ```jsx
+
 <Formik
   initialValues={{
     dateExample5: ''
@@ -93,6 +94,33 @@ See [ReaJS Datepicker documentation](https://github.com/Hacker0x01/react-datepic
 
       <Datepicker
         name='dateExample5'
+        label='Select a date'
+        showTimeSelect
+        timeFormat="HH:mm"
+        timeIntervals={30}
+        dateFormat="dd.MM.yyyy hh:mm aa"
+        timeCaption="time"
+        minDate={new Date()}
+      />
+      <SubmitBtn />
+    </Form>
+  )}
+/>
+```
+
+
+##### Themed and disabled
+```jsx
+<Formik
+  initialValues={{
+    dateExample6: ''
+  }}
+  onSubmit={data => (alert(JSON.stringify(data)))}
+  render={() => (
+    <Form themed>
+
+      <Datepicker
+        name='dateExample6'
         label='Select a date'
         disabled
       />
@@ -106,14 +134,14 @@ See [ReaJS Datepicker documentation](https://github.com/Hacker0x01/react-datepic
 ```jsx
 <Formik
   initialValues={{
-    dateExample6: ''
+    dateExample7: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
     <Form themed>
 
       <Datepicker
-        name='dateExample6'
+        name='dateExample7'
         label='Select a date'
         placeholder='DD.MM.YYYYY'
         dateFormat='dd.MM.yyyy'
@@ -124,6 +152,7 @@ See [ReaJS Datepicker documentation](https://github.com/Hacker0x01/react-datepic
   )}
 />
 ```
+
 
 
 

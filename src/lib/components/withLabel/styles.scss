@@ -28,7 +28,7 @@ form {
         &.datePicker-wrapper,
         &.textarea-wrapper,
         &.select-wrapper {
-          label {
+          > label {
             position: relative;
             display: flex;
             flex-direction: column;
@@ -64,7 +64,7 @@ form {
         &.input-wrapper,
         &.datePicker-wrapper,
         &.textarea-wrapper{
-          label {
+          > label {
             span {
               font-size: 1em;
               line-height: 100%;
@@ -83,7 +83,7 @@ form {
           }
         }
         &.select-wrapper {
-          label {
+          > label {
             &::after {
               content: "\25BE";
               font-size: 20px;
@@ -98,7 +98,7 @@ form {
           }
         }
         &.textarea-wrapper {
-          label {
+          > label {
             span {
               top: 24px;
               &.hidden {
