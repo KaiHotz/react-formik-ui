@@ -1,4 +1,4 @@
-#### All together with minimum style
+#### All together with structured style
 ```jsx
 const onSubmit = data => (alert(JSON.stringify(data)));
 
@@ -144,7 +144,7 @@ const  getSchema = () => {
 ```
 
 
-#### All together with minimum style
+#### All together with Themed style
 ```jsx
 const onSubmit = data => (alert(JSON.stringify(data)));
 
