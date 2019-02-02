@@ -17,6 +17,15 @@ so you don't have to write any HTML markup or extra components for your forms.
 
 Each component makes use of Formiks context, there for you need to have Formik installed in your project.
 
+
+## NEW in v2:
+- THEME option : React Formik UI now supports a theme option. This can be achieved by passing the `themed` prop to the `Form` component.
+- Datepicker: update of ReactJS Datepicker to v2 and therefor `moment` was removed
+- Dropzone: Bug fix that did not render correctly the img thumb of uploaded images. Now it also shows file icons for non img files.
+- HTML markup: The overall HTML markup forall of the components has sligtly changed and is now more solid and accesable throug css selectors
+- Overall more stability and minor bug fixes
+
+
 ## Markup, Styling and ClassNames
 The markup for the components Input, Select, Checkbox, Radio, Textarea, Datepicker and DropZone consists of a wrapper div, label, the main component, hint, and error message.
 
@@ -29,14 +38,15 @@ you also can pass your own custom class to the wrapper of each component bay pas
 
 Anyhow, if you pass the  `structured` prop to the Form component, a minimal styling will be applied to add some structure to the form and each form element.
 
-NEW: If you pass `themed` instead of `structured` as prop to the form component, the React-Fomik-UI Theme will be applied to all components expet the Button and SubmitBtn components.
+#### NEW
+If you pass `themed` instead of `structured` as prop to the form component, the React-Fomik-UI Theme will be applied to all components, except the Button and SubmitBtn components.
 The Button and SubmitBtn have been left out of styling due to most apps alrready have some styles for buttons established, there fore you can pass on those styles to the mentioned buttos by adde your cutom clasName
 
-IMPORTANT: There is no need to pass `structured` and `themed` together, but no harm if you do.
+####IMPORTANT: There is no need to pass `structured` and `themed` together, but no harm if you do.
 
 ## MIGRATION v1 to v2:
-- In some cases might need to adjust some of your custom styles due to the HTML markup on most components has slightly changed.
 - If you used the `styled` prop on the `Form` component you need to change it to `structured` now.
+- In some cases might need to adjust some of your custom styles due to the HTML markup on most components has slightly changed.
 - The `DatePicker` component has been updated to use ReactJs Datepicker v2 and therfore does not make use of `moment` anymore, if you are using the `minDate` and `maxDate` props please refer to the [ReactJs Datepicker](https://reactdatepicker.com/)
 
 ## Installation

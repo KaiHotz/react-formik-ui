@@ -74,10 +74,17 @@ form {
               transform: translateY(-50%);
               transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
               pointer-events: none;
+              & + input {
+                opacity: 0;
+                transition: opacity 0.25s ease-in-out;
+              }
               &.hidden {
                 font-size: 0.9em;
                 top: -5px;
                 pointer-events: all;
+                & + input {
+                  opacity: 1;
+                }
               }
             }
           }
