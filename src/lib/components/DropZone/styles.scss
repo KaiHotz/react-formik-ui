@@ -1,20 +1,3 @@
-// Variables
-$white: #fff;
-$sheets: #0f9d58;
-$pdf: #db4437;
-$doc: #4285f4;
-$slides: #f5b707;
-$code: #00a78e;
-
-// Mixins
-@mixin center {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
-
 form {
   &.react-formik-ui {
     .form-element{
@@ -44,6 +27,7 @@ form {
               cursor: pointer;
               position: relative;
               margin: 0 5px;
+              background-color: $doc;
 
               &::after {
                 content: '';
@@ -56,62 +40,46 @@ form {
                 border-radius: 0 2px;
                 transition: all 0.2s linear;
                 backface-visibility: hidden;
-              }
-
-              &--doc {
-                background-color: $doc;
-
-                &::after {
-                  background: linear-gradient(45deg, lighten($doc, 15%) 50%, $white 50%);
-                }
-
-                i {
-                  &::before {
-                    content: '< >';
-                  }
-                }
+                background: linear-gradient(45deg, lighten(#065fd4, 15%) 50%, #fff 50%);
               }
               i {
-                @include center;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
                 display: block;
                 font-size: 10px;
-                color: $white;
+                color: #fff;
                 font-weight: 500;
-
                 &::before,
                 &::after {
                   display: block;
                   transition: all 0.2s linear;
                 }
-
                 &::before {
+                  content: '< >';
                   text-align: center;
                   font-size: 12px;
                   opacity: 0;
                   transform: translateY(5px);
                 }
-
                 &::after {
                   content: attr(title);
+                  text-align: center;
                   transform: translateY(-5px);
-
                 }
               }
-
               &:hover {
                 border-radius: 2px 4px 2px 2px;
-
                 &::after {
                   width: 12px;
                   height: 12px;
                 }
-
                 i {
                   &::before {
                     transform: translateY(0);
                     opacity: 1;
                   }
-
                   &::after {
                     transform: translateY(0);
                   }

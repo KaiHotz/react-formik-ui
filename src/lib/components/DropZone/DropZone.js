@@ -43,8 +43,6 @@ export const DropZone = ({
               <Fragment>
                 {
                   values[name].map(file => {
-                    console.log('file', file)
-
                     if (file.type.includes('image')) {
                       return (
                         <img
@@ -57,7 +55,7 @@ export const DropZone = ({
                     }
 
                     return (
-                      <div className="icon icon--doc" key={file.name}>
+                      <div className="icon" key={file.name}>
                         <i title={file.name.split('.').pop()} />
                       </div>
                     )
