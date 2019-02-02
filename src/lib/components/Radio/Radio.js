@@ -19,7 +19,7 @@ export const Radio = ({
       options.map(option => (
         <div key={option.label} className="radio-option">
           <input
-            type="radio"
+            {...rest}
             checked={getIn(values, name) === option.value}
             id={`${name}-id-${option.value}`}
             value={option.value}
@@ -27,7 +27,7 @@ export const Radio = ({
             onBlur={handleBlur}
             name={name}
             disabled={disabled}
-            {...rest}
+            type="radio"
           />
           <label
             htmlFor={`${name}-id-${option.value}`}

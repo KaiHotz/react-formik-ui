@@ -17,6 +17,7 @@ export const Textarea = ({
   ...rest
 }) => (
   <textarea
+    {...rest}
     id={id || name}
     name={name}
     placeholder={placeholder}
@@ -25,7 +26,6 @@ export const Textarea = ({
     onFocus={onFocus}
     onBlur={onBlur}
     disabled={disabled}
-    {...rest}
   />
 )
 

@@ -16,6 +16,7 @@ export const Checkbox = ({
 }) => (
   <div className="checkbox-input-wrapper">
     <input
+      {...rest}
       id={id || name}
       name={name}
       type="checkbox"
@@ -23,7 +24,6 @@ export const Checkbox = ({
       onChange={handleChange}
       onBlur={handleBlur}
       disabled={disabled}
-      {...rest}
     />
     <label
       htmlFor={name}
