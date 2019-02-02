@@ -45,13 +45,21 @@ export const DropZone = ({
                   values[name].map(file => {
                     console.log('file', file)
 
+                    if (file.type.includes('image')) {
+                      return (
+                        <img
+                          key={file.name}
+                          src={URL.createObjectURL(file)}
+                          className="img-thumbnail"
+                          alt={file.name}
+                        />
+                      )
+                    }
+
                     return (
-                      <img
-                        key={file.name}
-                        src={URL.createObjectURL(file)}
-                        className="img-thumbnail"
-                        alt={file.name}
-                      />
+                      <div className="icon icon--doc" key={file.name}>
+                        <i title={file.name.split('.').pop()} />
+                      </div>
                     )
                   })
                 }
@@ -96,7 +104,7 @@ DropZone.defaultProps = {
   className: null,
   disabled: false,
   id: null,
-  accept: 'image/*',
+  accept: null,
   label: null,
   zoneActiveText: 'Drop file(s) here',
   disabledText: 'File upload disabled',

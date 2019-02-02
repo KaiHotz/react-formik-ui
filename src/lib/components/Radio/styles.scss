@@ -22,11 +22,11 @@ form {
                 left: -9999px;
                 &:disabled + label {
                   color: rgba(0, 0, 0, 0.42);
-                  &:before {
+                  &::before {
                     border: 1px dotted currentColor;
                   }
                 }
-                &:disabled:hover +label:before {
+                &:disabled:hover +label::before {
                   background: transparent;
                 }
               }
@@ -38,8 +38,8 @@ form {
                 line-height: 20px;
                 display: inline-block;
               }
-              &:checked + label:before,
-              &:not(:checked) + label:before {
+              &:checked + label::before,
+              &:not(:checked) + label::before {
                 content: '';
                 position: absolute;
                 left: 0;
@@ -49,10 +49,10 @@ form {
                 border: 1px solid #ccc;
                 border-radius: 100%;
               }
-              &:not(:checked):hover + label:before {
+              &:not(:checked):hover + label::before {
                 background: #ddd
               }
-              &:checked + label:after {
+              &:checked + label::after {
                 content: '';
                 width: 12px;
                 height: 12px;
@@ -67,10 +67,10 @@ form {
                 -webkit-transition: all 0.2s ease;
                 transition: all 0.2s ease;
               }
-              &:checked:disabled + label:after {
+              &:checked:disabled + label::after {
                 background: rgba(0, 0, 0, 0.42);
               }
-              &:not(:checked) + label:after {
+              &:not(:checked) + label::after {
                 content: '';
                 width: 12px;
                 height: 12px;

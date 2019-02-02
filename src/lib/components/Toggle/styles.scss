@@ -24,7 +24,7 @@
     box-shadow: inset 0 0 5px #999;
     transition: 0.4s;
     border-radius: 15px;
-    &:before {
+    &::before {
       content: '';
       position: absolute;
       top: 50%;

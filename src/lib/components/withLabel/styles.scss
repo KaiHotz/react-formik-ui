@@ -32,7 +32,7 @@ form {
             position: relative;
             display: flex;
             flex-direction: column;
-            &:before {
+            &::before {
               left: 0;
               right: 0;
               bottom: 0;
@@ -51,7 +51,7 @@ form {
               }
             }
             &.isDisabled {
-              &:before {
+              &::before {
                 border-bottom: 1px dotted rgba(0, 0, 0, 0.42);
               }
             }
@@ -84,7 +84,7 @@ form {
         }
         &.select-wrapper {
           label {
-            &:after {
+            &::after {
               content: "\25BE";
               font-size: 20px;
               position: absolute;

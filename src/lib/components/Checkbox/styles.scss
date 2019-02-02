@@ -32,7 +32,7 @@ form {
                 cursor: pointer;
                 padding: 0;
               }
-              & + label:before {
+              & + label::before {
                 content: '';
                 margin-right: 5px;
                 display: inline-block;
@@ -41,22 +41,22 @@ form {
                 height: 17px;
                 border: 1px solid #ccc;
               }
-              &:hover + label:before {
+              &:hover + label::before {
                 background: #ddd;
               }
-              &:checked + label:before {
+              &:checked + label::before {
                 background: #065fd4;
               }
               &:disabled + label {
                 color: #b8b8b8;
                 cursor: auto;
               }
-              &:disabled + label:before {
+              &:disabled + label::before {
                 box-shadow: none;
                 border: 1px dotted #999;
                 background: #ddd;
               }
-              &:checked + label:after {
+              &:checked + label::after {
                 content: '';
                 position: absolute;
                 left: 5px;
