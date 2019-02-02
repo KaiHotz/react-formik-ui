@@ -32,7 +32,6 @@ Form.propTypes = {
   structured: PropTypes.bool,
   /** If passed adds the React-Formik-UI theme will be applied to each styled Form element */
   themed: PropTypes.bool,
-
 }
 
 Form.defaultProps = {
