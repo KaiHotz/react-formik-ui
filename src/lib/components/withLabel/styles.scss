@@ -5,10 +5,11 @@ form {
   &.react-formik-ui {
     .form-element {
       &.hidden {
-        margin: 0 !important;
-        padding: 0 !important;
-        height: 0 !important;
-        width: 0 !important;
+        opacity: 0;
+        margin: 0;
+        padding: 0;
+        height: 0;
+        width: 0;
       }
       .error {
         color: #cc0000;
@@ -18,22 +19,11 @@ form {
       label,
       span {
         display: block;
-        margin-bottom: 5px;
       }
     }
     &.with-structure,
     &.with-theme {
       .form-element {
-        label,
-        span {
-          &.hidden {
-            opacity: 0;
-            margin: 0;
-            padding: 0;
-            height: 0;
-            width: 0;
-          }
-        }
         .error,
         .hint {
           font-size: .8rem;
