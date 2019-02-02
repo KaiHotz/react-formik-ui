@@ -16,6 +16,7 @@ const withLabel = (component = 'input') => (
       className: PropTypes.string,
       hint: PropTypes.string,
       placeholder: PropTypes.string,
+      type: PropTypes.string,
       disabled: PropTypes.bool,
       required: PropTypes.bool,
     }
@@ -25,6 +26,7 @@ const withLabel = (component = 'input') => (
       className: null,
       hint: null,
       placeholder: null,
+      type: null,
       disabled: false,
       required: false,
     }
@@ -61,25 +63,27 @@ const withLabel = (component = 'input') => (
         className,
         hint,
         placeholder,
+        type,
         disabled,
         required,
       } = this.props
       const error = getIn(errors, name)
       const touch = getIn(touched, name)
       const value = getIn(values, name)
-      const hidden = this.state.hide || !!value || !!placeholder || !!(disabled && value)
+      const hide = this.state.hide || !!value || !!placeholder || !!(disabled && value)
+      const hidden = type && type === 'hidden'
       const errorMsg = touch && error ? error : null
       const passableProps = omit(this.props, ['className', 'hint', 'label'])
 
       return (
-        <div className={cx('form-element', `${component}-wrapper`, className)}>
+        <div className={cx('form-element', `${component}-wrapper`, className, { hidden })}>
           <label
             htmlFor={name}
-            className={cx({ isDisabled: disabled, hasError: !!errorMsg })}
+            className={cx({ isDisabled: disabled, hasError: !!errorMsg, hidden })}
           >
             {
               label && (
-                <span className={cx({ hidden })}>
+                <span className={cx({ hide, hidden })}>
                   {`${label}${required ? ' *' : ''}`}
                 </span>
               )

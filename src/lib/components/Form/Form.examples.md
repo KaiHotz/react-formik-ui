@@ -166,10 +166,6 @@ const  getSchema = () => {
       .string()
       .required('Is required')
       .nullable(),
-    maritalStatus2: yup
-      .string()
-      .required('Is required')
-      .nullable(),
      driverLicense: yup
        .boolean(),
      pets: yup
@@ -194,7 +190,6 @@ const  getSchema = () => {
     email: '',
     birthDay: '',
     maritalStatus: '',
-    maritalStatus2: '',
     driverLicense: false,
     pets: false,
     income: '0',
@@ -256,20 +251,6 @@ const  getSchema = () => {
             ]}
             required
           />
-
-          <Select
-            name='maritalStatus2'
-            placeholder='Select an Option'
-            options={[
-              { value: '1', label: 'Married' },
-              { value: '2', label: 'Single' },
-              { value: '3', label: 'Divorced' },
-              { value: '4', label: 'Widowed' }
-            ]}
-            required
-          />
-
-
 
           <div style={{marginBottom: '15px'}}>
             <div style={{marginBottom: '10px'}}>

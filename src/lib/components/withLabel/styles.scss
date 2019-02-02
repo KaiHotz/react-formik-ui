@@ -10,6 +10,13 @@ form {
         span {
           display: block;
           margin-bottom: 5px;
+          &.hidden {
+            opacity: 0;
+            margin: 0;
+            padding: 0;
+            height: 0;
+            width: 0;
+          }
         }
         .error,
         .hint {
@@ -78,7 +85,7 @@ form {
                 opacity: 0;
                 transition: opacity 0.25s ease-in-out;
               }
-              &.hidden {
+              &.hide {
                 font-size: 0.9em;
                 top: -5px;
                 pointer-events: all;
@@ -108,7 +115,7 @@ form {
           > label {
             span {
               top: 24px;
-              &.hidden {
+              &.hide {
                 top: 0px;
               }
             }
