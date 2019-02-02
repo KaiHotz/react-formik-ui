@@ -3,13 +3,16 @@ form {
     .form-element{
       &.dropzone-wrapper {
         label {
+          span {
+            display: block;
+            margin-bottom: 6px;
+          }
           > div {
             width: 100% !important;
             height: auto !important;
             min-height: 142px;
             display: flex;
             flex-flow: row wrap;
-            margin-left: -8px;
             padding: 10px 10px 0;
             box-sizing: border-box;
             img {
