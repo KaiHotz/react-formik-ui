@@ -22,9 +22,7 @@ const  getSchema = () => {
        .boolean(),
      petsExample: yup
        .boolean(),
-     incomeExample: yup
-       .string(),
-     imagesExample: yup
+     filesExample: yup
        .array()
        .required('Image is required'),
      additionalInfoExample: yup
@@ -43,8 +41,7 @@ const  getSchema = () => {
     maritalStatusExample: '',
     driverLicenseExample: false,
     petsExample: false,
-    incomeExample: '0',
-    imagesExample: [],
+    filesExample: [],
     additionalInfoExample: '',
     termsAndConitionsExample: false,
   }}
@@ -107,19 +104,10 @@ const  getSchema = () => {
             <Toggle name='driverLicenseExample' />
           </div>
 
-          <Input
-            name='incomeExample'
-            label={`What is your monthly income $ ${values.incomeExample},-`}
-            type='range'
-            min='0'
-            max='10000'
-            step='5'
-          />
-
           <DropZone
-            name='imagesExample'
-            label='Image upload'
-            placeholder='Drop some image files here'
+            name='filesExample'
+            label='File upload'
+            placeholder='Drop some files here'
           />
 
           <Textarea
@@ -166,20 +154,18 @@ const  getSchema = () => {
       .string()
       .required('Is required')
       .nullable(),
-     driverLicense: yup
-       .boolean(),
-     pets: yup
-       .boolean(),
-     income: yup
-       .string(),
-     images: yup
-       .array()
-       .required('Image is required'),
-     additionalInfo: yup
-       .string()
-       .required('Is required'),
-     termsAndConitions: yup
-       .boolean(),
+    driverLicense: yup
+      .boolean(),
+    pets: yup
+      .boolean(),
+    files: yup
+      .array()
+      .required('Image is required'),
+    additionalInfo: yup
+      .string()
+      .required('Is required'),
+    termsAndConitions: yup
+      .boolean(),
   });
 };
 
@@ -192,8 +178,7 @@ const  getSchema = () => {
     maritalStatus: '',
     driverLicense: false,
     pets: false,
-    income: '0',
-    images: [],
+    files: [],
     additionalInfo: '',
     termsAndConitions: false,
   }}
@@ -259,19 +244,10 @@ const  getSchema = () => {
             <Toggle name='driverLicense' />
           </div>
 
-          <Input
-            name='income'
-            label={`What is your monthly income $ ${values.income},-`}
-            type='hidden'
-            min='0'
-            max='10000'
-            step='5'
-          />
-
           <DropZone
-            name='images'
-            label='Image upload'
-            placeholder='Drop some image files here'
+            name='files'
+            label='File upload'
+            placeholder='Drop some files here'
           />
 
           <Textarea
