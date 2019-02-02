@@ -21,11 +21,13 @@ form {
             }
             .icon-wrapper {
               width: 40px;
-              margin: 5px;
+              margin: 5px 5px 0;
               p {
                 font-size: 10px;
                 text-align: center;
+                line-height: 10px;
                 word-break: break-all;
+                margin: 5px 0;
               }
               .icon {
                 height: 50px;
