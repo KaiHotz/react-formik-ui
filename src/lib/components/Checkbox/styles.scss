@@ -5,6 +5,10 @@ form {
         .checkbox-input-wrapper{
           display: flex;
           align-items: flex-start;
+          label {
+            display: block;
+            margin-left: 5px;
+          }
         }
         .checkbox-text {
           display: initial;
@@ -36,7 +40,7 @@ form {
               }
               & + label::before {
                 content: '';
-                margin-right: 5px;
+                margin-right: 8px;
                 display: inline-block;
                 vertical-align: text-top;
                 width: 18px;

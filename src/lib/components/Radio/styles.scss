@@ -1,6 +1,12 @@
 form {
   &.react-formik-ui {
     .form-element {
+      label {
+        span {
+          display: block;
+          margin-bottom: 6px;
+        }
+      }
       .radio-options {
         &.inline {
           display: flex;
@@ -18,7 +24,7 @@ form {
             display: flex;
             align-items: center;
             > label {
-              margin-bottom: 0;
+              margin: 0 0 0 5px;
             }
           }
         }
