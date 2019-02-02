@@ -28,7 +28,7 @@ Form.propTypes = {
   children: PropTypes.node.isRequired,
   /** Adds a custom class to the form */
   className: PropTypes.string,
-  /** If passed adds a minimal style that gives some structure to the form */
+  /** If passed adds a minimal style that gives some structure to the Form */
   structured: PropTypes.bool,
   /** If passed adds the React-Formik-UI theme will be applied to each styled Form element */
   themed: PropTypes.bool,

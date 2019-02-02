@@ -113,11 +113,18 @@ You don't need to pass an `onSubmit` handler, since this is already handled unde
     <td>Adds a custom class to the form</td>
   </tr>
   <tr>
-    <td>styled</td>
+    <td>structured</td>
     <td>boolean</td>
     <td>false</td>
-    <td>If passed adds a minimal style and structure to the form </td>
+    <td>If passed adds a minimal style that gives some structure to the Form</td>
   </tr>
+    <tr>
+    <td>themed</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>If passed adds the React-Formik-UI theme will be applied to each styled Form element</td>
+  </tr>
+
 </table>
 
 #### Code example:
