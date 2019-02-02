@@ -43,6 +43,8 @@ Checkbox.propTypes = {
   name: PropTypes.string.isRequired,
   /** Adds a custom class to the Checkbox wrapper div */
   className: PropTypes.string,
+  /** Adds a custom inline styles to the Checkbox wrapper div */
+  style: PropTypes.object,
   /** Sets the main Label for the Checkbox */
   label: PropTypes.string,
   /** Sets a hint text after/below the Checkbox */
@@ -58,6 +60,7 @@ Checkbox.propTypes = {
 Checkbox.defaultProps = {
   id: null,
   className: null,
+  style: null,
   label: null,
   hint: null,
   text: null,

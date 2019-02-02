@@ -1,12 +1,25 @@
 form {
   &.react-formik-ui {
+    .form-element {
+      .radio-options {
+        &.inline {
+          display: flex;
+          justify-content: flex-start;
+          .radio-option {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
     &.with-structure {
       .form-element {
-        .radio-option {
-          display: flex;
-          align-items: center;
-          > label {
-            margin-bottom: 0;
+        .radio-options {
+          .radio-option {
+            display: flex;
+            align-items: center;
+            > label {
+              margin-bottom: 0;
+            }
           }
         }
       }
@@ -14,76 +27,78 @@ form {
     &.with-theme {
       .form-element {
         &.radio-wrapper {
-          .radio-option {
-            input[type="radio"] {
-              &:checked,
-              &:not(:checked) {
-                position: absolute;
-                left: -9999px;
-                &:disabled + label {
-                  color: rgba(0, 0, 0, 0.42);
-                  &::before {
-                    border: 1px dotted currentColor;
+          .radio-options {
+            .radio-option {
+              input[type="radio"] {
+                &:checked,
+                &:not(:checked) {
+                  position: absolute;
+                  left: -9999px;
+                  &:disabled + label {
+                    color: rgba(0, 0, 0, 0.42);
+                    &::before {
+                      border: 1px dotted currentColor;
+                    }
+                  }
+                  &:disabled:hover +label::before {
+                    background: transparent;
                   }
                 }
-                &:disabled:hover +label::before {
-                  background: transparent;
+                &:checked + label,
+                &:not(:checked) + label {
+                  position: relative;
+                  padding-left: 28px;
+                  cursor: pointer;
+                  line-height: 20px;
+                  display: inline-block;
                 }
-              }
-              &:checked + label,
-              &:not(:checked) + label {
-                position: relative;
-                padding-left: 28px;
-                cursor: pointer;
-                line-height: 20px;
-                display: inline-block;
-              }
-              &:checked + label::before,
-              &:not(:checked) + label::before {
-                content: '';
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 18px;
-                height: 18px;
-                border: 1px solid #ccc;
-                border-radius: 100%;
-              }
-              &:not(:checked):hover + label::before {
-                background: #ddd
-              }
-              &:checked + label::after {
-                content: '';
-                width: 12px;
-                height: 12px;
-                background: #065fd4;
-                position: absolute;
-                top: 4px;
-                left: 4px;
-                border-radius: 100%;
-                opacity: 1;
-                -webkit-transform: scale(1);
-                transform: scale(1);
-                -webkit-transition: all 0.2s ease;
-                transition: all 0.2s ease;
-              }
-              &:checked:disabled + label::after {
-                background: rgba(0, 0, 0, 0.42);
-              }
-              &:not(:checked) + label::after {
-                content: '';
-                width: 12px;
-                height: 12px;
-                background: #065fd4;
-                position: absolute;
-                top: 4px;
-                left: 4px;
-                border-radius: 100%;
-                -webkit-transition: all 0.2s ease;
-                transition: all 0.2s ease;
-                opacity: 0;
-                -webkit-transform: scale(0);
-                transform: scale(0);
+                &:checked + label::before,
+                &:not(:checked) + label::before {
+                  content: '';
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                  width: 18px;
+                  height: 18px;
+                  border: 1px solid #ccc;
+                  border-radius: 100%;
+                }
+                &:not(:checked):hover + label::before {
+                  background: #ddd
+                }
+                &:checked + label::after {
+                  content: '';
+                  width: 12px;
+                  height: 12px;
+                  background: #065fd4;
+                  position: absolute;
+                  top: 4px;
+                  left: 4px;
+                  border-radius: 100%;
+                  opacity: 1;
+                  -webkit-transform: scale(1);
+                  transform: scale(1);
+                  -webkit-transition: all 0.2s ease;
+                  transition: all 0.2s ease;
+                }
+                &:checked:disabled + label::after {
+                  background: rgba(0, 0, 0, 0.42);
+                }
+                &:not(:checked) + label::after {
+                  content: '';
+                  width: 12px;
+                  height: 12px;
+                  background: #065fd4;
+                  position: absolute;
+                  top: 4px;
+                  left: 4px;
+                  border-radius: 100%;
+                  -webkit-transition: all 0.2s ease;
+                  transition: all 0.2s ease;
+                  opacity: 0;
+                  -webkit-transform: scale(0);
+                  transform: scale(0);
+                }
               }
             }
           }

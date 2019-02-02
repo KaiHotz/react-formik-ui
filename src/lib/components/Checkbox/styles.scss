@@ -16,8 +16,10 @@ form {
       .form-element {
         &.checkbox-wrapper {
           > label {
-            display: block;
-            padding-bottom: 6px;
+            span {
+              display: block;
+              padding-bottom: 6px;
+            }
           }
           .checkbox-input-wrapper {
             display: flex;

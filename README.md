@@ -88,7 +88,7 @@ See the Styleguide [here](https://kaihotz.github.io/react-formik-ui/)
 - [Toggle](#toggle)
 - [SubmitBtn](#submitbtn)
 
-- [Example Form](#complete-form-example)
+- [Example Form](https://kaihotz.github.io/react-formik-ui/#form)
 
 
 ## Form
@@ -173,6 +173,12 @@ A custom class can be passed through the `className` prop.
     <td>string</td>
     <td>null</td>
     <td>Adds a custom class to the Input wrapper div</td>
+  </tr>
+  <tr>
+    <td>style</td>
+    <td>object</td>
+    <td>null</td>
+    <td>Adds a custom inline styles to the Input wrapper div</td>
   </tr>
   <tr>
     <td>disabled</td>
@@ -292,6 +298,12 @@ A custom class can be passed through the `className` prop.
     <td>string</td>
     <td>null</td>
     <td>Adds a custom class to the Select wrapper div</td>
+  </tr>
+  <tr>
+    <td>style</td>
+    <td>object</td>
+    <td>null</td>
+    <td>Adds a custom inline styles to the Select wrapper div </td>
   </tr>
   <tr>
     <td>disabled</td>
@@ -415,10 +427,22 @@ A custom class can be passed through the `className` prop.
     <td>Adds a custom class to the Radio wrapper div</td>
   </tr>
   <tr>
+    <td>style</td>
+    <td>object</td>
+    <td>null</td>
+    <td>Adds a custom inline styles to the Radio wrapper div </td>
+  </tr>
+  <tr>
     <td>disabled</td>
     <td>boolean</td>
     <td>false</td>
     <td>Disables the Radio Fields</td>
+  </tr>
+  <tr>
+    <td>inline</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Displays the radio option inline from left to right</td>
   </tr>
   <tr>
     <td>hint</td>
@@ -521,6 +545,12 @@ A custom class can be passed through the `className` prop.
     <td>string</td>
     <td>null</td>
     <td>Adds a custom class to the Checkbox wrapper div</td>
+  </tr>
+  <tr>
+    <td>style</td>
+    <td>object</td>
+    <td>null</td>
+    <td>Adds a custom inline styles to the Checkbox wrapper div</td>
   </tr>
   <tr>
     <td>disabled</td>
@@ -631,6 +661,12 @@ A custom class can be passed through the `className` prop.
     <td>string</td>
     <td>null</td>
     <td>Adds a custom class to the Textarea wrapper div</td>
+  </tr>
+  <tr>
+    <td>style</td>
+    <td>object</td>
+    <td>null</td>
+    <td>Adds a custom inline styles to the Textarea wrapper div</td>
   </tr>
   <tr>
     <td>disabled</td>
@@ -744,6 +780,12 @@ You can then pass the desired configuration as props just like you would on Reac
     <td>string</td>
     <td>null</td>
     <td>Adds a custom class to the Input wrapper div</td>
+  </tr>
+  <tr>
+    <td>style</td>
+    <td>object</td>
+    <td>null</td>
+    <td>Adds a custom inline styles to the Datepicker wrapper div</td>
   </tr>
   <tr>
     <td>dateFormat</td>
@@ -864,6 +906,12 @@ For aditional configuration options and layouts, please refere to [react-dropzon
     <td>string</td>
     <td>null</td>
     <td>Adds a custom class to the DropZone wrapper div</td>
+  </tr>
+  <tr>
+    <td>style</td>
+    <td>object</td>
+    <td>null</td>
+    <td>Adds a custom inline styles to the Dropzone wrapper div</td>
   </tr>
   <tr>
     <td>disabled</td>
@@ -1061,6 +1109,12 @@ A custom class can be passed through the `className` prop.</br>
     <td>Adds a custom class to the Toggle button</td>
   </tr>
   <tr>
+    <td>style</td>
+    <td>object</td>
+    <td>null</td>
+    <td>Adds a custom inline styles to the Toggle switch wrapper div</td>
+  </tr>
+  <tr>
     <td>disabled</td>
     <td>boolean</td>
     <td>false</td>
@@ -1190,205 +1244,6 @@ class Example extends Component {
   }
 }
 ```
-
-## Complete Form Example
-```jsx
-import React, { Component } from 'react';
-import { Formik } from 'formik'
-import *  as yup from 'yup'
-import {
-  Form,
-  Input,
-  Datepicker,
-  Select,
-  Checkbox,
-  Radio,
-  Textarea,
-  Button,
-  SubmitBtn,
-  Toggle,
-  DropZone,
-} from './components'
-import logo from './logo.svg';
-import './App.css';
-
-class ExampleForm extends Component {
-  onSubmit = data => {
-    console.log(data)
-  }
-
-  // example of validation with yup
-  getSchema = () => {
-    return yup.object().shape({
-      salutation: yup
-        .string(),
-      firstName: yup
-        .string()
-        .required('First name is required'),
-      lastName: yup
-        .string()
-        .required('Last name is required'),
-      email: yup
-        .string()
-        .email('Wrong format')
-        .required('Email is required'),
-      birthDay: yup
-        .date(),
-      maritalStatus: yup
-        .string()
-        .nullable(),
-      driverLicense: yup
-        .boolean(),
-      pets: yup
-        .boolean(),
-      income: yup
-        .string()
-        .required('Income is required'),
-      files: yup
-        .array()
-        .required('Image is required'),
-      additionalInfo: yup
-        .string(),
-      termsAndConitions: yup
-        .boolean(),
-    });
-  }
-
-  render() {
-    const styledDiv = {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      marginBottom: '15px'
-    }
-
-    return (
-      <Formik
-        initialValues={{
-          salutation: 'Mr',
-          firstName: '',
-          lastName: '',
-          email: '',
-          birthDay: '',
-          maritalStatus: '',
-          driverLicense: false,
-          pets: false,
-          income: '',
-          files: [],
-          additionalInfo: '',
-          termsAndConitions: false,
-        }}
-        validationSchema={this.getSchema}
-        onSubmit={this.onSubmit}
-        render={({ values }) => {
-          return (
-            <Form styled>
-              <fieldset>
-                <legend>Form Example:</legend>
-
-                <Radio
-                  name='salutation'
-                  label='Salutation'
-                  options={[
-                    { value: 'Mr', label: 'Mr.' },
-                    { value: 'Mrs', label: 'Mrs.' },
-                    { value: 'Ms', label: 'Ms.' }
-                  ]}
-                />
-
-                <Input
-                  name='firstName'
-                  label='First name'
-                  required
-                />
-
-                <Input
-                  name='lastName'
-                  label='Last name'
-                  required
-                />
-
-                <Input
-                  name='email'
-                  label='Enter your Email'
-                  required
-                />
-
-                <Datepicker
-                  name='birthDay'
-                  label='Birthday'
-                  dateFormat='D.M.YYYY'
-                  placeholder='D.M.YYYY'
-                  hint='Please enter your birth date'
-                />
-
-                <Select
-                  name='maritalStatus'
-                  label='Marital Status'
-                  placeholder='Select an Option'
-                  options={[
-                    { value: '1', label: 'Married' },
-                    { value: '2', label: 'Single' },
-                    { value: '3', label: 'Divorced' },
-                    { value: '4', label: 'Widowed' }
-                  ]}
-                />
-
-                <div style={styledDiv}>
-                  <div>
-                    {`Do you have a drivers license ? ${values.driverLicense ? 'Yes' : 'No'}`}
-                  </div>
-                  <Toggle name='driverLicense' />
-                </div>
-
-                <div style={styledDiv}>
-                  <div>
-                    {`Do you own pets ? ${values.pets ? 'Yes' : 'No'}`}
-                  </div>
-                  <Toggle name='pets' />
-                </div>
-
-                <Input
-                  name='income'
-                  label={`What is your monthly income $${values.income}`}
-                  type='range'
-                  min='0'
-                  max='10000'
-                  step='500'
-                  required
-                />
-
-                <DropZone
-                  name='files'
-                  label='File upload'
-                />
-
-                <Textarea
-                  name='additionalInfo'
-                  label='Aditional information'
-                  hint='this is optional'
-                />
-
-                <Checkbox
-                  name='termsAndConitions'
-                  label='Terms and Conditions'
-                  text='Click to accept the terms and conditions'
-                />
-
-                <SubmitBtn disabled={!values.termsAndConitions} />
-                <Button onClick={(() => alert('Cancel'))}>Cancel</Button>
-              </fieldset>
-            </Form>
-          );
-        }}
-      />
-    );
-  }
-}
-
-export default ExampleForm;
-```
-
 ## License
 
 MIT © [KaiHotz](https://github.com/KaiHotz)

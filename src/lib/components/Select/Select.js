@@ -50,6 +50,8 @@ Select.propTypes = {
   formik: PropTypes.object.isRequired,
   /** Adds a custom class to the Select wrapper div */
   className: PropTypes.string,
+  /** Adds a custom inline styles to the Select wrapper div */
+  style: PropTypes.object,
   /** Disables the Select Field */
   disabled: PropTypes.bool,
   /** Sets an Id for the Select Field, if not passed, the id will be the name */
@@ -76,6 +78,7 @@ Select.propTypes = {
 
 Select.defaultProps = {
   className: null,
+  style: null,
   disabled: false,
   id: null,
   label: null,

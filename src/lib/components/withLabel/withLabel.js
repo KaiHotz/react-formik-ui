@@ -19,6 +19,7 @@ const withLabel = (component = 'input') => (
       type: PropTypes.string,
       disabled: PropTypes.bool,
       required: PropTypes.bool,
+      style: PropTypes.object,
     }
 
     static defaultProps = {
@@ -29,6 +30,7 @@ const withLabel = (component = 'input') => (
       type: null,
       disabled: false,
       required: false,
+      style: null,
     }
 
     state = {
@@ -66,6 +68,7 @@ const withLabel = (component = 'input') => (
         type,
         disabled,
         required,
+        style,
       } = this.props
       const error = getIn(errors, name)
       const touch = getIn(touched, name)
@@ -73,10 +76,10 @@ const withLabel = (component = 'input') => (
       const hide = this.state.hide || !!value || !!placeholder || !!(disabled && value)
       const hidden = type && type === 'hidden'
       const errorMsg = touch && error ? error : null
-      const passableProps = omit(this.props, ['className', 'hint', 'label'])
+      const passableProps = omit(this.props, ['className', 'hint', 'label', 'style'])
 
       return (
-        <div className={cx('form-element', `${component}-wrapper`, className, { hidden })}>
+        <div className={cx('form-element', `${component}-wrapper`, className, { hidden })} style={style}>
           <label
             htmlFor={name}
             className={cx({ isDisabled: disabled, hasError: !!errorMsg, hidden })}

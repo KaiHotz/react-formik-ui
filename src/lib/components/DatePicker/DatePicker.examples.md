@@ -94,7 +94,7 @@ See [ReaJS Datepicker documentation](https://github.com/Hacker0x01/react-datepic
 
       <Datepicker
         name='dateExample5'
-        label='Select a date'
+        label='Select a date and time'
         showTimeSelect
         timeFormat="HH:mm"
         timeIntervals={30}

@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { connect, getIn } from 'formik'
-
+import cx from 'classnames'
 import withLabel from '../withLabel'
 import './styles.scss'
 
@@ -12,9 +12,10 @@ export const Radio = ({
   disabled,
   name,
   options,
+  inline,
   ...rest
 }) => (
-  <Fragment>
+  <div className={cx('radio-options', { inline })}>
     {
       options.map(option => (
         <div key={option.label} className="radio-option">
@@ -37,7 +38,7 @@ export const Radio = ({
         </div>
       ))
     }
-  </Fragment>
+  </div>
 )
 
 Radio.propTypes = {
@@ -45,6 +46,8 @@ Radio.propTypes = {
   formik: PropTypes.object.isRequired,
   /** Adds a custom class to the Radio wrapper div */
   className: PropTypes.string,
+  /** Adds a custom inline styles to the Radio wrapper div */
+  style: PropTypes.object,
   /** Disables the Radio Fields */
   disabled: PropTypes.bool,
   /** Sets the Name of the Radio Fields */
@@ -59,6 +62,8 @@ Radio.propTypes = {
       PropTypes.number,
     ]).isRequired,
   })).isRequired,
+  /** Displays the radio option inline from left to right */
+  inline: PropTypes.bool,
   /** Sets a hint text after/below the Radio component */
   hint: PropTypes.string,
   /** Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema */
@@ -67,8 +72,10 @@ Radio.propTypes = {
 
 Radio.defaultProps = {
   className: null,
+  style: null,
   label: null,
   disabled: false,
+  inline: false,
   hint: null,
   required: false,
 }

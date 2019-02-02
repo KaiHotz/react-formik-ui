@@ -11,19 +11,22 @@ export const Toggle = ({
   className,
   disabled,
   name,
+  style,
   ...rest
 }) => (
-  <label className={cx('toggle-switch', className, { isDisabled: disabled })}>
-    <input
-      name={name}
-      checked={getIn(values, name)}
-      onChange={handleChange}
-      disabled={disabled}
-      {...rest}
-      type="checkbox"
-    />
-    <span className="slider" />
-  </label>
+  <div className={cx('form-element', 'toggle-wrapper', className, { isDisabled: disabled })} style={style}>
+    <label className={cx('toggle-switch', className)}>
+      <input
+        name={name}
+        checked={getIn(values, name)}
+        onChange={handleChange}
+        disabled={disabled}
+        {...rest}
+        type="checkbox"
+      />
+      <span className="slider" />
+    </label>
+  </div>
 )
 
 Toggle.propTypes = {
@@ -31,6 +34,8 @@ Toggle.propTypes = {
   formik: PropTypes.object.isRequired,
   /** Adds a custom class to the Toggle button */
   className: PropTypes.string,
+  /** Adds a custom inline styles to the Toggle wrapper div */
+  style: PropTypes.object,
   /** Disables the Toggle button */
   disabled: PropTypes.bool,
   /** Sets the Name of the Toggle button */
@@ -39,6 +44,7 @@ Toggle.propTypes = {
 
 Toggle.defaultProps = {
   className: null,
+  style: null,
   disabled: false,
 }
 

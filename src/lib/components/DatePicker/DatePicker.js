@@ -19,6 +19,8 @@ export class Datepicker extends Component {
     name: PropTypes.string.isRequired,
     /** Adds a custom class to the Datepicker wrapper div */
     className: PropTypes.string,
+    /** Adds a custom inline styles to the Datepicker wrapper div */
+    style: PropTypes.object,
     /** Sets the main Label for the Datepicker */
     label: PropTypes.string,
     /** Sets a hint text after/below the Datepicker */
@@ -38,6 +40,7 @@ export class Datepicker extends Component {
 
   static defaultProps = {
     className: null,
+    style: null,
     label: null,
     hint: null,
     dateFormat: 'dd.MM.yyyy',

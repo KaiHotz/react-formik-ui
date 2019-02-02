@@ -11,7 +11,7 @@ const Button = ({
   ...rest
 }) => (
   <button
-    className={cx('btn', className, { isDisabled: disabled })}
+    className={cx('form-element btn', className, { isDisabled: disabled })}
     onClick={onClick}
     type={type}
     disabled={disabled}

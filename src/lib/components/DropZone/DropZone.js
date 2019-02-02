@@ -80,6 +80,8 @@ DropZone.propTypes = {
   formik: PropTypes.object.isRequired,
   /** Adds a custom class to the DropZone wrapper div */
   className: PropTypes.string,
+  /** Adds a custom inline styles to the Dropzone wrapper div */
+  style: PropTypes.object,
   /** Disables the DropZone Field */
   disabled: PropTypes.bool,
   id: PropTypes.string,
@@ -103,6 +105,7 @@ DropZone.propTypes = {
 
 DropZone.defaultProps = {
   className: null,
+  style: null,
   disabled: false,
   id: null,
   accept: null,

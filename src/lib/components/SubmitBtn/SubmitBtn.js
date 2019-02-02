@@ -11,7 +11,7 @@ export const SubmitBtn = ({
   ...rest
 }) => (
   <button
-    className={cx('btn submit-btn', className, { isDisabled: disabled })}
+    className={cx('form-element btn submit-btn', className, { isDisabled: disabled })}
     onClick={formik.handleSubmit}
     type="submit"
     disabled={disabled}
