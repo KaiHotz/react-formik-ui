@@ -35,6 +35,7 @@ form {
         &.radio-wrapper {
           .radio-options {
             .radio-option {
+              margin-bottom: 5px;
               input[type="radio"] {
                 &:checked,
                 &:not(:checked) {
