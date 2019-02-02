@@ -18,12 +18,12 @@ export const Select = ({
   ...rest
 }) => (
   <select
-    {...rest}
     id={id || name}
     name={name}
     value={getIn(values, name)}
     disabled={disabled}
     onChange={handleChange}
+    {...rest}
   >
     {
       placeholder && (

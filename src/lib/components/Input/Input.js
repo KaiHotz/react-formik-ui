@@ -19,7 +19,6 @@ export const Input = ({
   ...rest
 }) => (
   <input
-    {...rest}
     id={id || name}
     name={name}
     type={type}
@@ -30,6 +29,7 @@ export const Input = ({
     onFocus={onFocus}
     onBlur={onBlur}
     disabled={disabled}
+    {...rest}
   />
 )
 

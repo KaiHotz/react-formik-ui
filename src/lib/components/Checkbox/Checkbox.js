@@ -16,14 +16,14 @@ export const Checkbox = ({
 }) => (
   <div className="checkbox-input-wrapper">
     <input
-      {...rest}
       id={id || name}
       name={name}
-      type="checkbox"
       checked={getIn(values, name)}
       onChange={handleChange}
       onBlur={handleBlur}
       disabled={disabled}
+      {...rest}
+      type="checkbox"
     />
     <label
       htmlFor={name}

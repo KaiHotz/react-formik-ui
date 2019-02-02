@@ -11,14 +11,16 @@ export const Toggle = ({
   className,
   disabled,
   name,
+  ...rest
 }) => (
   <label className={cx('toggle-switch', className, { isDisabled: disabled })}>
     <input
       name={name}
-      type="checkbox"
       checked={getIn(values, name)}
       onChange={handleChange}
       disabled={disabled}
+      {...rest}
+      type="checkbox"
     />
     <span className="slider" />
   </label>
