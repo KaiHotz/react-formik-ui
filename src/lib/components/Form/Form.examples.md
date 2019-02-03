@@ -1,64 +1,60 @@
-#### All together
+#### Form Example structured
 ```jsx
 const onSubmit = data => (alert(JSON.stringify(data)));
 
 const  getSchema = () => {
   return yup.object().shape({
-    salutation: yup
+    salutationExample: yup
       .string(),
-    name: yup
+    nameExample: yup
       .string()
       .required('Name is required'),
-    email: yup
+    emailExample: yup
       .string()
       .email('Wrong format')
       .required('Email is required'),
-    birthDay: yup
+    birthDayExample: yup
        .date(),
-    maritalStatus: yup
+    maritalStatusExample: yup
       .string()
       .nullable(),
-     driverLicense: yup
+     driverLicenseExample: yup
        .boolean(),
-     pets: yup
+     petsExample: yup
        .boolean(),
-     income: yup
-       .string()
-       .required('Income is required'),
-     images: yup
+     filesExample: yup
        .array()
        .required('Image is required'),
-     additionalInfo: yup
+     additionalInfoExample: yup
        .string(),
-     termsAndConitions: yup
+     termsAndConitionsExample: yup
        .boolean(),
   });
 };
 
 <Formik
   initialValues={{
-    salutation: 'Mr',
-    name: '',
-    email: '',
-    birthDay: '',
-    maritalStatus: '',
-    driverLicense: false,
-    pets: false,
-    income: '0',
-    images: [],
-    additionalInfo: '',
-    termsAndConitions: false,
+    salutationExample: 'Mr',
+    nameExample: '',
+    emailExample: '',
+    birthDayExample: '',
+    maritalStatusExample: '',
+    driverLicenseExample: false,
+    petsExample: false,
+    filesExample: [],
+    additionalInfoExample: '',
+    termsAndConitionsExample: false,
   }}
   validationSchema={getSchema}
   onSubmit={onSubmit}
   render={({ values }) => {
   return (
-    <Form styled>
+    <Form structured>
       <fieldset>
         <legend>Complete Form Example</legend>
 
           <Radio
-            name='salutation'
+            name='salutationExample'
             label='Salutation'
             options={[
               { value: 'Mr', label: 'Mr.' },
@@ -68,28 +64,29 @@ const  getSchema = () => {
           />
 
           <Input
-            name='name'
+            name='nameExample'
             label='Name'
             required
           />
 
           <Input
-            name='email'
-            label='Enter your Email'
+            name='emailExample'
+            label='Email'
             placeholder='foo@bar.com'
+            hint='Please enter your Email'
             required
           />
 
           <Datepicker
-            name='birthDay'
+            name='birthDayExample'
             label='Birthday'
-            dateFormat='D.M.YYYY'
-            placeholder='D.M.YYYY'
+            dateFormat='dd.MM.yyyy'
+            placeholder='dd.mm.yyyy'
             hint='Please enter your birth date'
           />
 
           <Select
-            name='maritalStatus'
+            name='maritalStatusExample'
             label='Marital Status'
             placeholder='Select an Option'
             options={[
@@ -104,38 +101,179 @@ const  getSchema = () => {
             <div style={{marginBottom: '10px'}}>
               {`Do you have a drivers license ? ${values.driverLicense ? 'Yes' : 'No'}`}
             </div>
-            <Toggle name='driverLicense' />
+            <Toggle name='driverLicenseExample' />
           </div>
 
-          <Input
-            name='income'
-            label={`What is your monthly income $ ${values.income},-`}
-            type='range'
-            min='0'
-            max='10000'
-            step='5'
-            required
-          />
-
           <DropZone
-            name='images'
-            label='Image upload'
+            name='filesExample'
+            label='File upload'
+            placeholder='Drop some files here'
           />
 
           <Textarea
-            name='additionalInfo'
+            name='additionalInfoExample'
             label='Aditional information'
             hint='this is optional'
           />
 
           <Checkbox
-            name='termsAndConitions'
+            name='termsAndConitionsExample'
             label='Terms and Conditions'
             text='Click to accept the terms and conditions'
           />
 
-          <SubmitBtn disabled={!values.termsAndConitions} />
+          <SubmitBtn disabled={!values.termsAndConitionsExample} />
           <Button onClick={(() => alert('Cancel'))}>Cancel</Button>
+        </fieldset>
+      </Form>
+    );
+  }}
+/>
+```
+
+
+#### Form example Themed
+```jsx
+const onSubmit = data => (alert(JSON.stringify(data)));
+
+const  getSchema = () => {
+  return yup.object().shape({
+    salutation: yup
+      .string(),
+    fullName: yup
+      .string()
+      .required('Name is required'),
+    email: yup
+      .string()
+      .email('Wrong format')
+      .required('Email is required'),
+    birthDay: yup
+       .date()
+       .required('Is required'),
+    title: yup
+      .string()
+      .required('Is required')
+      .nullable(),
+    driverLicense: yup
+      .boolean(),
+    files: yup
+      .array()
+      .required('Image is required'),
+    additionalInfo: yup
+      .string()
+      .required('Is required'),
+    termsAndConitions: yup
+      .boolean(),
+  });
+};
+
+<Formik
+  initialValues={{
+    salutation: 'Mr',
+    fullName: '',
+    email: '',
+    birthDay: '',
+    title: '',
+    driverLicense: false,
+    files: [],
+    additionalInfo: '',
+    termsAndConitions: false,
+  }}
+  validationSchema={getSchema}
+  onSubmit={onSubmit}
+  render={({ values }) => {
+  return (
+    <Form themed>
+      <fieldset>
+        <legend>Complete Form Example</legend>
+          <div style={{padding: '0 10px'}}>
+            <Radio
+              inline
+              name='salutation'
+              label='Salutation'
+              options={[
+                { value: 'Mr', label: 'Mr.' },
+                { value: 'Mrs', label: 'Mrs.' },
+                { value: 'Ms', label: 'Ms.' }
+              ]}
+            />
+          </div>
+
+          <div style={{display: 'flex', justifyContent: 'flex-start'}}>
+            <Input
+              style={{'width': '50%', padding: '0 10px'}}
+              name='fullName'
+              label='Full name'
+              hint='This is a hint message'
+              required
+            />
+
+            <Input
+              style={{'width': '50%', padding: '0 10px'}}
+              name='email'
+              label='Email'
+              placeholder='foo@bar.com'
+              hint='Please enter your birth date'
+              required
+            />
+          </div>
+
+          <div style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-start'}}>
+            <Datepicker
+              style={{'width': '30%', padding: '0 10px'}}
+              name='birthDay'
+              label='Birthday'
+              dateFormat='dd.MM.yyyy'
+              placeholder='dd.mm.yyyy'
+              hint='Please enter your birth date'
+              required
+            />
+
+            <Select
+              style={{'width': '30%', padding: '0 10px'}}
+              name='title'
+              label='Title'
+              placeholder='Select an Option'
+              options={[
+                { value: '1', label: 'Option 1' },
+                { value: '2', label: 'Option 2' },
+                { value: '3', label: 'Option 3' },
+                { value: '4', label: 'Option 4' }
+              ]}
+              required
+            />
+
+            <div style={{marginBottom: '15px', padding: '0 10px'}}>
+              <div style={{marginBottom: '10px'}}>
+                {`Do you have a drivers license ? ${values.driverLicense ? 'Yes' : 'No'}`}
+              </div>
+              <Toggle name='driverLicense' style={{display: 'flex', justifyContent: 'center'}}/>
+            </div>
+          </div>
+
+          <div style={{padding: '0 10px'}}>
+            <DropZone
+              name='files'
+              label='File upload'
+              placeholder='Drop some files here'
+            />
+
+            <Textarea
+              name='additionalInfo'
+              label='Aditional information'
+              hint='this is optional'
+            />
+
+            <Checkbox
+              name='termsAndConitions'
+              label='Terms and Conditions'
+              text='Click to accept the terms and conditions'
+            />
+
+            <SubmitBtn disabled={!values.termsAndConitions} />
+
+            <Button onClick={(() => alert('Cancel'))}>Cancel</Button>
+          </div>
         </fieldset>
       </Form>
     );

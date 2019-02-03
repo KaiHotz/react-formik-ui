@@ -1,76 +1,60 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import cx from 'classnames'
 import { connect, getIn } from 'formik'
+import withLabel from '../withLabel'
+import './styles.scss'
 
 export const Input = ({
-  formik,
-  className,
+  formik: {
+    values, handleChange,
+  },
   disabled,
-  hint,
   id,
-  label,
   name,
   placeholder,
-  required,
   type,
+  onAnimationStart,
+  onFocus,
+  onBlur,
   ...rest
-}) => {
-  const {
-    touched, errors, values, handleChange, handleBlur,
-  } = formik
-  const error = getIn(errors, name)
-  const touch = getIn(touched, name)
-  const errorMsg = touch && error ? error : null
-
-  return (
-    <div className={cx('form-element input-wrapper', className, { hasError: !!errorMsg, disabled })}>
-      {
-        label && (
-          <label htmlFor={name}>
-            {`${label}${required ? ' *' : ''}`}
-          </label>
-        )
-      }
-      <input
-        id={id || name}
-        name={name}
-        type={type}
-        placeholder={placeholder}
-        value={getIn(values, name, '')}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        disabled={disabled}
-        {...rest}
-      />
-      {
-        errorMsg && (
-          <span className="error">
-            {errorMsg}
-          </span>
-        )
-      }
-      {
-        hint && (
-          <span className="hint">
-            {hint}
-          </span>
-        )
-      }
-    </div>
-  )
-}
+}) => (
+  <input
+    id={id || name}
+    name={name}
+    type={type}
+    onAnimationStart={onAnimationStart}
+    placeholder={placeholder}
+    value={getIn(values, name, '')}
+    onChange={handleChange}
+    onFocus={onFocus}
+    onBlur={onBlur}
+    disabled={disabled}
+    {...rest}
+  />
+)
 
 Input.propTypes = {
+  /** @ignore */
   formik: PropTypes.object.isRequired,
+  /** @ignore */
+  onAnimationStart: PropTypes.func.isRequired,
+  /** @ignore */
+  onFocus: PropTypes.func.isRequired,
+  /** @ignore */
+  onBlur: PropTypes.func.isRequired,
+  /** Adds a custom class to the Input wrapper div */
   className: PropTypes.string,
-  disabled: PropTypes.bool,
-  hint: PropTypes.string,
+  /** Adds a custom inline styles to the Input wrapper div */
+  style: PropTypes.object,
+  /** Sets an Id for the Input Field, if not passed, the id will be the name */
   id: PropTypes.string,
-  label: PropTypes.string,
+  /** Sets the Name of the Input Field */
   name: PropTypes.string.isRequired,
+  /** Sets the main Label for the Input Field */
+  label: PropTypes.string,
+  /** Sets the Placeholder text */
   placeholder: PropTypes.string,
-  required: PropTypes.bool,
+  /** Defines the type of the Input Filed */
   type: PropTypes.oneOf([
     'text',
     'color',
@@ -84,17 +68,24 @@ Input.propTypes = {
     'tel',
     'url',
   ]),
+  /** Disables the Input Field */
+  disabled: PropTypes.bool,
+  /** Sets a hint text after/below the Input Field */
+  hint: PropTypes.string,
+  /** Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema */
+  required: PropTypes.bool,
 }
 
 Input.defaultProps = {
   className: null,
+  style: null,
   disabled: false,
-  hint: null,
   id: null,
   label: null,
   placeholder: null,
-  required: false,
   type: 'text',
+  hint: null,
+  required: false,
 }
 
-export default connect(Input)
+export default connect(withLabel('input')(Input))

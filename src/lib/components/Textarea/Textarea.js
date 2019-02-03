@@ -1,86 +1,70 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import cx from 'classnames'
 import { connect, getIn } from 'formik'
+import withLabel from '../withLabel'
+import './styles.scss'
 
 export const Textarea = ({
-  formik,
-  className,
+  formik: {
+    values, handleChange,
+  },
   disabled,
-  hint,
   id,
-  label,
   name,
   placeholder,
-  required,
+  onFocus,
+  onBlur,
   ...rest
-}) => {
-  const {
-    touched, errors, values, handleChange, handleBlur,
-  } = formik
-  const error = getIn(errors, name)
-  const touch = getIn(touched, name)
-  const errorMsg = touch && error ? error : null
-
-  return (
-    <div className={cx('form-element textarea-wrapper', className, { hasError: !!errorMsg, disabled })}>
-      {
-        label && (
-          <label htmlFor={name}>
-            {label}
-            {' '}
-            {required ? '*' : ''}
-          </label>
-        )
-      }
-      <textarea
-        id={id || name}
-        name={name}
-        placeholder={placeholder}
-        value={getIn(values, name)}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        disabled={disabled}
-        {...rest}
-      />
-      {
-        errorMsg && (
-          <span className="error">
-            {errorMsg}
-          </span>
-        )
-      }
-      {
-        hint && (
-          <span className="hint">
-            {hint}
-          </span>
-        )
-      }
-    </div>
-  )
-}
+}) => (
+  <textarea
+    id={id || name}
+    name={name}
+    placeholder={placeholder}
+    value={getIn(values, name)}
+    onChange={handleChange}
+    onFocus={onFocus}
+    onBlur={onBlur}
+    disabled={disabled}
+    {...rest}
+  />
+)
 
 Textarea.propTypes = {
+  /** @ignore */
   formik: PropTypes.object.isRequired,
+  /** @ignore */
+  onFocus: PropTypes.func.isRequired,
+  /** @ignore */
+  onBlur: PropTypes.func.isRequired,
+  /** Adds a custom class to the Textarea wrapper div */
   className: PropTypes.string,
+  /** Adds a custom inline styles to the Textarea wrapper div */
+  style: PropTypes.object,
+  /** Disables the Textarea */
   disabled: PropTypes.bool,
-  hint: PropTypes.string,
+  /** Sets an Id for the Textarea, if not passed, the id will be the name */
   id: PropTypes.string,
+  /** Sets the main Label for the Textarea */
   label: PropTypes.string,
+  /** Sets the Name of the Textarea */
   name: PropTypes.string.isRequired,
+  /** Sets the Placeholder text */
   placeholder: PropTypes.string,
+  /** Sets a hint text after/below the Textarea */
+  hint: PropTypes.string,
+  /** Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema */
   required: PropTypes.bool,
 }
 
 Textarea.defaultProps = {
   className: null,
+  style: null,
   disabled: false,
-  hint: null,
   id: null,
   label: null,
   placeholder: null,
+  hint: null,
   required: false,
 }
 
-export default connect(Textarea)
+export default connect(withLabel('textarea')(Textarea))

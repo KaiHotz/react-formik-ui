@@ -1,14 +1,15 @@
+##### Default
 ```jsx
 <Formik
   initialValues={{
-    radioOptions: ''
+    radioExample1: '2'
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form styled>
+    <Form>
 
       <Radio
-        name='radioOptions'
+        name='radioExample1'
         label='Radio options label'
         options={[
           { value: '1', label: 'Option 1' },
@@ -21,3 +22,162 @@
   )}
 />
 ```
+
+##### Default inline
+```jsx
+<Formik
+  initialValues={{
+    radioExample2: '2'
+  }}
+  onSubmit={data => (alert(JSON.stringify(data)))}
+  render={() => (
+    <Form>
+
+      <Radio
+        inline
+        name='radioExample2'
+        label='Radio options label'
+        options={[
+          { value: '1', label: 'Option 1' },
+          { value: '2', label: 'Option 2' },
+          { value: '3', label: 'Option 3' }
+        ]}
+      />
+
+    </Form>
+  )}
+/>
+```
+
+
+##### Structured
+```jsx
+<Formik
+  initialValues={{
+    radioExample3: '2'
+  }}
+  onSubmit={data => (alert(JSON.stringify(data)))}
+  render={() => (
+    <Form structured>
+
+      <Radio
+        name='radioExample3'
+        label='Radio options label'
+        options={[
+          { value: '1', label: 'Option 1' },
+          { value: '2', label: 'Option 2' },
+          { value: '3', label: 'Option 3' }
+        ]}
+      />
+
+    </Form>
+  )}
+/>
+```
+
+
+##### Structured inline
+```jsx
+<Formik
+  initialValues={{
+    radioExample4: '2'
+  }}
+  onSubmit={data => (alert(JSON.stringify(data)))}
+  render={() => (
+    <Form structured>
+
+      <Radio
+        inline
+        name='radioExample4'
+        label='Radio options label'
+        options={[
+          { value: '1', label: 'Option 1' },
+          { value: '2', label: 'Option 2' },
+          { value: '3', label: 'Option 3' }
+        ]}
+      />
+
+    </Form>
+  )}
+/>
+```
+
+
+##### Themed
+```jsx
+<Formik
+  initialValues={{
+    radioExample5: '2'
+  }}
+  onSubmit={data => (alert(JSON.stringify(data)))}
+  render={() => (
+    <Form themed>
+
+      <Radio
+        name='radioExample5'
+        label='Radio options label'
+        options={[
+          { value: '1', label: 'Option 1' },
+          { value: '2', label: 'Option 2' },
+          { value: '3', label: 'Option 3' }
+        ]}
+      />
+
+    </Form>
+  )}
+/>
+```
+
+##### Themed inline
+```jsx
+<Formik
+  initialValues={{
+    radioExample6: '2'
+  }}
+  onSubmit={data => (alert(JSON.stringify(data)))}
+  render={() => (
+    <Form themed>
+
+      <Radio
+        inline
+        name='radioExample6'
+        label='Radio options label'
+        options={[
+          { value: '1', label: 'Option 1' },
+          { value: '2', label: 'Option 2' },
+          { value: '3', label: 'Option 3' }
+        ]}
+      />
+
+    </Form>
+  )}
+/>
+```
+
+##### Themed and disabled
+```jsx
+<Formik
+  initialValues={{
+    radioExample7: '2'
+  }}
+  onSubmit={data => (alert(JSON.stringify(data)))}
+  render={() => (
+    <Form themed>
+
+      <Radio
+        name='radioExample7'
+        label='Radio options label'
+        options={[
+          { value: '1', label: 'Option 1' },
+          { value: '2', label: 'Option 2' },
+          { value: '3', label: 'Option 3' }
+        ]}
+        disabled
+      />
+
+    </Form>
+  )}
+/>
+```
+
+

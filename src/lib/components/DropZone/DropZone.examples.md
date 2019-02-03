@@ -1,3 +1,4 @@
+##### Default / Structured / Themed
 ```jsx
 <Formik
   initialValues={{
@@ -5,11 +6,34 @@
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form styled>
+    <Form>
 
       <DropZone
         name='files'
-        label='Image upload'
+        label='File upload'
+        placeholder='Drop some files here'
+      />
+
+    </Form>
+  )}
+/>
+```
+
+
+##### Disabled
+```jsx
+<Formik
+  initialValues={{
+    files: []
+  }}
+  onSubmit={data => (alert(JSON.stringify(data)))}
+  render={() => (
+    <Form>
+
+      <DropZone
+        name='files'
+        label='File upload'
+        disabled
       />
 
     </Form>

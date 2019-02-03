@@ -1,12 +1,11 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-
+import withLabel from '../withLabel'
 import { Select } from './Select'
 
 describe('<Select />', () => {
   const baseProps = {
     name: 'selectTest',
-    placeholder: 'Placeholder',
     options: [
       { value: '0', label: 'Option 1' },
       { value: '1', label: 'Option 2' },
@@ -25,8 +24,10 @@ describe('<Select />', () => {
     },
   }
 
+  const WrappedComponent = withLabel('select')(Select)
+
   it('should render', () => {
-    const wrapper = shallow(<Select {...baseProps} />)
+    const wrapper = shallow(<WrappedComponent {...baseProps} />)
 
     expect(wrapper).toBeDefined()
   })
@@ -36,7 +37,7 @@ describe('<Select />', () => {
       ...baseProps,
       className: 'customClass',
     }
-    const wrapper = shallow(<Select {...props} />)
+    const wrapper = shallow(<WrappedComponent {...props} />)
 
     expect(wrapper.hasClass(props.className)).toBe(true)
   })
@@ -46,9 +47,29 @@ describe('<Select />', () => {
       ...baseProps,
       label: 'Custom',
     }
-    const wrapper = shallow(<Select {...props} />)
+    const wrapper = mount(<WrappedComponent {...props} />)
 
     expect(wrapper.find('label').length).toBe(1)
+  })
+
+  it('should have a placeholder', () => {
+    const props = {
+      ...baseProps,
+      placeholder: 'Custom',
+    }
+    const wrapper = mount(<WrappedComponent {...props} />)
+    expect(wrapper.prop('placeholder')).toBe(props.placeholder)
+    expect(wrapper.find('option').first().text()).toBe(props.placeholder)
+  })
+
+  it('should have a placeholder with required', () => {
+    const props = {
+      ...baseProps,
+      placeholder: 'Custom',
+    }
+    const wrapper = mount(<WrappedComponent {...props} required />)
+    expect(wrapper.prop('placeholder')).toBe(props.placeholder)
+    expect(wrapper.find('option').first().text()).toBe(`${props.placeholder} *`)
   })
 
   it('should have a hint', () => {
@@ -56,21 +77,24 @@ describe('<Select />', () => {
       ...baseProps,
       hint: 'hintTest',
     }
-    const wrapper = shallow(<Select {...props} />)
+    const wrapper = mount(<WrappedComponent {...props} />)
 
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)
   })
 
   it('should be disabled', () => {
-    const wrapper = shallow(<Select {...baseProps} disabled />)
+    let wrapper
 
+    wrapper = mount(<WrappedComponent {...baseProps} disabled />)
     expect(wrapper.find('select').prop('disabled')).toBe(true)
+
+    wrapper = shallow(<WrappedComponent {...baseProps} disabled />)
     expect(wrapper.prop('className').includes('disabled'))
   })
 
   it('should call onChange', () => {
-    const wrapper = mount(<Select {...baseProps} />)
+    const wrapper = mount(<WrappedComponent {...baseProps} />)
     wrapper.find('select').simulate('change')
 
     expect(baseProps.formik.handleChange).toHaveBeenCalled()

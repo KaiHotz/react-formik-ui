@@ -7,31 +7,29 @@ export const SubmitBtn = ({
   formik,
   className,
   disabled,
-  text,
-  value,
+  children,
   ...rest
 }) => (
   <button
-    className={cx('btn submit-btn', className, { disabled })}
+    className={cx('form-element btn submit-btn', className, { isDisabled: disabled })}
     onClick={formik.handleSubmit}
     type="submit"
-    value={value}
     disabled={disabled}
     {...rest}
   >
-    {text}
+    {children}
   </button>
 )
 
 SubmitBtn.propTypes = {
+  /** @ignore */
   formik: PropTypes.object.isRequired,
+  /** Adds a custom class to the SubmitBtn */
   className: PropTypes.string,
+  /** Disables the SubmitBtn */
   disabled: PropTypes.bool,
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.node,
-  ]),
-  text: PropTypes.oneOfType([
+  /** Renders the children passed to the button */
+  children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.node,
   ]),
@@ -40,8 +38,7 @@ SubmitBtn.propTypes = {
 SubmitBtn.defaultProps = {
   className: null,
   disabled: false,
-  value: null,
-  text: 'Submit',
+  children: 'Submit',
 }
 
 export default connect(SubmitBtn)

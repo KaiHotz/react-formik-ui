@@ -1,41 +1,127 @@
+@import '../../utils/colors.scss';
+
 form {
   &.react-formik-ui {
-    .dropzone-wrapper {
-      .dropzone {
-        width: 100%;
-        min-height: 42px;
-        height: auto;
-        border: 1px dashed rgb(102, 102, 102);
-        border-radius: 5px;
-        padding: 10px 10px 0;
-        box-sizing: border-box;
-      }
-      &.disabled {
-        .dropzone {
-          background-color: #EBEBE4;
-          opacity: 0.4;
-          color: #aaa;
-        }
-      }
-      .dropzone {
-        .img-thumbnail {
-          margin: .5rem;
-          padding: .25rem;
-          background-color: #fff;
-          border: 1px solid #ddd;
-          border-radius: .25rem;
-          transition: all .2s ease-in-out;
-          width: 200px;
-          height: auto;
-          vertical-align: middle;
-          box-sizing: border-box;
-        }
-        .fileInfo {
-          width: 100%;
-          text-align: left;
-          border-top: 1px solid #ddd;
-          padding-top: 10px;
-          margin-bottom: 10px;
+    .form-element{
+      &.dropzone-wrapper {
+        label {
+          span {
+            display: block;
+            margin-bottom: 6px;
+          }
+          > div {
+            width: 100% !important;
+            height: auto !important;
+            min-height: 142px;
+            display: flex;
+            flex-flow: row wrap;
+            padding: 10px 10px 0;
+            box-sizing: border-box;
+            img {
+              max-height: 130px;
+              margin: 0 8px 8px 0;
+              transition: .8s opacity;
+              border-radius: 5px;
+              object-fit: contain;
+            }
+            .icon-wrapper {
+              width: 40px;
+              margin: 5px 5px 0;
+              p {
+                font-size: 10px;
+                text-align: center;
+                line-height: 10px;
+                word-break: break-all;
+                margin: 5px 0;
+              }
+              .icon {
+                height: 50px;
+                border-radius: 2px;
+                cursor: pointer;
+                position: relative;
+                background-color: $blue;
+
+                &::after {
+                  content: '';
+                  position: absolute;
+                  display: block;
+                  top: 0;
+                  right: 0;
+                  width: 0;
+                  height: 0;
+                  border-radius: 0 2px;
+                  transition: all 0.2s linear;
+                  backface-visibility: hidden;
+                  background: linear-gradient(45deg, lighten($blue, 15%) 50%, $white 50%);
+                }
+                i {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  display: block;
+                  font-size: 10px;
+                  color: $white;
+                  font-weight: 500;
+                  &::before,
+                  &::after {
+                    display: block;
+                    transition: all 0.2s linear;
+                  }
+                  &::before {
+                    content: '< >';
+                    text-align: center;
+                    font-size: 12px;
+                    opacity: 0;
+                    transform: translateY(5px);
+                  }
+                  &::after {
+                    content: attr(title);
+                    text-align: center;
+                    transform: translateY(-5px);
+                  }
+                }
+                &:hover {
+                  border-radius: 2px 4px 2px 2px;
+                  &::after {
+                    width: 12px;
+                    height: 12px;
+                  }
+                  i {
+                    &::before {
+                      transform: translateY(0);
+                      opacity: 1;
+                    }
+                    &::after {
+                      transform: translateY(0);
+                    }
+                  }
+                }
+              }
+            }
+            .fileInfo {
+              width: 100%;
+              text-align: left;
+              border-top: 1px solid $white;
+              padding-top: 10px;
+              margin-bottom: 10px;
+            }
+            &:hover {
+              img {
+                opacity: 0.3;
+                &:hover {
+                  opacity: 1;
+                }
+              }
+            }
+          }
+          &.isDisabled {
+            > div {
+              background-color: $hover;
+              opacity: 0.2;
+              color: $hint;
+            }
+          }
         }
       }
     }

@@ -1,14 +1,15 @@
+##### Default
 ```jsx
 <Formik
   initialValues={{
-    dropdown: ''
+    selectExample1: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form styled>
+    <Form>
 
       <Select
-        name='dropdown'
+        name='selectExample1'
         label='Select options label'
         placeholder='Select an Option'
         options={[
@@ -22,3 +23,85 @@
   )}
 />
 ```
+
+##### Structured
+```jsx
+<Formik
+  initialValues={{
+    selectExample2: ''
+  }}
+  onSubmit={data => (alert(JSON.stringify(data)))}
+  render={() => (
+    <Form structured>
+
+      <Select
+        name='selectExample2'
+        label='Select options label'
+        placeholder='Select an Option'
+        options={[
+          { value: '1', label: 'Option 1' },
+          { value: '2', label: 'Option 2' },
+          { value: '3', label: 'Option 3' }
+        ]}
+      />
+
+    </Form>
+  )}
+/>
+```
+
+
+##### Themed
+```jsx
+<Formik
+  initialValues={{
+    selectExample3: ''
+  }}
+  onSubmit={data => (alert(JSON.stringify(data)))}
+  render={() => (
+    <Form themed>
+
+      <Select
+        name='selectExample3'
+        label='Select options label'
+        placeholder='Select an Option'
+        options={[
+          { value: '1', label: 'Option 1' },
+          { value: '2', label: 'Option 2' },
+          { value: '3', label: 'Option 3' }
+        ]}
+      />
+
+    </Form>
+  )}
+/>
+```
+
+
+##### Themed and disabled
+```jsx
+<Formik
+  initialValues={{
+    selectExample4: '1'
+  }}
+  onSubmit={data => (alert(JSON.stringify(data)))}
+  render={() => (
+    <Form themed>
+
+      <Select
+        name='selectExample4'
+        label='Select options label'
+        placeholder='Select an Option'
+        options={[
+          { value: '1', label: 'Option 1' },
+          { value: '2', label: 'Option 2' },
+          { value: '3', label: 'Option 3' }
+        ]}
+        disabled
+      />
+
+    </Form>
+  )}
+/>
+```
+

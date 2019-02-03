@@ -1,95 +1,71 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import cx from 'classnames'
 import { connect, getIn } from 'formik'
+import withLabel from '../withLabel'
+import './styles.scss'
 
 export const Checkbox = ({
-  formik,
-  className,
+  formik: {
+    values, handleChange, handleBlur,
+  },
   disabled,
-  hint,
   id,
-  label,
   name,
-  required,
   text,
   ...rest
-}) => {
-  const {
-    touched, errors, values, handleChange, handleBlur,
-  } = formik
-  const error = getIn(errors, name)
-  const touch = getIn(touched, name)
-  const errorMsg = touch && error ? error : null
-
-  return (
-    <div className={cx('form-element checkbox-wrapper', className, { hasError: !!errorMsg, disabled })}>
-      {
-        label && (
-          <label
-            htmlFor={name}
-            className="checkbox-label"
-          >
-            {`${label}${required ? ' *' : ''}`}
-          </label>
-        )
-      }
-      <div className="checkbox-input-wrapper">
-        <input
-          id={id || name}
-          name={name}
-          type="checkbox"
-          checked={getIn(values, name)}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          disabled={disabled}
-          {...rest}
-        />
-        <label
-          htmlFor={name}
-          className="checkbox-text"
-        >
-          {text}
-        </label>
-      </div>
-      {
-        errorMsg && (
-          <span className="error">
-            {errorMsg}
-          </span>
-        )
-      }
-      {
-        hint && (
-          <span className="hint">
-            {hint}
-          </span>
-        )
-      }
-    </div>
-  )
-}
+}) => (
+  <div className="checkbox-input-wrapper">
+    <input
+      id={id || name}
+      name={name}
+      checked={getIn(values, name)}
+      onChange={handleChange}
+      onBlur={handleBlur}
+      disabled={disabled}
+      {...rest}
+      type="checkbox"
+    />
+    <label
+      htmlFor={name}
+      className="checkbox-text"
+    >
+      {text}
+    </label>
+  </div>
+)
 
 Checkbox.propTypes = {
+  /** @ignore */
   formik: PropTypes.object.isRequired,
-  className: PropTypes.string,
-  disabled: PropTypes.bool,
-  hint: PropTypes.string,
+  /** Sets an Id for the Checkbox, if not passed, the id will be the name */
   id: PropTypes.string,
-  label: PropTypes.string,
+  /** Sets the Name of the Checkbox */
   name: PropTypes.string.isRequired,
-  required: PropTypes.bool,
+  /** Adds a custom class to the Checkbox wrapper div */
+  className: PropTypes.string,
+  /** Adds a custom inline styles to the Checkbox wrapper div */
+  style: PropTypes.object,
+  /** Sets the main Label for the Checkbox */
+  label: PropTypes.string,
+  /** Sets a hint text after/below the Checkbox */
+  hint: PropTypes.string,
+  /** Sets the text shown beside the checkbox */
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /** Sets the Checkbox as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema */
+  required: PropTypes.bool,
+  /** Disables the Checkbox */
+  disabled: PropTypes.bool,
 }
 
 Checkbox.defaultProps = {
-  className: null,
-  disabled: false,
-  hint: null,
   id: null,
+  className: null,
+  style: null,
   label: null,
-  required: false,
+  hint: null,
   text: null,
+  required: false,
+  disabled: false,
 }
 
-export default connect(Checkbox)
+export default connect(withLabel('checkbox')(Checkbox))

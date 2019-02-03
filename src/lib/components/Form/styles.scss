@@ -1,37 +1,15 @@
 form {
   &.react-formik-ui {
-    &.styled {
-      label,
-      span {
-        display: block;
-        margin-bottom: 5px;
-      }
+    &.with-structure {
       .form-element {
-        margin-bottom: 15px;
+         margin-bottom: 15px;
       }
-      .checkbox-input-wrapper{
-        display: flex;
-        align-items: flex-start;
-      }
-      .radio-options {
-        display: flex;
-        align-items: center;
-        label {
-          margin-bottom: 0;
-        }
-      }
-      .checkbox-text {
-        display: initial;
-        margin-bottom: 0;
-      }
-      .error {
-        color: red;
-        font-size: .8rem;
-      }
-      .hint {
-        font-size: .8rem;
+    }
+    &.with-theme {
+      .form-element {
+        margin: 15px 0px;
       }
     }
   }
-
 }
+

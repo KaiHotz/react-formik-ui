@@ -1,148 +1,102 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import moment from 'moment'
 import DatePickerCmp from 'react-datepicker'
-import cx from 'classnames'
 import { connect, getIn } from 'formik'
+import { format, isValid } from 'date-fns'
 import 'react-datepicker/dist/react-datepicker.css'
+import withLabel from '../withLabel'
+import '../Input/styles.scss'
 
 export class Datepicker extends Component {
   static propTypes = {
+    /** @ignore */
     formik: PropTypes.object.isRequired,
+    /** @ignore */
+    onFocus: PropTypes.func.isRequired,
+    /** @ignore */
+    onBlur: PropTypes.func.isRequired,
+    /** Sets the Name of the Datepicker Field */
+    name: PropTypes.string.isRequired,
+    /** Adds a custom class to the Datepicker wrapper div */
     className: PropTypes.string,
+    /** Adds a custom inline styles to the Datepicker wrapper div */
+    style: PropTypes.object,
+    /** Sets the main Label for the Datepicker */
+    label: PropTypes.string,
+    /** Sets a hint text after/below the Datepicker */
+    hint: PropTypes.string,
+    /**  Sets the desired date format */
     dateFormat: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.arrayOf(PropTypes.string),
     ]),
-    disabled: PropTypes.bool,
-    hint: PropTypes.string,
-    label: PropTypes.string,
-    maxDate: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    minDate: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    name: PropTypes.string.isRequired,
+    /** Sets the Placeholder text */
     placeholder: PropTypes.string,
+    /** Sets the Datepicker as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema */
     required: PropTypes.bool,
+    /** Disables the Datepicker Field */
+    disabled: PropTypes.bool,
   }
 
   static defaultProps = {
     className: null,
-    dateFormat: [
-      'DD.MM.YYYY',
-      'D.M.YYYY',
-      'MM/DD/YYYY',
-      'M/D/YYYY',
-    ],
-    disabled: false,
-    hint: null,
+    style: null,
     label: null,
-    maxDate: null,
-    minDate: null,
+    hint: null,
+    dateFormat: 'dd.MM.yyyy',
     placeholder: null,
     required: false,
+    disabled: false,
   }
 
   handleChangeRaw = e => {
-    const { formik } = this.props
+    const { setFieldValue, setFieldTouched } = this.props.formik
     const { name, value } = e.target
-
-    const validChars = /^\d{0,2}[.]{0,1}\d{0,2}[.]{0,1}\d{0,4}$/
-    if (!validChars.test(value)) {
-      e.preventDefault()
-
-      return
+    const validChars = /^\d{0,2}[./]{0,1}\d{0,2}[./]{0,1}\d{0,4}$/
+    if (validChars.test(value) && isValid(new Date(value))) {
+      setFieldValue(name, value)
+      setFieldTouched(name, true)
     }
-
-    const momentDate = moment(
-      value,
-      this.props.dateFormat,
-      true,
-    )
-
-    const updatedValue = momentDate.isValid() ? momentDate.format('YYYY-MM-DD') : ''
-
-    formik.setFieldValue(name, updatedValue)
-    formik.setFieldTouched(name, true)
   }
 
-  handleChange = momentDate => {
-    const { formik, name } = this.props
-    const value = momentDate ? momentDate.format('YYYY-MM-DD') : ''
+  handleChange = date => {
+    const { formik: { setFieldValue, setFieldTouched }, name } = this.props
 
-    formik.setFieldValue(name, value)
-    formik.setFieldTouched(name, true)
-  }
-
-  handleFocus = name => () => {
-    document.getElementById(name).focus()
+    setFieldValue(name, format(date, 'yyyy-MM-dd hh:mm a'))
+    setFieldTouched(name, true)
   }
 
   render() {
     const {
-      formik,
-      className,
+      formik: {
+        values,
+      },
       dateFormat,
       disabled,
-      hint,
-      label,
-      maxDate,
-      minDate,
       name,
       placeholder,
-      required,
+      onFocus,
+      onBlur,
       ...rest
     } = this.props
-
-    const { touched, errors, values } = formik
-    const momentDate = moment(getIn(values, name))
-    const error = getIn(errors, name)
-    const touch = getIn(touched, name)
-    const errorMsg = touch && error ? error : null
+    const selectedDate = getIn(values, name) ? new Date(getIn(values, name)) : null
 
     return (
-      <div className={cx('form-element datePicker-wrapper', className, { hasError: !!errorMsg, disabled })}>
-        {
-          label && (
-            <label
-              htmlFor={name}
-              onClick={this.handleFocus(name)}
-              onKeyPress={this.handleFocus(name)}
-              role="row"
-            >
-              {`${label}${required ? ' *' : ''}`}
-            </label>
-          )
-        }
-        <DatePickerCmp
-          id={name}
-          name={name}
-          selected={momentDate.isValid() ? momentDate : null}
-          minDate={moment(minDate)}
-          maxDate={moment(maxDate)}
-          placeholderText={placeholder}
-          dateFormat={dateFormat}
-          disabledKeyboardNavigation
-          onChangeRaw={this.handleChangeRaw}
-          onChange={this.handleChange}
-          disabled={disabled}
-          {...rest}
-        />
-        {
-          errorMsg && (
-            <span className="error">
-              {errorMsg}
-            </span>
-          )
-        }
-        {
-          hint && (
-            <span className="hint">
-              {hint}
-            </span>
-          )
-        }
-      </div>
+      <DatePickerCmp
+        id={name}
+        name={name}
+        selected={selectedDate}
+        placeholderText={placeholder}
+        dateFormat={dateFormat}
+        disabledKeyboardNavigation
+        onChangeRaw={this.handleChangeRaw}
+        onChange={this.handleChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        disabled={disabled}
+        {...rest}
+      />
     )
   }
 }
-
-export default connect(Datepicker)
+export default connect(withLabel('datePicker')(Datepicker))

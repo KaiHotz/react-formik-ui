@@ -36,10 +36,9 @@ describe('<Toggle />', () => {
 
   it('should call handleChange', () => {
     const wrapper = shallow(<Toggle {...baseProps} />)
-    wrapper.instance().handleChange()
+    wrapper.find('input').simulate('change')
 
-    expect(baseProps.formik.setFieldValue).toHaveBeenCalled()
-    expect(baseProps.formik.setFieldTouched).toHaveBeenCalled()
+    expect(baseProps.formik.handleChange).toHaveBeenCalled()
   })
 
   it('should be disabled', () => {

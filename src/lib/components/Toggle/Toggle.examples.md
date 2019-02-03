@@ -1,11 +1,12 @@
+#### Default / Structured / Themed
 ```jsx
 <Formik
   initialValues={{
-    toggleBtn: false
+    toggleSwitch: false
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form styled>
+    <Form>
 
       <Toggle name='toggleSwitch'/>
 

@@ -1,12 +1,14 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-
+import withLabel from '../withLabel'
 import { Textarea } from './Textarea'
 
 describe('<Textarea />', () => {
   const baseProps = {
     name: 'textAreaTest',
     value: '',
+    onFocus: jest.fn(),
+    onBlur: jest.fn(),
     formik: {
       handleChange: jest.fn(),
       handleBlur: jest.fn(),
@@ -20,8 +22,10 @@ describe('<Textarea />', () => {
     },
   }
 
+  const WrappedComponent = withLabel('textarea')(Textarea)
+
   it('should render', () => {
-    const wrapper = shallow(<Textarea {...baseProps} />)
+    const wrapper = shallow(<WrappedComponent {...baseProps} />)
 
     expect(wrapper).toBeDefined()
   })
@@ -31,7 +35,7 @@ describe('<Textarea />', () => {
       ...baseProps,
       className: 'Custom',
     }
-    const wrapper = shallow(<Textarea {...props} />)
+    const wrapper = mount(<WrappedComponent {...props} />)
 
     expect(wrapper.hasClass(props.className)).toBe(true)
   })
@@ -39,9 +43,9 @@ describe('<Textarea />', () => {
   it('should have a label', () => {
     const props = {
       ...baseProps,
-      label: 'Custom',
+      label: 'Custom Label',
     }
-    const wrapper = shallow(<Textarea {...props} />)
+    const wrapper = mount(<WrappedComponent {...props} />)
 
     expect(wrapper.find('label').length).toBe(1)
   })
@@ -51,14 +55,14 @@ describe('<Textarea />', () => {
       ...baseProps,
       hint: 'hintTest',
     }
-    const wrapper = shallow(<Textarea {...props} />)
+    const wrapper = mount(<WrappedComponent {...props} />)
 
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)
   })
 
   it('should call onChange', () => {
-    const wrapper = mount(<Textarea {...baseProps} />)
+    const wrapper = mount(<WrappedComponent {...baseProps} />)
     wrapper.find('textarea').simulate('change')
 
     expect(baseProps.formik.handleChange).toHaveBeenCalled()
