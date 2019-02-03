@@ -6,7 +6,6 @@ import { Select } from './Select'
 describe('<Select />', () => {
   const baseProps = {
     name: 'selectTest',
-    placeholder: 'Placeholder',
     options: [
       { value: '0', label: 'Option 1' },
       { value: '1', label: 'Option 2' },
@@ -51,6 +50,26 @@ describe('<Select />', () => {
     const wrapper = mount(<WrappedComponent {...props} />)
 
     expect(wrapper.find('label').length).toBe(1)
+  })
+
+  it('should have a placeholder', () => {
+    const props = {
+      ...baseProps,
+      placeholder: 'Custom',
+    }
+    const wrapper = mount(<WrappedComponent {...props} />)
+    expect(wrapper.prop('placeholder')).toBe(props.placeholder)
+    expect(wrapper.find('option').first().text()).toBe(props.placeholder)
+  })
+
+  it('should have a placeholder with required', () => {
+    const props = {
+      ...baseProps,
+      placeholder: 'Custom',
+    }
+    const wrapper = mount(<WrappedComponent {...props} required />)
+    expect(wrapper.prop('placeholder')).toBe(props.placeholder)
+    expect(wrapper.find('option').first().text()).toBe(`${props.placeholder} *`)
   })
 
   it('should have a hint', () => {

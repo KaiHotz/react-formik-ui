@@ -7,7 +7,9 @@ import withLabel from '../withLabel'
 import './styles.scss'
 
 export const DropZone = ({
-  formik,
+  formik: {
+    values, setFieldValue, setFieldTouched,
+  },
   disabled,
   name,
   accept,
@@ -16,10 +18,6 @@ export const DropZone = ({
   placeholder,
   ...rest
 }) => {
-  const {
-    values, setFieldValue, setFieldTouched,
-  } = formik
-
   const onDrop = acceptedFiles => {
     if (acceptedFiles.length === 0) { return }
     setFieldValue(name, values[name].concat(acceptedFiles))

@@ -199,7 +199,7 @@ const  getSchema = () => {
             />
           </div>
 
-          <div style={{display: 'flex', 'justify-content': 'flex-start'}}>
+          <div style={{display: 'flex', justifyContent: 'flex-start'}}>
             <Input
               style={{'width': '50%', padding: '0 10px'}}
               name='fullName'
@@ -218,7 +218,7 @@ const  getSchema = () => {
             />
           </div>
 
-          <div style={{display: 'flex', 'justify-content': 'flex-start', 'align-items': 'flex-start'}}>
+          <div style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-start'}}>
             <Datepicker
               style={{'width': '30%', padding: '0 10px'}}
               name='birthDay'
@@ -247,7 +247,7 @@ const  getSchema = () => {
               <div style={{marginBottom: '10px'}}>
                 {`Do you have a drivers license ? ${values.driverLicense ? 'Yes' : 'No'}`}
               </div>
-              <Toggle name='driverLicense' style={{display: 'flex', 'justify-content': 'center'}}/>
+              <Toggle name='driverLicense' style={{display: 'flex', justifyContent: 'center'}}/>
             </div>
           </div>
 

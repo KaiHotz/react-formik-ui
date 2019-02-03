@@ -14,7 +14,7 @@ describe('<DropZone />', () => {
       touched: {},
       errors: {},
       values: {
-        DatepickerTest: '',
+        files: [],
       },
     },
   }

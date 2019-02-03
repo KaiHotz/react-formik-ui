@@ -29,6 +29,22 @@ describe('<Datepicker />', () => {
     expect(wrapper).toBeDefined()
   })
 
+  it('should call handleChange', () => {
+    const wrapper = shallow(<Datepicker {...baseProps} />)
+    wrapper.instance().handleChange(new Date())
+
+    expect(baseProps.formik.setFieldValue).toHaveBeenCalled()
+    expect(baseProps.formik.setFieldTouched).toHaveBeenCalled()
+  })
+
+  it('should call handleChangeRaw', () => {
+    const wrapper = mount(<Datepicker {...baseProps} />)
+    wrapper.find('input').simulate('change', { target: { value: '10.10.2019' } })
+
+    expect(baseProps.formik.setFieldValue).toHaveBeenCalled()
+    expect(baseProps.formik.setFieldTouched).toHaveBeenCalled()
+  })
+
   it('should allow custom className', () => {
     const props = {
       ...baseProps,
