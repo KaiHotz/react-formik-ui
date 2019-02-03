@@ -64,53 +64,44 @@ form {
                   cursor: pointer;
                   line-height: 20px;
                   display: inline-block;
+                  &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 18px;
+                    height: 18px;
+                    border: 1px solid $border;
+                    border-radius: 100%;
+                  }
+                  &::after {
+                    content: '';
+                    width: 12px;
+                    height: 12px;
+                    background: $blue;
+                    position: absolute;
+                    top: 4px;
+                    left: 4px;
+                    border-radius: 100%;
+                    -webkit-transition: all 0.2s ease;
+                    transition: all 0.2s ease;
+                  }
                 }
-                &:checked + label::before,
-                &:not(:checked) + label::before {
-                  content: '';
-                  position: absolute;
-                  left: 0;
-                  top: 0;
-                  width: 18px;
-                  height: 18px;
-                  border: 1px solid $border;
-                  border-radius: 100%;
+                &:checked + label::after {
+                  opacity: 1;
+                  -webkit-transform: scale(1);
+                  transform: scale(1);
+                }
+                &:not(:checked) + label::after {
+                  opacity: 0;
+                  -webkit-transform: scale(0);
+                  transform: scale(0);
                 }
                 &:not(:checked):hover + label::before {
                   background: $hover
                 }
-                &:checked + label::after {
-                  content: '';
-                  width: 12px;
-                  height: 12px;
-                  background: $blue;
-                  position: absolute;
-                  top: 4px;
-                  left: 4px;
-                  border-radius: 100%;
-                  opacity: 1;
-                  -webkit-transform: scale(1);
-                  transform: scale(1);
-                  -webkit-transition: all 0.2s ease;
-                  transition: all 0.2s ease;
-                }
                 &:checked:disabled + label::after {
                   background: $disabled;
-                }
-                &:not(:checked) + label::after {
-                  content: '';
-                  width: 12px;
-                  height: 12px;
-                  background: $blue;
-                  position: absolute;
-                  top: 4px;
-                  left: 4px;
-                  border-radius: 100%;
-                  -webkit-transition: all 0.2s ease;
-                  transition: all 0.2s ease;
-                  opacity: 0;
-                  -webkit-transform: scale(0);
-                  transform: scale(0);
                 }
               }
             }
