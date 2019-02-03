@@ -23,8 +23,7 @@ const  getSchema = () => {
      petsExample: yup
        .boolean(),
      filesExample: yup
-       .array()
-       .required('Image is required'),
+       .array(),
      additionalInfoExample: yup
        .string(),
      termsAndConitionsExample: yup
@@ -157,10 +156,9 @@ const  getSchema = () => {
     driverLicense: yup
       .boolean(),
     files: yup
-      .array()
+      .array(),
     additionalInfo: yup
-      .string()
-      .required('Is required'),
+      .string(),
     termsAndConitions: yup
       .boolean(),
   });
