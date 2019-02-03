@@ -52,7 +52,7 @@ form {
                   border-radius: 0 2px;
                   transition: all 0.2s linear;
                   backface-visibility: hidden;
-                  background: linear-gradient(45deg, lighten($blue, 15%) 50%, #fff 50%);
+                  background: linear-gradient(45deg, lighten($blue, 15%) 50%, $white 50%);
                 }
                 i {
                   position: absolute;
