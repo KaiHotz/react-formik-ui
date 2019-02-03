@@ -1,3 +1,5 @@
+@import '../../utils/colors.scss';
+
 .toggle-switch {
   position: relative;
   display: inline-block;
@@ -8,7 +10,7 @@
      &:checked + .slider{
       &:before {
         transform: translate(20px, -50%);
-        background-color: #065fd4;
+        background-color: $blue;
       }
     }
   }
@@ -20,8 +22,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ddd;
-    box-shadow: inset 0 0 5px #999;
+    background-color: $hover;
+    box-shadow: inset 0 0 5px $shadow;
     transition: 0.4s;
     border-radius: 15px;
     &::before {
@@ -32,7 +34,7 @@
       width: 20px;
       transform: translateY(-50%);
       background-color: #eee;
-      box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.6);
+      box-shadow: 0 1px 5px 0 $shadow;
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       border-radius: 50%
     }

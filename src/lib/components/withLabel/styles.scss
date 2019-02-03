@@ -1,3 +1,5 @@
+@import '../../utils/colors.scss';
+
 @keyframes onAutoFillStart {}
 @keyframes onAutoFillCancel {}
 
@@ -12,7 +14,7 @@ form {
         width: 0;
       }
       .error {
-        color: #cc0000;
+        color: $error;
       }
     }
     &.with-structure {
@@ -31,7 +33,7 @@ form {
           margin-top: 3px;
         }
         .hint {
-          color: #909090;
+          color: $hint;
         }
       }
     }
@@ -65,12 +67,12 @@ form {
             }
             &.isDisabled {
               &::before {
-                border-bottom: 1px dotted rgba(0, 0, 0, 0.42);
+                border-bottom: 1px dotted $disabled;
               }
             }
 
             &.hasError {
-              color: #cc0000;
+              color: $error;
             }
           }
         }

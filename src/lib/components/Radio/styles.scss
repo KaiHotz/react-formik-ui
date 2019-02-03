@@ -1,3 +1,5 @@
+@import '../../utils/colors.scss';
+
 form {
   &.react-formik-ui {
     .form-element {
@@ -46,7 +48,7 @@ form {
                   position: absolute;
                   left: -9999px;
                   &:disabled + label {
-                    color: rgba(0, 0, 0, 0.42);
+                    color: $disabled;
                     &::before {
                       border: 1px dotted currentColor;
                     }
@@ -71,17 +73,17 @@ form {
                   top: 0;
                   width: 18px;
                   height: 18px;
-                  border: 1px solid #ccc;
+                  border: 1px solid $border;
                   border-radius: 100%;
                 }
                 &:not(:checked):hover + label::before {
-                  background: #ddd
+                  background: $hover
                 }
                 &:checked + label::after {
                   content: '';
                   width: 12px;
                   height: 12px;
-                  background: #065fd4;
+                  background: $blue;
                   position: absolute;
                   top: 4px;
                   left: 4px;
@@ -93,13 +95,13 @@ form {
                   transition: all 0.2s ease;
                 }
                 &:checked:disabled + label::after {
-                  background: rgba(0, 0, 0, 0.42);
+                  background: $disabled;
                 }
                 &:not(:checked) + label::after {
                   content: '';
                   width: 12px;
                   height: 12px;
-                  background: #065fd4;
+                  background: $blue;
                   position: absolute;
                   top: 4px;
                   left: 4px;

@@ -1,3 +1,5 @@
+@import '../../utils/colors.scss';
+
 form {
   &.react-formik-ui {
     &.with-structure {
@@ -45,38 +47,38 @@ form {
                 vertical-align: text-top;
                 width: 18px;
                 height: 17px;
-                border: 1px solid #ccc;
+                border: 1px solid $border;
               }
               &:hover + label::before {
-                background: #ddd;
+                background: $hover;
               }
               &:checked + label::before {
-                background: #065fd4;
+                background: $blue;
               }
               &:disabled + label {
-                color: #b8b8b8;
+                color: $disabled;
                 cursor: auto;
               }
               &:disabled + label::before {
                 box-shadow: none;
-                border: 1px dotted #999;
-                background: #ddd;
+                border: 1px dotted $disabled;
+                background: $hover;
               }
               &:checked + label::after {
                 content: '';
                 position: absolute;
                 left: 5px;
                 top: 8px;
-                background: white;
+                background: $white;
                 width: 2px;
                 height: 2px;
                 box-shadow:
-                  2px 0 0 white,
-                  4px 0 0 white,
-                  4px -2px 0 white,
-                  4px -4px 0 white,
-                  4px -6px 0 white,
-                  4px -8px 0 white;
+                  2px 0 0 $white,
+                  4px 0 0 $white,
+                  4px -2px 0 $white,
+                  4px -4px 0 $white,
+                  4px -6px 0 $white,
+                  4px -8px 0 $white;
                 transform: rotate(45deg);
               }
             }

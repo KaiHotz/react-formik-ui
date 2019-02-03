@@ -1,3 +1,5 @@
+@import '../../utils/colors.scss';
+
 form {
   &.react-formik-ui {
     .form-element{
@@ -37,7 +39,7 @@ form {
                 border-radius: 2px;
                 cursor: pointer;
                 position: relative;
-                background-color: #065fd4;
+                background-color: $blue;
 
                 &::after {
                   content: '';
@@ -50,7 +52,7 @@ form {
                   border-radius: 0 2px;
                   transition: all 0.2s linear;
                   backface-visibility: hidden;
-                  background: linear-gradient(45deg, lighten(#065fd4, 15%) 50%, #fff 50%);
+                  background: linear-gradient(45deg, lighten($blue, 15%) 50%, #fff 50%);
                 }
                 i {
                   position: absolute;
@@ -59,7 +61,7 @@ form {
                   transform: translate(-50%, -50%);
                   display: block;
                   font-size: 10px;
-                  color: #fff;
+                  color: $white;
                   font-weight: 500;
                   &::before,
                   &::after {
@@ -100,7 +102,7 @@ form {
             .fileInfo {
               width: 100%;
               text-align: left;
-              border-top: 1px solid #ddd;
+              border-top: 1px solid $white;
               padding-top: 10px;
               margin-bottom: 10px;
             }
