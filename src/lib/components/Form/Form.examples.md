@@ -158,7 +158,6 @@ const  getSchema = () => {
       .boolean(),
     files: yup
       .array()
-      .required('Image is required'),
     additionalInfo: yup
       .string()
       .required('Is required'),
