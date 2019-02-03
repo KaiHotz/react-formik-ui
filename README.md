@@ -32,7 +32,7 @@ Anyhow, if you pass the  `styled` prop to the Form component, minimal styling wi
 ## Installation
 
 ```sh
-npm install --save react-formik-ui
+npm install --save react-formik-ui@version-1
 ```
 
 # Usage
@@ -42,7 +42,7 @@ React-Formik-UI has a Peer dependency of [Formik](https://github.com/jaredpalmer
 This means that you need to add [Formik](https://github.com/jaredpalmer/formik) to your project to make use of React-Formik-UI.</br>
 
 ```sh
-npm install --save formik@latest
+npm install --save formik
 ```
 
 ### Form validations

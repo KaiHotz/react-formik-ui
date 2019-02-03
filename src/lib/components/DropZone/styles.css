@@ -1,5 +1,7 @@
 
 form.react-formik-ui .dropzone-wrapper .dropzone {
+  display: flex;
+  flex-flow: row wrap;
   width: 100%;
   min-height: 42px;
   height: auto;
@@ -15,17 +17,20 @@ form.react-formik-ui .dropzone-wrapper.disabled .dropzone {
   color: #aaa;
 }
 
-form.react-formik-ui .dropzone-wrapper .dropzone .img-thumbnail {
-  margin: .5rem;
-  padding: .25rem;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: .25rem;
-  transition: all .2s ease-in-out;
-  width: 200px;
-  height: auto;
-  vertical-align: middle;
-  box-sizing: border-box;
+form.react-formik-ui .dropzone-wrapper .dropzone img {
+  max-height: 130px;
+  margin: 0 8px 8px 0;
+  transition: .8s opacity;
+  border-radius: 5px;
+  object-fit: contain
+}
+
+form.react-formik-ui .dropzone-wrapper .dropzone:hover img {
+  opacity: 0.3;
+}
+
+form.react-formik-ui .dropzone-wrapper .dropzone:hover img:hover {
+  opacity: 1;
 }
 
 form.react-formik-ui .dropzone-wrapper .dropzone .fileInfo {
