@@ -125,7 +125,7 @@ You don't need to pass an `onSubmit` handler, since this is already handled unde
     <td>themed</td>
     <td>boolean</td>
     <td>false</td>
-    <td>If passed adds the React-Formik-UI theme will be applied to each styled Form element</td>
+    <td>If passed the React-Formik-UI theme will be applied to each styled Form element</td>
   </tr>
 
 </table>
