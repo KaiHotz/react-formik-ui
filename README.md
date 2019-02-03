@@ -868,7 +868,7 @@ class Example extends Component {
           <Form styled>
 
             <Datepicker
-              name='birthDay'
+              name='birthday'
               label='Birthdate'
             />
 
