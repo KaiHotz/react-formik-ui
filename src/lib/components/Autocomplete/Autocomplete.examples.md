@@ -77,6 +77,7 @@
         label='Search'
         suggestions={[
           "Alligator",
+          "alabama",
           "Bask",
           "Crocodilian",
           "Death Roll",

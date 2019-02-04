@@ -24,7 +24,7 @@ export class Autocomplete extends Component {
     const { value } = e.currentTarget
 
     const filteredSuggestions = suggestions.filter(
-      suggestion => suggestion.toLowerCase().includes(value.toLowerCase()),
+      suggestion => suggestion.toLowerCase().startsWith(value.toLowerCase()),
     )
 
     this.setState({
