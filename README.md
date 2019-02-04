@@ -77,7 +77,6 @@ npm install --save yup
 
 ### Components and Examples
 
-See working examples at the [Styleguide](https://kaihotz.github.io/react-formik-ui/)
 
 - [Form](#form)
 - [Input](#input)
@@ -90,9 +89,9 @@ See working examples at the [Styleguide](https://kaihotz.github.io/react-formik-
 - [Button](#button)
 - [Toggle](#toggle)
 - [SubmitBtn](#submitbtn)
-
 - [Complete Form Example ](https://kaihotz.github.io/react-formik-ui/#form)
 
+See working examples at the [Styleguide](https://kaihotz.github.io/react-formik-ui/)
 
 ## Form
 The Form component, like in a normal HTML form is the main wrapper for your form.</br>
