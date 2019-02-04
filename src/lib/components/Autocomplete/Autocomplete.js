@@ -56,24 +56,27 @@ export class Autocomplete extends Component {
     const { activeSuggestion, filteredSuggestions } = this.state
     if (e.keyCode === 13) {
       e.preventDefault()
+
+      setFieldValue(name, filteredSuggestions[activeSuggestion])
+      setFieldTouched(name, true)
+
       this.setState({
         activeSuggestion: 0,
         showSuggestions: false,
       })
 
-      setFieldValue(name, filteredSuggestions[activeSuggestion])
-      setFieldTouched(name, true)
     } else if (e.keyCode === 38) {
-      if (activeSuggestion === 0) return
+      const { length } = filteredSuggestions
 
       this.setState(state => ({
-        activeSuggestion: state.activeSuggestion - 1,
+        activeSuggestion: state.activeSuggestion === 0 ? (length - 1) : state.activeSuggestion - 1,
       }))
+
     } else if (e.keyCode === 40) {
-      if (activeSuggestion - 1 === filteredSuggestions.length) return
+      const { length } = filteredSuggestions
 
       this.setState(state => ({
-        activeSuggestion: state.activeSuggestion + 1,
+        activeSuggestion: state.activeSuggestion === (length - 1) ? 0 : state.activeSuggestion + 1,
       }))
     }
   }
@@ -105,7 +108,7 @@ export class Autocomplete extends Component {
         />
         {
           showSuggestions && !!value && (
-            <ul class="suggestions">
+            <ul className="suggestions">
               {
                 filteredSuggestions ?.map((suggestion, index) => (
                   <li
