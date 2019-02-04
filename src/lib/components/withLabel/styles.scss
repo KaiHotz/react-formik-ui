@@ -7,11 +7,7 @@ form {
   &.react-formik-ui {
     .form-element {
       &.hidden {
-        opacity: 0;
-        margin: 0;
-        padding: 0;
-        height: 0;
-        width: 0;
+        display: none
       }
       .error {
         color: $error;
@@ -70,7 +66,6 @@ form {
                 border-bottom: 1px dotted $disabled;
               }
             }
-
             &.hasError {
               color: $error;
             }
