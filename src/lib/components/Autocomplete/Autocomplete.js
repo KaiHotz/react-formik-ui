@@ -80,35 +80,44 @@ export class Autocomplete extends Component {
 
   render() {
     const {
-      formik: { values },
+      formik: {
+        values
+      },
       name,
+      ...rest
     } = this.props
     const {
-      activeSuggestion, filteredSuggestions, showSuggestions,
+      activeSuggestion,
+      filteredSuggestions,
+      showSuggestions,
     } = this.state
-
     const value = getIn(values, name)
 
     return (
       <Fragment>
         <input
-          type="text"
           onChange={this.onChange}
           onKeyDown={this.onKeyDown}
+          {...rest}
           value={value}
+          type="text"
           tabIndex="0"
         />
         {
           showSuggestions && !!value && (
-            filteredSuggestions?.map((suggestion, index) => (
-              <li
-                className={cx({ 'suggestion-active': index === activeSuggestion })}
-                key={suggestion}
-                onClick={this.onClick}
-              >
-                {suggestion}
-              </li>
-            ))
+            <ul class="suggestions">
+              {
+                filteredSuggestions ?.map((suggestion, index) => (
+                  <li
+                    className={cx({ 'suggestion-active': index === activeSuggestion })}
+                    key={suggestion}
+                    onClick={this.onClick}
+                  >
+                    {suggestion}
+                  </li>
+                ))
+              }
+            </ul>
           )
         }
       </Fragment>
@@ -116,5 +125,5 @@ export class Autocomplete extends Component {
   }
 }
 
-export default connect(withLabel('autocomplete')(Autocomplete))
+export default connect(withLabel('input')(Autocomplete))
 
