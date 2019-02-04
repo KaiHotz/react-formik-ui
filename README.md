@@ -77,7 +77,7 @@ npm install --save yup
 
 ### Components and Examples
 
-See the Styleguide [here](https://kaihotz.github.io/react-formik-ui/)
+See working examples at the [Styleguide](https://kaihotz.github.io/react-formik-ui/)
 
 - [Form](#form)
 - [Input](#input)
@@ -91,7 +91,7 @@ See the Styleguide [here](https://kaihotz.github.io/react-formik-ui/)
 - [Toggle](#toggle)
 - [SubmitBtn](#submitbtn)
 
-- [Example Form](https://kaihotz.github.io/react-formik-ui/#form)
+- [Complete Form Example ](https://kaihotz.github.io/react-formik-ui/#form)
 
 
 ## Form
@@ -129,6 +129,8 @@ You don't need to pass an `onSubmit` handler, since this is already handled unde
   </tr>
 
 </table>
+
+#### [Demo](https://kaihotz.github.io/react-formik-ui/#form)
 
 #### Code example:
 ```jsx
@@ -232,6 +234,8 @@ A custom class can be passed through the `className` prop.
     <td>Defines the type of the Input Filed</td>
   </tr>
 </table>
+
+#### [Demo](https://kaihotz.github.io/react-formik-ui/#input-1)
 
 #### Code example:
 ```jsx
@@ -358,6 +362,8 @@ A custom class can be passed through the `className` prop.
   </tr>
 </table>
 
+#### [Demo](https://kaihotz.github.io/react-formik-ui/#select-1)
+
 #### Code example:
 ```jsx
 import React, { Component } from 'react'
@@ -479,6 +485,8 @@ A custom class can be passed through the `className` prop.
   </tr>
 </table>
 
+#### [Demo](https://kaihotz.github.io/react-formik-ui/#radio-1)
+
 #### Code example:
 ```jsx
 import React, { Component } from 'react'
@@ -599,6 +607,8 @@ A custom class can be passed through the `className` prop.
   </tr>
 </table>
 
+#### [Demo](https://kaihotz.github.io/react-formik-ui/#checkbox)
+
 #### Code example:
 ```jsx
 import React, { Component } from 'react'
@@ -714,6 +724,8 @@ A custom class can be passed through the `className` prop.
     <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
   </tr>
 </table>
+
+#### [Demo](https://kaihotz.github.io/react-formik-ui/#textarea-1)
 
 #### Code example:
 ```jsx
@@ -833,6 +845,8 @@ You can then pass the desired configuration as props just like you would on Reac
     <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
   </tr>
 </table>
+
+#### [Demo](https://kaihotz.github.io/react-formik-ui/#datepicker)
 
 #### Code example:
 ```jsx
@@ -966,6 +980,8 @@ For aditional configuration options and layouts, please refere to [react-dropzon
   </tr>
 </table>
 
+#### [Demo](https://kaihotz.github.io/react-formik-ui/#dropzone)
+
 #### Code example:
 ```jsx
 import React, { Component } from 'react'
@@ -1057,6 +1073,8 @@ A custom class can be passed through the `className` prop.</br>
   </tr>
 </table>
 
+#### [Demo](https://kaihotz.github.io/react-formik-ui/#button)
+
 #### Code example:
 ```jsx
 import React, { Component } from 'react'
@@ -1130,6 +1148,8 @@ A custom class can be passed through the `className` prop.</br>
     <td>Sets the Name of the Toggle button</td>
   </tr>
 </table>
+
+#### [Demo](https://kaihotz.github.io/react-formik-ui/#toggle-1)
 
 #### Code example:
 ```jsx
@@ -1214,6 +1234,8 @@ By default the SubmitBtn handles the submition, no further handler or configurat
     <td>Sets the type for the SubmitBtn</td>
   </tr>
 </table>
+
+#### [Demo](https://kaihotz.github.io/react-formik-ui/#submitbtn-1)
 
 #### Code example:
 ```jsx
