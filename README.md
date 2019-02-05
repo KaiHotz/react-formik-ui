@@ -160,6 +160,166 @@ class Example extends Component {
 }
 ```
 
+## Autocomplete
+The Autocomplete component renders with the classNames `form-element` and `autocomplete-wrapper`.</br>
+A custom class can be passed through the `className` prop.
+
+#### Props:
+<table style="font-size: 12px">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+    <tr>
+    <td>name</td>
+    <td>string</td>
+    <td>Required</td>
+    <td>Sets the Name of the input field of the Autocomplete component</td>
+  </tr>
+  <tr>
+    <td>suggestions</td>
+    <td>array</td>
+    <td>required</td>
+    <td>Array of suggestions to be searchred in</td>
+  </tr>
+  <tr>
+    <td>className</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Adds a custom class to the Autocomplete wrapper div</td>
+  </tr>
+  <tr>
+    <td>style</td>
+    <td>object</td>
+    <td>null</td>
+    <td>Adds a custom inline styles to the Autocomplete wrapper div</td>
+  </tr>
+  <tr>
+    <td>disabled</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Disables the Autocomplete</td>
+  </tr>
+  <tr>
+    <td>hint</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets a hint text after/below the Autocomplete Field</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets an Id for the Autocomplete Field, if not passed, the id will be the name</td>
+  </tr>
+  <tr>
+    <td>label</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets the main Label for the Autocomplete Field</td>
+  </tr>
+  <tr>
+    <td>placeholder</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets the Placeholder text</td>
+  </tr>
+  <tr>
+    <td>required</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
+  </tr>
+</table>
+
+#### [Demo](https://kaihotz.github.io/react-formik-ui/#autocomplete)
+
+#### Code example:
+```jsx
+import React, { Component } from 'react'
+import { Formik } from 'formik'
+import * as yup from 'yup';
+
+import { Form, Autocomplete, SubmitBtn } from 'react-formik-ui'
+
+class Example extends Component {
+
+  onSubmit = data => {
+    // here you hanlde the data to be submited
+  }
+
+  // example of validation with yup
+  getSchema = () => {
+    return yup.object().shape({
+      nameField: yup
+        .string()
+        .required('Name Is required'),
+    })
+  }
+
+  render () {
+    return (
+      <Formik
+        initialValues={{
+          searchFiled: ''
+        }}
+        validationSchema={this.getSchema}
+        onSubmit={this.onSubmit}
+        render={() => (
+          <Form styled>
+
+           <Autocomplete
+              label='Search'
+              name="searchFiled"
+              suggestions={[
+                'Afghanistan',
+                'Aland Islands',
+                'Albania',
+                'Algeria',
+                'American Samoa',
+                'Andorra',
+                'Angola',
+                'Anguilla',
+                'Antarctica',
+                'Antigua and Barbuda',
+                'Argentina',
+                'Armenia',
+                'Aruba',
+                'Australia',
+                'Austria',
+                'Azerbaijan',
+                'Bahamas',
+                'Bahrain',
+                'Bangladesh',
+                'Barbados',
+                'Belarus',
+                'Belgium',
+                'Belize',
+                'Benin',
+                'Bermuda',
+                'Bhutan',
+                'Bolivia, Plurinational State of',
+                'Bonaire, Sint Eustatius and Saba',
+                'Bosnia and Herzegovina',
+                'Botswana',
+                'Bouvet Island',
+                'Brazil',
+                'British Indian Ocean Territory',
+                'Brunei Darussalam',
+              ]}
+            />
+
+            <SubmitBtn />
+          </Form>
+        )}
+      />
+    )
+  }
+}
+```
+
 ## Input
 The Input component renders with the classNames `form-element` and `input-wrapper`.</br>
 A custom class can be passed through the `className` prop.

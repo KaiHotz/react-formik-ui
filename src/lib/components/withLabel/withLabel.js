@@ -10,7 +10,7 @@ import './styles.scss'
 const withLabel = (component = 'input') => (
   WrappedComponent => class WithLabel extends PureComponent {
     static propTypes = {
-      formik: PropTypes.object.isRequired,
+      formik: PropTypes.instanceOf(Object).isRequired,
       name: PropTypes.string.isRequired,
       label: PropTypes.string,
       className: PropTypes.string,
@@ -19,7 +19,7 @@ const withLabel = (component = 'input') => (
       type: PropTypes.string,
       disabled: PropTypes.bool,
       required: PropTypes.bool,
-      style: PropTypes.object,
+      style: PropTypes.instanceOf(Object),
     }
 
     static defaultProps = {
@@ -82,11 +82,11 @@ const withLabel = (component = 'input') => (
         <div className={cx('form-element', `${component}-wrapper`, className, { hidden })} style={style}>
           <label
             htmlFor={name}
-            className={cx({ isDisabled: disabled, hasError: !!errorMsg, hidden })}
+            className={cx({ isDisabled: disabled, hasError: !!errorMsg })}
           >
             {
               label && (
-                <span className={cx({ hide, hidden })}>
+                <span className={cx({ hide })}>
                   {`${label}${required ? ' *' : ''}`}
                 </span>
               )

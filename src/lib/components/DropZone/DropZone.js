@@ -75,11 +75,11 @@ export const DropZone = ({
 
 DropZone.propTypes = {
   /** @ignore */
-  formik: PropTypes.object.isRequired,
+  formik: PropTypes.instanceOf(Object).isRequired,
   /** Adds a custom class to the DropZone wrapper div */
   className: PropTypes.string,
   /** Adds a custom inline styles to the Dropzone wrapper div */
-  style: PropTypes.object,
+  style: PropTypes.instanceOf(Object),
   /** Disables the DropZone Field */
   disabled: PropTypes.bool,
   id: PropTypes.string,

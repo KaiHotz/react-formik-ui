@@ -7,20 +7,14 @@ form {
   &.react-formik-ui {
     .form-element {
       &.hidden {
-        opacity: 0;
-        margin: 0;
-        padding: 0;
-        height: 0;
-        width: 0;
-      }
-      .error {
-        color: $error;
+        display: none
       }
     }
     &.with-structure {
       label,
       span {
-        display: block;
+        display: flex;
+        flex-direction: column;
       }
     }
     &.with-structure,
@@ -32,6 +26,9 @@ form {
           display: block;
           margin-top: 3px;
         }
+        .error {
+          color: $error;
+        }
         .hint {
           color: $hint;
         }
@@ -39,6 +36,7 @@ form {
     }
     &.with-theme {
       .form-element {
+        &.autocomplete-wrapper,
         &.input-wrapper,
         &.datePicker-wrapper,
         &.textarea-wrapper,
@@ -70,12 +68,12 @@ form {
                 border-bottom: 1px dotted $disabled;
               }
             }
-
             &.hasError {
               color: $error;
             }
           }
         }
+        &.autocomplete-wrapper,
         &.input-wrapper,
         &.datePicker-wrapper,
         &.textarea-wrapper{
@@ -141,3 +139,5 @@ form {
     }
   }
 }
+
+

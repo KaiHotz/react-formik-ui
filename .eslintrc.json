@@ -54,6 +54,7 @@
       "error",
       "always"
     ],
+    "jsx-a11y/no-noninteractive-element-interactions": 0,
     "newline-before-return": "error",
     "react/no-unused-prop-types": 0,
     "react/no-danger": 0,

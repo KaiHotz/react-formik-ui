@@ -1,3 +1,4 @@
+export { default as Autocomplete } from './components/Autocomplete'
 export { default as Form } from './components/Form'
 export { default as Button } from './components/Button'
 export { default as Checkbox } from './components/Checkbox'

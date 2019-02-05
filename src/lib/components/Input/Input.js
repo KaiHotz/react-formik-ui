@@ -24,7 +24,7 @@ export const Input = ({
     type={type}
     onAnimationStart={onAnimationStart}
     placeholder={placeholder}
-    value={getIn(values, name, '')}
+    value={getIn(values, name)}
     onChange={handleChange}
     onFocus={onFocus}
     onBlur={onBlur}
@@ -35,7 +35,7 @@ export const Input = ({
 
 Input.propTypes = {
   /** @ignore */
-  formik: PropTypes.object.isRequired,
+  formik: PropTypes.instanceOf(Object).isRequired,
   /** @ignore */
   onAnimationStart: PropTypes.func.isRequired,
   /** @ignore */
@@ -45,7 +45,7 @@ Input.propTypes = {
   /** Adds a custom class to the Input wrapper div */
   className: PropTypes.string,
   /** Adds a custom inline styles to the Input wrapper div */
-  style: PropTypes.object,
+  style: PropTypes.instanceOf(Object),
   /** Sets an Id for the Input Field, if not passed, the id will be the name */
   id: PropTypes.string,
   /** Sets the Name of the Input Field */

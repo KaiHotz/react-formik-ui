@@ -36,7 +36,7 @@ export const Checkbox = ({
 
 Checkbox.propTypes = {
   /** @ignore */
-  formik: PropTypes.object.isRequired,
+  formik: PropTypes.instanceOf(Object).isRequired,
   /** Sets an Id for the Checkbox, if not passed, the id will be the name */
   id: PropTypes.string,
   /** Sets the Name of the Checkbox */
@@ -44,7 +44,7 @@ Checkbox.propTypes = {
   /** Adds a custom class to the Checkbox wrapper div */
   className: PropTypes.string,
   /** Adds a custom inline styles to the Checkbox wrapper div */
-  style: PropTypes.object,
+  style: PropTypes.instanceOf(Object),
   /** Sets the main Label for the Checkbox */
   label: PropTypes.string,
   /** Sets a hint text after/below the Checkbox */

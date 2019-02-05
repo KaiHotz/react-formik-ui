@@ -47,11 +47,11 @@ export const Select = ({
 
 Select.propTypes = {
   /** @ignore */
-  formik: PropTypes.object.isRequired,
+  formik: PropTypes.instanceOf(Object).isRequired,
   /** Adds a custom class to the Select wrapper div */
   className: PropTypes.string,
   /** Adds a custom inline styles to the Select wrapper div */
-  style: PropTypes.object,
+  style: PropTypes.instanceOf(Object),
   /** Disables the Select Field */
   disabled: PropTypes.bool,
   /** Sets an Id for the Select Field, if not passed, the id will be the name */
