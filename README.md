@@ -79,6 +79,7 @@ npm install --save yup
 
 
 - [Form](#form)
+- [Autocomplete](#autocomplete)
 - [Input](#input)
 - [Select](#select)
 - [Radio](#radio)
