@@ -21,7 +21,7 @@ export class Autocomplete extends Component {
     showSuggestions: false,
   }
 
-  onChange = e => {
+  handleChange = e => {
     const { formik: { setFieldValue, setFieldTouched }, name, suggestions } = this.props
     const { value } = e.currentTarget
 
@@ -39,7 +39,7 @@ export class Autocomplete extends Component {
     setFieldTouched(name, true)
   };
 
-  onClick = e => {
+  handleClick = e => {
     const { formik: { setFieldValue, setFieldTouched }, name } = this.props
     const { innerText } = e.currentTarget
 
@@ -53,7 +53,7 @@ export class Autocomplete extends Component {
     setFieldTouched(name, true)
   };
 
-  onKeyDown = e => {
+  handleKeyDown = e => {
     const { formik: { setFieldValue, setFieldTouched }, name } = this.props
     const { activeSuggestion, filteredSuggestions } = this.state
     if (e.keyCode === 13) {
@@ -99,8 +99,8 @@ export class Autocomplete extends Component {
     return (
       <Fragment>
         <input
-          onChange={this.onChange}
-          onKeyDown={this.onKeyDown}
+          onChange={this.handleChange}
+          onKeyDown={this.handleKeyDown}
           {...rest}
           value={value}
           type="text"
@@ -114,8 +114,8 @@ export class Autocomplete extends Component {
                   <li
                     className={cx({ 'suggestion-active': index === activeSuggestion })}
                     key={suggestion}
-                    onClick={this.onClick}
-                    onKeyPress={this.onClick}
+                    onClick={this.handleClick}
+                    onKeyPress={this.handleClick}
                   >
                     {suggestion}
                   </li>

@@ -1,0 +1,83 @@
+import React from 'react'
+import { shallow, mount } from 'enzyme'
+import withLabel from '../withLabel'
+import { Autocomplete } from './Autocomplete'
+
+describe('<Autocomplete />', () => {
+  const baseProps = {
+    name: 'autocompleteTest',
+    suggestions: [
+      'Afghanistan',
+      'Aland Islands',
+      'Albania',
+      'Algeria',
+    ],
+    formik: {
+      handleChange: jest.fn(),
+      handleBlur: jest.fn(),
+      setFieldValue: jest.fn(),
+      setFieldTouched: jest.fn(),
+      touched: {},
+      errors: {},
+      values: {
+        autocompleteTest: false,
+      },
+    },
+  }
+
+  const WrappedComponent = withLabel('autocomplete')(Autocomplete)
+
+  it('should render', () => {
+    const wrapper = shallow(<WrappedComponent {...baseProps} />)
+
+    expect(wrapper).toBeDefined()
+  })
+
+  it('should allow custom className', () => {
+    const props = {
+      ...baseProps,
+      className: 'Custom',
+    }
+    const wrapper = shallow(<WrappedComponent {...props} />)
+
+    expect(wrapper.hasClass(props.className)).toBe(true)
+  })
+
+  it('should be disabled', () => {
+    let wrapper
+
+    wrapper = mount(<WrappedComponent {...baseProps} disabled />)
+    expect(wrapper.find('input').prop('disabled')).toBe(true)
+
+    wrapper = shallow(<WrappedComponent {...baseProps} disabled />)
+    expect(wrapper.prop('className').includes('disabled'))
+  })
+
+  it('should have a hint', () => {
+    const props = {
+      ...baseProps,
+      hint: 'hintTest',
+    }
+    const wrapper = mount(<WrappedComponent {...props} />)
+
+    expect(wrapper.find('.hint').length).toBe(1)
+    expect(wrapper.find('.hint').text()).toBe(props.hint)
+  })
+
+  it('should call handleChange', () => {
+    const wrapper = mount(<WrappedComponent {...baseProps} />)
+
+    wrapper.find('input').simulate('change', { target: { value: 'a' } })
+
+    expect(baseProps.formik.setFieldValue).toHaveBeenCalled()
+    expect(baseProps.formik.setFieldTouched).toHaveBeenCalled()
+  })
+
+  it('should show suggestions', () => {
+    const wrapper = mount(<Autocomplete {...baseProps} />)
+
+    wrapper.find('input').simulate('change', { target: { value: 'a' } })
+
+    expect(wrapper.state('showSuggestions')).toBe(true)
+  })
+})
