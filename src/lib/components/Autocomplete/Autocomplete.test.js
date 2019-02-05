@@ -80,4 +80,20 @@ describe('<Autocomplete />', () => {
 
     expect(wrapper.state('showSuggestions')).toBe(true)
   })
+
+  it('should handle key down', () => {
+    const wrapper = mount(<Autocomplete {...baseProps} />)
+
+    wrapper.find('input').simulate('change', { target: { value: 'a' } }).simulate('keyDown', { keyCode: 40 })
+
+    expect(wrapper.state('activeSuggestion')).toBe(1)
+  })
+
+  it('should handle key up', () => {
+    const wrapper = mount(<Autocomplete {...baseProps} />)
+
+    wrapper.find('input').simulate('change', { target: { value: 'a' } }).simulate('keyDown', { keyCode: 38 })
+
+    expect(wrapper.state('activeSuggestion')).toBe(-1)
+  })
 })
