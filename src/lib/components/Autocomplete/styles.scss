@@ -2,6 +2,18 @@
 
 form {
   &.react-formik-ui {
+    .form-element {
+      .suggestions {
+        li {
+          &:hover,
+          &.suggestion-active {
+            background-color: $hover;
+            color: currentColor;
+            cursor: pointer;
+          }
+        }
+      }
+    }
     &.with-structure {
       .form-element {
         .suggestions {
@@ -13,12 +25,6 @@ form {
           padding-left: 0;
           li {
             padding: 0.5rem;
-            &:hover,
-            &.suggestion-active {
-              background-color: $hover;
-              color: currentColor;
-              cursor: pointer;
-            }
             &:not(:last-of-type) {
               border-bottom: 1px solid $border;
             }
