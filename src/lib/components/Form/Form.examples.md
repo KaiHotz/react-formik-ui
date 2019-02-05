@@ -118,7 +118,7 @@ const  getSchema = () => {
           <Checkbox
             name='termsAndConitionsExample'
             label='Terms and Conditions'
-            text='Click to accept the terms and conditions'
+            text='Click to enable the Submit button'
           />
 
           <SubmitBtn disabled={!values.termsAndConitionsExample} />
@@ -264,7 +264,7 @@ const  getSchema = () => {
             <Checkbox
               name='termsAndConitions'
               label='Terms and Conditions'
-              text='Click to accept the terms and conditions'
+              text='Click to enable the Submit button'
             />
 
             <SubmitBtn disabled={!values.termsAndConitions} />
