@@ -13,6 +13,33 @@ export class Autocomplete extends Component {
     name: PropTypes.string.isRequired,
     /** Array of suggestions to be searchred in */
     suggestions: PropTypes.instanceOf(Array).isRequired,
+    /** Adds a custom class to the Input wrapper div */
+    className: PropTypes.string,
+    /** Adds a custom inline styles to the Input wrapper div */
+    style: PropTypes.instanceOf(Object),
+    /** Sets an Id for the Input Field, if not passed, the id will be the name */
+    id: PropTypes.string,
+    /** Sets the main Label for the Input Field */
+    label: PropTypes.string,
+    /** Sets the Placeholder text */
+    placeholder: PropTypes.string,
+    /** Disables the Input Field */
+    disabled: PropTypes.bool,
+    /** Sets a hint text after/below the Input Field */
+    hint: PropTypes.string,
+    /** Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema */
+    required: PropTypes.bool,
+  }
+
+  static defaultProps = {
+    className: null,
+    style: null,
+    disabled: false,
+    id: null,
+    label: null,
+    placeholder: null,
+    hint: null,
+    required: false,
   }
 
   state = {
@@ -87,6 +114,7 @@ export class Autocomplete extends Component {
         values,
       },
       name,
+      id,
       ...rest
     } = this.props
     const {
@@ -99,6 +127,8 @@ export class Autocomplete extends Component {
     return (
       <Fragment>
         <input
+          id={id || name}
+          name={name}
           onChange={this.handleChange}
           onKeyDown={this.handleKeyDown}
           {...rest}
