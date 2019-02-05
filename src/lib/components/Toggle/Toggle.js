@@ -31,11 +31,11 @@ export const Toggle = ({
 
 Toggle.propTypes = {
 /** @ignore */
-  formik: PropTypes.object.isRequired,
+  formik: PropTypes.instanceOf(Object).isRequired,
   /** Adds a custom class to the Toggle button */
   className: PropTypes.string,
   /** Adds a custom inline styles to the Toggle wrapper div */
-  style: PropTypes.object,
+  style: PropTypes.instanceOf(Object),
   /** Disables the Toggle button */
   disabled: PropTypes.bool,
   /** Sets the Name of the Toggle button */

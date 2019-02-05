@@ -23,7 +23,7 @@ export const SubmitBtn = ({
 
 SubmitBtn.propTypes = {
   /** @ignore */
-  formik: PropTypes.object.isRequired,
+  formik: PropTypes.instanceOf(Object).isRequired,
   /** Adds a custom class to the SubmitBtn */
   className: PropTypes.string,
   /** Disables the SubmitBtn */

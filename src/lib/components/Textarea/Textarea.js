@@ -31,7 +31,7 @@ export const Textarea = ({
 
 Textarea.propTypes = {
   /** @ignore */
-  formik: PropTypes.object.isRequired,
+  formik: PropTypes.instanceOf(Object).isRequired,
   /** @ignore */
   onFocus: PropTypes.func.isRequired,
   /** @ignore */
@@ -39,7 +39,7 @@ Textarea.propTypes = {
   /** Adds a custom class to the Textarea wrapper div */
   className: PropTypes.string,
   /** Adds a custom inline styles to the Textarea wrapper div */
-  style: PropTypes.object,
+  style: PropTypes.instanceOf(Object),
   /** Disables the Textarea */
   disabled: PropTypes.bool,
   /** Sets an Id for the Textarea, if not passed, the id will be the name */

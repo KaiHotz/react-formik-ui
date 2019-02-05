@@ -1,4 +1,3 @@
-/*eslint-disable*/
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
@@ -8,9 +7,12 @@ import './styles.scss'
 
 export class Autocomplete extends Component {
   static propTypes = {
+    /** @ignore */
     formik: PropTypes.instanceOf(Object).isRequired,
-    suggestions: PropTypes.instanceOf(Array).isRequired,
+    /** Sets the Name of the Autocomplete */
     name: PropTypes.string.isRequired,
+    /** Array of suggestions to be searchred in */
+    suggestions: PropTypes.instanceOf(Array).isRequired,
   }
 
   state = {
@@ -64,14 +66,12 @@ export class Autocomplete extends Component {
         activeSuggestion: 0,
         showSuggestions: false,
       })
-
     } else if (e.keyCode === 38) {
       const { length } = filteredSuggestions
 
       this.setState(state => ({
         activeSuggestion: state.activeSuggestion === 0 ? (length - 1) : state.activeSuggestion - 1,
       }))
-
     } else if (e.keyCode === 40) {
       const { length } = filteredSuggestions
 
@@ -84,7 +84,7 @@ export class Autocomplete extends Component {
   render() {
     const {
       formik: {
-        values
+        values,
       },
       name,
       ...rest
@@ -115,6 +115,7 @@ export class Autocomplete extends Component {
                     className={cx({ 'suggestion-active': index === activeSuggestion })}
                     key={suggestion}
                     onClick={this.onClick}
+                    onKeyPress={this.onClick}
                   >
                     {suggestion}
                   </li>
@@ -128,5 +129,5 @@ export class Autocomplete extends Component {
   }
 }
 
-export default connect(withLabel('input')(Autocomplete))
+export default connect(withLabel('autocomplete')(Autocomplete))
 

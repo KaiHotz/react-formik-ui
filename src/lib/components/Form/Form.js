@@ -23,7 +23,7 @@ export const Form = ({
 
 Form.propTypes = {
   /** @ignore */
-  formik: PropTypes.object.isRequired,
+  formik: PropTypes.instanceOf(Object).isRequired,
   /** @ignore */
   children: PropTypes.node.isRequired,
   /** Adds a custom class to the form */

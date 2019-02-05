@@ -9,14 +9,12 @@ form {
       &.hidden {
         display: none
       }
-      .error {
-        color: $error;
-      }
     }
     &.with-structure {
       label,
       span {
-        display: block;
+        display: flex;
+        flex-direction: column;
       }
     }
     &.with-structure,
@@ -28,6 +26,9 @@ form {
           display: block;
           margin-top: 3px;
         }
+        .error {
+          color: $error;
+        }
         .hint {
           color: $hint;
         }
@@ -35,6 +36,7 @@ form {
     }
     &.with-theme {
       .form-element {
+        &.autocomplete-wrapper,
         &.input-wrapper,
         &.datePicker-wrapper,
         &.textarea-wrapper,
@@ -71,6 +73,7 @@ form {
             }
           }
         }
+        &.autocomplete-wrapper,
         &.input-wrapper,
         &.datePicker-wrapper,
         &.textarea-wrapper{
@@ -136,3 +139,5 @@ form {
     }
   }
 }
+
+

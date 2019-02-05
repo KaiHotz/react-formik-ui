@@ -10,7 +10,7 @@ import '../Input/styles.scss'
 export class Datepicker extends Component {
   static propTypes = {
     /** @ignore */
-    formik: PropTypes.object.isRequired,
+    formik: PropTypes.instanceOf(Object).isRequired,
     /** @ignore */
     onFocus: PropTypes.func.isRequired,
     /** @ignore */
@@ -20,7 +20,7 @@ export class Datepicker extends Component {
     /** Adds a custom class to the Datepicker wrapper div */
     className: PropTypes.string,
     /** Adds a custom inline styles to the Datepicker wrapper div */
-    style: PropTypes.object,
+    style: PropTypes.instanceOf(Object),
     /** Sets the main Label for the Datepicker */
     label: PropTypes.string,
     /** Sets a hint text after/below the Datepicker */

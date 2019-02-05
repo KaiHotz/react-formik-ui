@@ -43,11 +43,11 @@ export const Radio = ({
 
 Radio.propTypes = {
   /** @ignore */
-  formik: PropTypes.object.isRequired,
+  formik: PropTypes.instanceOf(Object).isRequired,
   /** Adds a custom class to the Radio wrapper div */
   className: PropTypes.string,
   /** Adds a custom inline styles to the Radio wrapper div */
-  style: PropTypes.object,
+  style: PropTypes.instanceOf(Object),
   /** Disables the Radio Fields */
   disabled: PropTypes.bool,
   /** Sets the Name of the Radio Fields */
