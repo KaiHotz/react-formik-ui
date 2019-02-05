@@ -42,7 +42,7 @@ const  getSchema = () => {
     petsExample: false,
     filesExample: [],
     additionalInfoExample: '',
-    termsAndConitionsExample: false,
+    checkboxExample: false,
   }}
   validationSchema={getSchema}
   onSubmit={onSubmit}
@@ -116,12 +116,12 @@ const  getSchema = () => {
           />
 
           <Checkbox
-            name='termsAndConitionsExample'
+            name='checkboxExample'
             label='Terms and Conditions'
-            text='Click to enable the Submit button'
+            text='Click to enable the submit button'
           />
 
-          <SubmitBtn disabled={!values.termsAndConitionsExample} />
+          <SubmitBtn disabled={!values.checkboxExample} />
           <Button onClick={(() => alert('Cancel'))}>Cancel</Button>
         </fieldset>
       </Form>
