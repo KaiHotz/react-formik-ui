@@ -41,8 +41,8 @@
   },
   "peerDependencies": {
     "formik": ">1.0.0-alpha.6",
-    "react": "^16.8.1",
-    "react-dom": "^16.8.1"
+    "react": "^16.x",
+    "react-dom": "^16.x"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
