@@ -36,26 +36,22 @@ export const Datepicker = ({
   onFocus,
   onBlur,
   ...rest
-}) => {
-  const selectedDate = getIn(values, name) ? new Date(getIn(values, name)) : null
-
-  return (
-    <DatePickerCmp
-      {...rest}
-      id={name}
-      name={name}
-      selected={selectedDate}
-      placeholderText={placeholder}
-      dateFormat={dateFormat}
-      disabledKeyboardNavigation
-      onChangeRaw={handleChangeRaw(setFieldValue, setFieldTouched)}
-      onChange={handleChange(name, setFieldValue, setFieldTouched)}
-      onFocus={onFocus}
-      onBlur={onBlur}
-      disabled={disabled}
-    />
-  )
-}
+}) => (
+  <DatePickerCmp
+    {...rest}
+    id={name}
+    name={name}
+    selected={getIn(values, name) ? new Date(getIn(values, name)) : null}
+    placeholderText={placeholder}
+    dateFormat={dateFormat}
+    disabledKeyboardNavigation
+    onChangeRaw={handleChangeRaw(setFieldValue, setFieldTouched)}
+    onChange={handleChange(name, setFieldValue, setFieldTouched)}
+    onFocus={onFocus}
+    onBlur={onBlur}
+    disabled={disabled}
+  />
+)
 
 Datepicker.propTypes = {
   /** @ignore */

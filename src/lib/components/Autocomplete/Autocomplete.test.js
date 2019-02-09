@@ -20,7 +20,7 @@ describe('<Autocomplete />', () => {
       touched: {},
       errors: {},
       values: {
-        autocompleteTest: false,
+        autocompleteTest: '',
       },
     },
   }
