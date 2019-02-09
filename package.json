@@ -71,7 +71,7 @@
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-react-hooks": "^1.0.1",
     "eslint-watch": "^4.0.2",
-    "formik": "^1.4.3",
+    "formik": "^1.5.0",
     "gh-pages": "^2.0.1",
     "jasmine-expect": "^4.0.1",
     "jest": "^24.1.0",
