@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import withLabel from '../withLabel'
+import useLabel from '../useLabel'
 import { DropZone } from './DropZone'
 
 describe('<DropZone />', () => {
@@ -19,7 +19,7 @@ describe('<DropZone />', () => {
     },
   }
 
-  const WrappedComponent = withLabel('dropzone')(DropZone)
+  const WrappedComponent = useLabel('dropzone')(DropZone)
 
   it('should render', () => {
     const wrapper = shallow(<WrappedComponent {...baseProps} />)
@@ -38,9 +38,10 @@ describe('<DropZone />', () => {
   })
 
   it('should be disabled', () => {
-    const wrapper = shallow(<WrappedComponent {...baseProps} disabled />)
+    const wrapper = mount(<WrappedComponent {...baseProps} disabled />)
 
-    expect(wrapper.prop('className').includes('disabled'))
+    expect(wrapper.find('label').hasClass('isDisabled')).toBe(true)
+    expect(wrapper.find('input').prop('disabled')).toBe(true)
   })
 
   it('should have a label', () => {

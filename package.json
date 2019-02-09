@@ -1,7 +1,7 @@
 {
   "name": "react-formik-ui",
   "author": "Kai Hotz",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Plain form components for make use of formik even easier",
   "license": "MIT",
   "repository": {
@@ -41,8 +41,8 @@
   },
   "peerDependencies": {
     "formik": ">1.0.0-alpha.6",
-    "react": "^16.x",
-    "react-dom": "^16.x"
+    "react": "^>=16.8.1",
+    "react-dom": ">=^16.8.1"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -69,6 +69,7 @@
     "eslint-plugin-jest": "^22.2.2",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^1.0.1",
     "eslint-watch": "^4.0.2",
     "formik": "^1.4.3",
     "gh-pages": "^2.0.1",

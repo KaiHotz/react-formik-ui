@@ -53,6 +53,7 @@ The Button and SubmitBtn have been left out of styling due to most apps alrready
 - The `DatePicker` component has been updated to use ReactJs Datepicker v2 and therfore does not make use of `moment` anymore, if you are using the `minDate` and `maxDate` props please refer to the [ReactJs Datepicker](https://reactdatepicker.com/)
 
 ## Installation
+**Note:** React Formik UI makes use of the recently released react `Hooks` API, therfore make sure that your project uses the latest `React` version
 
 ```sh
 npm install --save react-formik-ui

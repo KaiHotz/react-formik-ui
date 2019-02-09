@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import withLabel from '../withLabel'
+import useLabel from '../useLabel'
 import { Textarea } from './Textarea'
 
 describe('<Textarea />', () => {
@@ -22,7 +22,7 @@ describe('<Textarea />', () => {
     },
   }
 
-  const WrappedComponent = withLabel('textarea')(Textarea)
+  const WrappedComponent = useLabel('textarea')(Textarea)
 
   it('should render', () => {
     const wrapper = shallow(<WrappedComponent {...baseProps} />)
@@ -35,7 +35,7 @@ describe('<Textarea />', () => {
       ...baseProps,
       className: 'Custom',
     }
-    const wrapper = mount(<WrappedComponent {...props} />)
+    const wrapper = mount(<WrappedComponent {...props} readOnly />)
 
     expect(wrapper.hasClass(props.className)).toBe(true)
   })
@@ -45,7 +45,7 @@ describe('<Textarea />', () => {
       ...baseProps,
       label: 'Custom Label',
     }
-    const wrapper = mount(<WrappedComponent {...props} />)
+    const wrapper = mount(<WrappedComponent {...props} readOnly />)
 
     expect(wrapper.find('label').length).toBe(1)
   })
@@ -55,14 +55,14 @@ describe('<Textarea />', () => {
       ...baseProps,
       hint: 'hintTest',
     }
-    const wrapper = mount(<WrappedComponent {...props} />)
+    const wrapper = mount(<WrappedComponent {...props} readOnly />)
 
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)
   })
 
   it('should call onChange', () => {
-    const wrapper = mount(<WrappedComponent {...baseProps} />)
+    const wrapper = mount(<Textarea {...baseProps} />)
     wrapper.find('textarea').simulate('change')
 
     expect(baseProps.formik.handleChange).toHaveBeenCalled()
