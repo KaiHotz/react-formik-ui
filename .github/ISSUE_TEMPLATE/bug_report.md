@@ -6,11 +6,11 @@ labels: ''
 assignees: ''
 
 ---
-**Version you use***
+**Version**
 The version of React-Formik-UI that you are using
 
 **Mode**
-The mode you are using React-Fomrik-UI in, 
+The mode you are using React-Formik-UI in, 
 [`Default`, `Structured` or `Themed`] 
 
 **Describe the bug**
