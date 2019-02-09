@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import withLabel from '../withLabel'
+import useLabel from '../useLabel'
 import { Datepicker } from './Datepicker'
 
 describe('<Datepicker />', () => {
@@ -21,7 +21,7 @@ describe('<Datepicker />', () => {
     },
   }
 
-  const WrappedComponent = withLabel('datePicker')(Datepicker)
+  const WrappedComponent = useLabel('datePicker')(Datepicker)
 
   it('should render', () => {
     const wrapper = shallow(<WrappedComponent {...baseProps} />)
@@ -30,8 +30,8 @@ describe('<Datepicker />', () => {
   })
 
   it('should call handleChange', () => {
-    const wrapper = shallow(<Datepicker {...baseProps} />)
-    wrapper.instance().handleChange(new Date())
+    const wrapper = mount(<Datepicker {...baseProps} />)
+    wrapper.find('input').simulate('change', { target: { value: '10.10.2019' } })
 
     expect(baseProps.formik.setFieldValue).toHaveBeenCalled()
     expect(baseProps.formik.setFieldTouched).toHaveBeenCalled()
@@ -56,13 +56,10 @@ describe('<Datepicker />', () => {
   })
 
   it('should be disabled', () => {
-    let wrapper
+    const wrapper = mount(<WrappedComponent {...baseProps} disabled />)
 
-    wrapper = mount(<WrappedComponent {...baseProps} disabled />)
+    expect(wrapper.find('label').hasClass('isDisabled')).toBe(true)
     expect(wrapper.find('input').prop('disabled')).toBe(true)
-
-    wrapper = shallow(<WrappedComponent {...baseProps} disabled />)
-    expect(wrapper.prop('className').includes('disabled'))
   })
 
   it('should have a label', () => {

@@ -17,6 +17,7 @@
   "plugins": [
     "jest",
     "react",
+    "react-hooks",
     "flowtype"
   ],
   "parserOptions": {
@@ -34,6 +35,7 @@
     "jest/globals": true
   },
   "rules": {
+    "react-hooks/rules-of-hooks": "error",
     "import/no-named-as-default": 0,
     "camelcase": 0,
     "react/button-has-type": 0,

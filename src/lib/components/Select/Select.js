@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { connect, getIn } from 'formik'
-import withLabel from '../withLabel'
+import { getIn } from 'formik'
+import useLabel from '../useLabel'
 import './styles.scss'
 
 export const Select = ({
@@ -87,4 +87,4 @@ Select.defaultProps = {
   required: false,
 }
 
-export default connect(withLabel('select')(Select))
+export default useLabel('select')(Select)

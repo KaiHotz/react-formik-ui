@@ -1,9 +1,7 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Dropzone from 'react-dropzone'
-import { connect } from 'formik'
-
-import withLabel from '../withLabel'
+import useLabel from '../useLabel'
 import './styles.scss'
 
 export const DropZone = ({
@@ -26,10 +24,10 @@ export const DropZone = ({
 
   return (
     <Dropzone
+      {...rest}
       accept={accept}
       disabled={disabled}
       onDrop={onDrop}
-      {...rest}
     >
       {
         ({ isDragActive, acceptedFiles, rejectedFiles }) => {
@@ -115,4 +113,4 @@ DropZone.defaultProps = {
   required: false,
 }
 
-export default connect(withLabel('dropzone')(DropZone))
+export default useLabel('dropzone')(DropZone)

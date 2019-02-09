@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { connect, getIn } from 'formik'
-import withLabel from '../withLabel'
+import { getIn } from 'formik'
+import useLabel from '../useLabel'
 import './styles.scss'
 
 export const Input = ({
@@ -19,6 +19,7 @@ export const Input = ({
   ...rest
 }) => (
   <input
+    {...rest}
     id={id || name}
     name={name}
     type={type}
@@ -29,7 +30,6 @@ export const Input = ({
     onFocus={onFocus}
     onBlur={onBlur}
     disabled={disabled}
-    {...rest}
   />
 )
 
@@ -88,4 +88,4 @@ Input.defaultProps = {
   required: false,
 }
 
-export default connect(withLabel('input')(Input))
+export default useLabel('input')(Input)

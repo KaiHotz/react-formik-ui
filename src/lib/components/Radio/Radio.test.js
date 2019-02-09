@@ -1,7 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import withLabel from '../withLabel'
-import { Radio } from './Radio'
+import Radio from './Radio'
 
 describe('<Radio />', () => {
   const baseProps = {
@@ -24,10 +23,8 @@ describe('<Radio />', () => {
     },
   }
 
-  const WrappedComponent = withLabel('radio')(Radio)
-
   it('should render', () => {
-    const wrapper = shallow(<WrappedComponent {...baseProps} />)
+    const wrapper = shallow(<Radio {...baseProps} />)
 
     expect(wrapper).toBeDefined()
   })
@@ -37,9 +34,9 @@ describe('<Radio />', () => {
       ...baseProps,
       className: 'Custom',
     }
-    const wrapper = shallow(<WrappedComponent {...props} />)
+    const wrapper = mount(<Radio {...props} readOnly />)
 
-    expect(wrapper.hasClass(props.className)).toBe(true)
+    expect(wrapper.find('.form-element').hasClass(props.className)).toBe(true)
   })
 
   it('should have a hint', () => {
@@ -47,20 +44,21 @@ describe('<Radio />', () => {
       ...baseProps,
       hint: 'hintTest',
     }
-    const wrapper = mount(<WrappedComponent {...props} />)
+    const wrapper = mount(<Radio {...props} readOnly />)
 
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)
   })
 
   it('should be disabled', () => {
-    const wrapper = shallow(<WrappedComponent {...baseProps} disabled />)
-
-    expect(wrapper.prop('className').includes('disabled'))
+    const wrapper = mount(<Radio {...baseProps} disabled />)
+    wrapper.find('input').forEach(node => {
+      expect(node.prop('disabled')).toBe(true)
+    })
   })
 
   it('should call onChange', () => {
-    const wrapper = shallow(<WrappedComponent {...baseProps} />)
+    const wrapper = shallow(<Radio {...baseProps} />)
     wrapper.find('input').forEach(node => {
       node.simulate('change')
       expect(baseProps.formik.handleChange).toHaveBeenCalled()

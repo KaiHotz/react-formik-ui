@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { connect, getIn } from 'formik'
-import withLabel from '../withLabel'
+import { getIn } from 'formik'
+import useLabel from '../useLabel'
 import './styles.scss'
 
 export const Checkbox = ({
@@ -16,13 +16,13 @@ export const Checkbox = ({
 }) => (
   <div className="checkbox-input-wrapper">
     <input
+      {...rest}
       id={id || name}
       name={name}
       checked={getIn(values, name)}
       onChange={handleChange}
       onBlur={handleBlur}
       disabled={disabled}
-      {...rest}
       type="checkbox"
     />
     <label
@@ -68,4 +68,4 @@ Checkbox.defaultProps = {
   disabled: false,
 }
 
-export default connect(withLabel('checkbox')(Checkbox))
+export default useLabel('checkbox')(Checkbox)

@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { connect, getIn } from 'formik'
+import { getIn } from 'formik'
 import cx from 'classnames'
-import withLabel from '../withLabel'
+import useLabel from '../useLabel'
 import './styles.scss'
 
 export const Radio = ({
@@ -20,6 +20,7 @@ export const Radio = ({
       options.map(option => (
         <div key={option.label} className="radio-option">
           <input
+            {...rest}
             checked={getIn(values, name) === option.value}
             id={`${name}-id-${option.value}`}
             value={option.value}
@@ -27,7 +28,6 @@ export const Radio = ({
             onBlur={handleBlur}
             name={name}
             disabled={disabled}
-            {...rest}
             type="radio"
           />
           <label
@@ -80,4 +80,4 @@ Radio.defaultProps = {
   required: false,
 }
 
-export default connect(withLabel('radio')(Radio))
+export default useLabel('radio')(Radio)

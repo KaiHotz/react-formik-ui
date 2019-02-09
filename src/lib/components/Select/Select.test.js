@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import withLabel from '../withLabel'
+import useLabel from '../useLabel'
 import { Select } from './Select'
 
 describe('<Select />', () => {
@@ -24,7 +24,7 @@ describe('<Select />', () => {
     },
   }
 
-  const WrappedComponent = withLabel('select')(Select)
+  const WrappedComponent = useLabel('select')(Select)
 
   it('should render', () => {
     const wrapper = shallow(<WrappedComponent {...baseProps} />)
@@ -37,9 +37,9 @@ describe('<Select />', () => {
       ...baseProps,
       className: 'customClass',
     }
-    const wrapper = shallow(<WrappedComponent {...props} />)
+    const wrapper = mount(<WrappedComponent {...props} />)
 
-    expect(wrapper.hasClass(props.className)).toBe(true)
+    expect(wrapper.find('.form-element').hasClass(props.className)).toBe(true)
   })
 
   it('should have a label', () => {
@@ -84,17 +84,14 @@ describe('<Select />', () => {
   })
 
   it('should be disabled', () => {
-    let wrapper
+    const wrapper = mount(<WrappedComponent {...baseProps} disabled />)
 
-    wrapper = mount(<WrappedComponent {...baseProps} disabled />)
+    expect(wrapper.find('label').hasClass('isDisabled')).toBe(true)
     expect(wrapper.find('select').prop('disabled')).toBe(true)
-
-    wrapper = shallow(<WrappedComponent {...baseProps} disabled />)
-    expect(wrapper.prop('className').includes('disabled'))
   })
 
   it('should call onChange', () => {
-    const wrapper = mount(<WrappedComponent {...baseProps} />)
+    const wrapper = mount(<Select {...baseProps} />)
     wrapper.find('select').simulate('change')
 
     expect(baseProps.formik.handleChange).toHaveBeenCalled()
