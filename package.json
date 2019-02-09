@@ -1,7 +1,7 @@
 {
   "name": "react-formik-ui",
   "author": "Kai Hotz",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Plain form components for make use of formik even easier",
   "license": "MIT",
   "repository": {
@@ -40,9 +40,9 @@
     "react-dropzone": "^7.0.1"
   },
   "peerDependencies": {
-    "formik": ">1.0.0-alpha.6",
-    "react": "^>=16.8.1",
-    "react-dom": ">=^16.8.1"
+    "formik": "^1.0.0",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
