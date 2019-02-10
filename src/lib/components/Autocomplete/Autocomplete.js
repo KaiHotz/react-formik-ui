@@ -44,8 +44,8 @@ export const Autocomplete = ({
   const handleKeyDown = e => {
     if (e.keyCode === 13) {
       e.preventDefault()
+      if (e.currentTarget.value === '') return
 
-      setFilteredSuggestions(0)
       setShowSuggestions(false)
 
       setFieldValue(name, filteredSuggestions[activeSuggestion])
@@ -77,7 +77,7 @@ export const Autocomplete = ({
         showSuggestions && !!getIn(values, name) && (
           <ul className="suggestions">
             {
-              filteredSuggestions?.map((suggestion, index) => {
+              filteredSuggestions ?.map((suggestion, index) => {
                 const sugetionItem = (
                   <li
                     className={cx({ 'suggestion-active': index === activeSuggestion })}
