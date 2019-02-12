@@ -2,28 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import DatePickerCmp from 'react-datepicker'
 import { getIn } from 'formik'
-import { format, isValid } from 'date-fns'
 import 'react-datepicker/dist/react-datepicker.css'
+import { useDatepicker } from './useDatepicker'
 import useLabel from '../useLabel'
 import '../Input/styles.scss'
-
-const handleChangeRaw = (setFieldValue, setFieldTouched) => e => {
-  const { name, value } = e.target
-  const validChars = /^\d{0,2}[./]{0,1}\d{0,2}[./]{0,1}\d{0,4}$/
-  if (!validChars.test(value)) {
-    e.preventDefault()
-  }
-
-  if (isValid(new Date(value))) {
-    setFieldValue(name, value)
-    setFieldTouched(name, true)
-  }
-}
-
-const handleChange = (name, setFieldValue, setFieldTouched) => date => {
-  setFieldValue(name, format(date, 'yyyy-MM-dd hh:mm a'))
-  setFieldTouched(name, true)
-}
 
 export const Datepicker = ({
   formik: {
@@ -36,22 +18,26 @@ export const Datepicker = ({
   onFocus,
   onBlur,
   ...rest
-}) => (
-  <DatePickerCmp
-    {...rest}
-    id={name}
-    name={name}
-    selected={getIn(values, name) ? new Date(getIn(values, name)) : null}
-    placeholderText={placeholder}
-    dateFormat={dateFormat}
-    disabledKeyboardNavigation
-    onChangeRaw={handleChangeRaw(setFieldValue, setFieldTouched)}
-    onChange={handleChange(name, setFieldValue, setFieldTouched)}
-    onFocus={onFocus}
-    onBlur={onBlur}
-    disabled={disabled}
-  />
-)
+}) => {
+  const [handleChangeRaw, handleChange] = useDatepicker(setFieldValue, setFieldTouched, name)
+
+  return (
+    <DatePickerCmp
+      {...rest}
+      id={name}
+      name={name}
+      selected={getIn(values, name) ? new Date(getIn(values, name)) : null}
+      placeholderText={placeholder}
+      dateFormat={dateFormat}
+      disabledKeyboardNavigation
+      onChangeRaw={handleChangeRaw}
+      onChange={handleChange}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      disabled={disabled}
+    />
+  )
+}
 
 Datepicker.propTypes = {
   /** @ignore */
