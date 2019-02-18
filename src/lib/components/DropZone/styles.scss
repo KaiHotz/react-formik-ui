@@ -16,9 +16,9 @@ form {
             flex-flow: row wrap;
             padding: 10px 10px 0;
             box-sizing: border-box;
-            border: 2px dashed $border;
+            border: 1px solid currentColor;
             &--isActive {
-              border: 2px dotted $hover;
+              border: 1px dashed currentColor;
             }
             &--isDisabled {
               background-color: $white;
