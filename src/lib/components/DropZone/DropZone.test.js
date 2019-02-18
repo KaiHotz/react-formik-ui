@@ -41,7 +41,7 @@ describe('<DropZone />', () => {
     const wrapper = mount(<WrappedComponent {...baseProps} disabled />)
 
     expect(wrapper.find('label').hasClass('isDisabled')).toBe(true)
-    expect(wrapper.find('input').prop('disabled')).toBe(true)
+    expect(wrapper.find('.dropzone').hasClass('dropzone--isDisabled')).toBe(true)
   })
 
   it('should have a label', () => {

@@ -9,14 +9,22 @@ form {
             display: block;
             margin-bottom: 6px;
           }
-          > div {
+          .dropzone {
             width: 100% !important;
             height: auto !important;
-            min-height: 142px;
             display: flex;
             flex-flow: row wrap;
             padding: 10px 10px 0;
             box-sizing: border-box;
+            border: 2px dashed $border;
+            &--isActive {
+              border: 2px dotted $hover;
+            }
+            &--isDisabled {
+              background-color: $white;
+              opacity: 0.2;
+              color: $hint;
+            }
             img {
               max-height: 130px;
               margin: 0 8px 8px 0;
@@ -113,13 +121,6 @@ form {
                   opacity: 1;
                 }
               }
-            }
-          }
-          &.isDisabled {
-            > div {
-              background-color: $hover;
-              opacity: 0.2;
-              color: $hint;
             }
           }
         }

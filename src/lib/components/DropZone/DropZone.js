@@ -1,5 +1,6 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 import Dropzone from 'react-dropzone'
 import useLabel from '../useLabel'
 import './styles.scss'
@@ -17,7 +18,6 @@ export const DropZone = ({
   ...rest
 }) => {
   const onDrop = acceptedFiles => {
-    if (acceptedFiles.length === 0) { return }
     setFieldValue(name, values[name].concat(acceptedFiles))
     setFieldTouched(name, true)
   }
@@ -29,44 +29,45 @@ export const DropZone = ({
       disabled={disabled}
       onDrop={onDrop}
     >
-      {
-        ({ isDragActive, acceptedFiles, rejectedFiles }) => {
-          if (disabled) { return disabledText }
-          if (isDragActive) { return zoneActiveText }
-
-          return acceptedFiles.length || rejectedFiles.length
-            ? (
-              <Fragment>
-                {
-                  values[name].map(file => {
-                    if (file.type.includes('image')) {
-                      return (
-                        <img
-                          key={file.name}
-                          src={URL.createObjectURL(file)}
-                          className="img-thumbnail"
-                          alt={file.name}
-                        />
-                      )
-                    }
-
+      {({
+        getRootProps, getInputProps, isDragActive, acceptedFiles, rejectedFiles,
+      }) => (
+        <div
+          {...getRootProps()}
+          className={cx('dropzone', { 'dropzone--isActive': isDragActive, 'dropzone--isDisabled': disabled })}
+        >
+          <input {...getInputProps()} />
+          {
+            (acceptedFiles.length || rejectedFiles.length)
+              ? (
+                values[name].map(file => {
+                  if (file.type.includes('image')) {
                     return (
-                      <div key={file.name} className="icon-wrapper">
-                        <div className="icon">
-                          <i title={file.name.split('.').pop()} />
-                        </div>
-                        <p>{file.name.split('.').shift()}</p>
-                      </div>
+                      <img
+                        key={file.name}
+                        src={URL.createObjectURL(file)}
+                        className="img-thumbnail"
+                        alt={file.name}
+                      />
                     )
-                  })
-                }
-                <div className="fileInfo">
-                  {`Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`}
-                </div>
-              </Fragment>
-            ) : placeholder
-        }
-      }
+                  }
+
+                  return (
+                    <div key={file.name} className="icon-wrapper">
+                      <div className="icon">
+                        <i title={file.name.split('.').pop()} />
+                      </div>
+                      <p>{file.name.split('.').shift()}</p>
+                    </div>
+                  )
+                })
+              ) : placeholder
+          }
+          <div className="fileInfo">
+            {disabled ? disabledText : `Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`}
+          </div>
+        </div>
+      )}
     </Dropzone>
   )
 }
