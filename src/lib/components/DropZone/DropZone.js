@@ -38,31 +38,31 @@ export const DropZone = ({
         >
           <input {...getInputProps()} />
           {
-            (acceptedFiles.length || rejectedFiles.length)
-              ? (
-                values[name].map(file => {
-                  if (file.type.includes('image')) {
-                    return (
-                      <img
-                        key={file.name}
-                        src={URL.createObjectURL(file)}
-                        className="img-thumbnail"
-                        alt={file.name}
-                      />
-                    )
-                  }
+              (acceptedFiles.length || rejectedFiles.length)
+                ? (
+                  values[name].map(file => {
+                    if (file.type.includes('image')) {
+                      return (
+                        <img
+                          key={file.name}
+                          src={URL.createObjectURL(file)}
+                          className="img-thumbnail"
+                          alt={file.name}
+                        />
+                      )
+                    }
 
-                  return (
-                    <div key={file.name} className="icon-wrapper">
-                      <div className="icon">
-                        <i title={file.name.split('.').pop()} />
+                    return (
+                      <div key={file.name} className="icon-wrapper">
+                        <div className="icon">
+                          <i title={file.name.split('.').pop()} />
+                        </div>
+                        <p>{file.name.split('.').shift()}</p>
                       </div>
-                      <p>{file.name.split('.').shift()}</p>
-                    </div>
-                  )
-                })
-              ) : placeholder
-          }
+                    )
+                  })
+                ) : isDragActive ? zoneActiveText : placeholder
+            }
           <div className="fileInfo">
             {disabled ? disabledText : `Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`}
           </div>
