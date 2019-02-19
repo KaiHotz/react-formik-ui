@@ -1,4 +1,4 @@
-import { format, isValid } from 'date-fns'
+import { isValid } from 'date-fns'
 
 export const useDatepicker = (setFieldValue, setFieldTouched, name) => {
   const handleChangeRaw = e => {
@@ -15,8 +15,11 @@ export const useDatepicker = (setFieldValue, setFieldTouched, name) => {
   }
 
   const handleChange = date => {
-    setFieldValue(name, format(date, 'yyyy-MM-dd hh:mm a'))
-    setFieldTouched(name, true)
+    const dateInstance = new Date(date)
+    if (isValid(dateInstance)) {
+      setFieldValue(name, dateInstance)
+      setFieldTouched(name, true)
+    }
   }
 
   return [

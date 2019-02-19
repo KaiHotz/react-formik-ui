@@ -74,7 +74,7 @@ Datepicker.defaultProps = {
   style: null,
   label: null,
   hint: null,
-  dateFormat: 'dd.MM.yyyy',
+  dateFormat: 'dd/MM/yyyy',
   placeholder: null,
   required: false,
   disabled: false,
