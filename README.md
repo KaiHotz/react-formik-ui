@@ -152,7 +152,7 @@ class Example extends Component {
         validationSchema={ /* validation schema setup */ }
         onSubmit={this.onSubmit}
         render={() => (
-          <Form styled>
+          <Form structured>
 
           </Form>
         )}
@@ -270,7 +270,7 @@ class Example extends Component {
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
         render={() => (
-          <Form styled>
+          <Form structured>
 
            <Autocomplete
               label='Search'
@@ -430,7 +430,7 @@ class Example extends Component {
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
         render={() => (
-          <Form styled>
+          <Form structured>
 
             <Input
               name='nameField'
@@ -556,7 +556,7 @@ class Example extends Component {
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
         render={() => (
-          <Form styled>
+          <Form structured>
 
             <Select
               name='dropdown'
@@ -679,7 +679,7 @@ class Example extends Component {
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
         render={() => (
-          <Form styled>
+          <Form structured>
 
             <Radio
               name='radioOptions'
@@ -801,7 +801,7 @@ class Example extends Component {
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
         render={() => (
-          <Form styled>
+          <Form structured>
 
             <Checkbox
               name='agreement'
@@ -919,7 +919,7 @@ class Example extends Component {
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
         render={() => (
-          <Form styled>
+          <Form structured>
 
             <Textarea
               name='comment'
@@ -1040,7 +1040,7 @@ class Example extends Component {
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
         render={() => (
-          <Form styled>
+          <Form structured>
 
             <Datepicker
               name='birthday'
@@ -1174,7 +1174,7 @@ class Example extends Component {
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
         render={() => (
-          <Form styled>
+          <Form structured>
 
               <DropZone
                 name='files'
@@ -1257,7 +1257,7 @@ class Example extends Component {
         validationSchema={ /* validation schema setup */ }
         onSubmit={this.onSubmit}
         render={() => (
-          <Form styled>
+          <Form structured>
 
             <Button onClick={(() => alert('Cancel'))}>
               Cancel
@@ -1343,7 +1343,7 @@ class Example extends Component {
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
         render={() => (
-          <Form styled>
+          <Form structured>
 
             <Toggle name='toggleBtn'/>
 
@@ -1419,7 +1419,7 @@ class Example extends Component {
         validationSchema={ /* validation schema setup */ }
         onSubmit={this.onSubmit}
         render={() => (
-          <Form styled>
+          <Form structured>
 
             <SubmitBtn />
 
