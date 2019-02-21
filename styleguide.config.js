@@ -9,7 +9,7 @@ module.exports = {
   title: `React Formik UI v${pkg.version}`,
   components: 'src/lib/components/**/[A-Z]*.js',
   moduleAliases: {
-    'react-formik-ui': path.resolve(__dirname, 'src/lib'),
+    [pkg.name]: path.resolve(__dirname, 'src/lib'),
   },
   ribbon: {
     url: 'https://github.com/KaiHotz/react-formik-ui',
@@ -71,7 +71,7 @@ module.exports = {
   getComponentPathLine(componentPath) {
     const name = path.basename(componentPath, '.js')
 
-    return `import { ${name} } from 'react-formik-ui';`
+    return `import { ${name} } from ${pkg.name};`
   },
   require: [
     path.resolve(__dirname, 'styleguide/assets/globals.js'),
