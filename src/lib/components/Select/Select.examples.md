@@ -1,5 +1,8 @@
 ##### Default
 ```jsx
+import { Formik } from 'formik'
+import { Form, Select } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     selectExample1: ''
@@ -26,6 +29,9 @@
 
 ##### Structured
 ```jsx
+import { Formik } from 'formik'
+import { Form, Select } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     selectExample2: ''
@@ -53,6 +59,9 @@
 
 ##### Themed
 ```jsx
+import { Formik } from 'formik'
+import { Form, Select } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     selectExample3: ''
@@ -80,6 +89,9 @@
 
 ##### Themed and disabled
 ```jsx
+import { Formik } from 'formik'
+import { Form, Select } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     selectExample4: '1'

@@ -1,5 +1,8 @@
 ##### Default / Structured / Themed
 ```jsx
+import { Formik } from 'formik'
+import { Form, DropZone } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     files: []
@@ -22,6 +25,9 @@
 
 ##### Disabled
 ```jsx
+import { Formik } from 'formik'
+import { Form, DropZone } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     files: []

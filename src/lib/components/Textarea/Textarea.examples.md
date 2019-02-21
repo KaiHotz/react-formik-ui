@@ -1,5 +1,8 @@
 ##### Default
 ```jsx
+import { Formik } from 'formik'
+import { Form, Textarea } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     textAreaExample1: ''
@@ -20,6 +23,9 @@
 
 ##### Structured
 ```jsx
+import { Formik } from 'formik'
+import { Form, Textarea } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     textAreaExample2: ''
@@ -40,6 +46,9 @@
 
 ##### Themed
 ```jsx
+import { Formik } from 'formik'
+import { Form, Textarea } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     textAreaExample3: ''
@@ -60,6 +69,9 @@
 
 ##### Themed with placeholder
 ```jsx
+import { Formik } from 'formik'
+import { Form, Textarea } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     textAreaExample3: ''
@@ -82,6 +94,9 @@
 
 ##### Themed and disabled
 ```jsx
+import { Formik } from 'formik'
+import { Form, Textarea } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     textAreaExample3: ''
@@ -104,6 +119,9 @@
 
 ##### Themed disabled with text
 ```jsx
+import { Formik } from 'formik'
+import { Form, Textarea } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     textAreaExample4: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'

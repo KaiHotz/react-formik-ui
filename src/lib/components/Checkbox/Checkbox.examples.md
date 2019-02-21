@@ -1,5 +1,8 @@
 ##### Default
 ```jsx
+import { Formik } from 'formik'
+import { Form, Checkbox } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     checkboxExample1: false
@@ -22,6 +25,9 @@
 ```
 ##### Structured
 ```jsx
+import { Formik } from 'formik'
+import { Form, Checkbox } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     checkboxExample2: false
@@ -44,6 +50,9 @@
 
 ##### Themed
 ```jsx
+import { Formik } from 'formik'
+import { Form, Checkbox } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     checkboxExample3: false
@@ -65,6 +74,9 @@
 
 ##### Themed and disabled
 ```jsx
+import { Formik } from 'formik'
+import { Form, Checkbox } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     checkboxExample4: false
@@ -88,6 +100,9 @@
 
 ##### Themed disabled and checked
 ```jsx
+import { Formik } from 'formik'
+import { Form, Checkbox } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     checkboxExample5: true

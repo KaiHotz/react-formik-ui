@@ -1,7 +1,7 @@
 {
   "name": "react-formik-ui",
   "author": "Kai Hotz",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "Plain form components for make use of formik even easier",
   "license": "MIT",
   "repository": {
@@ -69,7 +69,7 @@
     "eslint-plugin-jest": "^22.3.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
-    "eslint-plugin-react-hooks": "^1.1.0",
+    "eslint-plugin-react-hooks": "^1.2.0",
     "eslint-watch": "^4.0.2",
     "formik": "^1.5.1",
     "gh-pages": "^2.0.1",
@@ -83,7 +83,7 @@
     "react": "^16.8.3",
     "react-app-polyfill": "^0.2.1",
     "react-dom": "^16.8.3",
-    "react-styleguidist": "^8.0.6",
+    "react-styleguidist": "^9.0.0",
     "react-test-renderer": "^16.8.3",
     "rollup": "^1.2.2",
     "rollup-plugin-babel": "^4.3.2",

@@ -1,5 +1,8 @@
 ##### Default
 ```jsx
+import { Formik } from 'formik'
+import { Form, Input, SubmitBtn } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     textFieldExample1: ''
@@ -22,6 +25,8 @@
 
 ##### Structured
 ```jsx
+import { Formik } from 'formik'
+import { Form, Input, SubmitBtn } from 'react-formik-ui';
 
 <Formik
   initialValues={{
@@ -44,6 +49,9 @@
 
 ##### Themed
 ```jsx
+import { Formik } from 'formik'
+import { Form, Input, SubmitBtn } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     textFieldExample3: ''
@@ -65,6 +73,9 @@
 
 ###### Themed with placeholder
 ```jsx
+import { Formik } from 'formik'
+import { Form, Input, SubmitBtn } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     textFieldExample4: ''
@@ -88,6 +99,9 @@
 
 ###### Themed and disabled
 ```jsx
+import { Formik } from 'formik'
+import { Form, Input, SubmitBtn } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     textFieldExample5: ''
