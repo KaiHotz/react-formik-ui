@@ -1,5 +1,8 @@
 ##### Default (no styling at all)
 ```jsx
+import { Formik } from 'formik'
+import { Form, Autocomplete } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     myAutocomplete1: ''
@@ -56,6 +59,9 @@
 
 ##### Structured
 ```jsx
+import { Formik } from 'formik'
+import { Form, Autocomplete } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     myAutocomplete2: ''
@@ -112,6 +118,9 @@
 
 #####  Themed
 ```jsx
+import { Formik } from 'formik'
+import { Form, Autocomplete } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     myAutocomplete3: ''

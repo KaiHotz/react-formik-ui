@@ -7,7 +7,10 @@ const pkg = require('./package.json')
 
 module.exports = {
   title: `React Formik UI v${pkg.version}`,
-  components: 'src/lib/components/**/*.{js,jsx,ts,tsx}',
+  components: 'src/lib/components/**/[A-Z]*.js',
+  moduleAliases: {
+    'react-formik-ui': path.resolve(__dirname, 'src/lib'),
+  },
   showSidebar: true,
   usageMode: 'collapse',
   skipComponentsWithoutExample: true,
@@ -49,6 +52,11 @@ module.exports = {
   ]),
   getExampleFilename(componentPath) {
     return componentPath.replace(/\.js?$/, '.examples.md')
+  },
+  getComponentPathLine(componentPath) {
+    const name = path.basename(componentPath, '.js')
+
+    return `import { ${name} } from 'react-formik-ui';`
   },
   require: [
     path.resolve(__dirname, 'styleguide/assets/globals.js'),

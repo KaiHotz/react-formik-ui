@@ -1,5 +1,9 @@
 #### Form Example structured
 ```jsx
+import { Formik } from 'formik'
+import * as yup from 'yup'
+import { Form, Radio, Input, Datepicker, Select, Toggle, DropZone, Textarea, Checkbox, SubmitBtn, Button } from 'react-formik-ui';
+
 const onSubmit = data => (alert(JSON.stringify(data)));
 
 const  getSchema = () => {
@@ -133,6 +137,10 @@ const  getSchema = () => {
 
 #### Form example Themed
 ```jsx
+import { Formik } from 'formik';
+import * as yup from 'yup';
+import { Form, Radio, Input, Datepicker, Select, Toggle, DropZone, Textarea, Checkbox, SubmitBtn, Button } from 'react-formik-ui';
+
 const onSubmit = data => (alert(JSON.stringify(data)));
 
 const  getSchema = () => {

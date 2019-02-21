@@ -1,5 +1,8 @@
 ##### Default
 ```jsx
+import { Formik } from 'formik'
+import { Form, Radio } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     radioExample1: '2'
@@ -25,6 +28,9 @@
 
 ##### Default inline
 ```jsx
+import { Formik } from 'formik'
+import { Form, Radio } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     radioExample2: '2'
@@ -52,6 +58,9 @@
 
 ##### Structured
 ```jsx
+import { Formik } from 'formik'
+import { Form, Radio } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     radioExample3: '2'
@@ -78,6 +87,9 @@
 
 ##### Structured inline
 ```jsx
+import { Formik } from 'formik'
+import { Form, Radio } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     radioExample4: '2'
@@ -105,6 +117,9 @@
 
 ##### Themed
 ```jsx
+import { Formik } from 'formik'
+import { Form, Radio } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     radioExample5: '2'
@@ -130,6 +145,9 @@
 
 ##### Themed inline
 ```jsx
+import { Formik } from 'formik'
+import { Form, Radio } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     radioExample6: '2'
@@ -156,6 +174,9 @@
 
 ##### Themed and disabled
 ```jsx
+import { Formik } from 'formik'
+import { Form, Radio } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     radioExample7: '2'

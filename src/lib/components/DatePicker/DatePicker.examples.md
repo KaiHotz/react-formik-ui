@@ -1,6 +1,9 @@
 See [ReaJS Datepicker documentation](https://github.com/Hacker0x01/react-datepicker/blob/master/docs/datepicker.md) for a list of additional props and configurations
 ##### Default
 ```jsx
+import { Formik } from 'formik'
+import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     dateExample1: ''
@@ -21,6 +24,9 @@ See [ReaJS Datepicker documentation](https://github.com/Hacker0x01/react-datepic
 
 ##### Structured
 ```jsx
+import { Formik } from 'formik'
+import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     dateExample2: ''
@@ -41,6 +47,9 @@ See [ReaJS Datepicker documentation](https://github.com/Hacker0x01/react-datepic
 
 ##### Themed
 ```jsx
+import { Formik } from 'formik'
+import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     dateExample3: ''
@@ -61,6 +70,9 @@ See [ReaJS Datepicker documentation](https://github.com/Hacker0x01/react-datepic
 
 ##### Themed with placeholder
 ```jsx
+import { Formik } from 'formik'
+import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     dateExample4: ''
@@ -83,6 +95,8 @@ See [ReaJS Datepicker documentation](https://github.com/Hacker0x01/react-datepic
 
 ##### Themed with time picker
 ```jsx
+import { Formik } from 'formik'
+import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
 
 <Formik
   initialValues={{
@@ -111,6 +125,9 @@ See [ReaJS Datepicker documentation](https://github.com/Hacker0x01/react-datepic
 
 ##### Themed and disabled
 ```jsx
+import { Formik } from 'formik'
+import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     dateExample6: ''
@@ -132,6 +149,9 @@ See [ReaJS Datepicker documentation](https://github.com/Hacker0x01/react-datepic
 
 ##### Themed disabled with placeholder
 ```jsx
+import { Formik } from 'formik'
+import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
+
 <Formik
   initialValues={{
     dateExample7: ''
