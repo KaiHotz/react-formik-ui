@@ -11,12 +11,16 @@ module.exports = {
   moduleAliases: {
     'react-formik-ui': path.resolve(__dirname, 'src/lib'),
   },
+  ribbon: {
+    url: 'https://github.com/KaiHotz/react-formik-ui',
+    text: 'Fork me on GitHub',
+  },
   showSidebar: true,
-  usageMode: 'collapse',
+  usageMode: 'expand',
   skipComponentsWithoutExample: true,
   theme: {
     color: {
-      link: '#1978c8',
+      link: '#065fd4',
       linkHover: '#00adef',
     },
     font: ['Helvetica', 'sans-serif'],
@@ -25,6 +29,17 @@ module.exports = {
     Heading: {
       heading2: {
         fontSize: 26,
+      },
+    },
+    Ribbon: {
+      root: {
+        backgroundImage: 'url("https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png")',
+        backgroundSize: '50px 50px',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'right top',
+      },
+      link: {
+        backgroundColor: '#065fd4',
       },
     },
     ReactComponent: {
