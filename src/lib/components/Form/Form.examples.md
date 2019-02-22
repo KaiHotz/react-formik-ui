@@ -102,7 +102,7 @@ const  getSchema = () => {
 
           <div style={{marginBottom: '15px'}}>
             <div style={{marginBottom: '10px'}}>
-              {`Do you have a drivers license ? ${values.driverLicense ? 'Yes' : 'No'}`}
+              {`Do you have a drivers license ? ${values.driverLicenseExample ? 'Yes' : 'No'}`}
             </div>
             <Toggle name='driverLicenseExample' />
           </div>
