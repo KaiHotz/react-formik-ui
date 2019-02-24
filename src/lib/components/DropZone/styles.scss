@@ -14,7 +14,7 @@ form {
             height: auto !important;
             display: flex;
             flex-flow: row wrap;
-            padding: 10px 10px 0;
+            padding: 10px;
             box-sizing: border-box;
             border: 1px solid currentColor;
             &--isActive {
@@ -112,7 +112,6 @@ form {
               text-align: left;
               border-top: 1px solid $white;
               padding-top: 10px;
-              margin-bottom: 10px;
             }
             &:hover {
               img {

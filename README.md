@@ -952,6 +952,12 @@ You can then pass the desired configuration as props just like you would on Reac
     <th>Description</th>
   </tr>
   <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets an Id for the Datepicker, if not passed, the id will be the name</td>
+  </tr>
+  <tr>
     <td>className</td>
     <td>string</td>
     <td>null</td>
@@ -1080,6 +1086,18 @@ For aditional configuration options and layouts, please refere to [react-dropzon
     </td>
   </tr>
   <tr>
+    <td>name</td>
+    <td>string</td>
+    <td>Required</td>
+    <td>Sets the Name of the DropZone Field</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets an Id for the DropZone Field, if not passed, the id will be the name</td>
+  </tr>
+  <tr>
     <td>className</td>
     <td>string</td>
     <td>null</td>
@@ -1104,6 +1122,12 @@ For aditional configuration options and layouts, please refere to [react-dropzon
     <td>text shown as placeholder if DropZone is disabled</td>
   </tr>
   <tr>
+    <td>fileInfo</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Shows the number of accepted and rejected files after each drop</td>
+  </tr>
+  <tr>
     <td>hint</td>
     <td>string</td>
     <td>null</td>
@@ -1114,12 +1138,6 @@ For aditional configuration options and layouts, please refere to [react-dropzon
     <td>string</td>
     <td>null</td>
     <td>Sets the main Label for the DropZone Field</td>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>string</td>
-    <td>Required</td>
-    <td>Sets the Name of the DropZone Field</td>
   </tr>
   <tr>
     <td>placeholder</td>
@@ -1283,6 +1301,12 @@ A custom class can be passed through the `className` prop.</br>
     <th>Type</th>
     <th>Default</th>
     <th>Description</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets an Id for the Toggle button, if not passed, the id will be the name</td>
   </tr>
   <tr>
     <td>className</td>

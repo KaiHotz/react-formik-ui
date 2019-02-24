@@ -10,9 +10,11 @@ export const DropZone = ({
     values, setFieldValue, setFieldTouched,
   },
   disabled,
+  id,
   name,
   accept,
   zoneActiveText,
+  fileInfo,
   disabledText,
   placeholder,
   ...rest
@@ -25,6 +27,8 @@ export const DropZone = ({
   return (
     <Dropzone
       {...rest}
+      id={id || name}
+      name={name}
       accept={accept}
       disabled={disabled}
       onDrop={onDrop}
@@ -36,36 +40,45 @@ export const DropZone = ({
           {...getRootProps()}
           className={cx('dropzone', { 'dropzone--isActive': isDragActive, 'dropzone--isDisabled': disabled })}
         >
+          {
+            disabled && (<p className="disabledText">{disabledText}</p>)
+          }
           <input {...getInputProps()} />
           {
-              (acceptedFiles.length || rejectedFiles.length)
-                ? (
-                  values[name].map(file => {
-                    if (file.type.includes('image')) {
-                      return (
-                        <img
-                          key={file.name}
-                          src={URL.createObjectURL(file)}
-                          className="img-thumbnail"
-                          alt={file.name}
-                        />
-                      )
-                    }
-
+            (acceptedFiles.length || rejectedFiles.length)
+              ? (
+                values[name].map(file => {
+                  if (file.type.includes('image')) {
                     return (
-                      <div key={file.name} className="icon-wrapper">
-                        <div className="icon">
-                          <i title={file.name.split('.').pop()} />
-                        </div>
-                        <p>{file.name.split('.').shift()}</p>
-                      </div>
+                      <img
+                        key={file.name}
+                        src={URL.createObjectURL(file)}
+                        className="img-thumbnail"
+                        alt={file.name}
+                      />
                     )
-                  })
-                ) : isDragActive ? zoneActiveText : placeholder
-            }
-          <div className="fileInfo">
-            {disabled ? disabledText : `Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`}
-          </div>
+                  }
+
+                  return (
+                    <div key={file.name} className="icon-wrapper">
+                      <div className="icon">
+                        <i title={file.name.split('.').pop()} />
+                      </div>
+                      <p>{file.name.split('.').shift()}</p>
+                    </div>
+                  )
+                })
+              ) : isDragActive
+                ? <p className="zoneActiveText">{zoneActiveText}</p>
+                : <p className="placeholder">{placeholder}</p>
+          }
+          {
+            fileInfo && (
+              <div className="fileInfo">
+                {`Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`}
+              </div>
+            )
+          }
         </div>
       )}
     </Dropzone>
@@ -81,6 +94,7 @@ DropZone.propTypes = {
   style: PropTypes.instanceOf(Object),
   /** Disables the DropZone Field */
   disabled: PropTypes.bool,
+  /** Sets an Id for the Dropzone, if not passed, the id will be the name */
   id: PropTypes.string,
   /** Sets the Name of the DropZone Field */
   name: PropTypes.string.isRequired,
@@ -90,6 +104,8 @@ DropZone.propTypes = {
   label: PropTypes.string,
   /** Sets the text to be shown when draging files over the drop zone */
   zoneActiveText: PropTypes.string,
+  /** Shows the number of accepted and rejected files after each drop */
+  fileInfo: PropTypes.bool,
   /** text shown as placeholder if DropZone is disabled  */
   disabledText: PropTypes.string,
   /** Sets the Placeholder text */
@@ -108,6 +124,7 @@ DropZone.defaultProps = {
   accept: null,
   label: null,
   zoneActiveText: 'Drop file(s) here',
+  fileInfo: false,
   disabledText: 'File upload disabled',
   placeholder: 'Dropp some files here.',
   hint: null,

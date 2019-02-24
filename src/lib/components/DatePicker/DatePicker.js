@@ -14,6 +14,7 @@ export const Datepicker = ({
   dateFormat,
   disabled,
   name,
+  id,
   placeholder,
   onFocus,
   onBlur,
@@ -24,7 +25,7 @@ export const Datepicker = ({
   return (
     <DatePickerCmp
       {...rest}
-      id={name}
+      id={id || name}
       name={name}
       selected={getIn(values, name) ? new Date(getIn(values, name)) : null}
       placeholderText={placeholder}
@@ -48,6 +49,8 @@ Datepicker.propTypes = {
   onBlur: PropTypes.func.isRequired,
   /** Sets the Name of the Datepicker Field */
   name: PropTypes.string.isRequired,
+  /** Sets an Id for the Datepicker, if not passed, the id will be the name */
+  id: PropTypes.string,
   /** Adds a custom class to the Datepicker wrapper div */
   className: PropTypes.string,
   /** Adds a custom inline styles to the Datepicker wrapper div */
@@ -70,6 +73,7 @@ Datepicker.propTypes = {
 }
 
 Datepicker.defaultProps = {
+  id: null,
   className: null,
   style: null,
   label: null,

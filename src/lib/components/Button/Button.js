@@ -11,11 +11,11 @@ const Button = ({
   ...rest
 }) => (
   <button
+    {...rest}
     className={cx('form-element btn', className, { isDisabled: disabled })}
     onClick={onClick}
     type={type}
     disabled={disabled}
-    {...rest}
   >
     {children}
   </button>

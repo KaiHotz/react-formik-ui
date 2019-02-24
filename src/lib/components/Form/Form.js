@@ -13,9 +13,9 @@ export const Form = ({
   ...rest
 }) => (
   <form
+    {...rest}
     className={cx('react-formik-ui form-wrapper', { 'with-theme': themed, 'with-structure': structured }, className)}
     onSubmit={formik.handleSubmit}
-    {...rest}
   >
     {children}
   </form>
