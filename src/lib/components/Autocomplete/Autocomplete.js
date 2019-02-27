@@ -42,7 +42,7 @@ export const Autocomplete = ({
         showSuggestions && !!getIn(values, name) && (
           <ul className="suggestions">
             {
-              filteredSuggestions ?.map((suggestion, index) => {
+              filteredSuggestions?.map((suggestion, index) => {
                 const sugetionItem = (
                   <li
                     className={cx({ 'suggestion-active': index === activeSuggestion })}

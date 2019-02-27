@@ -31,6 +31,7 @@ export const Datepicker = ({
       placeholderText={placeholder}
       dateFormat={dateFormat}
       disabledKeyboardNavigation
+      autoComplete="off"
       onChangeRaw={handleChangeRaw}
       onChange={handleChange}
       onFocus={onFocus}
