@@ -88,6 +88,7 @@ npm install --save yup
 - [Form](#form)
 - [Autocomplete](#autocomplete)
 - [Input](#input)
+- [PhoneInput](#phoneinput)
 - [Select](#select)
 - [Radio](#radio)
 - [Checkbox](#checkbox)
@@ -453,6 +454,134 @@ class Example extends Component {
     )
   }
 }
+```
+
+## PhoneInput
+The PhoneInput component renders with the classNames `form-element` and `phoneInput-wrapper`.</br>
+A custom class can be passed through the `className` prop.
+
+#### Props:
+<table style="font-size: 12px">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>string</td>
+    <td>Required</td>
+    <td>Sets the Name of the Input Field</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets an Id for the Input Field, if not passed, the id will be the name</td>
+  </tr>
+  <tr>
+    <td>label</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets the main Label for the Input Field</td>
+  </tr>
+  <tr>
+    <td>hint</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets a hint text after/below the Input Field</td>
+  </tr>
+  <tr>
+    <td>buttonFlagStyles</td>
+    <td>object</td>
+    <td>null</td>
+    <td>Style object that overrides the styles of the Flag shown in the button</td>
+  </tr>
+  <tr>
+    <td>className</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Adds a custom class to the PhoneInput wrapper div</td>
+  </tr>
+  <tr>
+    <td>defaultCountry</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets the default country</td>
+  </tr>
+  <tr>
+    <td>disabled</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Disables the PhoneInput Field</td>
+  </tr>
+  <tr>
+    <td>required</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
+  </tr>
+  <tr>
+    <td>format</td>
+    <td>string</td>
+    <td>'INTERNATIONAL'</td>
+    <td>Sets the format of the entered  phone number, in case of 'NATIONAL' the defaultCountry must be set</td>
+  </tr>
+  <tr>
+    <td>listFlagStyles</td>
+    <td>object</td>
+    <td>null</td>
+    <td>Style object that overrides the styles of the Flag shown in the country dropdown</td>
+  </tr>
+  <tr>
+    <td>placeholder</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Sets the Placeholder text</td>
+  </tr>
+  <tr>
+    <td>preferredCountries</td>
+    <td>Array</td>
+    <td>null</td>
+    <td>Lets you restrict the country dropdown to a specific list of countries</td>
+  </tr>
+  <tr>
+    <td>regions</td>
+    <td>String / Array</td>
+    <td>[]</td>
+    <td>Lets you restrict the country dropdown to a list of countries in the specified regions</td>
+  </tr>
+  <tr>
+    <td>style</td>
+    <td>object</td>
+    <td>null</td>
+    <td>Adds a custom inline styles to the Autocomplete wrapper div</td>
+  </tr>
+</table>
+
+#### [Demo](https://kaihotz.github.io/react-formik-ui/#phoneinput)
+
+```jsx
+import { Formik } from 'formik'
+import { Form, PhoneInput } from 'react-formik-ui';
+
+<Formik
+  initialValues={{
+    phoneNr1: ''
+  }}
+  onSubmit={data => (alert(JSON.stringify(data)))}
+  render={() => (
+    <Form>
+      <PhoneInput
+        name='phoneNr1'
+        label='Phone Nr.'
+        placeholder='+1 702 123 4567'
+        hint='This is a hint'
+      />
+    </Form>
+  )}
+/>
 ```
 
 ## Select

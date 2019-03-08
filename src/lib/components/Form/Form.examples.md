@@ -2,7 +2,7 @@
 ```jsx
 import { Formik } from 'formik'
 import * as yup from 'yup'
-import { Form, Radio, Input, Datepicker, Select, Toggle, DropZone, Textarea, Checkbox, SubmitBtn, Button } from 'react-formik-ui';
+import { Form, Radio, Input, PhoneInput, Datepicker, Select, Toggle, DropZone, Textarea, Checkbox, SubmitBtn, Button } from 'react-formik-ui';
 
 const onSubmit = data => (alert(JSON.stringify(data)));
 
@@ -19,6 +19,9 @@ const  getSchema = () => {
       .required('Email is required'),
     birthDayExample: yup
        .date(),
+    phoneNr1: yup
+      .string()
+      .required('Phone Nr. is required'),
     maritalStatusExample: yup
       .string()
       .nullable(),
@@ -41,6 +44,7 @@ const  getSchema = () => {
     nameExample: '',
     emailExample: '',
     birthDayExample: '',
+    phoneNr1: '',
     maritalStatusExample: '',
     driverLicenseExample: false,
     petsExample: false,
@@ -86,6 +90,14 @@ const  getSchema = () => {
             dateFormat='dd.MM.yyyy'
             placeholder='dd.mm.yyyy'
             hint='Please enter your birth date'
+          />
+
+          <PhoneInput
+            name='phoneNr1'
+            label='Phone Nr.'
+            placeholder='+1 702 123 4567'
+            hint='This is a hint'
+            required
           />
 
           <Select
@@ -139,7 +151,7 @@ const  getSchema = () => {
 ```jsx
 import { Formik } from 'formik';
 import * as yup from 'yup';
-import { Form, Radio, Input, Datepicker, Select, Toggle, DropZone, Textarea, Checkbox, SubmitBtn, Button } from 'react-formik-ui';
+import { Form, Radio, Input, PhoneInput, Datepicker, Select, Toggle, DropZone, Textarea, Checkbox, SubmitBtn, Button } from 'react-formik-ui';
 
 const onSubmit = data => (alert(JSON.stringify(data)));
 
@@ -163,6 +175,9 @@ const  getSchema = () => {
       .nullable(),
     driverLicense: yup
       .boolean(),
+    phoneNr2: yup
+      .string()
+      .required('Phone Nr. is required'),
     files: yup
       .array(),
     additionalInfo: yup
@@ -180,6 +195,7 @@ const  getSchema = () => {
     birthDay: '',
     title: '',
     driverLicense: false,
+    phoneNr2: '',
     files: [],
     additionalInfo: '',
     termsAndConitions: false,
@@ -254,6 +270,16 @@ const  getSchema = () => {
               </div>
               <Toggle name='driverLicense' style={{display: 'flex', justifyContent: 'center'}}/>
             </div>
+          </div>
+
+          <div style={{padding: '0 10px'}}>
+            <PhoneInput
+              name='phoneNr2'
+              label='Phone Nr.'
+              placeholder='+1 702 123 4567'
+              hint='This is a hint'
+              required
+            />
           </div>
 
           <div style={{padding: '0 10px'}}>
