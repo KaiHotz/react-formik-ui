@@ -1,3 +1,4 @@
+/*eslint-disable */
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
@@ -44,8 +45,8 @@ export const useLabel = (component = 'input') => WrappedComponent => {
     const hide = hideLabel || !!value || !!placeholder || !!(disabled && value)
     const hidden = type && type === 'hidden'
     const errorMsg = touch && error ? error : null
+    const moveLabel = component === 'phoneInput' && format === 'INTERNATIONAL'
     const passableProps = omit(props, ['className', 'hint', 'label', 'style'])
-    const moveLabel = format === 'INTERNATIONAL'
 
     return (
       <div className={cx('form-element', `${component}-wrapper`, className, { hidden })} style={style}>
@@ -100,7 +101,7 @@ export const useLabel = (component = 'input') => WrappedComponent => {
     disabled: false,
     required: false,
     style: null,
-    format: 'INTERNATIONAL',
+    format: 'INTERNATIONAL'
   }
 
   return connect(useLabel)
