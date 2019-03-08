@@ -40,7 +40,8 @@ form {
         &.input-wrapper,
         &.datePicker-wrapper,
         &.textarea-wrapper,
-        &.select-wrapper {
+        &.select-wrapper,
+        &.phoneInput-wrapper {
           > label {
             position: relative;
             display: flex;
@@ -75,6 +76,7 @@ form {
         }
         &.autocomplete-wrapper,
         &.input-wrapper,
+        &.phoneInput-wrapper,
         &.datePicker-wrapper,
         &.textarea-wrapper{
           > label {
@@ -91,9 +93,13 @@ form {
                 opacity: 0;
                 transition: opacity 0.25s ease-in-out;
               }
+              &.moveLabel {
+                left: 45px;
+              }
               &.hide {
                 font-size: 0.9em;
                 top: -5px;
+                left: 2px;
                 pointer-events: all;
                 & + input {
                   opacity: 1;

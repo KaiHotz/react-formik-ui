@@ -10,3 +10,5 @@ export { default as Select } from './components/Select'
 export { default as SubmitBtn } from './components/SubmitBtn'
 export { default as Textarea } from './components/Textarea'
 export { default as Toggle } from './components/Toggle'
+export { default as PhoneInput } from './components/PhoneInput'
+

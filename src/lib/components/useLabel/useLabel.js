@@ -35,6 +35,7 @@ export const useLabel = (component = 'input') => WrappedComponent => {
       disabled,
       required,
       style,
+      format,
     } = props
 
     const error = getIn(errors, name)
@@ -44,6 +45,7 @@ export const useLabel = (component = 'input') => WrappedComponent => {
     const hidden = type && type === 'hidden'
     const errorMsg = touch && error ? error : null
     const passableProps = omit(props, ['className', 'hint', 'label', 'style'])
+    const moveLabel = format === 'INTERNATIONAL'
 
     return (
       <div className={cx('form-element', `${component}-wrapper`, className, { hidden })} style={style}>
@@ -53,7 +55,7 @@ export const useLabel = (component = 'input') => WrappedComponent => {
         >
           {
             label && (
-              <span className={cx({ hide })}>
+              <span className={cx({ hide, moveLabel })}>
                 {`${label}${required ? ' *' : ''}`}
               </span>
             )
@@ -86,6 +88,7 @@ export const useLabel = (component = 'input') => WrappedComponent => {
     disabled: PropTypes.bool,
     required: PropTypes.bool,
     style: PropTypes.instanceOf(Object),
+    format: PropTypes.string,
   }
 
   useLabel.defaultProps = {
@@ -97,6 +100,7 @@ export const useLabel = (component = 'input') => WrappedComponent => {
     disabled: false,
     required: false,
     style: null,
+    format: 'INTERNATIONAL',
   }
 
   return connect(useLabel)
