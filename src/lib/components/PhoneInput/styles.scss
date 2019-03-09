@@ -9,12 +9,9 @@ form {
             .react-phonenr-input {
               padding-top: 3px;
               max-width: 100%;
-              button {
-                background-color: transparent;
+              div {
+                background-color: $white;
                 border: none;
-                span {
-                  position: absolute !important;
-                }
               }
               input {
                 outline: none;
