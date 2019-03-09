@@ -4,7 +4,7 @@ import { PhoneInput as PhoneNrInput } from 'react-phonenr-input'
 import useLabel from '../useLabel'
 import './styles.scss'
 
-const PhoneInput = ({
+export const PhoneInput = ({
   formik,
   id,
   name,
