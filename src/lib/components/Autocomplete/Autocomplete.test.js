@@ -47,7 +47,6 @@ describe('<Autocomplete />', () => {
     const wrapper = mount(<WrappedComponent {...baseProps} disabled />)
 
     expect(wrapper.find('input').prop('disabled')).toBe(true)
-    expect(wrapper.find('label').hasClass('isDisabled')).toBe(true)
   })
 
   it('should have a hint', () => {

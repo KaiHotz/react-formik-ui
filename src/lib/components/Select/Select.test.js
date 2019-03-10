@@ -49,7 +49,7 @@ describe('<Select />', () => {
     }
     const wrapper = mount(<WrappedComponent {...props} />)
 
-    expect(wrapper.find('label').length).toBe(1)
+    expect(wrapper.find('.label').length).toBe(1)
   })
 
   it('should have a placeholder', () => {
@@ -86,7 +86,6 @@ describe('<Select />', () => {
   it('should be disabled', () => {
     const wrapper = mount(<WrappedComponent {...baseProps} disabled />)
 
-    expect(wrapper.find('label').hasClass('isDisabled')).toBe(true)
     expect(wrapper.find('select').prop('disabled')).toBe(true)
   })
 

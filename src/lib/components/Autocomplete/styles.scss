@@ -34,7 +34,7 @@ form {
     }
     &.with-theme {
       .form-element {
-        &.autocomplete-wrapper {
+        .autocomplete-wrapper {
           .suggestions {
             position: absolute;
             top: 35px;

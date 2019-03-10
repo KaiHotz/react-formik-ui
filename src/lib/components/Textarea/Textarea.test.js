@@ -47,7 +47,7 @@ describe('<Textarea />', () => {
     }
     const wrapper = mount(<WrappedComponent {...props} readOnly />)
 
-    expect(wrapper.find('label').length).toBe(1)
+    expect(wrapper.find('.label').length).toBe(1)
   })
 
   it('should have a hint', () => {

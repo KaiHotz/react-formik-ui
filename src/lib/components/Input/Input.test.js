@@ -57,7 +57,7 @@ describe('<Input />', () => {
     }
     const wrapper = mount(<WrappedComponent {...props} />)
 
-    expect(wrapper.find('label').length).toBe(1)
+    expect(wrapper.find('.label').length).toBe(1)
   })
 
   it('should have a hint', () => {
@@ -74,7 +74,6 @@ describe('<Input />', () => {
   it('should be disabled', () => {
     const wrapper = mount(<WrappedComponent {...baseProps} disabled />)
 
-    expect(wrapper.find('label').hasClass('isDisabled')).toBe(true)
     expect(wrapper.find('input').prop('disabled')).toBe(true)
   })
 

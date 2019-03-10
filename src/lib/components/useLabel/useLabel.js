@@ -1,4 +1,3 @@
-/*eslint-disable */
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
@@ -49,14 +48,13 @@ export const useLabel = (component = 'input') => WrappedComponent => {
     const passableProps = omit(props, ['className', 'hint', 'label', 'style'])
 
     return (
-      <div className={cx('form-element', `${component}-wrapper`, className, { hidden })} style={style}>
-        <label
-          htmlFor={name}
-          className={cx({ isDisabled: disabled, hasError: !!errorMsg })}
+      <div className={cx('form-element', className, { hasError: !!errorMsg })} style={style}>
+        <div
+          className={cx(`${component}-wrapper`, { hidden, isDisabled: disabled })}
         >
           {
             label && (
-              <span className={cx({ hide, moveLabel })}>
+              <span className={cx('label', { hide, moveLabel })}>
                 {`${label}${required ? ' *' : ''}`}
               </span>
             )
@@ -67,7 +65,7 @@ export const useLabel = (component = 'input') => WrappedComponent => {
             onBlur={handleBlur}
             {...passableProps}
           />
-        </label>
+        </div>
         {
           !!errorMsg && (<InfoMsg errorMsg={errorMsg} />)
         }
@@ -101,7 +99,7 @@ export const useLabel = (component = 'input') => WrappedComponent => {
     disabled: false,
     required: false,
     style: null,
-    format: 'INTERNATIONAL'
+    format: 'INTERNATIONAL',
   }
 
   return connect(useLabel)

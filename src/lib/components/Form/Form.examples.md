@@ -205,7 +205,7 @@ const  getSchema = () => {
             />
           </div>
 
-          <div style={{display: 'flex', justifyContent: 'flex-start'}}>
+          <div style={{display: 'flex'}}>
             <Input
               style={{'width': '50%', padding: '0 10px'}}
               name='fullName'

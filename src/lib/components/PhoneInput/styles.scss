@@ -4,41 +4,39 @@ form {
   &.react-formik-ui {
     &.with-theme {
       .form-element {
-        &.phoneInput-wrapper {
-          > label {
-            .react-phonenr-input {
-              padding-top: 3px;
-              max-width: 100%;
-              div {
-                background-color: $white;
-                border: none;
+        .phoneInput-wrapper {
+          .react-phonenr-input {
+            padding-top: 3px;
+            max-width: 100%;
+            div {
+              background-color: $white;
+              border: none;
+            }
+            input {
+              outline: none;
+              font-size: 1em;
+              text-rendering: auto;
+              letter-spacing: normal;
+              word-spacing: normal;
+              text-transform: none;
+              text-indent: 0px;
+              text-shadow: none;
+              border: none;
+              height: auto;
+              width: 100%;
+              padding: 6px 2px 7px;
+              border-radius: none;
+              color: currentColor;
+              background: transparent;
+              &:-webkit-autofill {
+                animation-name: onAutoFillStart;
+                transition: background-color 50000s ease-in-out 0s;
               }
-              input {
-                outline: none;
-                font-size: 1em;
-                text-rendering: auto;
-                letter-spacing: normal;
-                word-spacing: normal;
-                text-transform: none;
-                text-indent: 0px;
-                text-shadow: none;
-                border: none;
-                height: auto;
-                width: 100%;
-                padding: 6px 2px 7px;
-                border-radius: none;
-                color: currentColor;
-                background: transparent;
-                &:-webkit-autofill {
-                  animation-name: onAutoFillStart;
-                  transition: background-color 50000s ease-in-out 0s;
-                }
-                &:not(:-webkit-autofill) {
-                  animation-name: onAutoFillCancel;
-                }
-                &:disabled {
-                  color: $disabled;
-                }
+              &:not(:-webkit-autofill) {
+                animation-name: onAutoFillCancel;
+              }
+              &:disabled {
+                color: $disabled;
               }
             }
           }

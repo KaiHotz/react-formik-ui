@@ -11,8 +11,7 @@ form {
       }
     }
     &.with-structure {
-      label,
-      span {
+      .label {
         display: flex;
         flex-direction: column;
       }
@@ -36,108 +35,100 @@ form {
     }
     &.with-theme {
       .form-element {
-        &.autocomplete-wrapper,
-        &.input-wrapper,
-        &.datePicker-wrapper,
-        &.textarea-wrapper,
-        &.select-wrapper,
-        &.phoneInput-wrapper {
-          > label {
-            position: relative;
-            display: flex;
-            flex-direction: column;
+        .autocomplete-wrapper,
+        .input-wrapper,
+        .datePicker-wrapper,
+        .textarea-wrapper,
+        .select-wrapper,
+        .phoneInput-wrapper {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          &::before {
+            left: 0;
+            right: 0;
+            bottom: 0;
+            content: "\00a0";
+            position: absolute;
+            transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            border-bottom: 1px solid currentColor;
+            pointer-events: none;
+          }
+          &:hover {
+            &:before {
+              border-bottom: 2px solid currentColor;
+            }
+            textarea {
+              border-bottom: 2px solid currentColor;
+            }
+          }
+          &.isDisabled {
             &::before {
-              left: 0;
-              right: 0;
-              bottom: 0;
-              content: "\00a0";
-              position: absolute;
-              transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-              border-bottom: 1px solid currentColor;
-              pointer-events: none;
-            }
-            &:hover {
-              &:before {
-                border-bottom: 2px solid currentColor;
-              }
-              textarea {
-                border-bottom: 2px solid currentColor;
-              }
-            }
-            &.isDisabled {
-              &::before {
-                border-bottom: 1px dotted $disabled;
-              }
-            }
-            &.hasError {
-              color: $error;
+              border-bottom: 1px dotted $disabled;
             }
           }
+          &.hasError {
+            color: $error;
+          }
         }
-        &.autocomplete-wrapper,
-        &.input-wrapper,
-        &.phoneInput-wrapper,
-        &.datePicker-wrapper,
-        &.textarea-wrapper{
-          > label {
-            span {
-              font-size: 1em;
-              line-height: 100%;
-              position: absolute;
+        .autocomplete-wrapper,
+        .input-wrapper,
+        .phoneInput-wrapper,
+        .datePicker-wrapper,
+        .textarea-wrapper{
+          .label {
+            font-size: 1em;
+            line-height: 100%;
+            position: absolute;
+            left: 2px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            & + input {
+              opacity: 0;
+              transition: opacity 0.25s ease-in-out;
+            }
+            &.moveLabel {
+              left: 45px;
+            }
+            &.hide {
+              font-size: 0.9em;
+              top: -5px;
               left: 2px;
-              top: 50%;
-              transform: translateY(-50%);
-              transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-              pointer-events: none;
+              pointer-events: all;
               & + input {
-                opacity: 0;
-                transition: opacity 0.25s ease-in-out;
-              }
-              &.moveLabel {
-                left: 45px;
-              }
-              &.hide {
-                font-size: 0.9em;
-                top: -5px;
-                left: 2px;
-                pointer-events: all;
-                & + input {
-                  opacity: 1;
-                }
+                opacity: 1;
               }
             }
           }
         }
-        &.select-wrapper {
+        .select-wrapper {
           margin: 0px 0px 30px;
-          > label {
-            &::after {
-              content: "";
-              width: 0;
-              height: 0;
-              border: 7px solid transparent;
-              border-color: currentColor transparent transparent transparent;
-              position: absolute;
-              right: 5px;
-              top: 50%;
-              transform: translateY(-50%);
-              pointer-events: none;
-              cursor: pointer;
-            }
-            span {
-              &.hide {
-                height: 14px;
-              }
+          &::after {
+            content: "";
+            width: 0;
+            height: 0;
+            border: 7px solid transparent;
+            border-color: currentColor transparent transparent transparent;
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            cursor: pointer;
+          }
+          .label {
+            &.hide {
+              height: 14px;
             }
           }
         }
-        &.textarea-wrapper {
-          > label {
-            span {
-              top: 24px;
-              &.hide {
-                top: 0px;
-              }
+        .textarea-wrapper {
+          .label {
+            top: 24px;
+            &.hide {
+              top: 0px;
             }
           }
         }

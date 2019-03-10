@@ -20,12 +20,10 @@ form {
     }
     &.with-theme {
       .form-element {
-        &.checkbox-wrapper {
-          > label {
-            span {
-              display: block;
-              padding-bottom: 6px;
-            }
+        .checkbox-wrapper {
+          .label {
+            display: block;
+            padding-bottom: 6px;
           }
           .checkbox-input-wrapper {
             display: flex;
