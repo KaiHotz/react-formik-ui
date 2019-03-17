@@ -48,9 +48,9 @@ export const useLabel = (component = 'input') => WrappedComponent => {
     const passableProps = omit(props, ['className', 'hint', 'label', 'style'])
 
     return (
-      <div className={cx('form-element', className, { hasError: !!errorMsg })} style={style}>
+      <div className={cx('form-element', className, { hasError: !!errorMsg, hidden })} style={style}>
         <div
-          className={cx(`${component}-wrapper`, { hidden, isDisabled: disabled })}
+          className={cx(`${component}-wrapper`, { isDisabled: disabled })}
         >
           {
             label && (
@@ -70,7 +70,7 @@ export const useLabel = (component = 'input') => WrappedComponent => {
           !!errorMsg && (<InfoMsg errorMsg={errorMsg} />)
         }
         {
-          hint && (<InfoMsg hintMsg={hint} />)
+          !!hint && (<InfoMsg hintMsg={hint} />)
         }
       </div>
     )

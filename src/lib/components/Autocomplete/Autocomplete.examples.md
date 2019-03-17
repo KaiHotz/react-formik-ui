@@ -14,6 +14,7 @@ import { Form, Autocomplete } from 'react-formik-ui';
       <Autocomplete
         label='Search'
         name="myAutocomplete1"
+        hint='This is a hint'
         suggestions={[
           'Afghanistan',
           'Aland Islands',
@@ -73,6 +74,7 @@ import { Form, Autocomplete } from 'react-formik-ui';
       <Autocomplete
         name="myAutocomplete2"
         label='Search'
+        hint='This is a hint'
         suggestions={[
           'Afghanistan',
           'Aland Islands',
@@ -132,6 +134,7 @@ import { Form, Autocomplete } from 'react-formik-ui';
       <Autocomplete
         name="myAutocomplete3"
         label='Search'
+        hint='This is a hint'
         suggestions={[
           'Afghanistan',
           'Aland Islands',

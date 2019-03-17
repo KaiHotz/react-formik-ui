@@ -65,6 +65,7 @@ import { Form, Checkbox } from 'react-formik-ui';
         name='checkboxExample3'
         label='Checkbox label'
         text='Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+        hint='This is a hint'
     />
 
     </Form>
@@ -115,6 +116,7 @@ import { Form, Checkbox } from 'react-formik-ui';
         name='checkboxExample5'
         label='Checkbox label'
         text='Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+        hint='This is a hint'
         disabled
     />
 

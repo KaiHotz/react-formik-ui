@@ -11,12 +11,14 @@ import { Form, PhoneInput } from 'react-formik-ui';
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
     <Form>
+
       <PhoneInput
         name='phoneNr1'
         label='Phone Nr.'
         placeholder='+1 702 123 4567'
         hint='This is a hint'
       />
+
     </Form>
   )}
 />
@@ -41,6 +43,7 @@ import { Form, PhoneInput } from 'react-formik-ui';
         hint='This is a hint'
         defaultCountry='de'
       />
+
     </Form>
   )}
 />
@@ -65,6 +68,7 @@ import { Form, PhoneInput } from 'react-formik-ui';
         hint='This is a hint'
         preferredCountries={['cl', 'ar', 'br', 'co']}
       />
+
     </Form>
   )}
 />
@@ -89,6 +93,7 @@ import { Form, PhoneInput } from 'react-formik-ui';
         hint='This is a hint'
         regions={['carribean', 'oceania']}
       />
+
     </Form>
   )}
 />
@@ -106,6 +111,7 @@ import { Form, PhoneInput } from 'react-formik-ui';
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
     <Form>
+
       <PhoneInput
         name='phoneNr5'
         label='Phone Nr.'
@@ -114,6 +120,7 @@ import { Form, PhoneInput } from 'react-formik-ui';
         placeholder='(555) 123-4567'
         hint='This is a hint'
       />
+
     </Form>
   )}
 />
@@ -131,11 +138,13 @@ import { Form, PhoneInput } from 'react-formik-ui';
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
     <Form themed>
+
       <PhoneInput
         name='phoneNr6'
         label='Phone Nr.'
         hint='This is a hint'
       />
+
     </Form>
   )}
 />
@@ -153,6 +162,7 @@ import { Form, PhoneInput } from 'react-formik-ui';
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
     <Form themed>
+
       <PhoneInput
         name='phoneNr7'
         label='Phone Nr.'
@@ -160,6 +170,7 @@ import { Form, PhoneInput } from 'react-formik-ui';
         defaultCountry='us'
         hint='This is a hint'
       />
+
     </Form>
   )}
 />
