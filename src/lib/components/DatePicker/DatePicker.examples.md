@@ -16,6 +16,7 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
         name='dateExample1'
         label='Select a date'
       />
+
       <SubmitBtn />
     </Form>
   )}
@@ -39,6 +40,7 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
         name='dateExample2'
         label='Select a date'
       />
+
       <SubmitBtn />
     </Form>
   )}
@@ -57,11 +59,12 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
     <Form themed>
-
       <Datepicker
         name='dateExample3'
         label='Select a date'
+        hint='DD.MM.YYYY'
       />
+
       <SubmitBtn />
     </Form>
   )}
@@ -87,6 +90,7 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
         placeholder='DD.MM.YYYYY'
         dateFormat='dd.MM.yyyy'
       />
+
       <SubmitBtn />
     </Form>
   )}
@@ -116,6 +120,7 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
         timeCaption="time"
         minDate={new Date()}
       />
+
       <SubmitBtn />
     </Form>
   )}
@@ -141,6 +146,7 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
         label='Select a date'
         disabled
       />
+
       <SubmitBtn />
     </Form>
   )}
@@ -167,6 +173,7 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
         dateFormat='dd.MM.yyyy'
         disabled
       />
+
       <SubmitBtn />
     </Form>
   )}

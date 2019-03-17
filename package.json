@@ -1,7 +1,7 @@
 {
   "name": "react-formik-ui",
   "author": "Kai Hotz",
-  "version": "2.3.13",
+  "version": "2.3.14",
   "description": "Plain form components for make use of formik even easier",
   "license": "MIT",
   "repository": {
@@ -36,9 +36,9 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "lodash.omit": "^4.5.0",
-    "react-datepicker": "^2.1.0",
-    "react-dropzone": "^9.0.0",
-    "react-phonenr-input": "^1.2.3"
+    "react-datepicker": "^2.2.0",
+    "react-dropzone": "^10.0.4",
+    "react-phonenr-input": "^1.2.4"
   },
   "peerDependencies": {
     "formik": "^1.5.1",
@@ -56,28 +56,28 @@
     "@svgr/rollup": "^4.1.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^24.3.1",
+    "babel-jest": "^24.5.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "babel-preset-react-app": "^7.0.2",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
     "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.10.0",
-    "eslint": "^5.15.1",
+    "enzyme-adapter-react-16": "^1.11.2",
+    "eslint": "^5.15.2",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-flowtype": "^3.4.2",
     "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-jest": "^22.3.0",
+    "eslint-plugin-jest": "^22.4.1",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
-    "eslint-plugin-react-hooks": "^1.5.0",
+    "eslint-plugin-react-hooks": "^1.5.1",
     "eslint-watch": "^5.0.1",
     "formik": "^1.5.1",
     "gh-pages": "^2.0.1",
     "jasmine-expect": "^4.0.1",
-    "jest": "^24.3.1",
+    "jest": "^24.5.0",
     "jest-pnp-resolver": "^1.2.1",
-    "jest-resolve": "^24.3.1",
+    "jest-resolve": "^24.5.0",
     "node-sass": "^4.11.0",
     "npm-run-all": "^4.1.5",
     "prop-types": "^15.7.2",
@@ -97,7 +97,7 @@
     "sass-loader": "^7.1.0",
     "webpack": "^4.29.6",
     "webpack-blocks": "^2.0.0-rc",
-    "yup": "^0.26.10"
+    "yup": "^0.27.0"
   },
   "files": [
     "dist"

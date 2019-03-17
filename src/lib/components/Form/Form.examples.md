@@ -2,7 +2,7 @@
 ```jsx
 import { Formik } from 'formik'
 import * as yup from 'yup'
-import { Form, Radio, Input, Datepicker, Select, Toggle, DropZone, Textarea, Checkbox, SubmitBtn, Button } from 'react-formik-ui';
+import { Form, Radio, Input, Datepicker, PhoneInput, Select, Toggle, DropZone, Textarea, Checkbox, SubmitBtn, Button } from 'react-formik-ui';
 
 const onSubmit = data => (alert(JSON.stringify(data)));
 
@@ -19,6 +19,9 @@ const  getSchema = () => {
       .required('Email is required'),
     birthDayExample: yup
        .date(),
+    phoneNrExample: yup
+      .string()
+      .required('Phone number is required'),
     maritalStatusExample: yup
       .string()
       .nullable(),
@@ -41,7 +44,7 @@ const  getSchema = () => {
     nameExample: '',
     emailExample: '',
     birthDayExample: '',
-    phoneNr1: '',
+    phoneNrExample: '',
     maritalStatusExample: '',
     driverLicenseExample: false,
     petsExample: false,
@@ -87,6 +90,12 @@ const  getSchema = () => {
             dateFormat='dd.MM.yyyy'
             placeholder='dd.mm.yyyy'
             hint='Please enter your birth date'
+          />
+
+          <PhoneInput
+            name='phoneNrExample'
+            label='Phone Nr.'
+            required
           />
 
           <Select
@@ -139,7 +148,7 @@ const  getSchema = () => {
 ```jsx
 import { Formik } from 'formik';
 import * as yup from 'yup';
-import { Form, Radio, Input, Datepicker, Select, Toggle, DropZone, Textarea, Checkbox, SubmitBtn, Button } from 'react-formik-ui';
+import { Form, Radio, Input, Datepicker, Select, PhoneInput, Toggle, DropZone, Textarea, Checkbox, SubmitBtn, Button } from 'react-formik-ui';
 
 const onSubmit = data => (alert(JSON.stringify(data)));
 
@@ -161,6 +170,9 @@ const  getSchema = () => {
       .string()
       .required('Is required')
       .nullable(),
+    phoneNr: yup
+      .string()
+      .required('Phone number is required'),
     driverLicense: yup
       .boolean(),
     files: yup
@@ -178,9 +190,9 @@ const  getSchema = () => {
     fullName: '',
     email: '',
     birthDay: '',
+    phoneNr: '',
     title: '',
     driverLicense: false,
-    phoneNr2: '',
     files: [],
     additionalInfo: '',
     termsAndConitions: false,
@@ -205,56 +217,54 @@ const  getSchema = () => {
             />
           </div>
 
-          <div style={{display: 'flex'}}>
-            <Input
-              style={{'width': '50%', padding: '0 10px'}}
-              name='fullName'
-              label='Full name'
-              hint='This is a hint message'
-              required
-            />
+          <Input
+            name='fullName'
+            label='Full name'
+            hint='This is a hint message'
+            required
+          />
 
-            <Input
-              style={{'width': '50%', padding: '0 10px'}}
-              name='email'
-              label='Email'
-              placeholder='foo@bar.com'
-              hint='Please enter your birth date'
-              required
-            />
-          </div>
+          <Input
+            name='email'
+            label='Email'
+            placeholder='foo@bar.com'
+            hint='Please enter your birth date'
+            required
+          />
 
-          <div style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-start'}}>
-            <Datepicker
-              style={{'width': '30%', padding: '0 10px'}}
-              name='birthDay'
-              label='Birthday'
-              dateFormat='dd.MM.yyyy'
-              placeholder='dd.mm.yyyy'
-              hint='Please enter your birth date'
-              required
-            />
+          <Datepicker
+            name='birthDay'
+            label='Birthday'
+            dateFormat='dd.MM.yyyy'
+            placeholder='dd.mm.yyyy'
+            hint='Please enter your birth date'
+            required
+          />
 
-            <Select
-              style={{'width': '30%', padding: '0 10px'}}
-              name='title'
-              label='Title'
-              placeholder='Select an Option'
-              options={[
-                { value: '1', label: 'Option 1' },
-                { value: '2', label: 'Option 2' },
-                { value: '3', label: 'Option 3' },
-                { value: '4', label: 'Option 4' }
-              ]}
-              required
-            />
+          <Select
+            name='title'
+            label='Title'
+            placeholder='Select an Option'
+            options={[
+              { value: '1', label: 'Option 1' },
+              { value: '2', label: 'Option 2' },
+              { value: '3', label: 'Option 3' },
+              { value: '4', label: 'Option 4' }
+            ]}
+            required
+          />
 
-            <div style={{marginBottom: '15px', padding: '0 10px'}}>
-              <div style={{marginBottom: '10px'}}>
-                {`Do you have a drivers license ? ${values.driverLicense ? 'Yes' : 'No'}`}
-              </div>
-              <Toggle name='driverLicense' style={{display: 'flex', justifyContent: 'center'}}/>
+          <PhoneInput
+            name='phoneNr'
+            label='Phone Nr.'
+            required
+          />
+
+          <div style={{marginBottom: '25px', padding: '0 10px'}}>
+            <div style={{marginBottom: '10px'}}>
+              {`Do you have a drivers license ? ${values.driverLicense ? 'Yes' : 'No'}`}
             </div>
+            <Toggle name='driverLicense'/>
           </div>
 
           <div style={{padding: '0 10px'}}>
