@@ -58,9 +58,6 @@ form {
             &:before {
               border-bottom: 2px solid currentColor;
             }
-            textarea {
-              border-bottom: 2px solid currentColor;
-            }
           }
           &.isDisabled {
             &::before {
