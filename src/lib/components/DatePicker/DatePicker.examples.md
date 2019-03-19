@@ -1,4 +1,4 @@
-See [ReaJS Datepicker documentation](https://github.com/Hacker0x01/react-datepicker/blob/master/docs/datepicker.md) for a list of additional props and configurations
+See [ReactJS Datepicker documentation](https://github.com/Hacker0x01/react-datepicker/blob/master/docs/datepicker.md) for a list of additional props and configurations
 ##### Default
 ```jsx
 import { Formik } from 'formik'

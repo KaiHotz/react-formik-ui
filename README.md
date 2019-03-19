@@ -8,12 +8,6 @@
 
 </div>
 
-## Support
-If you like the project and want to support my work, you can buy me a coffee :)
-
-[![paypal](https://img.shields.io/badge/donate-paypal-blue.svg)](https://paypal.me/kaihotz)
-
-
 ## Overview
 React-Formik-UI is a simple component library, composed out of pure HTML form elements like:
 form, input, select, checkbox, radio and textarea.
@@ -28,16 +22,16 @@ Each component makes use of Formiks context, there for you need to have Formik i
 - **THEME option:** React Formik UI now supports a theme option. This can be achieved by passing the `themed` prop to the `Form` component.
 - **Datepicker:** update of ReactJS Datepicker to v2 and therefor `moment` was removed
 - **Dropzone:** Bug fix that did not render correctly the img thumb of uploaded images. Now it also shows file icons for non img files.
-- **HTML markup:** The overall HTML markup for all of the components has sligtly changed and is now more solid and accesable throug css selectors
+- **HTML markup:** The overall HTML markup for all of the components has slightly changed and is now more solid and accessible through css selectors
 - **Overall** more stability and minor bug fixes
-- **Inline styles:** just like on any HTML element you are now abel to pass `style` prop on each component to add inline styles to the wrapper div of each componet.
+- **Inline styles:** just like on any HTML element you are now able to pass `style` prop on each component to add inline styles to the wrapper div of each component.
 
 
 ## Markup, Styling and ClassNames
-The markup for the components Input, Select, Checkbox, Radio, Textarea, Datepicker and DropZone consists of a wrapper div, label, the main component, hint, and error message.
+The markup for the components Input, PhoneInput, Select, Checkbox, Radio, Textarea, Datepicker and DropZone consists of a wrapper div, label, the main component, hint, and error message.
 
-By default all component have NO styling applied att all.</br>
-This is intentionally, so you have the posibility to apply your own styling.</br>
+By default all component have NO styling applied at all.</br>
+This is intentionally, so you have the possibility to apply your own styling.</br>
 All the components used in the Form are scoped by the default classes, situated on the Form component, `react-formik-ui form-wrapper`
 
 Each component has its corresponding wrapper class (eg: Input component  `input-wrapper` ), as well as the class `form-element`.</br>
@@ -48,22 +42,28 @@ You also can pass the `style` prop on each component, to add custom inline style
 Anyhow, if you pass the  `structured` prop to the Form component, a minimal styling will be applied to add some structure to the form and each form element.
 
 #### NEW:
-If you pass `themed` instead of `structured` as prop to the form component, the React-Fomik-UI Theme will be applied to all components, except the Button and SubmitBtn components.
-The Button and SubmitBtn have been left out of styling due to most apps alrready have some styles for buttons established, there fore you can pass on those styles to the mentioned buttos by adde your cutom clasName
+If you pass `themed` instead of `structured` as prop to the `Form` component, the React-Fomik-UI Theme will be applied to all components, except the Button and SubmitBtn components.
+The Button and SubmitBtn have been left out of styling due to most apps already have some styles for buttons established, therefore you can pass on those styles to the mentioned buttons by adding your custom className or styles
 
 #### IMPORTANT: There is no need to pass `structured` and `themed` together, but no harm if you do.
 
 ## MIGRATION v1 to v2:
-- If you used the `styled` prop on the `Form` component you need to change it to `structured` now.
-- In some cases might need to adjust some of your custom styles due to the HTML markup on most components has slightly changed.
-- The `DatePicker` component has been updated to use ReactJs Datepicker v2 and therfore does not make use of `moment` anymore, if you are using the `minDate` and `maxDate` props please refer to the [ReactJs Datepicker](https://reactdatepicker.com/)
+- If you used the `styled` prop on the `Form` component you need to change it to `structured`.
+- In some cases you might need to adjust some of your custom styles due to the HTML markup on most components has slightly changed.
+- The `DatePicker` component has been updated to use ReactJs Datepicker v2 and therefore does not make use of `moment` anymore, if you are using the `minDate` and `maxDate` props please refer to the [ReactJs Datepicker](https://reactdatepicker.com/)
 
 ## Installation
-**Note:** React Formik UI makes use of the recently released react `Hooks` API, therfore make sure that your project uses the latest `React` version
+**Note:** React Formik UI makes use of the recently released react `Hooks` API, therefore make sure that your project uses the latest `React` version
 
 ```sh
 npm install --save react-formik-ui
 ```
+
+## Support
+If you like the project and want to support my work, you can buy me a coffee :)
+
+[![paypal](https://img.shields.io/badge/donate-paypal-blue.svg)](https://paypal.me/kaihotz)
+
 
 # Usage
 
@@ -191,7 +191,7 @@ A custom class can be passed through the `className` prop.
     <td>suggestions</td>
     <td>array</td>
     <td>required</td>
-    <td>Array of suggestions to be searchred in</td>
+    <td>Array of suggestions to be searched in</td>
   </tr>
   <tr>
     <td>className</td>
@@ -239,7 +239,7 @@ A custom class can be passed through the `className` prop.
     <td>required</td>
     <td>boolean</td>
     <td>false</td>
-    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
+    <td>Sets the field as required, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
   </tr>
 </table>
 
@@ -393,7 +393,7 @@ A custom class can be passed through the `className` prop.
     <td>required</td>
     <td>boolean</td>
     <td>false</td>
-    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
+    <td>Sets the field as required, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
   </tr>
   <tr>
     <td>type</td>
@@ -520,7 +520,7 @@ A custom class can be passed through the `className` prop.
     <td>required</td>
     <td>boolean</td>
     <td>false</td>
-    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
+    <td>Sets the field as required, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
   </tr>
   <tr>
     <td>format</td>
@@ -654,7 +654,7 @@ A custom class can be passed through the `className` prop.
     <td>required</td>
     <td>boolean</td>
     <td>false</td>
-    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
+    <td>Sets the field as required, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
   </tr>
 </table>
 
@@ -777,7 +777,7 @@ A custom class can be passed through the `className` prop.
     <td>required</td>
     <td>boolean</td>
     <td>false</td>
-    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
+    <td>Sets the field as required, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
   </tr>
 </table>
 
@@ -893,7 +893,7 @@ A custom class can be passed through the `className` prop.
     <td>required</td>
     <td>boolean</td>
     <td>false</td>
-    <td>Sets the Checkbox as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
+    <td>Sets the Checkbox as required, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
   </tr>
   <tr>
     <td>text</td>
@@ -1017,7 +1017,7 @@ A custom class can be passed through the `className` prop.
     <td>required</td>
     <td>boolean</td>
     <td>false</td>
-    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
+    <td>Sets the field as required, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
   </tr>
 </table>
 
@@ -1075,7 +1075,7 @@ The Datepicker component uses [ReactJS Datepicker](https://reactdatepicker.com/)
 It renders with the classNames `form-element` and `datePicker-wrapper`.</br>
 A custom class can be passed through the `className` prop.</br>
 
-For aditional configuration options and layouts, please refere to [ReactJS Datepicker](https://reactdatepicker.com/).</br>
+For additional configuration options and layouts, please refer to [ReactJS Datepicker](https://reactdatepicker.com/).</br>
 You can then pass the desired configuration as props just like you would on ReactJS Datepicker.
 
 #### Props:
@@ -1144,7 +1144,7 @@ You can then pass the desired configuration as props just like you would on Reac
     <td>required</td>
     <td>boolean</td>
     <td>false</td>
-    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
+    <td>Sets the field as required, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
   </tr>
 </table>
 
@@ -1202,7 +1202,7 @@ The DropZone component uses [react-dropzone](https://react-dropzone.js.org/) und
 It renders with the classNames `form-element` and `dropzone-wrapper`.</br>
 A custom class can be passed through the `className` prop.</br>
 
-For aditional configuration options and layouts, please refere to [react-dropzone](https://react-dropzone.js.org/).</br>
+For additional configuration options and layouts, please refer to [react-dropzone](https://react-dropzone.js.org/).</br>
 
 #### Props:
 <table style="font-size: 12px">
@@ -1284,13 +1284,13 @@ For aditional configuration options and layouts, please refere to [react-dropzon
     <td>required</td>
     <td>boolean</td>
     <td>false</td>
-    <td>Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
+    <td>Sets the field as required, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
   </tr>
   <tr>
     <td>zoneActiveText</td>
     <td>string</td>
     <td>Drop file(s) here</td>
-    <td>Sets the text to be shown when draging files over the drop zone </td>
+    <td>Sets the text to be shown when dragging files over the drop zone </td>
   </tr>
 </table>
 
@@ -1519,7 +1519,7 @@ class Example extends Component {
 The SubmitBtn component renders with the classNames `btn` and `submit-btn`.</br>
 A custom class can be passed through the `className` prop.</br>
 
-By default the SubmitBtn handles the submition, no further handler or configuration is needed.
+By default the SubmitBtn handles the submission, no further handler or configuration is needed.
 
 #### Props:
 <table style="font-size: 12px">

@@ -1,3 +1,4 @@
+See [React-PhoneNr-Input](https://github.com/KaiHotz/React-PhoneNr-Input) for a list of additional props and configurations
 ### Default / Structured
 
 ```jsx
