@@ -508,7 +508,7 @@ A custom class can be passed through the `className` prop.
     <td>defaultCountry</td>
     <td>string</td>
     <td>null</td>
-    <td>Sets the default country</td>
+    <td>Sets the default country (use iso alpha-2 country code e.g 'us', 'gb', 'fr') </td>
   </tr>
   <tr>
     <td>disabled</td>
