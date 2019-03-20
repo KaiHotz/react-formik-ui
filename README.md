@@ -82,8 +82,9 @@ To validate the form fields, the use of [Yup](https://github.com/jquense/yup) is
 npm install --save yup
 ```
 
-### Components and Examples
+### See the Styleguide with Demo and Examples [here](https://kaihotz.github.io/react-formik-ui/)
 
+### Components Documentation and Examples
 
 - [Form](#form)
 - [Autocomplete](#autocomplete)
@@ -99,8 +100,6 @@ npm install --save yup
 - [Toggle](#toggle)
 - [SubmitBtn](#submitbtn)
 - [Complete Form Example ](https://kaihotz.github.io/react-formik-ui/#form)
-
-See working examples at the [Styleguide](https://kaihotz.github.io/react-formik-ui/)
 
 ## Form
 The Form component, like in a normal HTML form is the main wrapper for your form.</br>
@@ -544,7 +543,7 @@ A custom class can be passed through the `className` prop.
     <td>preferredCountries</td>
     <td>Array</td>
     <td>null</td>
-    <td>Lets you restrict the country dropdown to a specific list of countries</td>
+    <td>Lets you restrict the country dropdown to a specific list of countries (use iso alpha-2 country code e.g 'us', 'gb', 'fr')</td>
   </tr>
   <tr>
     <td>regions</td>

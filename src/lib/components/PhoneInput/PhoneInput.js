@@ -62,9 +62,9 @@ PhoneInput.propTypes = {
   label: PropTypes.string,
   /** Sets the Placeholder text */
   placeholder: PropTypes.string,
-  /** Sets the default country */
+  /** Sets the default country (use iso alpha-2 country code e.g 'us', 'gb', 'fr') */
   defaultCountry: PropTypes.string,
-  /** Lets you restrict the country dropdown to a specific list of countries */
+  /** Lets you restrict the country dropdown to a specific list of countries (use iso alpha-2 country code e.g 'us', 'gb', 'fr') */
   preferredCountries: PropTypes.arrayOf(PropTypes.string),
   /** Lets you restrict the country dropdown to a list of countries in the specified regions */
   regions: PropTypes.oneOfType([
