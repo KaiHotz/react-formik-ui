@@ -38,7 +38,7 @@
     "lodash.omit": "^4.5.0",
     "react-datepicker": "^2.3.0",
     "react-dropzone": "^10.0.6",
-    "react-phonenr-input": "^1.2.5"
+    "react-phonenr-input": "^1.2.6"
   },
   "peerDependencies": {
     "formik": "^1.5.1",
