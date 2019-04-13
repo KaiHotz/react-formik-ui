@@ -73,7 +73,4 @@ module.exports = {
 
     return `import { ${name} } from '${pkg.name}';`
   },
-  require: [
-    path.resolve(__dirname, 'styleguide/assets/globals.js'),
-  ],
 }
