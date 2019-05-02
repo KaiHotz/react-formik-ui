@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { PhoneInput as PhoneNrInput } from 'react-phonenr-input'
 import useLabel from '../useLabel'
-import './styles.scss'
 
 export const PhoneInput = ({
   formik,
@@ -18,12 +17,14 @@ export const PhoneInput = ({
   regions,
   buttonFlagStyles,
   listFlagStyles,
+  className,
+  withCountryMeta,
   ...rest
 }) => {
   const { setFieldValue, setFieldTouched } = formik
 
-  const handleChange = phoneNr => {
-    setFieldValue(name, phoneNr)
+  const handleChange = data => {
+    setFieldValue(name, data)
     setFieldTouched(name, true)
   }
 
@@ -32,6 +33,7 @@ export const PhoneInput = ({
       {...rest}
       id={id || name}
       name={name}
+      className={className}
       onChange={handleChange}
       placeholder={placeholder}
       disabled={disabled}
@@ -50,7 +52,7 @@ export const PhoneInput = ({
 PhoneInput.propTypes = {
   /** @ignore */
   formik: PropTypes.instanceOf(Object).isRequired,
-  /** Adds a custom class to the Input wrapper div */
+  /** Adds a custom class to the Phone Input component  */
   className: PropTypes.string,
   /** Adds a custom inline styles to the Input wrapper div */
   style: PropTypes.instanceOf(Object),
@@ -83,6 +85,18 @@ PhoneInput.propTypes = {
   hint: PropTypes.string,
   /** Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema */
   required: PropTypes.bool,
+  /**
+    * changes the retuned value into an Object that contains the phone number and country meta information
+    * eg.:
+     {
+       phoneNumber: "+49 176 12345678",
+       country: {
+         name: "Germany (Deutschland)"
+         iso2: "de"
+       }
+     }
+   */
+  withCountryMeta: PropTypes.bool,
 }
 
 PhoneInput.defaultProps = {
@@ -100,6 +114,7 @@ PhoneInput.defaultProps = {
   disabled: false,
   hint: null,
   required: false,
+  withCountryMeta: false,
 }
 
 export default useLabel('phoneInput')(PhoneInput)

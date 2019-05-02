@@ -34,7 +34,7 @@ import { Form, Input, SubmitBtn } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form structured>
+    <Form mode='structured'>
 
       <Input
         name='textFieldExample2'
@@ -58,7 +58,7 @@ import { Form, Input, SubmitBtn } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form themed>
+    <Form mode='themed'>
 
       <Input
         name='textFieldExample3'
@@ -82,7 +82,7 @@ import { Form, Input, SubmitBtn } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form themed>
+    <Form mode='themed'>
 
       <Input
         name='textFieldExample4'
@@ -108,7 +108,7 @@ import { Form, Input, SubmitBtn } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form themed>
+    <Form mode='themed'>
 
       <Input
         name='textFieldExample5'

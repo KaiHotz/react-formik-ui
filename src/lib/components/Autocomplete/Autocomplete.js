@@ -4,7 +4,6 @@ import cx from 'classnames'
 import { getIn } from 'formik'
 import { useAutocomplete } from './useAutocomplete'
 import useLabel from '../useLabel'
-import './styles.scss'
 
 export const Autocomplete = ({
   formik: {
@@ -15,6 +14,7 @@ export const Autocomplete = ({
   name,
   id,
   suggestions,
+  className,
   ...rest
 }) => {
   const [
@@ -32,6 +32,7 @@ export const Autocomplete = ({
         {...rest}
         id={id || name}
         name={name}
+        className={className}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         value={getIn(values, name)}
@@ -71,7 +72,7 @@ Autocomplete.propTypes = {
   name: PropTypes.string.isRequired,
   /** Array of suggestions to be searchred in */
   suggestions: PropTypes.instanceOf(Array).isRequired,
-  /** Adds a custom class to the Input wrapper div */
+  /** Adds a custom class to the input component */
   className: PropTypes.string,
   /** Adds a custom inline styles to the Input wrapper div */
   style: PropTypes.instanceOf(Object),

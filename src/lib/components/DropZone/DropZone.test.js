@@ -27,22 +27,6 @@ describe('<DropZone />', () => {
     expect(wrapper).toBeDefined()
   })
 
-  it('should allow custom className', () => {
-    const props = {
-      ...baseProps,
-      className: 'customDropZone',
-    }
-    const wrapper = mount(<WrappedComponent {...props} />)
-
-    expect(wrapper.hasClass(props.className)).toBe(true)
-  })
-
-  it('should be disabled', () => {
-    const wrapper = mount(<WrappedComponent {...baseProps} disabled />)
-
-    expect(wrapper.find('.dropzone').hasClass('dropzone--isDisabled')).toBe(true)
-  })
-
   it('should have a label', () => {
     const props = {
       ...baseProps,

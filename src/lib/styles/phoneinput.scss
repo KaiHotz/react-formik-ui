@@ -1,0 +1,24 @@
+.react-formik-ui {
+  &.themed {
+    .form-element {
+      .phoneInput-wrapper {
+        @extend .rfui-themed-component;
+        .label {
+          @extend .rfui-themed-label;
+        }
+        input {
+          @extend .rfui-themed-input;
+        }
+        .react-phonenr-input {
+          padding-top: 3px;
+          max-width: 100%;
+          div {
+            background-color: $white;
+            border: none;
+          }
+        }
+      }
+    }
+  }
+}
+

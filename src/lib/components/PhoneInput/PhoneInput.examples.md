@@ -138,7 +138,7 @@ import { Form, PhoneInput } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form themed>
+    <Form mode='themed'>
 
       <PhoneInput
         name='phoneNr6'
@@ -162,7 +162,7 @@ import { Form, PhoneInput } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form themed>
+    <Form mode='themed'>
 
       <PhoneInput
         name='phoneNr7'

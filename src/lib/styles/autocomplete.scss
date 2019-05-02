@@ -1,0 +1,66 @@
+.react-formik-ui {
+  .form-element {
+    .suggestions {
+      li {
+        &:hover,
+        &.suggestion-active {
+          background-color: $hover;
+          color: currentColor;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  &.structured {
+    .form-element {
+      .suggestions {
+        border: 1px solid $border;
+        border-top-width: 0;
+        list-style: none;
+        margin-top: 0;
+        overflow-y: auto;
+        padding-left: 0;
+        li {
+          padding: 0.5rem;
+          &:not(:last-of-type) {
+            border-bottom: 1px solid $border;
+          }
+        }
+      }
+    }
+  }
+  &.themed {
+    .form-element {
+      .autocomplete-wrapper {
+        @extend .rfui-themed-component;
+        .label {
+          @extend .rfui-themed-label;
+        }
+        input {
+          @extend .rfui-themed-input;
+        }
+        .suggestions {
+          position: absolute;
+          top: 35px;
+          list-style: none;
+          margin-top: 0;
+          overflow-y: auto;
+          padding-left: 0;
+          width: 100%;
+          background: $white;
+          box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12);
+          li {
+            padding: 0.5rem;
+            &:hover,
+            &.suggestion-active {
+              background-color: lighten($blue, 15%);
+              color: $white;
+              cursor: pointer;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+  }
+}

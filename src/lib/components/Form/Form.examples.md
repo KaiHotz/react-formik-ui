@@ -56,7 +56,7 @@ const  getSchema = () => {
   onSubmit={onSubmit}
   render={({ values }) => {
   return (
-    <Form structured>
+    <Form mode='structured'>
       <fieldset>
         <legend>Complete Form Example</legend>
 
@@ -201,7 +201,7 @@ const  getSchema = () => {
   onSubmit={onSubmit}
   render={({ values }) => {
   return (
-    <Form themed>
+    <Form mode='themed'>
       <fieldset>
         <legend>Complete Form Example</legend>
           <div style={{padding: '0 10px'}}>

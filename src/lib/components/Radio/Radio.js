@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { getIn } from 'formik'
 import cx from 'classnames'
 import useLabel from '../useLabel'
-import './styles.scss'
 
 export const Radio = ({
   formik: {
@@ -13,6 +12,7 @@ export const Radio = ({
   name,
   options,
   inline,
+  className,
   ...rest
 }) => (
   <div className={cx('radio-options', { inline })}>
@@ -20,6 +20,7 @@ export const Radio = ({
       options.map(option => (
         <div key={option.label} className="radio-option">
           <input
+            className={className}
             {...rest}
             checked={getIn(values, name) === option.value}
             id={`${name}-id-${option.value}`}
@@ -44,7 +45,7 @@ export const Radio = ({
 Radio.propTypes = {
   /** @ignore */
   formik: PropTypes.instanceOf(Object).isRequired,
-  /** Adds a custom class to the Radio wrapper div */
+  /** Adds a custom class to the Radio input component */
   className: PropTypes.string,
   /** Adds a custom inline styles to the Radio wrapper div */
   style: PropTypes.instanceOf(Object),

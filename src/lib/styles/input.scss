@@ -1,0 +1,17 @@
+.react-formik-ui {
+  &.themed {
+    .form-element {
+      .input-wrapper {
+        @extend .rfui-themed-component;
+        .label {
+          @extend .rfui-themed-label;
+        }
+        input {
+          @extend .rfui-themed-input;
+        }
+      }
+    }
+  }
+}
+
+

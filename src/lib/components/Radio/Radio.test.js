@@ -36,7 +36,11 @@ describe('<Radio />', () => {
     }
     const wrapper = mount(<Radio {...props} readOnly />)
 
-    expect(wrapper.find('.form-element').hasClass(props.className)).toBe(true)
+    wrapper.find('input').forEach(node => {
+      expect(node.prop('className')).toBe(props.className)
+    })
+
+    // expect(wrapper.find('.form-element').hasClass(props.className)).toBe(true)
   })
 
   it('should have a hint', () => {

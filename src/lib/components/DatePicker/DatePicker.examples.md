@@ -34,7 +34,7 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form structured>
+    <Form mode='structured'>
 
       <Datepicker
         name='dateExample2'
@@ -58,7 +58,7 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form themed>
+    <Form mode='themed'>
       <Datepicker
         name='dateExample3'
         label='Select a date'
@@ -82,7 +82,7 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form themed>
+    <Form mode='themed'>
 
       <Datepicker
         name='dateExample4'
@@ -108,7 +108,7 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form themed>
+    <Form mode='themed'>
 
       <Datepicker
         name='dateExample5'
@@ -139,7 +139,7 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form themed>
+    <Form mode='themed'>
 
       <Datepicker
         name='dateExample6'
@@ -164,7 +164,7 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form themed>
+    <Form mode='themed'>
 
       <Datepicker
         name='dateExample7'

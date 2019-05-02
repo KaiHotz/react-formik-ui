@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import Dropzone from 'react-dropzone'
 import useLabel from '../useLabel'
-import './styles.scss'
 
 export const DropZone = ({
   formik: {
@@ -17,6 +16,7 @@ export const DropZone = ({
   fileInfo,
   disabledText,
   placeholder,
+  className,
   ...rest
 }) => {
   const onDrop = acceptedFiles => {
@@ -29,6 +29,7 @@ export const DropZone = ({
       {...rest}
       id={id || name}
       name={name}
+      className={className}
       accept={accept}
       disabled={disabled}
       onDrop={onDrop}
@@ -88,9 +89,9 @@ export const DropZone = ({
 DropZone.propTypes = {
   /** @ignore */
   formik: PropTypes.instanceOf(Object).isRequired,
-  /** Adds a custom class to the DropZone wrapper div */
+  /** Adds a custom class to the Dropzone component */
   className: PropTypes.string,
-  /** Adds a custom inline styles to the Dropzone wrapper div */
+  /** Adds a custom inline styles to the DropZone wrapper div  */
   style: PropTypes.instanceOf(Object),
   /** Disables the DropZone Field */
   disabled: PropTypes.bool,

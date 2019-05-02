@@ -38,7 +38,7 @@ import { Form, Select } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form structured>
+    <Form mode='structured'>
 
       <Select
         name='selectExample2'
@@ -68,7 +68,7 @@ import { Form, Select } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form themed>
+    <Form mode='themed'>
 
       <Select
         name='selectExample3'
@@ -98,7 +98,7 @@ import { Form, Select } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form themed>
+    <Form mode='themed'>
 
       <Select
         name='selectExample4'
