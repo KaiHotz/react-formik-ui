@@ -2,19 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { connect } from 'formik'
-import './styles.scss'
+import '../../styles/index.scss'
 
 export const Form = ({
   formik,
   children,
   className,
-  themed,
-  structured,
+  mode,
   ...rest
 }) => (
   <form
     {...rest}
-    className={cx('react-formik-ui form-wrapper', { 'with-theme': themed, 'with-structure': structured }, className)}
+    className={cx('react-formik-ui form-wrapper', mode, className)}
     onSubmit={formik.handleSubmit}
   >
     {children}
@@ -28,16 +27,13 @@ Form.propTypes = {
   children: PropTypes.node.isRequired,
   /** Adds a custom class to the form */
   className: PropTypes.string,
-  /** If passed, adds a minimal style that gives some structure to the Form */
-  structured: PropTypes.bool,
-  /** If passed, the React-Formik-UI theme will be applied to each styled Form element */
-  themed: PropTypes.bool,
+  /** Sets the styling of The Form Elemnts */
+  mode: PropTypes.oneOf(['default', 'structured', 'themed']),
 }
 
 Form.defaultProps = {
   className: null,
-  structured: false,
-  themed: false,
+  mode: 'default',
 }
 
 export default connect(Form)

@@ -5,7 +5,6 @@ import { getIn } from 'formik'
 import 'react-datepicker/dist/react-datepicker.css'
 import { useDatepicker } from './useDatepicker'
 import useLabel from '../useLabel'
-import '../Input/styles.scss'
 
 export const Datepicker = ({
   formik: {
@@ -18,6 +17,7 @@ export const Datepicker = ({
   placeholder,
   onFocus,
   onBlur,
+  className,
   ...rest
 }) => {
   const [handleChangeRaw, handleChange] = useDatepicker(setFieldValue, setFieldTouched, name)
@@ -27,6 +27,7 @@ export const Datepicker = ({
       {...rest}
       id={id || name}
       name={name}
+      className={className}
       selected={getIn(values, name) ? new Date(getIn(values, name)) : null}
       placeholderText={placeholder}
       dateFormat={dateFormat}
@@ -52,7 +53,7 @@ Datepicker.propTypes = {
   name: PropTypes.string.isRequired,
   /** Sets an Id for the Datepicker, if not passed, the id will be the name */
   id: PropTypes.string,
-  /** Adds a custom class to the Datepicker wrapper div */
+  /** Adds a custom class to the Datepicker component */
   className: PropTypes.string,
   /** Adds a custom inline styles to the Datepicker wrapper div */
   style: PropTypes.instanceOf(Object),

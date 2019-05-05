@@ -4,7 +4,6 @@ import cx from 'classnames'
 import { connect, getIn } from 'formik'
 import omit from 'lodash.omit'
 import InfoMsg from '../InfoMsg'
-import './styles.scss'
 
 export const useLabel = (component = 'input') => WrappedComponent => {
   const useLabel = props => {
@@ -24,11 +23,12 @@ export const useLabel = (component = 'input') => WrappedComponent => {
 
     const {
       formik: {
-        touched, errors, values,
+        touched,
+        errors,
+        values,
       },
       name,
       label,
-      className,
       hint,
       placeholder,
       type,
@@ -45,10 +45,10 @@ export const useLabel = (component = 'input') => WrappedComponent => {
     const hidden = type && type === 'hidden'
     const errorMsg = touch && error ? error : null
     const moveLabel = component === 'phoneInput' && format === 'INTERNATIONAL'
-    const passableProps = omit(props, ['className', 'hint', 'label', 'style'])
+    const passableProps = omit(props, ['hint', 'label', 'style'])
 
     return (
-      <div className={cx('form-element', className, { hasError: !!errorMsg, hidden })} style={style}>
+      <div className={cx('form-element', component, { hasError: !!errorMsg, hidden })} style={style}>
         <div
           className={cx(`${component}-wrapper`, { isDisabled: disabled })}
         >
@@ -66,12 +66,8 @@ export const useLabel = (component = 'input') => WrappedComponent => {
             {...passableProps}
           />
         </div>
-        {
-          !!errorMsg && (<InfoMsg errorMsg={errorMsg} />)
-        }
-        {
-          !!hint && (<InfoMsg hintMsg={hint} />)
-        }
+        {!!errorMsg && (<InfoMsg errorMsg={errorMsg} />)}
+        {!!hint && (<InfoMsg hintMsg={hint} />)}
       </div>
     )
   }
@@ -80,7 +76,6 @@ export const useLabel = (component = 'input') => WrappedComponent => {
     formik: PropTypes.instanceOf(Object).isRequired,
     name: PropTypes.string.isRequired,
     label: PropTypes.string,
-    className: PropTypes.string,
     hint: PropTypes.string,
     placeholder: PropTypes.string,
     type: PropTypes.string,
@@ -92,7 +87,6 @@ export const useLabel = (component = 'input') => WrappedComponent => {
 
   useLabel.defaultProps = {
     label: null,
-    className: null,
     hint: null,
     placeholder: null,
     type: null,

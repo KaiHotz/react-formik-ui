@@ -67,7 +67,7 @@ import { Form, Radio } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form structured>
+    <Form mode='structured'>
 
       <Radio
         name='radioExample3'
@@ -96,7 +96,7 @@ import { Form, Radio } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form structured>
+    <Form mode='structured'>
 
       <Radio
         inline
@@ -126,7 +126,7 @@ import { Form, Radio } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form themed>
+    <Form mode='themed'>
 
       <Radio
         name='radioExample5'
@@ -154,7 +154,7 @@ import { Form, Radio } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form themed>
+    <Form mode='themed'>
 
       <Radio
         inline
@@ -183,7 +183,7 @@ import { Form, Radio } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form themed>
+    <Form mode='themed'>
 
       <Radio
         name='radioExample7'

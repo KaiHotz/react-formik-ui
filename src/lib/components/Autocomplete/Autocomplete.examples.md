@@ -13,7 +13,7 @@ import { Form, Autocomplete } from 'react-formik-ui';
 
       <Autocomplete
         label='Search'
-        name="myAutocomplete1"
+        name='myAutocomplete1'
         hint='This is a hint'
         suggestions={[
           'Afghanistan',
@@ -69,10 +69,10 @@ import { Form, Autocomplete } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form structured>
+    <Form mode='structured'>
 
       <Autocomplete
-        name="myAutocomplete2"
+        name='myAutocomplete2'
         label='Search'
         hint='This is a hint'
         suggestions={[
@@ -129,10 +129,10 @@ import { Form, Autocomplete } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form themed>
+    <Form mode='themed'>
 
       <Autocomplete
-        name="myAutocomplete3"
+        name='myAutocomplete3'
         label='Search'
         hint='This is a hint'
         suggestions={[

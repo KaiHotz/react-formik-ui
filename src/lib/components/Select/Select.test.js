@@ -39,7 +39,7 @@ describe('<Select />', () => {
     }
     const wrapper = mount(<WrappedComponent {...props} />)
 
-    expect(wrapper.find('.form-element').hasClass(props.className)).toBe(true)
+    expect(wrapper.find('select').hasClass(props.className)).toBe(true)
   })
 
   it('should have a label', () => {

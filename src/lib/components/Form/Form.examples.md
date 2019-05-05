@@ -56,7 +56,7 @@ const  getSchema = () => {
   onSubmit={onSubmit}
   render={({ values }) => {
   return (
-    <Form structured>
+    <Form mode='structured'>
       <fieldset>
         <legend>Complete Form Example</legend>
 
@@ -121,6 +121,7 @@ const  getSchema = () => {
             name='filesExample'
             label='File upload'
             placeholder='Drop some files here'
+            withClearButton
           />
 
           <Textarea
@@ -201,7 +202,7 @@ const  getSchema = () => {
   onSubmit={onSubmit}
   render={({ values }) => {
   return (
-    <Form themed>
+    <Form mode='themed'>
       <fieldset>
         <legend>Complete Form Example</legend>
           <div style={{padding: '0 10px'}}>
@@ -272,6 +273,7 @@ const  getSchema = () => {
               name='files'
               label='File upload'
               placeholder='Drop some files here'
+              withClearButton
             />
 
             <Textarea

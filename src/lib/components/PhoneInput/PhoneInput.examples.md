@@ -1,6 +1,6 @@
 See [React-PhoneNr-Input](https://github.com/KaiHotz/React-PhoneNr-Input) for a list of additional props and configurations
-### Default / Structured
 
+##### Default / Structured
 ```jsx
 import { Formik } from 'formik'
 import { Form, PhoneInput } from 'react-formik-ui';
@@ -25,7 +25,40 @@ import { Form, PhoneInput } from 'react-formik-ui';
 />
 ```
 
-###### With Default Country
+##### with country meta data
+```jsx
+import { Formik } from 'formik'
+import { Form, PhoneInput } from 'react-formik-ui';
+
+<Formik
+  initialValues={{
+    phoneData: {
+      phoneNumber: '',
+      country: {
+        name: '',
+        iso2: ''
+      }
+    }
+  }}
+  onSubmit={data => (alert(JSON.stringify(data)))}
+  render={() => (
+    <Form>
+
+      <PhoneInput
+        name='phoneData'
+        label='Phone Nr.'
+        placeholder='+1 702 123 4567'
+        hint='This is a hint'
+        withCountryMeta
+      />
+
+    </Form>
+  )}
+/>
+```
+
+
+##### With Default Country
 ```js
 import { Formik } from 'formik'
 import { Form, PhoneInput } from 'react-formik-ui';
@@ -50,7 +83,7 @@ import { Form, PhoneInput } from 'react-formik-ui';
 />
 ```
 
-###### With Preferred Countries
+##### With Preferred Countries
 ```js
 import { Formik } from 'formik'
 import { Form, PhoneInput } from 'react-formik-ui';
@@ -75,7 +108,7 @@ import { Form, PhoneInput } from 'react-formik-ui';
 />
 ```
 
-###### With Regions
+##### With Regions
 ```js
 import { Formik } from 'formik'
 import { Form, PhoneInput } from 'react-formik-ui';
@@ -100,7 +133,7 @@ import { Form, PhoneInput } from 'react-formik-ui';
 />
 ```
 
-###### National Phone Nr. Format
+##### National Phone Nr. Format
 ```jsx
 import { Formik } from 'formik'
 import { Form, PhoneInput } from 'react-formik-ui';
@@ -127,7 +160,7 @@ import { Form, PhoneInput } from 'react-formik-ui';
 />
 ```
 
-###### Themed
+##### Themed
 ```jsx
 import { Formik } from 'formik'
 import { Form, PhoneInput } from 'react-formik-ui';
@@ -138,7 +171,7 @@ import { Form, PhoneInput } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form themed>
+    <Form mode='themed'>
 
       <PhoneInput
         name='phoneNr6'
@@ -151,7 +184,7 @@ import { Form, PhoneInput } from 'react-formik-ui';
 />
 ```
 
-###### Themed National Phone Nr. Format
+##### Themed National Phone Nr. Format
 ```jsx
 import { Formik } from 'formik'
 import { Form, PhoneInput } from 'react-formik-ui';
@@ -162,7 +195,7 @@ import { Form, PhoneInput } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form themed>
+    <Form mode='themed'>
 
       <PhoneInput
         name='phoneNr7'

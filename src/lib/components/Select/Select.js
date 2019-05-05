@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { getIn } from 'formik'
 import useLabel from '../useLabel'
-import './styles.scss'
 
 export const Select = ({
   formik: {
@@ -15,12 +14,14 @@ export const Select = ({
   options,
   placeholder,
   required,
+  className,
   ...rest
 }) => (
   <select
     {...rest}
     id={id || name}
     name={name}
+    className={className}
     value={getIn(values, name)}
     disabled={disabled}
     onChange={handleChange}
@@ -48,7 +49,7 @@ export const Select = ({
 Select.propTypes = {
   /** @ignore */
   formik: PropTypes.instanceOf(Object).isRequired,
-  /** Adds a custom class to the Select wrapper div */
+  /** Adds a custom class to the Select component */
   className: PropTypes.string,
   /** Adds a custom inline styles to the Select wrapper div */
   style: PropTypes.instanceOf(Object),

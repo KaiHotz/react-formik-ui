@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { getIn } from 'formik'
 import useLabel from '../useLabel'
-import './styles.scss'
 
 export const Input = ({
   formik: {
@@ -16,12 +15,14 @@ export const Input = ({
   onAnimationStart,
   onFocus,
   onBlur,
+  className,
   ...rest
 }) => (
   <input
     {...rest}
     id={id || name}
     name={name}
+    className={className}
     type={type}
     onAnimationStart={onAnimationStart}
     placeholder={placeholder}
@@ -42,7 +43,7 @@ Input.propTypes = {
   onFocus: PropTypes.func.isRequired,
   /** @ignore */
   onBlur: PropTypes.func.isRequired,
-  /** Adds a custom class to the Input wrapper div */
+  /** Adds a custom class to the  input component */
   className: PropTypes.string,
   /** Adds a custom inline styles to the Input wrapper div */
   style: PropTypes.instanceOf(Object),

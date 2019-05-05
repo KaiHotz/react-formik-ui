@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { getIn } from 'formik'
 import useLabel from '../useLabel'
-import './styles.scss'
 
 export const Textarea = ({
   formik: {
@@ -14,6 +13,7 @@ export const Textarea = ({
   placeholder,
   onFocus,
   onBlur,
+  className,
   ...rest
 }) => (
   <textarea
@@ -25,6 +25,7 @@ export const Textarea = ({
     onFocus={onFocus}
     onBlur={onBlur}
     disabled={disabled}
+    className={className}
     {...rest}
   />
 )
@@ -36,7 +37,7 @@ Textarea.propTypes = {
   onFocus: PropTypes.func.isRequired,
   /** @ignore */
   onBlur: PropTypes.func.isRequired,
-  /** Adds a custom class to the Textarea wrapper div */
+  /** Adds a custom class to the Textarea component */
   className: PropTypes.string,
   /** Adds a custom inline styles to the Textarea wrapper div */
   style: PropTypes.instanceOf(Object),

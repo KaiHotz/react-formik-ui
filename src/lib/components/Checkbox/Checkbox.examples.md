@@ -34,7 +34,7 @@ import { Form, Checkbox } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form structured>
+    <Form mode='structured'>
 
       <Checkbox
         name='checkboxExample2'
@@ -59,7 +59,7 @@ import { Form, Checkbox } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form themed>
+    <Form mode='themed'>
 
       <Checkbox
         name='checkboxExample3'
@@ -84,7 +84,7 @@ import { Form, Checkbox } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form themed>
+    <Form mode='themed'>
 
       <Checkbox
         name='checkboxExample4'
@@ -110,7 +110,7 @@ import { Form, Checkbox } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form themed>
+    <Form mode='themed'>
 
       <Checkbox
         name='checkboxExample5'

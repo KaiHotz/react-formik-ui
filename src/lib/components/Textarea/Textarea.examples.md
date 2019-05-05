@@ -32,7 +32,7 @@ import { Form, Textarea } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form structured>
+    <Form mode='structured'>
 
       <Textarea
         name='textAreaExample2'
@@ -55,7 +55,7 @@ import { Form, Textarea } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form themed>
+    <Form mode='themed'>
 
       <Textarea
         name='textAreaExample3'
@@ -78,7 +78,7 @@ import { Form, Textarea } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form themed>
+    <Form mode='themed'>
 
       <Textarea
         name='textAreaExample3'
@@ -103,7 +103,7 @@ import { Form, Textarea } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form themed>
+    <Form mode='themed'>
 
       <Textarea
         name='textAreaExample3'
@@ -128,7 +128,7 @@ import { Form, Textarea } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
-    <Form themed>
+    <Form mode='themed'>
 
       <Textarea
         name='textAreaExample4'

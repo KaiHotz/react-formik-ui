@@ -40,7 +40,7 @@ describe('<Autocomplete />', () => {
     }
     const wrapper = mount(<WrappedComponent {...props} />)
 
-    expect(wrapper.find('.form-element').hasClass(props.className)).toBe(true)
+    expect(wrapper.find('input').hasClass(props.className)).toBe(true)
   })
 
   it('should be disabled', () => {

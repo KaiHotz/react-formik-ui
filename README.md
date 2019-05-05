@@ -18,14 +18,12 @@ so you don't have to write any HTML markup or extra components for your forms.
 Each component makes use of Formiks context, there for you need to have Formik installed in your project.
 
 
-## NEW in v2:
-- **THEME option:** React Formik UI now supports a theme option. This can be achieved by passing the `themed` prop to the `Form` component.
-- **Datepicker:** update of ReactJS Datepicker to v2 and therefor `moment` was removed
-- **Dropzone:** Bug fix that did not render correctly the img thumb of uploaded images. Now it also shows file icons for non img files.
-- **HTML markup:** The overall HTML markup for all of the components has slightly changed and is now more solid and accessible through css selectors
-- **Overall** more stability and minor bug fixes
-- **Inline styles:** just like on any HTML element you are now able to pass `style` prop on each component to add inline styles to the wrapper div of each component.
-
+## NEW in v3:
+- **MODE option:** The `themed` and `structured` props are obsolete and got replaced by the `mode` prop. Refer to the `mode` prop on the `Form` component.
+- **Dropzone:** The `DropZone` component now handles 3 additional props : `multiple` with default value set to true, if set to false it allows for single file upload only; `withClearButton` that enables a Button for clearing out added files and `clearButtonText` to set the text to shown on the Clear Button .
+- **PhoneInput:** Now supports the `withCountryMeta` prop , that returns an object not only with the phone number but also with the selected country information
+- **className:**  The `className` Prop on each component now adds the css class directly to the component instead of the wrapper div, so libraries like Bootstrap can be used to style the form component.
+- **Overall** more stability and less bugs, as well as a complete rewrite of the css for better understanding of the code.
 
 ## Markup, Styling and ClassNames
 The markup for the components Input, PhoneInput, Select, Checkbox, Radio, Textarea, Datepicker and DropZone consists of a wrapper div, label, the main component, hint, and error message.
@@ -34,23 +32,19 @@ By default all component have NO styling applied at all.</br>
 This is intentionally, so you have the possibility to apply your own styling.</br>
 All the components used in the Form are scoped by the default classes, situated on the Form component, `react-formik-ui form-wrapper`
 
-Each component has its corresponding wrapper class (eg: Input component  `input-wrapper` ), as well as the class `form-element`.</br>
-you also can pass your own custom class to the wrapper of each component bay passing the `className` prop.
+Each component has its corresponding component class (eg: PhoneInput component  `phoneInput` ) followed a level deeper by its wrapper class (eg: phoneInput component  `phoneInput-wrapper` ), as well as the class `form-element`.</br>
 
-You also can pass the `style` prop on each component, to add custom inline styles to the wrapper div for each component.
+You can pass the `style` prop on each component, to add custom inline styles to the component div for each component.
 
-Anyhow, if you pass the  `structured` prop to the Form component, a minimal styling will be applied to add some structure to the form and each form element.
+The `className` Prop can be passed on each component to add a css class directly to the component instead of the wrapper div, so libraries like Bootstrap can be used to style the form component.
 
-#### NEW:
-If you pass `themed` instead of `structured` as prop to the `Form` component, the React-Fomik-UI Theme will be applied to all components, except the Button and SubmitBtn components.
-The Button and SubmitBtn have been left out of styling due to most apps already have some styles for buttons established, therefore you can pass on those styles to the mentioned buttons by adding your custom className or styles
+Anyhow, if you pass the  `mode` prop to the Form component with `structured` as value, a minimal styling will be applied to add some structure to the form and each form element.
 
-#### IMPORTANT: There is no need to pass `structured` and `themed` together, but no harm if you do.
+In case you pass the value `themed` through the `mode` prop on the `Form` component, the React-Formik-Ui Theme will be applied
 
-## MIGRATION v1 to v2:
-- If you used the `styled` prop on the `Form` component you need to change it to `structured`.
-- In some cases you might need to adjust some of your custom styles due to the HTML markup on most components has slightly changed.
-- The `DatePicker` component has been updated to use ReactJs Datepicker v2 and therefore does not make use of `moment` anymore, if you are using the `minDate` and `maxDate` props please refer to the [ReactJs Datepicker](https://reactdatepicker.com/)
+## MIGRATION v2 to v3:
+- If you used the `structured` or `themed` prop on the `Form` component you now need to change it to `mode='structured'` or `mode='themed'`.
+- In case you used custom css classes through the `className` prop, you might need to adjust some of your custom styles since the `className` has been moved form the wrapper div to the main component.
 
 ## Installation
 **Note:** React Formik UI makes use of the recently released react `Hooks` API, therefore make sure that your project uses the latest `React` version
@@ -123,16 +117,10 @@ You don't need to pass an `onSubmit` handler, since this is already handled unde
     <td>Adds a custom class to the form</td>
   </tr>
   <tr>
-    <td>structured</td>
-    <td>boolean</td>
-    <td>false</td>
-    <td>If passed adds a minimal style that gives some structure to the Form</td>
-  </tr>
-    <tr>
-    <td>themed</td>
-    <td>boolean</td>
-    <td>false</td>
-    <td>If passed the React-Formik-UI theme will be applied to each styled Form element</td>
+    <td>mode</td>
+    <td>string</td>
+    <td>default</td>
+    <td>One of 'default', 'structured', 'themed'</td>
   </tr>
 
 </table>
@@ -158,7 +146,7 @@ class Example extends Component {
         validationSchema={ /* validation schema setup */ }
         onSubmit={this.onSubmit}
         render={() => (
-          <Form structured>
+          <Form mode='structured'>
 
           </Form>
         )}
@@ -196,7 +184,7 @@ A custom class can be passed through the `className` prop.
     <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to the Autocomplete wrapper div</td>
+    <td>Adds a custom class to the Autocomplete input component</td>
   </tr>
   <tr>
     <td>style</td>
@@ -276,7 +264,7 @@ class Example extends Component {
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
         render={() => (
-          <Form structured>
+          <Form mode='structured'>
 
            <Autocomplete
               label='Search'
@@ -344,7 +332,7 @@ A custom class can be passed through the `className` prop.
     <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to the Input wrapper div</td>
+    <td>Adds a custom class to the input component</td>
   </tr>
   <tr>
     <td>style</td>
@@ -436,7 +424,7 @@ class Example extends Component {
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
         render={() => (
-          <Form structured>
+          <Form mode='structured'>
 
             <Input
               name='nameField'
@@ -478,6 +466,12 @@ A custom class can be passed through the `className` prop.
     <td>string</td>
     <td>null</td>
     <td>Sets an Id for the Input Field, if not passed, the id will be the name</td>
+  </tr>
+  <tr>
+    <td>className</td>
+    <td>string</td>
+    <td>null</td>
+    <td>Adds a custom class to the PhoneInput input component</td>
   </tr>
   <tr>
     <td>label</td>
@@ -557,6 +551,33 @@ A custom class can be passed through the `className` prop.
     <td>null</td>
     <td>Adds a custom inline styles to the Autocomplete wrapper div</td>
   </tr>
+  <tr>
+    <td>withCountryMeta</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>
+      changes the retuned value into an Object that contains the phone number and country meta information
+      eg.:
+      <pre>
+      {
+        phoneNumber: '+49 176 12345678',
+        country: {
+          name: 'Germany (Deutschland)',
+          iso2: 'de'
+        }
+      }
+      </pre>
+      In case of use the Formik initialValue for the PhoneInput needs to be an Object exactly like this:
+      <pre>
+      {
+        phoneNumber: '',
+        country: {
+          name: '',
+          iso2: ''
+      }
+      </pre>
+    </td>
+  </tr>
 </table>
 
 #### [Demo](https://kaihotz.github.io/react-formik-ui/#phoneinput)
@@ -599,7 +620,7 @@ A custom class can be passed through the `className` prop.
     <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to the Select wrapper div</td>
+    <td>Adds a custom class to the select component</td>
   </tr>
   <tr>
     <td>style</td>
@@ -690,7 +711,7 @@ class Example extends Component {
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
         render={() => (
-          <Form structured>
+          <Form mode='structured'>
 
             <Select
               name='dropdown'
@@ -728,7 +749,7 @@ A custom class can be passed through the `className` prop.
     <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to the Radio wrapper div</td>
+    <td>Adds a custom class to each input component of the Radio component</td>
   </tr>
   <tr>
     <td>style</td>
@@ -813,7 +834,7 @@ class Example extends Component {
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
         render={() => (
-          <Form structured>
+          <Form mode='structured'>
 
             <Radio
               name='radioOptions'
@@ -850,7 +871,7 @@ A custom class can be passed through the `className` prop.
     <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to the Checkbox wrapper div</td>
+    <td>Adds a custom class to the input component of the Checkbox component</td>
   </tr>
   <tr>
     <td>style</td>
@@ -935,7 +956,7 @@ class Example extends Component {
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
         render={() => (
-          <Form structured>
+          <Form mode='structured'>
 
             <Checkbox
               name='agreement'
@@ -968,7 +989,7 @@ A custom class can be passed through the `className` prop.
     <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to the Textarea wrapper div</td>
+    <td>Adds a custom class to the textarea component</td>
   </tr>
   <tr>
     <td>style</td>
@@ -1053,7 +1074,7 @@ class Example extends Component {
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
         render={() => (
-          <Form structured>
+          <Form mode='structured'>
 
             <Textarea
               name='comment'
@@ -1095,7 +1116,7 @@ You can then pass the desired configuration as props just like you would on Reac
     <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to the Input wrapper div</td>
+    <td>Adds a custom class to the input component for the React-Datepicker component</td>
   </tr>
   <tr>
     <td>style</td>
@@ -1180,7 +1201,7 @@ class Example extends Component {
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
         render={() => (
-          <Form structured>
+          <Form mode='structured'>
 
             <Datepicker
               name='birthday'
@@ -1235,7 +1256,7 @@ For additional configuration options and layouts, please refer to [react-dropzon
     <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to the DropZone wrapper div</td>
+    <td>Adds a custom class to the DropZone component</td>
   </tr>
   <tr>
     <td>style</td>
@@ -1291,6 +1312,25 @@ For additional configuration options and layouts, please refer to [react-dropzon
     <td>Drop file(s) here</td>
     <td>Sets the text to be shown when dragging files over the drop zone </td>
   </tr>
+
+  <tr>
+    <td>withClearButton</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Enables a Clear button below the Dropbox, that enables you to clear out all the files you added to the Dropbox</td>
+  </tr>
+  <tr>
+    <td>clearButtonText</td>
+    <td>string</td>
+    <td>Clear Files</td>
+    <td>Sets the text to be shown on the Clear Button</td>
+  </tr>
+  <tr>
+    <td>multiple</td>
+    <td>boolean</td>
+    <td>true</td>
+    <td>Allow drag 'n' drop (or selection from the file dialog) of multiple files. Set to false to enable Single file upload</td>
+  </tr>
 </table>
 
 #### [Demo](https://kaihotz.github.io/react-formik-ui/#dropzone)
@@ -1326,7 +1366,7 @@ class Example extends Component {
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
         render={() => (
-          <Form structured>
+          <Form mode='structured'>
 
               <DropZone
                 name='files'
@@ -1409,7 +1449,7 @@ class Example extends Component {
         validationSchema={ /* validation schema setup */ }
         onSubmit={this.onSubmit}
         render={() => (
-          <Form structured>
+          <Form mode='structured'>
 
             <Button onClick={(() => alert('Cancel'))}>
               Cancel
@@ -1446,7 +1486,7 @@ A custom class can be passed through the `className` prop.</br>
     <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to the Toggle button</td>
+    <td>Adds a custom class to the Toggle button wrapper-div</td>
   </tr>
   <tr>
     <td>style</td>
@@ -1501,7 +1541,7 @@ class Example extends Component {
         validationSchema={this.getSchema}
         onSubmit={this.onSubmit}
         render={() => (
-          <Form structured>
+          <Form mode='structured'>
 
             <Toggle name='toggleBtn'/>
 
@@ -1577,7 +1617,7 @@ class Example extends Component {
         validationSchema={ /* validation schema setup */ }
         onSubmit={this.onSubmit}
         render={() => (
-          <Form structured>
+          <Form mode='structured'>
 
             <SubmitBtn />
 

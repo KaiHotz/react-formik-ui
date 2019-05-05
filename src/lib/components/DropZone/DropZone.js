@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import Dropzone from 'react-dropzone'
+import Button from '../Button'
 import useLabel from '../useLabel'
-import './styles.scss'
 
 export const DropZone = ({
   formik: {
@@ -17,80 +17,100 @@ export const DropZone = ({
   fileInfo,
   disabledText,
   placeholder,
+  className,
+  withClearButton,
+  clearButtonText,
+  multiple,
   ...rest
 }) => {
   const onDrop = acceptedFiles => {
-    setFieldValue(name, values[name].concat(acceptedFiles))
+    const files = multiple ? values[name].concat(acceptedFiles) : acceptedFiles
+
+    setFieldValue(name, files)
     setFieldTouched(name, true)
   }
 
-  return (
-    <Dropzone
-      {...rest}
-      id={id || name}
-      name={name}
-      accept={accept}
-      disabled={disabled}
-      onDrop={onDrop}
-    >
-      {({
-        getRootProps, getInputProps, isDragActive, acceptedFiles, rejectedFiles,
-      }) => (
-        <div
-          {...getRootProps()}
-          className={cx('dropzone', { 'dropzone--isActive': isDragActive, 'dropzone--isDisabled': disabled })}
-        >
-          {
-            disabled && (<p className="disabledText">{disabledText}</p>)
-          }
-          <input {...getInputProps()} />
-          {
-            (acceptedFiles.length || rejectedFiles.length)
-              ? (
-                values[name].map(file => {
-                  if (file.type.includes('image')) {
-                    return (
-                      <img
-                        key={file.name}
-                        src={URL.createObjectURL(file)}
-                        className="img-thumbnail"
-                        alt={file.name}
-                      />
-                    )
-                  }
+  const clearFiles = () => {
+    setFieldValue(name, [])
+    setFieldTouched(name, false)
+  }
 
-                  return (
-                    <div key={file.name} className="icon-wrapper">
-                      <div className="icon">
-                        <i title={file.name.split('.').pop()} />
+  return (
+    <Fragment>
+      <Dropzone
+        {...rest}
+        id={id || name}
+        name={name}
+        className={className}
+        accept={accept}
+        disabled={disabled}
+        onDrop={onDrop}
+        multiple={multiple}
+      >
+        {({
+          getRootProps, getInputProps, isDragActive, acceptedFiles, rejectedFiles,
+        }) => (
+          <div
+            {...getRootProps()}
+            className={cx('dropzone', { 'dropzone--isActive': isDragActive, 'dropzone--isDisabled': disabled })}
+          >
+            {
+              disabled && (<p className="disabledText">{disabledText}</p>)
+            }
+            <input {...getInputProps()} />
+            {
+              ((acceptedFiles.length && values[name].length) || rejectedFiles.length)
+                ? (
+                  values[name].map(file => {
+                    if (file.type.includes('image')) {
+                      return (
+                        <img
+                          key={file.name}
+                          src={URL.createObjectURL(file)}
+                          className="img-thumbnail"
+                          alt={file.name}
+                        />
+                      )
+                    }
+
+                    return (
+                      <div key={file.name} className="icon-wrapper">
+                        <div className="icon">
+                          <i title={file.name.split('.').pop()} />
+                        </div>
+                        <p>{file.name.split('.').shift()}</p>
                       </div>
-                      <p>{file.name.split('.').shift()}</p>
-                    </div>
-                  )
-                })
-              ) : isDragActive
-                ? <p className="zoneActiveText">{zoneActiveText}</p>
-                : <p className="placeholder">{placeholder}</p>
-          }
-          {
-            fileInfo && (
-              <div className="fileInfo">
-                {`Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`}
-              </div>
-            )
-          }
-        </div>
-      )}
-    </Dropzone>
+                    )
+                  })
+                ) : isDragActive
+                  ? <p className="zoneActiveText">{zoneActiveText}</p>
+                  : <p className="placeholder">{placeholder}</p>
+            }
+            {
+              fileInfo && (
+                <div className="fileInfo">
+                  {`Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`}
+                </div>
+              )
+            }
+          </div>
+        )}
+      </Dropzone>
+      {
+        withClearButton && !disabled && (
+          <Button className="clear-button" onClick={clearFiles}>{clearButtonText}</Button>
+        )
+      }
+    </Fragment>
   )
 }
 
 DropZone.propTypes = {
   /** @ignore */
   formik: PropTypes.instanceOf(Object).isRequired,
-  /** Adds a custom class to the DropZone wrapper div */
+  /** Adds a custom class to the Dropzone component */
   className: PropTypes.string,
-  /** Adds a custom inline styles to the Dropzone wrapper div */
+  /** Adds a custom inline styles to the DropZone wrapper div  */
   style: PropTypes.instanceOf(Object),
   /** Disables the DropZone Field */
   disabled: PropTypes.bool,
@@ -114,6 +134,12 @@ DropZone.propTypes = {
   hint: PropTypes.string,
   /** Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema */
   required: PropTypes.bool,
+  /** Enables a Clear button below the Dropbox, that enables you to clear out all the files you added to the Dropbox */
+  withClearButton: PropTypes.bool,
+  /** Sets the text to be shown on the Clear Button */
+  clearButtonText: PropTypes.string,
+  /** Allow drag 'n' drop (or selection from the file dialog) of multiple files. Set to false to enable Single file upload */
+  multiple: PropTypes.bool,
 }
 
 DropZone.defaultProps = {
@@ -129,6 +155,9 @@ DropZone.defaultProps = {
   placeholder: 'Dropp some files here.',
   hint: null,
   required: false,
+  withClearButton: false,
+  clearButtonText: 'Clear Files',
+  multiple: true,
 }
 
 export default useLabel('dropzone')(DropZone)
