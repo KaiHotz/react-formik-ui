@@ -136,7 +136,7 @@ import { Form } from 'react-formik-ui'
 class Example extends Component {
 
   onSubmit = data => {
-    // here you hanlde the data to be submited
+    // here you handle the data to be submitted
   }
 
   render () {
@@ -243,7 +243,7 @@ import { Form, Autocomplete, SubmitBtn } from 'react-formik-ui'
 class Example extends Component {
 
   onSubmit = data => {
-    // here you hanlde the data to be submited
+    // here you handle the data to be submitted
   }
 
   // example of validation with yup
@@ -403,7 +403,7 @@ import { Form, Input, SubmitBtn } from 'react-formik-ui'
 class Example extends Component {
 
   onSubmit = data => {
-    // here you hanlde the data to be submited
+    // here you handle the data to be submitted
   }
 
   // example of validation with yup
@@ -691,7 +691,7 @@ import { Form, Select, SubmitBtn } from 'react-formik-ui'
 class Example extends Component {
 
   onSubmit = data => {
-    // here you hanlde the data to be submited
+    // here you handle the data to be submitted
   }
 
   // example of validation with yup
@@ -814,7 +814,7 @@ import { Form, Radio, SubmitBtn } from 'react-formik-ui'
 class Example extends Component {
 
   onSubmit = data => {
-    // here you hanlde the data to be submited
+    // here you handle the data to be submitted
   }
 
   // example of validation with yup
@@ -936,7 +936,7 @@ import { Form, Checkbox, SubmitBtn } from 'react-formik-ui'
 class Example extends Component {
 
   onSubmit = data => {
-    // here you hanlde the data to be submited
+    // here you handle the data to be submitted
   }
 
   // example of validation with yup
@@ -1054,7 +1054,7 @@ import { Form, Textarea, SubmitBtn } from 'react-formik-ui'
 class Example extends Component {
 
   onSubmit = data => {
-    // here you hanlde the data to be submited
+    // here you handle the data to be submitted
   }
 
   // example of validation with yup
@@ -1181,7 +1181,7 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui'
 class Example extends Component {
 
   onSubmit = data => {
-    // here you hanlde the data to be submited
+    // here you handle the data to be submitted
   }
 
   // example of validation with yup
@@ -1346,7 +1346,7 @@ import { Form, DropZone, SubmitBtn } from 'react-formik-ui'
 class Example extends Component {
 
   onSubmit = data => {
-    // here you hanlde the data to be submited
+    // here you handle the data to be submitted
   }
 
   // example of validation with yup
@@ -1439,7 +1439,7 @@ import { Form, Button } from 'react-formik-ui'
 class Example extends Component {
 
   onSubmit = data => {
-    // here you hanlde the data to be submited
+    // here you handle the data to be submitted
   }
 
   render () {
@@ -1521,7 +1521,7 @@ import { Form, Toggle, SubmitBtn } from 'react-formik-ui'
 class Example extends Component {
 
   onSubmit = data => {
-    // here you hanlde the data to be submited
+    // here you handle the data to be submitted
   }
 
   // example of validation with yup
@@ -1607,7 +1607,7 @@ import { Form, SubmitBtn } from 'react-formik-ui'
 class Example extends Component {
 
   onSubmit = data => {
-    // here you hanlde the data to be submited
+    // here you handle the data to be submitted
   }
 
   render () {
