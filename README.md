@@ -471,7 +471,7 @@ A custom class can be passed through the `className` prop.
     <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to the PhoneInput input component</td>
+    <td>Adds a custom class to the PhoneInput input/select component</td>
   </tr>
   <tr>
     <td>label</td>
