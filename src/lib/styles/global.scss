@@ -103,8 +103,16 @@
     }
   }
   &.structured {
-    .label {
-      @extend .rfui-structured-label;
+    .form-element {
+      margin-bottom: 10px;
+      .label {
+        @extend .rfui-structured-label;
+      }
+    }
+  }
+  &.themed {
+    .form-element {
+      margin-bottom: 25px;
     }
   }
   &.structured,

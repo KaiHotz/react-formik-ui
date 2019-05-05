@@ -121,6 +121,7 @@ const  getSchema = () => {
             name='filesExample'
             label='File upload'
             placeholder='Drop some files here'
+            withClearButton
           />
 
           <Textarea
@@ -272,6 +273,7 @@ const  getSchema = () => {
               name='files'
               label='File upload'
               placeholder='Drop some files here'
+              withClearButton
             />
 
             <Textarea

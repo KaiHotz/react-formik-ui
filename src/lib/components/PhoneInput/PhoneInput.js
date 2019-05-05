@@ -45,6 +45,7 @@ export const PhoneInput = ({
       regions={regions}
       buttonFlagStyles={buttonFlagStyles}
       listFlagStyles={listFlagStyles}
+      withCountryMeta={withCountryMeta}
     />
   )
 }
@@ -86,16 +87,23 @@ PhoneInput.propTypes = {
   /** Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema */
   required: PropTypes.bool,
   /**
-    * changes the retuned value into an Object that contains the phone number and country meta information
-    * eg.:
+     changes the retuned value into an Object that contains the phone number and country meta information
+     eg.:
      {
-       phoneNumber: "+49 176 12345678",
+       phoneNumber: '+49 176 12345678',
        country: {
-         name: "Germany (Deutschland)"
-         iso2: "de"
+         name: 'Germany (Deutschland)',
+         iso2: 'de'
        }
      }
-   */
+    In case of use the Formik initialValue for the PhoneInput needs to be an Object exactly like this:
+    {
+      phoneNumber: '',
+      country: {
+        name: '',
+        iso2: ''
+      }
+  } */
   withCountryMeta: PropTypes.bool,
 }
 
