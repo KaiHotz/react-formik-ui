@@ -19,10 +19,10 @@ Each component makes use of Formiks context, there for you need to have Formik i
 
 
 ## NEW in v3:
-- **THEME option:** The `themed` and `structured` props are obsolete and got replaced by the `mode` prop. Refer to the `mode` prop on the `Form` component.
+- **MODE option:** The `themed` and `structured` props are obsolete and got replaced by the `mode` prop. Refer to the `mode` prop on the `Form` component.
 - **Dropzone:** The `DropZone` component now handles 3 additional props : `multiple` with default value set to true, if set to false it allows for single file upload only; `withClearButton` that enables a Button for clearing out added files and `clearButtonText` to set the text to shown on the Clear Button .
 - **PhoneInput:** Now supports the `withCountryMeta` prop , that returns an object not only with the phone number but also with the selected country information
-- **ClassName:**  The `className` Prop on each component now adds the css class directly to the component instead of the wrapper div, so libraries like Bootstrap can be used to style the form component.
+- **className:**  The `className` Prop on each component now adds the css class directly to the component instead of the wrapper div, so libraries like Bootstrap can be used to style the form component.
 - **Overall** more stability and less bugs, as well as a complete rewrite of the css for better understanding of the code.
 
 ## Markup, Styling and ClassNames
