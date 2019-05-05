@@ -17,10 +17,10 @@
   display: flex;
   flex-direction: column;
   &::before {
+    content: "\00a0";
     left: 0;
     right: 0;
     bottom: 0;
-    content: "\00a0";
     position: absolute;
     transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     border-bottom: 1px solid currentColor;

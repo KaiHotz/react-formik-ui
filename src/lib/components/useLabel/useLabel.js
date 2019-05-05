@@ -29,7 +29,6 @@ export const useLabel = (component = 'input') => WrappedComponent => {
       },
       name,
       label,
-      className,
       hint,
       placeholder,
       type,
@@ -61,7 +60,6 @@ export const useLabel = (component = 'input') => WrappedComponent => {
             )
           }
           <WrappedComponent
-            className={className}
             onAnimationStart={handleAutoFill}
             onFocus={handleFocus}
             onBlur={handleBlur}
@@ -78,7 +76,6 @@ export const useLabel = (component = 'input') => WrappedComponent => {
     formik: PropTypes.instanceOf(Object).isRequired,
     name: PropTypes.string.isRequired,
     label: PropTypes.string,
-    className: PropTypes.string,
     hint: PropTypes.string,
     placeholder: PropTypes.string,
     type: PropTypes.string,
@@ -90,7 +87,6 @@ export const useLabel = (component = 'input') => WrappedComponent => {
 
   useLabel.defaultProps = {
     label: null,
-    className: null,
     hint: null,
     placeholder: null,
     type: null,

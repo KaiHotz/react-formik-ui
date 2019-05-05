@@ -134,11 +134,11 @@ DropZone.propTypes = {
   hint: PropTypes.string,
   /** Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema */
   required: PropTypes.bool,
-  /** Enablesa Clear button below the Dropbox, that enables you to clear out all the files you added to the Dropbox */
+  /** Enables a Clear button below the Dropbox, that enables you to clear out all the files you added to the Dropbox */
   withClearButton: PropTypes.bool,
   /** Sets the text to be shown on the Clear Button */
   clearButtonText: PropTypes.string,
-  /** Allow drag 'n' drop (or selection from the file dialog) of multiple files */
+  /** Allow drag 'n' drop (or selection from the file dialog) of multiple files. Set to false to enable Single file upload */
   multiple: PropTypes.bool,
 }
 
