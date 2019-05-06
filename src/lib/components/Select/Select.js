@@ -49,7 +49,7 @@ export const Select = ({
 Select.propTypes = {
   /** @ignore */
   formik: PropTypes.instanceOf(Object).isRequired,
-  /** Adds a custom class to the Select component */
+  /** Adds a custom class to the select element of the Select component */
   className: PropTypes.string,
   /** Adds a custom inline styles to the Select wrapper div */
   style: PropTypes.instanceOf(Object),

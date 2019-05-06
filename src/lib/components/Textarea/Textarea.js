@@ -37,7 +37,7 @@ Textarea.propTypes = {
   onFocus: PropTypes.func.isRequired,
   /** @ignore */
   onBlur: PropTypes.func.isRequired,
-  /** Adds a custom class to the Textarea component */
+  /** Adds a custom class to the textarea element of the Textarea component */
   className: PropTypes.string,
   /** Adds a custom inline styles to the Textarea wrapper div */
   style: PropTypes.instanceOf(Object),

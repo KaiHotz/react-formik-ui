@@ -25,7 +25,7 @@ Form.propTypes = {
   formik: PropTypes.instanceOf(Object).isRequired,
   /** @ignore */
   children: PropTypes.node.isRequired,
-  /** Adds a custom class to the form */
+  /** Adds a custom class to the form element */
   className: PropTypes.string,
   /** Sets the styling of The Form Elemnts */
   mode: PropTypes.oneOf(['default', 'structured', 'themed']),

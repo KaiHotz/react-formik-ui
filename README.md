@@ -19,7 +19,7 @@ Each component makes use of Formiks context, there for you need to have Formik i
 
 
 ## NEW in v3:
-- **MODE option:** The `themed` and `structured` props are obsolete and got replaced by the `mode` prop. Refer to the `mode` prop on the `Form` component.
+- **MODE option:** The `themed` and `structured` props are obsolete and got replaced by the `mode` prop. Refer to **Markup, Styling and ClassNames**.
 - **Dropzone:** The `DropZone` component now handles 3 additional props : `multiple` with default value set to true, if set to false it allows for single file upload only; `withClearButton` that enables a Button for clearing out added files and `clearButtonText` to set the text to shown on the Clear Button .
 - **PhoneInput:** Now supports the `withCountryMeta` prop , that returns an object not only with the phone number but also with the selected country information
 - **className:**  The `className` Prop on each component now adds the css class directly to the component instead of the wrapper div, so libraries like Bootstrap can be used to style the form component.
@@ -38,7 +38,7 @@ You can pass the `style` prop on each component, to add custom inline styles to 
 
 The `className` Prop can be passed on each component to add a css class directly to the component instead of the wrapper div, so libraries like Bootstrap can be used to style the form component.
 
-Anyhow, if you pass the  `mode` prop to the Form component with `structured` as value, a minimal styling will be applied to add some structure to the form and each form element.
+**The Mode prop:** If you pass the  `mode` prop to the `Form` component with `structured` as value, a minimal styling will be applied to add some structure to each `form-element`.
 
 In case you pass the value `themed` through the `mode` prop on the `Form` component, the React-Formik-Ui Theme will be applied
 
@@ -184,7 +184,7 @@ A custom class can be passed through the `className` prop.
     <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to the Autocomplete input component</td>
+    <td>Adds a custom class to the input element of the Autocomplete component</td>
   </tr>
   <tr>
     <td>style</td>
@@ -332,7 +332,7 @@ A custom class can be passed through the `className` prop.
     <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to the input component</td>
+    <td>Adds a custom class to the input element of the Input component</td>
   </tr>
   <tr>
     <td>style</td>
@@ -471,7 +471,7 @@ A custom class can be passed through the `className` prop.
     <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to the PhoneInput input/select component</td>
+    <td>Adds a custom class to the input/select element of the PhoneInput component</td>
   </tr>
   <tr>
     <td>label</td>
@@ -490,12 +490,6 @@ A custom class can be passed through the `className` prop.
     <td>object</td>
     <td>null</td>
     <td>Style object that overrides the styles of the Flag shown in the button</td>
-  </tr>
-  <tr>
-    <td>className</td>
-    <td>string</td>
-    <td>null</td>
-    <td>Adds a custom class to the PhoneInput wrapper div</td>
   </tr>
   <tr>
     <td>defaultCountry</td>
@@ -620,7 +614,7 @@ A custom class can be passed through the `className` prop.
     <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to the select component</td>
+    <td>Adds a custom class to the select element of the Select component</td>
   </tr>
   <tr>
     <td>style</td>
@@ -749,7 +743,7 @@ A custom class can be passed through the `className` prop.
     <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to each input component of the Radio component</td>
+    <td>Adds a custom class to each input element of the Radio component</td>
   </tr>
   <tr>
     <td>style</td>
@@ -871,7 +865,7 @@ A custom class can be passed through the `className` prop.
     <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to the input component of the Checkbox component</td>
+    <td>Adds a custom class to the input element of the Checkbox component</td>
   </tr>
   <tr>
     <td>style</td>
@@ -989,7 +983,7 @@ A custom class can be passed through the `className` prop.
     <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to the textarea component</td>
+    <td>Adds a custom class to the textarea element of the Textarea component</td>
   </tr>
   <tr>
     <td>style</td>
@@ -1116,7 +1110,7 @@ You can then pass the desired configuration as props just like you would on Reac
     <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to the input component for the React-Datepicker component</td>
+    <td>Adds a custom class to the React-Datepicker component</td>
   </tr>
   <tr>
     <td>style</td>
@@ -1256,7 +1250,7 @@ For additional configuration options and layouts, please refer to [react-dropzon
     <td>className</td>
     <td>string</td>
     <td>null</td>
-    <td>Adds a custom class to the DropZone component</td>
+    <td>Adds a custom class to the React-DropZone component</td>
   </tr>
   <tr>
     <td>style</td>

@@ -72,7 +72,7 @@ Autocomplete.propTypes = {
   name: PropTypes.string.isRequired,
   /** Array of suggestions to be searchred in */
   suggestions: PropTypes.instanceOf(Array).isRequired,
-  /** Adds a custom class to the input component */
+  /** Adds a custom class to the Autocomplete input element */
   className: PropTypes.string,
   /** Adds a custom inline styles to the Input wrapper div */
   style: PropTypes.instanceOf(Object),

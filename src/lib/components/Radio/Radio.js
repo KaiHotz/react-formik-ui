@@ -45,7 +45,7 @@ export const Radio = ({
 Radio.propTypes = {
   /** @ignore */
   formik: PropTypes.instanceOf(Object).isRequired,
-  /** Adds a custom class to the Radio input component */
+  /** Adds a custom class to each input element of the Radio component */
   className: PropTypes.string,
   /** Adds a custom inline styles to the Radio wrapper div */
   style: PropTypes.instanceOf(Object),

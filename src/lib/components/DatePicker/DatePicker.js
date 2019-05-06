@@ -53,7 +53,7 @@ Datepicker.propTypes = {
   name: PropTypes.string.isRequired,
   /** Sets an Id for the Datepicker, if not passed, the id will be the name */
   id: PropTypes.string,
-  /** Adds a custom class to the Datepicker component */
+  /** Adds a custom class to the React-Datepicker component */
   className: PropTypes.string,
   /** Adds a custom inline styles to the Datepicker wrapper div */
   style: PropTypes.instanceOf(Object),

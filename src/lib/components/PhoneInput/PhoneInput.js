@@ -53,7 +53,7 @@ export const PhoneInput = ({
 PhoneInput.propTypes = {
   /** @ignore */
   formik: PropTypes.instanceOf(Object).isRequired,
-  /** Adds a custom class to the Phone Input/Select component  */
+  /** Adds a custom class to the Phone Input input/select element  */
   className: PropTypes.string,
   /** Adds a custom inline styles to the Input wrapper div */
   style: PropTypes.instanceOf(Object),
