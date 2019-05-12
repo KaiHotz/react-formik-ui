@@ -513,7 +513,7 @@ A custom class can be passed through the `className` prop.
     <td>format</td>
     <td>string</td>
     <td>'INTERNATIONAL'</td>
-    <td>Sets the format of the entered  phone number, in case of 'NATIONAL' the defaultCountry must be set</td>
+    <td>One of: 'INTERNATIONAL', 'NATIONAL'. Sets the format of the entered  phone number, in case of 'NATIONAL' the defaultCountry must be set as well</td>
   </tr>
   <tr>
     <td>listFlagStyles</td>
