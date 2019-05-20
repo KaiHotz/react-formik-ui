@@ -22,7 +22,7 @@ export default {
       minimize: true,
     }),
     external({
-      includeDependencies: true,
+      includeDependencies: false,
     }),
     url(),
     svgr(),
