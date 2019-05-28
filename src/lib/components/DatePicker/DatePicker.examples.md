@@ -47,6 +47,32 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
 />
 ```
 
+##### with Keyboard Navigation enabled
+```jsx
+import { Formik } from 'formik'
+import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
+
+<Formik
+  initialValues={{
+    dateExample8: ''
+  }}
+  onSubmit={data => (alert(JSON.stringify(data)))}
+  render={() => (
+    <Form mode='structured'>
+
+      <Datepicker
+        name='dateExample8'
+        label='Select a date'
+        disabledKeyboardNavigation={false}
+      />
+
+      <SubmitBtn />
+    </Form>
+  )}
+/>
+```
+
+
 ##### Themed
 ```jsx
 import { Formik } from 'formik'

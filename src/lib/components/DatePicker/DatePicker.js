@@ -24,6 +24,8 @@ export const Datepicker = ({
 
   return (
     <DatePickerCmp
+      disabledKeyboardNavigation
+      autoComplete="off"
       {...rest}
       id={id || name}
       name={name}
@@ -31,8 +33,6 @@ export const Datepicker = ({
       selected={getIn(values, name) ? new Date(getIn(values, name)) : null}
       placeholderText={placeholder}
       dateFormat={dateFormat}
-      disabledKeyboardNavigation
-      autoComplete="off"
       onChangeRaw={handleChangeRaw}
       onChange={handleChange}
       onFocus={onFocus}
