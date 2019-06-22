@@ -16,10 +16,14 @@ export const useDatepicker = (setFieldValue, setFieldTouched, name) => {
 
   const handleChange = date => {
     const dateInstance = new Date(date)
-    if (isValid(dateInstance)) {
+
+    if (date && isValid(dateInstance)) {
       setFieldValue(name, dateInstance)
-      setFieldTouched(name, true)
+    } else {
+      setFieldValue(name, '')
     }
+
+    setFieldTouched(name, true)
   }
 
   return [
