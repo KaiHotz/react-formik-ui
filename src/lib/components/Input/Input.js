@@ -19,6 +19,7 @@ export const Input = ({
   ...rest
 }) => (
   <input
+    onChange={handleChange}
     {...rest}
     id={id || name}
     name={name}
@@ -27,7 +28,6 @@ export const Input = ({
     onAnimationStart={onAnimationStart}
     placeholder={placeholder}
     value={getIn(values, name)}
-    onChange={handleChange}
     onFocus={onFocus}
     onBlur={onBlur}
     disabled={disabled}

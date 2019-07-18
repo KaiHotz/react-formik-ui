@@ -17,16 +17,16 @@ export const Textarea = ({
   ...rest
 }) => (
   <textarea
+    onChange={handleChange}
+    {...rest}
     id={id || name}
     name={name}
     placeholder={placeholder}
     value={getIn(values, name)}
-    onChange={handleChange}
     onFocus={onFocus}
     onBlur={onBlur}
     disabled={disabled}
     className={className}
-    {...rest}
   />
 )
 

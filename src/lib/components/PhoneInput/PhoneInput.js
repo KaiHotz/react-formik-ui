@@ -30,11 +30,11 @@ export const PhoneInput = ({
 
   return (
     <PhoneNrInput
+      onChange={handleChange}
       {...rest}
       id={id || name}
       name={name}
       className={className}
-      onChange={handleChange}
       placeholder={placeholder}
       disabled={disabled}
       hint={hint}

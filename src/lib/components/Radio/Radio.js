@@ -21,11 +21,11 @@ export const Radio = ({
         <div key={option.label} className="radio-option">
           <input
             className={className}
+            onChange={handleChange}
             {...rest}
             checked={getIn(values, name) === option.value}
             id={`${name}-id-${option.value}`}
             value={option.value}
-            onChange={handleChange}
             onBlur={handleBlur}
             name={name}
             disabled={disabled}

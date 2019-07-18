@@ -17,11 +17,11 @@ export const Toggle = ({
   <div className={cx('form-element', 'toggle-wrapper', className, { isDisabled: disabled })} style={style}>
     <label className={cx('toggle-switch', className)}>
       <input
+        onChange={handleChange}
         {...rest}
         name={name}
         id={id || name}
         checked={getIn(values, name)}
-        onChange={handleChange}
         disabled={disabled}
         type="checkbox"
       />
