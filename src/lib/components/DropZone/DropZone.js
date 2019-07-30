@@ -54,43 +54,48 @@ export const DropZone = ({
             className={cx('dropzone', className, { 'dropzone--isActive': isDragActive, 'dropzone--isDisabled': disabled })}
           >
             {
-              disabled && (<p className="disabledText">{disabledText}</p>)
-            }
-            <input {...getInputProps()} />
-            {
-              ((acceptedFiles.length && values[name].length) || rejectedFiles.length)
-                ? (
-                  values[name].map(file => {
-                    if (file.type.includes('image')) {
-                      return (
-                        <img
-                          key={file.name}
-                          src={URL.createObjectURL(file)}
-                          className="img-thumbnail"
-                          alt={file.name}
-                        />
+              disabled
+                ? (<p className="disabledText">{disabledText}</p>)
+                : (
+                  <Fragment>
+                    <input {...getInputProps()} />
+                    {
+                      ((acceptedFiles.length && values[name].length) || rejectedFiles.length)
+                        ? (
+                          values[name].map(file => {
+                            if (file.type.includes('image')) {
+                              return (
+                                <img
+                                  key={file.name}
+                                  src={URL.createObjectURL(file)}
+                                  className="img-thumbnail"
+                                  alt={file.name}
+                                />
+                              )
+                            }
+
+                            return (
+                              <div key={file.name} className="icon-wrapper">
+                                <div className="icon">
+                                  <i title={file.name.split('.').pop()} />
+                                </div>
+                                <p>{file.name.split('.').shift()}</p>
+                              </div>
+                            )
+                          })
+                        ) : isDragActive
+                          ? <p className="zoneActiveText">{zoneActiveText}</p>
+                          : <p className="placeholder">{placeholder}</p>
+                    }
+                    {
+                      fileInfo && (
+                        <div className="fileInfo">
+                          {`Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`}
+                        </div>
                       )
                     }
-
-                    return (
-                      <div key={file.name} className="icon-wrapper">
-                        <div className="icon">
-                          <i title={file.name.split('.').pop()} />
-                        </div>
-                        <p>{file.name.split('.').shift()}</p>
-                      </div>
-                    )
-                  })
-                ) : isDragActive
-                  ? <p className="zoneActiveText">{zoneActiveText}</p>
-                  : <p className="placeholder">{placeholder}</p>
-            }
-            {
-              fileInfo && (
-                <div className="fileInfo">
-                  {`Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`}
-                </div>
-              )
+                  </Fragment>
+                )
             }
           </div>
         )}
