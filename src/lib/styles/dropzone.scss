@@ -13,6 +13,7 @@
         padding: 10px;
         box-sizing: border-box;
         border: 1px solid currentColor;
+        outline: none;
         &--isActive {
           border: 1px dashed currentColor;
         }
