@@ -41,7 +41,6 @@ export const DropZone = ({
         {...rest}
         id={id || name}
         name={name}
-        className={className}
         accept={accept}
         disabled={disabled}
         onDrop={onDrop}
@@ -52,7 +51,7 @@ export const DropZone = ({
         }) => (
           <div
             {...getRootProps()}
-            className={cx('dropzone', { 'dropzone--isActive': isDragActive, 'dropzone--isDisabled': disabled })}
+            className={cx('dropzone', className, { 'dropzone--isActive': isDragActive, 'dropzone--isDisabled': disabled })}
           >
             {
               disabled && (<p className="disabledText">{disabledText}</p>)
