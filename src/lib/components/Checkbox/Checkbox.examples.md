@@ -85,12 +85,12 @@ const checkBoxes = [
 ];
 
 <Formik
-  initialValues={
-    checkBoxes.reduce((acc, {name, value }) => ({
+  initialValues={{
+    ...checkBoxes.reduce((acc, {name, value }) => ({
       ...acc,
       [name]: value,
     }), {})
-  }
+  }}
   onSubmit={data => (alert(JSON.stringify(data)))}
   render={() => (
     <Form mode='themed'>
@@ -100,7 +100,7 @@ const checkBoxes = [
             key={cb.name}
             name={cb.name}
             label={cb.label}
-            text='Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+            text={cb.text}
           />
         ))
       }
