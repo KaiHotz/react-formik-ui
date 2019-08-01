@@ -14,7 +14,7 @@ import { Form, DropZone } from 'react-formik-ui';
       <DropZone
         name='files1'
         label='File upload'
-        placeholder='Drop some files here'
+        placeholder='Try dropping some files here, or click to select files to upload.'
       />
 
     </Form>
@@ -38,7 +38,7 @@ import { Form, DropZone } from 'react-formik-ui';
       <DropZone
         name='files2'
         label='File upload'
-        placeholder='Drop some files here'
+        placeholder='Try dropping some files here, or click to select files to upload.'
         withClearButton
       />
 
@@ -63,7 +63,7 @@ import { Form, DropZone } from 'react-formik-ui';
       <DropZone
         name='files3'
         label='File upload'
-        placeholder='Drop or Select a file here'
+        placeholder='Try dropping some files here, or click to select files to upload.'
         multiple={false}
       />
 
@@ -89,7 +89,7 @@ import { Form, DropZone } from 'react-formik-ui';
         fileInfo
         name='files4'
         label='File upload'
-        placeholder='Drop some files here'
+        placeholder='Try dropping some files here, or click to select files to upload.'
       />
 
     </Form>
@@ -113,6 +113,7 @@ import { Form, DropZone } from 'react-formik-ui';
       <DropZone
         name='files5'
         label='File upload'
+        placeholder='Try dropping some files here, or click to select files to upload.'
         disabled
       />
 

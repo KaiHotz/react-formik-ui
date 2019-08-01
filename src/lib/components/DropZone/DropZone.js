@@ -38,13 +38,13 @@ export const DropZone = ({
   return (
     <Fragment>
       <Dropzone
-        {...rest}
         id={id || name}
         name={name}
         accept={accept}
         disabled={disabled}
         onDrop={onDrop}
         multiple={multiple}
+        {...rest}
       >
         {({
           getRootProps, getInputProps, isDragActive, acceptedFiles, rejectedFiles,
@@ -55,7 +55,7 @@ export const DropZone = ({
           >
             {
               disabled
-                ? (<p className="disabledText">{disabledText}</p>)
+                ? (<p className="text">{disabledText}</p>)
                 : (
                   <Fragment>
                     <input {...getInputProps()} />
@@ -84,8 +84,8 @@ export const DropZone = ({
                             )
                           })
                         ) : isDragActive
-                          ? <p className="zoneActiveText">{zoneActiveText}</p>
-                          : <p className="placeholder">{placeholder}</p>
+                          ? <p className="text">{zoneActiveText}</p>
+                          : <p className="text">{placeholder}</p>
                     }
                     {
                       fileInfo && (
@@ -156,7 +156,7 @@ DropZone.defaultProps = {
   zoneActiveText: 'Drop file(s) here',
   fileInfo: false,
   disabledText: 'File upload disabled',
-  placeholder: 'Dropp some files here.',
+  placeholder: 'Try dropping some files here, or click to select files to upload.',
   hint: null,
   required: false,
   withClearButton: false,

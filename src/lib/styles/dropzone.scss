@@ -1,3 +1,12 @@
+@keyframes progress {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -70px 0;
+  }
+}
+
 .react-formik-ui {
   .form-element{
     .dropzone-wrapper {
@@ -12,14 +21,28 @@
         flex-flow: row wrap;
         padding: 10px;
         box-sizing: border-box;
-        border: 1px solid currentColor;
+        border: 2px dashed #C8C8C8;
         outline: none;
+        background-color: #F0F0F0;
+        cursor: pointer;
+        p.text {
+          width: 100%;
+          text-align: center;
+          color: #787878
+        }
         &--isActive {
-          border: 1px dashed currentColor;
+          border: 2px solid;
+          background-image: repeating-linear-gradient(-45deg, #F0F0F0, #F0F0F0 25px, #C8C8C8 25px, #C8C8C8 50px);
+          animation: progress 1s linear infinite !important;
+          background-size: 150% 100%;
+
         }
         &--isDisabled {
           background-color: $white;
-          opacity: 0.2;
+          opacity: 0.5;
+          p.text {
+            color: $black;
+          }
         }
         img {
           max-height: 130px;
@@ -106,7 +129,6 @@
         .fileInfo {
           width: 100%;
           text-align: left;
-          border-top: 1px solid $white;
           padding-top: 10px;
         }
         &:hover {
