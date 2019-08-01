@@ -79,9 +79,9 @@ import { Form, Checkbox } from 'react-formik-ui';
 
 const checkBoxes = [
   { name: 'check1', label: 'Checkbox 1', text: 'Lorem ipsum dolor 1.' , value: false },
-  { name: 'check2', label: 'Checkbox 2', text: 'Lorem ipsum dolor 2.' value: true },
-  { name: 'check3', label: 'Checkbox 3', text: 'Lorem ipsum dolor 3.' value: false },
-  { name: 'check4', label: 'Checkbox 4', text: 'Lorem ipsum dolor 4.' value: true },
+  { name: 'check2', label: 'Checkbox 2', text: 'Lorem ipsum dolor 2.', value: true },
+  { name: 'check3', label: 'Checkbox 3', text: 'Lorem ipsum dolor 3.', value: false },
+  { name: 'check4', label: 'Checkbox 4', text: 'Lorem ipsum dolor 4.', value: true },
 ];
 
 <Formik
