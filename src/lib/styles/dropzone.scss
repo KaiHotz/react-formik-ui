@@ -52,7 +52,7 @@
           object-fit: contain;
         }
         .icon-wrapper {
-          width: 40px;
+          width: 45px;
           margin: 5px 5px 0;
           p {
             font-size: 10px;
@@ -62,11 +62,13 @@
             margin: 5px 0;
           }
           .icon {
-            height: 50px;
+            height: 55px;
             border-radius: 2px;
             cursor: pointer;
             position: relative;
             background-color: $blue;
+            box-sizing: border-box;
+            overflow: hidden;
 
             &::after {
               content: '';
@@ -105,7 +107,7 @@
               &::after {
                 content: attr(title);
                 text-align: center;
-                transform: translateY(-5px);
+                transform: translateY(-7px);
               }
             }
             &:hover {
