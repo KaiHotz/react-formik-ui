@@ -99,7 +99,6 @@ const checkBoxes = [
           <Checkbox
             key={cb.name}
             name={cb.name}
-            label={cb.label}
             text={cb.text}
           />
         ))
