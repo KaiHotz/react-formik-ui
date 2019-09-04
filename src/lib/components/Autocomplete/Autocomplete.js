@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { getIn } from 'formik'
@@ -27,7 +27,7 @@ export const Autocomplete = ({
   ] = useAutocomplete(setFieldValue, setFieldTouched, name, suggestions)
 
   return (
-    <Fragment>
+    <>
       <input
         {...rest}
         id={id || name}
@@ -61,7 +61,7 @@ export const Autocomplete = ({
           </ul>
         )
       }
-    </Fragment>
+    </>
   )
 }
 
