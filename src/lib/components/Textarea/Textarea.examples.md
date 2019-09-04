@@ -1,4 +1,5 @@
 ##### Default
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, Textarea } from 'react-formik-ui';
@@ -22,6 +23,7 @@ import { Form, Textarea } from 'react-formik-ui';
 ```
 
 ##### Structured
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, Textarea } from 'react-formik-ui';
@@ -45,6 +47,7 @@ import { Form, Textarea } from 'react-formik-ui';
 ```
 
 ##### Themed
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, Textarea } from 'react-formik-ui';
@@ -68,6 +71,7 @@ import { Form, Textarea } from 'react-formik-ui';
 ```
 
 ##### Themed with placeholder
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, Textarea } from 'react-formik-ui';
@@ -91,8 +95,8 @@ import { Form, Textarea } from 'react-formik-ui';
 />
 ```
 
-
 ##### Themed and disabled
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, Textarea } from 'react-formik-ui';
@@ -116,8 +120,8 @@ import { Form, Textarea } from 'react-formik-ui';
 />
 ```
 
-
 ##### Themed disabled with text
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, Textarea } from 'react-formik-ui';
@@ -140,5 +144,3 @@ import { Form, Textarea } from 'react-formik-ui';
   )}
 />
 ```
-
-

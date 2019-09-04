@@ -5,7 +5,7 @@ import useLabel from '../useLabel'
 
 export const Select = ({
   formik: {
-    values, handleChange,
+    values, handleChange, setFieldValue,
   },
   disabled,
   id,
@@ -15,36 +15,47 @@ export const Select = ({
   placeholder,
   required,
   className,
+  multiple,
   ...rest
-}) => (
-  <select
-    onChange={handleChange}
-    {...rest}
-    id={id || name}
-    name={name}
-    className={className}
-    value={getIn(values, name)}
-    disabled={disabled}
-  >
-    {
-      placeholder && (
-        <option value="">
-          {`${placeholder}${!label && required ? ' *' : ''}`}
-        </option>
-      )
-    }
-    {
-      options.map(option => (
-        <option
-          key={option.label}
-          value={option.value}
-        >
-          {option.label}
-        </option>
-      ))
-    }
-  </select>
-)
+}) => {
+  const handleMultipleChange = evt => setFieldValue(
+    name,
+    [].slice
+      .call(evt.target.selectedOptions)
+      .map(option => option.value),
+  )
+
+  return (
+    <select
+      onChange={multiple ? handleMultipleChange : handleChange}
+      {...rest}
+      id={id || name}
+      name={name}
+      className={className}
+      value={getIn(values, name)}
+      disabled={disabled}
+      multiple={multiple}
+    >
+      {
+        placeholder && (
+          <option value="">
+            {`${placeholder}${!label && required ? ' *' : ''}`}
+          </option>
+        )
+      }
+      {
+        options.map(option => (
+          <option
+            key={option.label}
+            value={option.value}
+          >
+            {option.label}
+          </option>
+        ))
+      }
+    </select>
+  )
+}
 
 Select.propTypes = {
   /** @ignore */
@@ -75,6 +86,8 @@ Select.propTypes = {
   hint: PropTypes.string,
   /** Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema */
   required: PropTypes.bool,
+  /** Allowes multiple selection */
+  multiple: PropTypes.bool,
 }
 
 Select.defaultProps = {
@@ -86,6 +99,7 @@ Select.defaultProps = {
   placeholder: null,
   hint: null,
   required: false,
+  multiple: false,
 }
 
 export default useLabel('select')(Select)

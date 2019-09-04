@@ -1,4 +1,5 @@
 ##### Default
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, Checkbox } from 'react-formik-ui';
@@ -20,10 +21,10 @@ import { Form, Checkbox } from 'react-formik-ui';
     </Form>
   )}
 />
-
-
 ```
+
 ##### Structured
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, Checkbox } from 'react-formik-ui';
@@ -48,6 +49,7 @@ import { Form, Checkbox } from 'react-formik-ui';
 ```
 
 ##### Themed
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, Checkbox } from 'react-formik-ui';
@@ -73,6 +75,7 @@ import { Form, Checkbox } from 'react-formik-ui';
 ```
 
 ##### Checkbox group example
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, Checkbox } from 'react-formik-ui';
@@ -109,6 +112,7 @@ const checkBoxes = [
 ```
 
 ##### Themed and disabled
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, Checkbox } from 'react-formik-ui';
@@ -133,8 +137,8 @@ import { Form, Checkbox } from 'react-formik-ui';
 />
 ```
 
-
 ##### Themed disabled and checked
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, Checkbox } from 'react-formik-ui';
@@ -159,6 +163,3 @@ import { Form, Checkbox } from 'react-formik-ui';
   )}
 />
 ```
-
-
-

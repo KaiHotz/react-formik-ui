@@ -1,4 +1,5 @@
 #### Form Example structured
+
 ```jsx
 import { Formik } from 'formik'
 import * as yup from 'yup'
@@ -146,6 +147,7 @@ const  getSchema = () => {
 ```
 
 #### Form example Themed
+
 ```jsx
 import { Formik } from 'formik';
 import * as yup from 'yup';

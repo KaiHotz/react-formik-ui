@@ -1,5 +1,7 @@
 See [ReactJS Datepicker documentation](https://github.com/Hacker0x01/react-datepicker/blob/master/docs/datepicker.md) for a list of additional props and configurations
+
 ##### Default
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
@@ -24,6 +26,7 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
 ```
 
 ##### Structured
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
@@ -48,6 +51,7 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
 ```
 
 ##### with Keyboard Navigation enabled
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
@@ -72,8 +76,8 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
 />
 ```
 
-
 ##### Themed
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
@@ -98,6 +102,7 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
 ```
 
 ##### Themed with placeholder
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
@@ -124,6 +129,7 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
 ```
 
 ##### Themed with time picker
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
@@ -153,8 +159,8 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
 />
 ```
 
-
 ##### Themed and disabled
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
@@ -180,6 +186,7 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
 ```
 
 ##### Themed disabled with placeholder
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
@@ -205,7 +212,3 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
   )}
 />
 ```
-
-
-
-

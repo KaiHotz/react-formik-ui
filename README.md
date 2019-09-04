@@ -9,6 +9,7 @@
 </div>
 
 ## Overview
+
 React-Formik-UI is a simple component library, composed out of pure HTML form elements like:
 form, input, select, checkbox, radio and textarea.
 
@@ -17,8 +18,8 @@ so you don't have to write any HTML markup or extra components for your forms.
 
 Each component makes use of Formiks context, there for you need to have Formik installed in your project.
 
-
 ## NEW in v3:
+
 - **MODE option:** The `themed` and `structured` props are obsolete and got replaced by the `mode` prop. Refer to **Markup, Styling and ClassNames**.
 - **Dropzone:** The `DropZone` component now handles 3 additional props : `multiple` with default value set to true, if set to false it allows for single file upload only; `withClearButton` that enables a Button for clearing out added files and `clearButtonText` to set the text to shown on the Clear Button .
 - **PhoneInput:** Now supports the `withCountryMeta` prop , that returns an object not only with the phone number but also with the selected country information
@@ -26,6 +27,7 @@ Each component makes use of Formiks context, there for you need to have Formik i
 - **Overall** more stability and less bugs, as well as a complete rewrite of the css for better understanding of the code.
 
 ## Markup, Styling and ClassNames
+
 The markup for the components Input, PhoneInput, Select, Checkbox, Radio, Textarea, Datepicker and DropZone consists of a wrapper div, label, the main component, hint, and error message.
 
 By default all component have NO styling applied at all.</br>
@@ -43,10 +45,12 @@ The `className` Prop can be passed on each component to add a css class directly
 In case you pass the value `themed` through the `mode` prop on the `Form` component, the React-Formik-Ui Theme will be applied
 
 ## MIGRATION v2 to v3:
+
 - If you used the `structured` or `themed` prop on the `Form` component you now need to change it to `mode='structured'` or `mode='themed'`.
 - In case you used custom css classes through the `className` prop, you might need to adjust some of your custom styles since the `className` has been moved form the wrapper div to the main component.
 
 ## Installation
+
 **Note:** React Formik UI makes use of the recently released react `Hooks` API, therefore make sure that your project uses the latest `React` version
 
 ```sh
@@ -54,14 +58,15 @@ npm install --save react-formik-ui
 ```
 
 ## Support
+
 If you like the project and want to support my work, you can buy me a coffee :)
 
 [![paypal](https://img.shields.io/badge/donate-paypal-blue.svg)](https://paypal.me/kaihotz)
 
-
 # Usage
 
 ### Peer Dependency
+
 React-Formik-UI has a Peer dependency of [Formik](https://github.com/jaredpalmer/formik).</br>
 This means that you need to add [Formik](https://github.com/jaredpalmer/formik) to your project to make use of React-Formik-UI.</br>
 
@@ -70,6 +75,7 @@ npm install --save formik
 ```
 
 ### Form validations
+
 To validate the form fields, the use of [Yup](https://github.com/jquense/yup) is recommended.
 
 ```sh
@@ -88,22 +94,23 @@ npm install --save yup
 - [Radio](#radio)
 - [Checkbox](#checkbox)
 - [Textarea](#textarea)
-- [DatePicker](#datepicker)
+- [Datepicker](#datepicker)
 - [DropZone](#dropzone)
 - [Button](#button)
 - [Toggle](#toggle)
 - [SubmitBtn](#submitbtn)
-- [Complete Form Example ](https://kaihotz.github.io/react-formik-ui/#form)
 
 ## Form
+
 The Form component, like in a normal HTML form is the main wrapper for your form.</br>
 It renders with the classNames `react-formik-ui` and `form-wrapper`.</br>
 A custom class can be passed with the `className` prop.
 
 You don't need to pass an `onSubmit` handler, since this is already handled under the hood.
 
-#### Props:
-<table style="font-size: 12px">
+*Props:*
+
+<table>
   <tr>
     <th>Name</th>
     <th>Type</th>
@@ -125,9 +132,10 @@ You don't need to pass an `onSubmit` handler, since this is already handled unde
 
 </table>
 
-#### [Demo](https://kaihotz.github.io/react-formik-ui/#form)
+### [Demo](https://kaihotz.github.io/react-formik-ui/#form)
 
-#### Code example:
+*Code example:*
+
 ```jsx
 import React, { Component } from 'react'
 import { Formik } from 'formik'
@@ -157,11 +165,13 @@ class Example extends Component {
 ```
 
 ## Autocomplete
+
 The Autocomplete component renders with the classNames `form-element` and `autocomplete-wrapper`.</br>
 A custom class can be passed through the `className` prop.
 
-#### Props:
-<table style="font-size: 12px">
+*Props:*
+
+<table>
   <tr>
     <th>Name</th>
     <th>Type</th>
@@ -230,9 +240,10 @@ A custom class can be passed through the `className` prop.
   </tr>
 </table>
 
-#### [Demo](https://kaihotz.github.io/react-formik-ui/#autocomplete)
+### [Demo](https://kaihotz.github.io/react-formik-ui/#autocomplete)
 
-#### Code example:
+*Code example:*
+
 ```jsx
 import React, { Component } from 'react'
 import { Formik } from 'formik'
@@ -317,11 +328,13 @@ class Example extends Component {
 ```
 
 ## Input
+
 The Input component renders with the classNames `form-element` and `input-wrapper`.</br>
 A custom class can be passed through the `className` prop.
 
-#### Props:
-<table style="font-size: 12px">
+*Props:*
+
+<table>
   <tr>
     <th>Name</th>
     <th>Type</th>
@@ -390,9 +403,10 @@ A custom class can be passed through the `className` prop.
   </tr>
 </table>
 
-#### [Demo](https://kaihotz.github.io/react-formik-ui/#input-1)
+### [Demo](https://kaihotz.github.io/react-formik-ui/#input-1)
 
-#### Code example:
+*Code example:*
+
 ```jsx
 import React, { Component } from 'react'
 import { Formik } from 'formik'
@@ -444,11 +458,13 @@ class Example extends Component {
 ```
 
 ## PhoneInput
+
 The PhoneInput component renders with the classNames `form-element` and `phoneInput-wrapper`.</br>
 A custom class can be passed through the `className` prop.
 
-#### Props:
-<table style="font-size: 12px">
+*Props:*
+
+<table>
   <tr>
     <th>Name</th>
     <th>Type</th>
@@ -574,7 +590,7 @@ A custom class can be passed through the `className` prop.
   </tr>
 </table>
 
-#### [Demo](https://kaihotz.github.io/react-formik-ui/#phoneinput)
+### [Demo](https://kaihotz.github.io/react-formik-ui/#phoneinput)
 
 ```jsx
 import { Formik } from 'formik'
@@ -599,11 +615,13 @@ import { Form, PhoneInput } from 'react-formik-ui';
 ```
 
 ## Select
+
 The Select component renders with the classNames `form-element` and `select-wrapper`.</br>
 A custom class can be passed through the `className` prop.
 
-#### Props:
-<table style="font-size: 12px">
+*Props:*
+
+<table>
   <tr>
     <th>Name</th>
     <th>Type</th>
@@ -670,11 +688,18 @@ A custom class can be passed through the `className` prop.
     <td>false</td>
     <td>Sets the field as required, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema</td>
   </tr>
+  <tr>
+    <td>multiple</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Allowes multiple selection</td>
+  </tr>
 </table>
 
-#### [Demo](https://kaihotz.github.io/react-formik-ui/#select-1)
+### [Demo](https://kaihotz.github.io/react-formik-ui/#select-1)
 
-#### Code example:
+*Code example:*
+
 ```jsx
 import React, { Component } from 'react'
 import { Formik } from 'formik'
@@ -728,11 +753,13 @@ class Example extends Component {
 ```
 
 ## Radio
+
 The Radio component renders with the classNames `form-element` and `radio-wrapper`.</br>
 A custom class can be passed through the `className` prop.
 
-#### Props:
-<table style="font-size: 12px">
+*Props:*
+
+<table>
   <tr>
     <th>Name</th>
     <th>Type</th>
@@ -795,9 +822,10 @@ A custom class can be passed through the `className` prop.
   </tr>
 </table>
 
-#### [Demo](https://kaihotz.github.io/react-formik-ui/#radio-1)
+### [Demo](https://kaihotz.github.io/react-formik-ui/#radio-1)
 
-#### Code example:
+*Code example:*
+
 ```jsx
 import React, { Component } from 'react'
 import { Formik } from 'formik'
@@ -850,11 +878,13 @@ class Example extends Component {
 ```
 
 ## Checkbox
+
 The Checkbox component renders with the classNames `form-element` and `checkbox-wrapper`.</br>
 A custom class can be passed through the `className` prop.
 
-#### Props:
-<table style="font-size: 12px">
+*Props:*
+
+<table>
   <tr>
     <th>Name</th>
     <th>Type</th>
@@ -917,9 +947,10 @@ A custom class can be passed through the `className` prop.
   </tr>
 </table>
 
-#### [Demo](https://kaihotz.github.io/react-formik-ui/#checkbox)
+### [Demo](https://kaihotz.github.io/react-formik-ui/#checkbox)
 
-#### Code example:
+*Code example:*
+
 ```jsx
 import React, { Component } from 'react'
 import { Formik } from 'formik'
@@ -968,11 +999,13 @@ class Example extends Component {
 ```
 
 ## Textarea
+
 The Textarea component renders with the classNames `form-element` and `textarea-wrapper`.</br>
 A custom class can be passed through the `className` prop.
 
-#### Props:
-<table style="font-size: 12px">
+*Props:*
+
+<table>
   <tr>
     <th>Name</th>
     <th>Type</th>
@@ -1035,9 +1068,10 @@ A custom class can be passed through the `className` prop.
   </tr>
 </table>
 
-#### [Demo](https://kaihotz.github.io/react-formik-ui/#textarea-1)
+### [Demo](https://kaihotz.github.io/react-formik-ui/#textarea-1)
 
-#### Code example:
+*Code example:*
+
 ```jsx
 import React, { Component } from 'react'
 import { Formik } from 'formik'
@@ -1085,6 +1119,7 @@ class Example extends Component {
 ```
 
 ## Datepicker
+
 The Datepicker component uses [ReactJS Datepicker](https://reactdatepicker.com/) under the hood.</br>
 It renders with the classNames `form-element` and `datePicker-wrapper`.</br>
 A custom class can be passed through the `className` prop.</br>
@@ -1092,8 +1127,9 @@ A custom class can be passed through the `className` prop.</br>
 For additional configuration options and layouts, please refer to [ReactJS Datepicker](https://reactdatepicker.com/).</br>
 You can then pass the desired configuration as props just like you would on ReactJS Datepicker.
 
-#### Props:
-<table style="font-size: 12px">
+*Props:*
+
+<table>
   <tr>
     <th>Name</th>
     <th>Type</th>
@@ -1162,9 +1198,10 @@ You can then pass the desired configuration as props just like you would on Reac
   </tr>
 </table>
 
-#### [Demo](https://kaihotz.github.io/react-formik-ui/#datepicker)
+### [Demo](https://kaihotz.github.io/react-formik-ui/#datepicker)
 
-#### Code example:
+*Code example:*
+
 ```jsx
 import React, { Component } from 'react'
 import { Formik } from 'formik'
@@ -1212,14 +1249,16 @@ class Example extends Component {
 ```
 
 ## DropZone
+
 The DropZone component uses [react-dropzone](https://react-dropzone.js.org/) under the hood.</br>
 It renders with the classNames `form-element` and `dropzone-wrapper`.</br>
 A custom class can be passed through the `className` prop.</br>
 
 For additional configuration options and layouts, please refer to [react-dropzone](https://react-dropzone.js.org/).</br>
 
-#### Props:
-<table style="font-size: 12px">
+*Props:*
+
+<table>
   <tr>
     <th>Name</th>
     <th>Type</th>
@@ -1327,9 +1366,10 @@ For additional configuration options and layouts, please refer to [react-dropzon
   </tr>
 </table>
 
-#### [Demo](https://kaihotz.github.io/react-formik-ui/#dropzone)
+### [Demo](https://kaihotz.github.io/react-formik-ui/#dropzone)
 
-#### Code example:
+*Code example:*
+
 ```jsx
 import React, { Component } from 'react'
 import { Formik } from 'formik'
@@ -1377,11 +1417,13 @@ class Example extends Component {
 ```
 
 ## Button
+
 The Button component renders with the className `btn`.</br>
 A custom class can be passed through the `className` prop.</br>
 
-#### Props:
-<table style="font-size: 12px">
+*Props:*
+
+<table>
   <tr>
     <th>Name</th>
     <th>Type</th>
@@ -1420,9 +1462,9 @@ A custom class can be passed through the `className` prop.</br>
   </tr>
 </table>
 
-#### [Demo](https://kaihotz.github.io/react-formik-ui/#button)
+### [Demo](https://kaihotz.github.io/react-formik-ui/#button)
 
-#### Code example:
+*Code example:*
 ```jsx
 import React, { Component } from 'react'
 import { Formik } from 'formik'
@@ -1458,12 +1500,14 @@ class Example extends Component {
 ```
 
 ## Toggle
+
 The Toggle button component, is the only component so far who has its own styling.</br>
 Since it uses the Button component, it renders with the classNames `btn` and also `toggle-btn`.</br>
 A custom class can be passed through the `className` prop.</br>
 
-#### Props:
-<table style="font-size: 12px">
+*Props:*
+
+<table>
   <tr>
     <th>Name</th>
     <th>Type</th>
@@ -1502,9 +1546,10 @@ A custom class can be passed through the `className` prop.</br>
   </tr>
 </table>
 
-#### [Demo](https://kaihotz.github.io/react-formik-ui/#toggle-1)
+### [Demo](https://kaihotz.github.io/react-formik-ui/#toggle-1)
 
-#### Code example:
+*Code example:*
+
 ```jsx
 import React, { Component } from 'react'
 import { Formik } from 'formik'
@@ -1549,13 +1594,15 @@ class Example extends Component {
 ```
 
 ## SubmitBtn
+
 The SubmitBtn component renders with the classNames `btn` and `submit-btn`.</br>
 A custom class can be passed through the `className` prop.</br>
 
 By default the SubmitBtn handles the submission, no further handler or configuration is needed.
 
-#### Props:
-<table style="font-size: 12px">
+*Props:*
+
+<table>
   <tr>
     <th>Name</th>
     <th>Type</th>
@@ -1588,9 +1635,10 @@ By default the SubmitBtn handles the submission, no further handler or configura
   </tr>
 </table>
 
-#### [Demo](https://kaihotz.github.io/react-formik-ui/#submitbtn-1)
+### [Demo](https://kaihotz.github.io/react-formik-ui/#submitbtn-1)
 
-#### Code example:
+*Code example:*
+
 ```jsx
 import React, { Component } from 'react'
 import { Formik } from 'formik'
@@ -1622,6 +1670,7 @@ class Example extends Component {
   }
 }
 ```
+
 ## License
 
 MIT © [KaiHotz](https://github.com/KaiHotz)

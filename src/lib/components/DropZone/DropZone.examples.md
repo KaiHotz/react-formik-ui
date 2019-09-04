@@ -1,4 +1,5 @@
 ##### Default / Structured / Themed
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, DropZone } from 'react-formik-ui';
@@ -23,6 +24,7 @@ import { Form, DropZone } from 'react-formik-ui';
 ```
 
 ##### Default / Structured / Themed, with Clear Button
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, DropZone } from 'react-formik-ui';
@@ -48,6 +50,7 @@ import { Form, DropZone } from 'react-formik-ui';
 ```
 
 ##### Default / Structured / Themed, with Single file upload
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, DropZone } from 'react-formik-ui';
@@ -73,6 +76,7 @@ import { Form, DropZone } from 'react-formik-ui';
 ```
 
 ##### Default / Structured / Themed, with file information on accepted and rejected files
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, DropZone } from 'react-formik-ui';
@@ -98,6 +102,7 @@ import { Form, DropZone } from 'react-formik-ui';
 ```
 
 ##### Disabled
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, DropZone } from 'react-formik-ui';

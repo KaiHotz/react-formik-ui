@@ -1,4 +1,5 @@
 ##### Default (no styling at all)
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, Autocomplete } from 'react-formik-ui';
@@ -59,6 +60,7 @@ import { Form, Autocomplete } from 'react-formik-ui';
 ```
 
 ##### Structured
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, Autocomplete } from 'react-formik-ui';
@@ -119,6 +121,7 @@ import { Form, Autocomplete } from 'react-formik-ui';
 ```
 
 #####  Themed
+
 ```jsx
 import { Formik } from 'formik'
 import { Form, Autocomplete } from 'react-formik-ui';

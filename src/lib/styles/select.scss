@@ -29,6 +29,10 @@
           font-size: 1em;
           padding-right: 25px;
           cursor: pointer;
+          &[multiple] {
+            height: auto;
+            padding-right: 0px;
+          }
           &::-ms-expand {
             display: none;
           }
@@ -37,6 +41,11 @@
           }
           &:disabled {
             color: $disabled;
+          }
+        }
+        &.multiple {
+          &::after {
+            border: none;
           }
         }
       }
