@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import Dropzone from 'react-dropzone'
@@ -36,7 +36,7 @@ export const DropZone = ({
   }
 
   return (
-    <Fragment>
+    <>
       <Dropzone
         id={id || name}
         name={name}
@@ -57,7 +57,7 @@ export const DropZone = ({
               disabled
                 ? (<p className="text">{disabledText}</p>)
                 : (
-                  <Fragment>
+                  <>
                     <input {...getInputProps()} />
                     {
                       ((acceptedFiles.length && values[name].length) || rejectedFiles.length)
@@ -94,7 +94,7 @@ export const DropZone = ({
                         </div>
                       )
                     }
-                  </Fragment>
+                  </>
                 )
             }
           </div>
@@ -105,7 +105,7 @@ export const DropZone = ({
           <Button className="clear-button" onClick={clearFiles}>{clearButtonText}</Button>
         )
       }
-    </Fragment>
+    </>
   )
 }
 
