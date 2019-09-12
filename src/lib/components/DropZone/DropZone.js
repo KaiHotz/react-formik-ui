@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import Dropzone from 'react-dropzone'
+import { useDropzone } from 'react-dropzone'
 import Button from '../Button'
 import useLabel from '../useLabel'
 
@@ -23,8 +23,8 @@ export const DropZone = ({
   multiple,
   ...rest
 }) => {
-  const onDrop = acceptedFiles => {
-    const files = multiple ? values[name].concat(acceptedFiles) : acceptedFiles
+  const onDrop = dropedFiles => {
+    const files = multiple ? values[name].concat(dropedFiles) : dropedFiles
 
     setFieldValue(name, files)
     setFieldTouched(name, true)
@@ -35,71 +35,65 @@ export const DropZone = ({
     setFieldTouched(name, false)
   }
 
+  const {
+    getRootProps, getInputProps, isDragActive, acceptedFiles, rejectedFiles,
+  } = useDropzone({
+    id: id || name, name, accept, onDrop, disabled, multiple, ...rest,
+  })
+
   return (
     <>
-      <Dropzone
-        id={id || name}
-        name={name}
-        accept={accept}
-        disabled={disabled}
-        onDrop={onDrop}
-        multiple={multiple}
-        {...rest}
-      >
-        {({
-          getRootProps, getInputProps, isDragActive, acceptedFiles, rejectedFiles,
-        }) => (
-          <div
-            {...getRootProps()}
-            className={cx('dropzone', className, { 'dropzone--isActive': isDragActive, 'dropzone--isDisabled': disabled })}
-          >
-            {
-              disabled
-                ? (<p className="text">{disabledText}</p>)
-                : (
-                  <>
-                    <input {...getInputProps()} />
-                    {
-                      ((acceptedFiles.length && values[name].length) || rejectedFiles.length)
-                        ? (
-                          values[name].map(file => {
-                            if (file.type.includes('image')) {
-                              return (
-                                <img
-                                  key={file.name}
-                                  src={URL.createObjectURL(file)}
-                                  className="img-thumbnail"
-                                  alt={file.name}
-                                />
-                              )
-                            }
-
+      <section>
+        <div
+          {...getRootProps()}
+          className={cx('dropzone', className, { 'dropzone--isActive': isDragActive, 'dropzone--isDisabled': disabled })}
+        >
+          {
+            disabled
+              ? (<p className="text">{disabledText}</p>)
+              : (
+                <>
+                  <input {...getInputProps()} />
+                  {
+                    ((acceptedFiles.length && values[name].length) || rejectedFiles.length)
+                      ? (
+                        values[name].map(file => {
+                          if (file.type.includes('image')) {
                             return (
-                              <div key={file.name} className="icon-wrapper">
-                                <div className="icon">
-                                  <i title={file.name.split('.').pop()} />
-                                </div>
-                                <p>{file.name.split('.').shift()}</p>
-                              </div>
+                              <img
+                                key={file.name}
+                                src={URL.createObjectURL(file)}
+                                className="img-thumbnail"
+                                alt={file.name}
+                              />
                             )
-                          })
-                        ) : isDragActive
-                          ? <p className="text">{zoneActiveText}</p>
-                          : <p className="text">{placeholder}</p>
-                    }
-                    {
-                      fileInfo && (
-                        <div className="fileInfo">
-                          {`Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`}
-                        </div>
-                      )
-                    }
-                  </>
-                )
+                          }
+
+                          return (
+                            <div key={file.name} className="icon-wrapper">
+                              <div className="icon">
+                                <i title={file.name.split('.').pop()} />
+                              </div>
+                              <p>{file.name.split('.').shift()}</p>
+                            </div>
+                          )
+                        })
+                      ) : isDragActive
+                        ? <p className="text">{zoneActiveText}</p>
+                        : <p className="text">{placeholder}</p>
+                  }
+                  {
+                    fileInfo && (
+                      <div className="fileInfo">
+                        {`Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`}
+                      </div>
+                    )
+                  }
+                </>
+              )
             }
-          </div>
-        )}
-      </Dropzone>
+        </div>
+      </section>
       {
         withClearButton && !disabled && (
           <Button className="clear-button" onClick={clearFiles}>{clearButtonText}</Button>

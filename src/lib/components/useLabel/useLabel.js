@@ -36,7 +36,6 @@ export const useLabel = (component = 'input') => WrappedComponent => {
       required,
       style,
       format,
-      multiple,
     } = props
 
     const error = getIn(errors, name)
@@ -51,7 +50,7 @@ export const useLabel = (component = 'input') => WrappedComponent => {
     return (
       <div className={cx('form-element', component, { hasError: !!errorMsg, hidden })} style={style}>
         <div
-          className={cx(`${component}-wrapper`, { isDisabled: disabled, multiple })}
+          className={cx(`${component}-wrapper`, { isDisabled: disabled })}
         >
           {
             label && (
@@ -84,7 +83,6 @@ export const useLabel = (component = 'input') => WrappedComponent => {
     required: PropTypes.bool,
     style: PropTypes.instanceOf(Object),
     format: PropTypes.string,
-    multiple: PropTypes.bool,
   }
 
   useLabel.defaultProps = {
@@ -96,7 +94,6 @@ export const useLabel = (component = 'input') => WrappedComponent => {
     required: false,
     style: null,
     format: 'INTERNATIONAL',
-    multiple: false,
   }
 
   return connect(useLabel)
