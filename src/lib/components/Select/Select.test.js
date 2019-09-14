@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import useLabel from '../useLabel'
+import WithLabel from '../WithLabel'
 import { Select } from './Select'
 
 describe('<Select />', () => {
@@ -24,7 +24,7 @@ describe('<Select />', () => {
     },
   }
 
-  const WrappedComponent = useLabel('select')(Select)
+  const WrappedComponent = WithLabel('select')(Select)
 
   it('should render', () => {
     const wrapper = shallow(<WrappedComponent {...baseProps} />)

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { getIn } from 'formik'
-import useLabel from '../useLabel'
+import WithLabel from '../WithLabel'
 
 export const Input = ({
   formik: {
@@ -89,4 +89,4 @@ Input.defaultProps = {
   required: false,
 }
 
-export default useLabel('input')(Input)
+export default WithLabel('input')(Input)

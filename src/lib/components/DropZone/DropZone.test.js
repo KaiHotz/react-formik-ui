@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import useLabel from '../useLabel'
+import WithLabel from '../WithLabel'
 import { DropZone } from './DropZone'
 
 describe('<DropZone />', () => {
@@ -19,7 +19,7 @@ describe('<DropZone />', () => {
     },
   }
 
-  const WrappedComponent = useLabel('dropzone')(DropZone)
+  const WrappedComponent = WithLabel('dropzone')(DropZone)
 
   it('should render', () => {
     const wrapper = shallow(<WrappedComponent {...baseProps} />)

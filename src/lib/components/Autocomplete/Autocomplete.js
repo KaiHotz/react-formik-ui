@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { getIn } from 'formik'
 import { useAutocomplete } from './useAutocomplete'
-import useLabel from '../useLabel'
+import WithLabel from '../WithLabel'
 
 export const Autocomplete = ({
   formik: {
@@ -101,5 +101,5 @@ Autocomplete.defaultProps = {
   required: false,
 }
 
-export default useLabel('autocomplete')(Autocomplete)
+export default WithLabel('autocomplete')(Autocomplete)
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { getIn } from 'formik'
-import useLabel from '../useLabel'
+import WithLabel from '../WithLabel'
 
 export const Checkbox = ({
   formik: {
@@ -69,4 +69,4 @@ Checkbox.defaultProps = {
   disabled: false,
 }
 
-export default useLabel('checkbox')(Checkbox)
+export default WithLabel('checkbox')(Checkbox)

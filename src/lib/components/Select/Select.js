@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { getIn } from 'formik'
-import useLabel from '../useLabel'
+import WithLabel from '../WithLabel'
 
 export const Select = ({
   formik: {
@@ -102,4 +102,4 @@ Select.defaultProps = {
   multiple: false,
 }
 
-export default useLabel('select')(Select)
+export default WithLabel('select')(Select)

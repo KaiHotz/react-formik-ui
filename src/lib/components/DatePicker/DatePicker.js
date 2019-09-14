@@ -4,7 +4,7 @@ import DatePickerCmp from 'react-datepicker'
 import { getIn } from 'formik'
 import 'react-datepicker/dist/react-datepicker.css'
 import { useDatepicker } from './useDatepicker'
-import useLabel from '../useLabel'
+import WithLabel from '../WithLabel'
 
 export const Datepicker = ({
   formik: {
@@ -85,4 +85,4 @@ Datepicker.defaultProps = {
   required: false,
   disabled: false,
 }
-export default useLabel('datePicker')(Datepicker)
+export default WithLabel('datePicker')(Datepicker)

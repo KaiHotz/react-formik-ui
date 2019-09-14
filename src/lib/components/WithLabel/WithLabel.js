@@ -5,8 +5,8 @@ import { connect, getIn } from 'formik'
 import omit from 'lodash.omit'
 import InfoMsg from '../InfoMsg'
 
-export const useLabel = (component = 'input') => WrappedComponent => {
-  const useLabel = props => {
+export const WithLabel = (component = 'input') => WrappedComponent => {
+  const Label = props => {
     const [hideLabel, setHide] = useState(false)
 
     const handleAutoFill = e => {
@@ -72,7 +72,7 @@ export const useLabel = (component = 'input') => WrappedComponent => {
     )
   }
 
-  useLabel.propTypes = {
+  Label.propTypes = {
     formik: PropTypes.instanceOf(Object).isRequired,
     name: PropTypes.string.isRequired,
     label: PropTypes.string,
@@ -85,7 +85,7 @@ export const useLabel = (component = 'input') => WrappedComponent => {
     format: PropTypes.string,
   }
 
-  useLabel.defaultProps = {
+  Label.defaultProps = {
     label: null,
     hint: null,
     placeholder: null,
@@ -96,7 +96,7 @@ export const useLabel = (component = 'input') => WrappedComponent => {
     format: 'INTERNATIONAL',
   }
 
-  return connect(useLabel)
+  return connect(Label)
 }
 
-export default useLabel
+export default WithLabel

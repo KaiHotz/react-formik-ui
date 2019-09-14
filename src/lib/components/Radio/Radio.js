@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { getIn } from 'formik'
 import cx from 'classnames'
-import useLabel from '../useLabel'
+import WithLabel from '../WithLabel'
 
 export const Radio = ({
   formik: {
@@ -81,4 +81,4 @@ Radio.defaultProps = {
   required: false,
 }
 
-export default useLabel('radio')(Radio)
+export default WithLabel('radio')(Radio)

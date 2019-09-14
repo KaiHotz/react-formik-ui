@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { PhoneInput as PhoneNrInput } from 'react-phonenr-input'
-import useLabel from '../useLabel'
+import WithLabel from '../WithLabel'
 
 export const PhoneInput = ({
   formik,
@@ -125,4 +125,4 @@ PhoneInput.defaultProps = {
   withCountryMeta: false,
 }
 
-export default useLabel('phoneInput')(PhoneInput)
+export default WithLabel('phoneInput')(PhoneInput)

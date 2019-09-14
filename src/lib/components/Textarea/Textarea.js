@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { getIn } from 'formik'
-import useLabel from '../useLabel'
+import WithLabel from '../WithLabel'
 
 export const Textarea = ({
   formik: {
@@ -68,4 +68,4 @@ Textarea.defaultProps = {
   required: false,
 }
 
-export default useLabel('textarea')(Textarea)
+export default WithLabel('textarea')(Textarea)

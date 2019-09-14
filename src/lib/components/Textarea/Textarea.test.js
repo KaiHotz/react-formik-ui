@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import useLabel from '../useLabel'
+import WithLabel from '../WithLabel'
 import { Textarea } from './Textarea'
 
 describe('<Textarea />', () => {
@@ -22,7 +22,7 @@ describe('<Textarea />', () => {
     },
   }
 
-  const WrappedComponent = useLabel('textarea')(Textarea)
+  const WrappedComponent = WithLabel('textarea')(Textarea)
 
   it('should render', () => {
     const wrapper = shallow(<WrappedComponent {...baseProps} />)

@@ -38,6 +38,7 @@ import { Form, DropZone } from 'react-formik-ui';
     <Form>
 
       <DropZone
+        fileInfo
         name='files2'
         label='File upload'
         placeholder='Try dropping some files here, or click to select files to upload.'

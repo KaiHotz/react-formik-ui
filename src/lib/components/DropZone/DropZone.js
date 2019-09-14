@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { useDropzone } from 'react-dropzone'
 import Button from '../Button'
-import useLabel from '../useLabel'
+import WithLabel from '../WithLabel'
 
 export const DropZone = ({
   formik: {
-    values, setFieldValue, setFieldTouched,
+    values, setFieldValue, setFieldTouched, handleReset,
   },
   disabled,
   id,
@@ -31,8 +31,7 @@ export const DropZone = ({
   }
 
   const clearFiles = () => {
-    setFieldValue(name, [])
-    setFieldTouched(name, false)
+    handleReset()
   }
 
   const {
@@ -158,4 +157,4 @@ DropZone.defaultProps = {
   multiple: true,
 }
 
-export default useLabel('dropzone')(DropZone)
+export default WithLabel('dropzone')(DropZone)
