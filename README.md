@@ -54,7 +54,7 @@ In case you pass the value `themed` through the `mode` prop on the `Form` compon
 **Note:** React Formik UI makes use of the recently released react `Hooks` API, therefore make sure that your project uses the latest `React` version
 
 ```sh
-npm install --save react-formik-ui
+yarn add --save react-formik-ui
 ```
 
 ## Support
@@ -71,7 +71,7 @@ React-Formik-UI has a Peer dependency of [Formik](https://github.com/jaredpalmer
 This means that you need to add [Formik](https://github.com/jaredpalmer/formik) to your project to make use of React-Formik-UI.</br>
 
 ```sh
-npm install --save formik
+yarn add formik
 ```
 
 ### Form validations
@@ -79,7 +79,7 @@ npm install --save formik
 To validate the form fields, the use of [Yup](https://github.com/jquense/yup) is recommended.
 
 ```sh
-npm install --save yup
+yarn add yup
 ```
 
 ### See the Styleguide with Demo and Examples [here](https://kaihotz.github.io/react-formik-ui/)
