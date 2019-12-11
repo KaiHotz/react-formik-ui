@@ -1,6 +1,10 @@
 import { useState } from 'react'
+import { useFormikContext } from 'formik'
 
-export const useAutocomplete = (setFieldValue, setFieldTouched, name, suggestions) => {
+export const useAutocomplete = (name, suggestions) => {
+  const {
+    setFieldValue, setFieldTouched,
+  } = useFormikContext()
   const [activeSuggestion, setActiveSuggestion] = useState(0)
   const [filteredSuggestions, setFilteredSuggestions] = useState(null)
   const [showSuggestions, setShowSuggestions] = useState(false)

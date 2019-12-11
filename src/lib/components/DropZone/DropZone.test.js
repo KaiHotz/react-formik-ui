@@ -2,13 +2,13 @@ import React from 'react'
 import { mount } from 'enzyme'
 import { Form, Formik } from 'formik'
 import WithLabel from '../WithLabel'
-import { Autocomplete } from './Autocomplete'
+import { DropZone } from './DropZone'
 
 // eslint-disable-next-line react/prop-types
 const FormiWrapper = ({ children }) => (
   <Formik
     initialValues={{
-      autocompleteTest: '',
+      DropZoneTest: [],
     }}
   >
     <Form>
@@ -17,51 +17,36 @@ const FormiWrapper = ({ children }) => (
   </Formik>
 )
 
-describe('<Autocomplete />', () => {
+describe('<DropZone />', () => {
   const baseProps = {
-    name: 'autocompleteTest',
-    suggestions: [
-      'Afghanistan',
-      'Aland Islands',
-      'Albania',
-      'Algeria',
-    ],
+    name: 'DropZoneTest',
   }
 
-  const WrappedComponent = WithLabel('autocomplete')(Autocomplete)
+  const WrappedComponent = WithLabel('dropzone')(DropZone)
 
   it('should render', () => {
     const wrapper = mount(
       <FormiWrapper>
-        <Autocomplete {...baseProps} />
+        <WrappedComponent {...baseProps} />
       </FormiWrapper>,
     )
 
     expect(wrapper).toBeDefined()
   })
 
-  it('should allow custom className', () => {
+  it('should have a label', () => {
     const props = {
       ...baseProps,
-      className: 'Custom',
+      label: 'Custom',
     }
+
     const wrapper = mount(
       <FormiWrapper>
         <WrappedComponent {...props} />
       </FormiWrapper>,
     )
 
-    expect(wrapper.find('input').hasClass(props.className)).toBe(true)
-  })
-
-  it('should be disabled', () => {
-    const wrapper = mount(
-      <FormiWrapper>
-        <WrappedComponent {...baseProps} disabled />
-      </FormiWrapper>,
-    )
-
-    expect(wrapper.find('input').prop('disabled')).toBe(true)
+    expect(wrapper.find('.label').length).toBe(1)
   })
 
   it('should have a hint', () => {

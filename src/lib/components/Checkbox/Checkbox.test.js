@@ -2,14 +2,15 @@ import React from 'react'
 import { mount } from 'enzyme'
 import { Form, Formik } from 'formik'
 import WithLabel from '../WithLabel'
-import { Autocomplete } from './Autocomplete'
+import { Checkbox } from './Checkbox'
 
 // eslint-disable-next-line react/prop-types
 const FormiWrapper = ({ children }) => (
   <Formik
     initialValues={{
-      autocompleteTest: '',
+      checkboxExample1: false,
     }}
+    onSubmit={data => (alert(JSON.stringify(data)))}
   >
     <Form>
       {children}
@@ -17,23 +18,17 @@ const FormiWrapper = ({ children }) => (
   </Formik>
 )
 
-describe('<Autocomplete />', () => {
+describe('<Checkbox />', () => {
   const baseProps = {
-    name: 'autocompleteTest',
-    suggestions: [
-      'Afghanistan',
-      'Aland Islands',
-      'Albania',
-      'Algeria',
-    ],
+    name: 'checkboxTest',
   }
 
-  const WrappedComponent = WithLabel('autocomplete')(Autocomplete)
+  const WrappedComponent = WithLabel('checkbox')(Checkbox)
 
   it('should render', () => {
     const wrapper = mount(
       <FormiWrapper>
-        <Autocomplete {...baseProps} />
+        <WrappedComponent {...baseProps} />
       </FormiWrapper>,
     )
 

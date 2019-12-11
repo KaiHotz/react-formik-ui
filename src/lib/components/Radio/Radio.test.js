@@ -1,14 +1,13 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import { Form, Formik } from 'formik'
-import WithLabel from '../WithLabel'
-import { Autocomplete } from './Autocomplete'
+import Radio from './Radio'
 
 // eslint-disable-next-line react/prop-types
 const FormiWrapper = ({ children }) => (
   <Formik
     initialValues={{
-      autocompleteTest: '',
+      radioTest: '0',
     }}
   >
     <Form>
@@ -17,23 +16,20 @@ const FormiWrapper = ({ children }) => (
   </Formik>
 )
 
-describe('<Autocomplete />', () => {
+describe('<Radio />', () => {
   const baseProps = {
-    name: 'autocompleteTest',
-    suggestions: [
-      'Afghanistan',
-      'Aland Islands',
-      'Albania',
-      'Algeria',
+    name: 'radioTest',
+    options: [
+      { value: '0', label: 'Option 1' },
+      { value: '1', label: 'Option 2' },
+      { value: '2', label: 'Option 3' },
     ],
   }
-
-  const WrappedComponent = WithLabel('autocomplete')(Autocomplete)
 
   it('should render', () => {
     const wrapper = mount(
       <FormiWrapper>
-        <Autocomplete {...baseProps} />
+        <Radio {...baseProps} />
       </FormiWrapper>,
     )
 
@@ -47,21 +43,13 @@ describe('<Autocomplete />', () => {
     }
     const wrapper = mount(
       <FormiWrapper>
-        <WrappedComponent {...props} />
+        <Radio {...props} readOnly />
       </FormiWrapper>,
     )
 
-    expect(wrapper.find('input').hasClass(props.className)).toBe(true)
-  })
-
-  it('should be disabled', () => {
-    const wrapper = mount(
-      <FormiWrapper>
-        <WrappedComponent {...baseProps} disabled />
-      </FormiWrapper>,
-    )
-
-    expect(wrapper.find('input').prop('disabled')).toBe(true)
+    wrapper.find('input').forEach(node => {
+      expect(node.prop('className')).toBe(props.className)
+    })
   })
 
   it('should have a hint', () => {
@@ -71,11 +59,23 @@ describe('<Autocomplete />', () => {
     }
     const wrapper = mount(
       <FormiWrapper>
-        <WrappedComponent {...props} />
+        <Radio {...props} readOnly />
       </FormiWrapper>,
     )
 
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)
+  })
+
+  it('should be disabled', () => {
+    const wrapper = mount(
+      <FormiWrapper>
+        <Radio {...baseProps} disabled />
+      </FormiWrapper>,
+    )
+
+    wrapper.find('input').forEach(node => {
+      expect(node.prop('disabled')).toBe(true)
+    })
   })
 })

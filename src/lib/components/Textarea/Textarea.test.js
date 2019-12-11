@@ -2,7 +2,7 @@ import React from 'react'
 import { mount } from 'enzyme'
 import { Form, Formik } from 'formik'
 import WithLabel from '../WithLabel'
-import { Autocomplete } from './Autocomplete'
+import { Textarea } from './Textarea'
 
 // eslint-disable-next-line react/prop-types
 const FormiWrapper = ({ children }) => (
@@ -17,23 +17,20 @@ const FormiWrapper = ({ children }) => (
   </Formik>
 )
 
-describe('<Autocomplete />', () => {
+describe('<Textarea />', () => {
   const baseProps = {
-    name: 'autocompleteTest',
-    suggestions: [
-      'Afghanistan',
-      'Aland Islands',
-      'Albania',
-      'Algeria',
-    ],
+    name: 'textAreaTest',
+    value: '',
+    onFocus: jest.fn(),
+    onBlur: jest.fn(),
   }
 
-  const WrappedComponent = WithLabel('autocomplete')(Autocomplete)
+  const WrappedComponent = WithLabel('textarea')(Textarea)
 
   it('should render', () => {
     const wrapper = mount(
       <FormiWrapper>
-        <Autocomplete {...baseProps} />
+        <WrappedComponent {...baseProps} />
       </FormiWrapper>,
     )
 
@@ -47,21 +44,25 @@ describe('<Autocomplete />', () => {
     }
     const wrapper = mount(
       <FormiWrapper>
-        <WrappedComponent {...props} />
+        <WrappedComponent {...props} readOnly />
       </FormiWrapper>,
     )
 
-    expect(wrapper.find('input').hasClass(props.className)).toBe(true)
+    expect(wrapper.find('textarea').hasClass(props.className)).toBe(true)
   })
 
-  it('should be disabled', () => {
+  it('should have a label', () => {
+    const props = {
+      ...baseProps,
+      label: 'Custom Label',
+    }
     const wrapper = mount(
       <FormiWrapper>
-        <WrappedComponent {...baseProps} disabled />
+        <WrappedComponent {...props} readOnly />
       </FormiWrapper>,
     )
 
-    expect(wrapper.find('input').prop('disabled')).toBe(true)
+    expect(wrapper.find('.label').length).toBe(1)
   })
 
   it('should have a hint', () => {
@@ -71,7 +72,7 @@ describe('<Autocomplete />', () => {
     }
     const wrapper = mount(
       <FormiWrapper>
-        <WrappedComponent {...props} />
+        <WrappedComponent {...props} readOnly />
       </FormiWrapper>,
     )
 

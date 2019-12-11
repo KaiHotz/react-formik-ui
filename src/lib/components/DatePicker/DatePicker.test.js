@@ -2,13 +2,13 @@ import React from 'react'
 import { mount } from 'enzyme'
 import { Form, Formik } from 'formik'
 import WithLabel from '../WithLabel'
-import { Autocomplete } from './Autocomplete'
+import { Datepicker } from './Datepicker'
 
 // eslint-disable-next-line react/prop-types
 const FormiWrapper = ({ children }) => (
   <Formik
     initialValues={{
-      autocompleteTest: '',
+      DatepickerTest: '',
     }}
   >
     <Form>
@@ -17,23 +17,19 @@ const FormiWrapper = ({ children }) => (
   </Formik>
 )
 
-describe('<Autocomplete />', () => {
+describe('<Datepicker />', () => {
   const baseProps = {
-    name: 'autocompleteTest',
-    suggestions: [
-      'Afghanistan',
-      'Aland Islands',
-      'Albania',
-      'Algeria',
-    ],
+    name: 'DatepickerTest',
+    onFocus: jest.fn(),
+    onBlur: jest.fn(),
   }
 
-  const WrappedComponent = WithLabel('autocomplete')(Autocomplete)
+  const WrappedComponent = WithLabel('datePicker')(Datepicker)
 
   it('should render', () => {
     const wrapper = mount(
       <FormiWrapper>
-        <Autocomplete {...baseProps} />
+        <WrappedComponent {...baseProps} />
       </FormiWrapper>,
     )
 
@@ -43,7 +39,7 @@ describe('<Autocomplete />', () => {
   it('should allow custom className', () => {
     const props = {
       ...baseProps,
-      className: 'Custom',
+      className: 'customDatepicker',
     }
     const wrapper = mount(
       <FormiWrapper>
@@ -62,6 +58,20 @@ describe('<Autocomplete />', () => {
     )
 
     expect(wrapper.find('input').prop('disabled')).toBe(true)
+  })
+
+  it('should have a label', () => {
+    const props = {
+      ...baseProps,
+      label: 'Custom',
+    }
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...props} />
+      </FormiWrapper>,
+    )
+
+    expect(wrapper.find('.label').length).toBe(1)
   })
 
   it('should have a hint', () => {
