@@ -1284,7 +1284,7 @@
     pretty-format "^24.0.0"
     redent "^3.0.0"
 
-"@testing-library/react@^9.3.2":
+"@testing-library/react@^9.3.3":
   version "9.3.3"
   resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-9.3.3.tgz#87fe594adb02cba4d0e86369d025ea13ad570d7c"
   integrity sha512-IuoiJR/NAzu9EuT3Fqs92sRHe/9egCipar92wTnXe3fMloWy0Q7JdAXaszzbv2ogH30ztb6Axp5XW63vOTd4jA==
@@ -1743,7 +1743,7 @@ acorn@^5.5.3:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.3.tgz#67aa231bf8812974b85235a96771eb6bd07ea279"
   integrity sha512-T/zvzYRfbVojPWahDsE5evJdHb3oJoQfFbsrKM7w5Zcs++Tr257tia3BmMP8XYVjp1S9RZXQMh7gao96BlqZOw==
 
-acorn@^6.0.1, acorn@^6.0.4, acorn@^6.1.1, acorn@^6.2.1:
+acorn@^6.0.1, acorn@^6.0.4, acorn@^6.1.1, acorn@^6.2.1, acorn@~6.4.0:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.4.0.tgz#b659d2ffbafa24baf5db1cdbb2c94a983ecd2784"
   integrity sha512-gac8OEcQ2Li1dxIEWGZzsp2BitJxwkwcOm0zHAJLcPJaVvm58FRnk6RkuLRpU1EujipU2ZFODv2P9DLMfnV8mw==
@@ -1752,11 +1752,6 @@ acorn@^7.1.0:
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.1.0.tgz#949d36f2c292535da602283586c2477c57eb2d6c"
   integrity sha512-kL5CuoXA/dgxlBbVrflsflzQ3PAas7RYZB52NOm/6839iVYJgKMJ3cQJD+t2i5+qFa8h3MDpEOJiS64E8JLnSQ==
-
-acorn@~6.3.0:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.3.0.tgz#0087509119ffa4fc0a0041d1e93a417e68cb856e"
-  integrity sha512-/czfa8BwS88b9gWQVhc8eknunSA2DoJpJyTQkhheIf5E48u1N0R4q/YxxsAeqRrmK9TQ/uYfgLDfZo91UlANIA==
 
 add-matchers@0.6.2:
   version "0.6.2"
@@ -3189,7 +3184,7 @@ copy-descriptor@^0.1.0:
   resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
   integrity sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
 
-copy-webpack-plugin@^5.0.4:
+copy-webpack-plugin@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/copy-webpack-plugin/-/copy-webpack-plugin-5.1.0.tgz#cd6bb506ffbbe830bf9ecb3d15cc4946b2edd011"
   integrity sha512-0sNrj/Sx7/cWA0k7CVQa0sdA/dzCybqSb0+GbhKuQdOlAvnAwgC2osmbAFOAfha7ZXnreoQmCq5oDjG3gP4VHw==
@@ -4203,7 +4198,7 @@ eslint-plugin-flowtype@^4.5.2:
   dependencies:
     lodash "^4.17.15"
 
-eslint-plugin-import@^2.18.2:
+eslint-plugin-import@^2.19.1:
   version "2.19.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.19.1.tgz#5654e10b7839d064dd0d46cd1b88ec2133a11448"
   integrity sha512-x68131aKoCZlCae7rDXKSAQmbT5DQuManyXo2sK6fJJ0aK5CWAkv6A6HJZGgqC8IhjQxYPgo6/IY4Oz8AFsbBw==
@@ -9403,13 +9398,13 @@ react-simple-code-editor@^0.10.0:
   resolved "https://registry.yarnpkg.com/react-simple-code-editor/-/react-simple-code-editor-0.10.0.tgz#73e7ac550a928069715482aeb33ccba36efe2373"
   integrity sha512-bL5W5mAxSW6+cLwqqVWY47Silqgy2DKDTR4hDBrLrUqC5BXc29YVx17l2IZk5v36VcDEq1Bszu2oHm1qBwKqBA==
 
-react-styleguidist@^10.2.1:
-  version "10.3.0"
-  resolved "https://registry.yarnpkg.com/react-styleguidist/-/react-styleguidist-10.3.0.tgz#23455b8ca87fe600710adef3e99a5fb470e1a8ff"
-  integrity sha512-RhUhQ2f+LMNFCvxd9vVFvLjAMa22iMZuxnWquBspoYj7SyAyi7ZmEs6xhz86w4rAAi874PyHmYquvZDRhybVXA==
+react-styleguidist@^10.3.2:
+  version "10.3.2"
+  resolved "https://registry.yarnpkg.com/react-styleguidist/-/react-styleguidist-10.3.2.tgz#702f97ef894496f2cd20891b22880441fd9fcf59"
+  integrity sha512-sD7/cVFABQ/FFLC9GtDQzQOhLnhiDcyIOHI/Yl3m8ZMK70T+CYiEOM4ca2XwY3RejgFrWzlWsgwto5YksGL8gA==
   dependencies:
     "@vxna/mini-html-webpack-template" "^1.0.0"
-    acorn "~6.3.0"
+    acorn "~6.4.0"
     acorn-jsx "^5.1.0"
     ast-types "~0.13.2"
     buble "0.19.8"
@@ -9417,7 +9412,7 @@ react-styleguidist@^10.2.1:
     clipboard-copy "^3.1.0"
     clsx "^1.0.4"
     common-dir "^3.0.0"
-    copy-webpack-plugin "^5.0.4"
+    copy-webpack-plugin "^5.1.0"
     core-js "^3.3.5"
     doctrine "^3.0.0"
     es6-object-assign "~1.1.0"
@@ -10006,7 +10001,7 @@ rollup-plugin-postcss@^2.0.3:
     rollup-pluginutils "^2.0.1"
     style-inject "^0.3.0"
 
-rollup-plugin-terser@^5.1.2:
+rollup-plugin-terser@^5.1.3:
   version "5.1.3"
   resolved "https://registry.yarnpkg.com/rollup-plugin-terser/-/rollup-plugin-terser-5.1.3.tgz#5f4c4603b12b4f8d093f4b6f31c9aa5eba98a223"
   integrity sha512-FuFuXE5QUJ7snyxHLPp/0LFXJhdomKlIx/aK7Tg88Yubsx/UU/lmInoJafXJ4jwVVNcORJ1wRUC5T9cy5yk0wA==
@@ -10024,7 +10019,7 @@ rollup-pluginutils@^2.0.1, rollup-pluginutils@^2.8.1, rollup-pluginutils@^2.8.2:
   dependencies:
     estree-walker "^0.6.1"
 
-rollup@^1.27.8:
+rollup@^1.27.10:
   version "1.27.10"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.27.10.tgz#e0814c1401e7658b679d617d3511f0a4ffaea019"
   integrity sha512-5PjBSKney8zLu7tTn/y4iVBL3OyK+G9rA/wfkcY78bZ9kAMtgNqb8nOfR5KpoDYyt8Vs5o2o8DyDjf9RpwYbAg==
