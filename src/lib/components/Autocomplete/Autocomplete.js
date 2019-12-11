@@ -70,7 +70,7 @@ Autocomplete.propTypes = {
   suggestions: PropTypes.instanceOf(Array).isRequired,
   /** Adds a custom class to the Autocomplete input element */
   className: PropTypes.string,
-  /** Adds a custom inline styles to the Input element */
+  /** Adds a custom inline styles to the input element */
   style: PropTypes.instanceOf(Object),
   /** Sets an Id for the Input Field, if not passed, the id will be the name */
   id: PropTypes.string,

@@ -61,7 +61,7 @@ export const Select = ({
 Select.propTypes = {
   /** Adds a custom class to the select element of the Select component */
   className: PropTypes.string,
-  /** Adds a custom inline styles to the Select wrapper div */
+  /** Adds a custom inline styles to the select element */
   style: PropTypes.instanceOf(Object),
   /** Disables the Select Field */
   disabled: PropTypes.bool,

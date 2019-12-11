@@ -5,6 +5,7 @@ import cx from 'classnames'
 const Button = ({
   children,
   className,
+  style,
   disabled,
   onClick,
   type,
@@ -13,6 +14,7 @@ const Button = ({
   <button
     {...rest}
     className={cx('form-element btn', className, { isDisabled: disabled })}
+    style={style}
     onClick={onClick}
     type={type}
     disabled={disabled}
@@ -29,6 +31,8 @@ Button.propTypes = {
   ]),
   /** Adds a custom class to the button */
   className: PropTypes.string,
+  /** Adds a custom inline styles to the button element */
+  style: PropTypes.instanceOf(Object),
   /** Disables the button */
   disabled: PropTypes.bool,
   /** Sets the onClick handler for the button */
@@ -40,6 +44,7 @@ Button.propTypes = {
 Button.defaultProps = {
   children: null,
   className: null,
+  style: null,
   disabled: false,
   type: 'button',
 }

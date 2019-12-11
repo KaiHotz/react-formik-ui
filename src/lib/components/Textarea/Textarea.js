@@ -40,7 +40,7 @@ Textarea.propTypes = {
   onBlur: PropTypes.func.isRequired,
   /** Adds a custom class to the textarea element of the Textarea component */
   className: PropTypes.string,
-  /** Adds a custom inline styles to the Textarea wrapper div */
+  /** Adds a custom inline styles to the Textarea element */
   style: PropTypes.instanceOf(Object),
   /** Disables the Textarea */
   disabled: PropTypes.bool,

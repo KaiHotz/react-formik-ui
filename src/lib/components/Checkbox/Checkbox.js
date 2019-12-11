@@ -9,6 +9,7 @@ export const Checkbox = ({
   name,
   text,
   className,
+  style,
   ...rest
 }) => {
   const { values, handleChange } = useFormikContext()
@@ -22,6 +23,7 @@ export const Checkbox = ({
         name={name}
         checked={getIn(values, name)}
         className={className}
+        style={style}
         disabled={disabled}
         type="checkbox"
       />
@@ -42,7 +44,7 @@ Checkbox.propTypes = {
   id: PropTypes.string,
   /** Adds a custom class to the Checkbox input element */
   className: PropTypes.string,
-  /** Adds a custom inline styles to the Checkbox wrapper div */
+  /** Adds a custom inline styles to the Checkbox input element */
   style: PropTypes.instanceOf(Object),
   /** Sets the main Label for the Checkbox */
   label: PropTypes.string,

@@ -48,7 +48,7 @@ export const Radio = ({
 Radio.propTypes = {
   /** Adds a custom class to each input element of the Radio component */
   className: PropTypes.string,
-  /** Adds a custom inline styles to the Radio wrapper div */
+  /** Adds a custom inline styles to the Radio input element */
   style: PropTypes.instanceOf(Object),
   /** Disables the Radio Fields */
   disabled: PropTypes.bool,

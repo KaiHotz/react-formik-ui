@@ -55,7 +55,7 @@ export const PhoneInput = ({
 PhoneInput.propTypes = {
   /** Adds a custom class to the Phone Input input/select element  */
   className: PropTypes.string,
-  /** Adds a custom inline styles to the Input wrapper div */
+  /** Adds a custom inline styles to the Phone Input input element */
   style: PropTypes.instanceOf(Object),
   /** Sets an Id for the Input Field, if not passed, the id will be the name */
   id: PropTypes.string,

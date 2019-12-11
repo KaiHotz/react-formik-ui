@@ -26,10 +26,10 @@ export const Datepicker = ({
       disabledKeyboardNavigation
       autoComplete="off"
       {...rest}
-      style={style}
       id={id || name}
       name={name}
       className={className}
+      style={style}
       selected={getIn(values, name) && new Date(getIn(values, name))}
       placeholderText={placeholder}
       dateFormat={dateFormat}
@@ -53,7 +53,7 @@ Datepicker.propTypes = {
   id: PropTypes.string,
   /** Adds a custom class to the React-Datepicker component */
   className: PropTypes.string,
-  /** Adds a custom inline styles to the Datepicker wrapper div */
+  /** Adds a custom inline styles to the React-Datepicker component */
   style: PropTypes.instanceOf(Object),
   /** Sets the main Label for the Datepicker */
   label: PropTypes.string,

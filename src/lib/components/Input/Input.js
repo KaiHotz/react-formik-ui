@@ -46,7 +46,7 @@ Input.propTypes = {
   onBlur: PropTypes.func.isRequired,
   /** Adds a custom class to the input element of the Input component */
   className: PropTypes.string,
-  /** Adds a custom inline styles to the Input wrapper div */
+  /** Adds a custom inline styles to the input element */
   style: PropTypes.instanceOf(Object),
   /** Sets an Id for the Input Field, if not passed, the id will be the name */
   id: PropTypes.string,
