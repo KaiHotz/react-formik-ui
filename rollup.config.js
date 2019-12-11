@@ -5,13 +5,15 @@ import postcss from 'rollup-plugin-postcss'
 import resolve from '@rollup/plugin-node-resolve'
 import url from '@rollup/plugin-url'
 import svgr from '@svgr/rollup'
+import { terser } from 'rollup-plugin-terser'
+
 import pkg from './package.json'
 
 export default {
   input: 'src/lib/index.js',
   output: [
     {
-      file: pkg.main,
+      file: pkg.module,
       format: 'es',
       sourcemap: true,
     },
@@ -20,6 +22,7 @@ export default {
     postcss({
       plugins: [],
       minimize: true,
+      sourceMap: 'inline',
     }),
     external({
       includeDependencies: false,
@@ -28,6 +31,7 @@ export default {
     svgr(),
     resolve(),
     babel({
+      runtimeHelpers: true,
       plugins: [
         '@babel/plugin-proposal-object-rest-spread',
         '@babel/plugin-proposal-optional-chaining',
@@ -38,5 +42,6 @@ export default {
       exclude: 'node_modules/**',
     }),
     commonjs(),
+    terser(),
   ],
 }
