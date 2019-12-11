@@ -13,6 +13,11 @@ export default {
   input: 'src/lib/index.js',
   output: [
     {
+      file: pkg.main,
+      format: 'cjs',
+      sourcemap: true,
+    },
+    {
       file: pkg.module,
       format: 'es',
       sourcemap: true,
@@ -25,7 +30,7 @@ export default {
       sourceMap: 'inline',
     }),
     external({
-      includeDependencies: false,
+      includeDependencies: true,
     }),
     url(),
     svgr(),
