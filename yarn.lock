@@ -3355,10 +3355,10 @@ css-initials@^0.3.1:
   resolved "https://registry.yarnpkg.com/css-initials/-/css-initials-0.3.1.tgz#0406d78e586fd12b9984a3f7d8a87fcbb2073208"
   integrity sha512-fkshKv9vV8AmcxkAWVQ9DmEAKiqe09GHdnFaXecp0NIfsGnXIHVJAHfsxdRy9KXV0/KiWdjBqrCYto2fYIO4xQ==
 
-css-loader@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-3.3.0.tgz#65f889807baec3197313965d6cda9899f936734d"
-  integrity sha512-x9Y1vvHe5RR+4tzwFdWExPueK00uqFTCw7mZy+9aE/X1SKWOArm5luaOrtJ4d05IpOwJ6S86b/tVcIdhw1Bu4A==
+css-loader@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-3.3.1.tgz#7e80ee995e96adbd8cc08cca9cfbd8109121f312"
+  integrity sha512-I2Sz5X81b2pJ4SM2UwxWcIu6uXcCvfCHgRHa1j0J8PmZj7qXu9ZkFdBeIwl6brZPseW982MrBoPfCfHqbkAUZw==
   dependencies:
     camelcase "^5.3.1"
     cssesc "^3.0.0"
@@ -9369,10 +9369,10 @@ react-onclickoutside@^6.9.0:
   resolved "https://registry.yarnpkg.com/react-onclickoutside/-/react-onclickoutside-6.9.0.tgz#a54bc317ae8cf6131a5d78acea55a11067f37a1f"
   integrity sha512-8ltIY3bC7oGhj2nPAvWOGi+xGFybPNhJM0V1H8hY/whNcXgmDeaeoCMPPd8VatrpTsUWjb/vGzrmu6SrXVty3A==
 
-react-phonenr-input@^1.3.16:
-  version "1.3.16"
-  resolved "https://registry.yarnpkg.com/react-phonenr-input/-/react-phonenr-input-1.3.16.tgz#81a5de69463dcf07b6242b2b7d26d878f4fee764"
-  integrity sha512-Gg4EVz7D7NuX+Uch0BLLY0AROZz2TG3oijfgFZEKcyB54B/b4vda76FHlO3C5i87mRVUHXh3s5gQOqwdDqqvDA==
+react-phonenr-input@^1.3.17:
+  version "1.3.17"
+  resolved "https://registry.yarnpkg.com/react-phonenr-input/-/react-phonenr-input-1.3.17.tgz#ac283aaff3153ee8c07dac52eebcf9fc14a2fce9"
+  integrity sha512-VgRonblhNuR4ds1XDUthylZ3ClGKLSTs0/Hpd6mc8pwhQ/44w49iPibKGe9zHGFBlEDKl5vALuE2Q3yAtq5dUg==
   dependencies:
     classnames "^2.2.6"
     libphonenumber-js "^1.7.29"
