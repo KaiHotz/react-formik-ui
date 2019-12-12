@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { useFormikContext, getIn } from 'formik'
@@ -12,10 +12,11 @@ export const Toggle = ({
   ...rest
 }) => {
   const { values, setFieldValue, setFieldTouched } = useFormikContext()
-  const handleChange = () => {
-    setFieldValue(name, !getIn(values, name))
+  const value = getIn(values, name)
+  const handleChange = useCallback(() => {
+    setFieldValue(name, !value)
     setFieldTouched(name, true)
-  }
+  }, [value])
 
   return (
     <div className={cx('form-element', 'toggle-wrapper', className, { isDisabled: disabled })} style={style}>
@@ -25,7 +26,7 @@ export const Toggle = ({
           {...rest}
           name={name}
           id={id || name}
-          checked={getIn(values, name)}
+          checked={value}
           disabled={disabled}
           type="checkbox"
         />

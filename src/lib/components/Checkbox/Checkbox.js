@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import PropTypes from 'prop-types'
 import { useFormikContext, getIn } from 'formik'
 import WithLabel from '../WithLabel'
@@ -13,10 +13,11 @@ export const Checkbox = ({
   ...rest
 }) => {
   const { values, setFieldValue, setFieldTouched } = useFormikContext()
-  const handleChange = () => {
-    setFieldValue(name, !getIn(values, name))
+  const value = getIn(values, name)
+  const handleChange = useCallback(() => {
+    setFieldValue(name, !value)
     setFieldTouched(name, true)
-  }
+  }, [value])
 
   return (
     <div className="checkbox-input-wrapper">
@@ -25,7 +26,7 @@ export const Checkbox = ({
         {...rest}
         id={id || name}
         name={name}
-        checked={getIn(values, name)}
+        checked={value}
         className={className}
         style={style}
         disabled={disabled}
