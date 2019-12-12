@@ -1,38 +1,42 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { connect, getIn } from 'formik'
+import { useFormikContext, getIn } from 'formik'
 
 export const Toggle = ({
-  formik: {
-    values, handleChange,
-  },
   className,
   disabled,
   name,
   style,
   id,
   ...rest
-}) => (
-  <div className={cx('form-element', 'toggle-wrapper', className, { isDisabled: disabled })} style={style}>
-    <label className={cx('toggle-switch', className)}>
-      <input
-        onChange={handleChange}
-        {...rest}
-        name={name}
-        id={id || name}
-        checked={getIn(values, name)}
-        disabled={disabled}
-        type="checkbox"
-      />
-      <span className="slider" />
-    </label>
-  </div>
-)
+}) => {
+  const { values, setFieldValue, setFieldTouched } = useFormikContext()
+  const value = getIn(values, name)
+  const handleChange = useCallback(() => {
+    setFieldValue(name, !value)
+    setFieldTouched(name, true)
+  }, [value])
+
+  return (
+    <div className={cx('form-element', 'toggle-wrapper', className, { isDisabled: disabled })} style={style}>
+      <label className={cx('toggle-switch', className)}>
+        <input
+          onChange={handleChange}
+          {...rest}
+          name={name}
+          id={id || name}
+          checked={value}
+          disabled={disabled}
+          type="checkbox"
+        />
+        <span className="slider" />
+      </label>
+    </div>
+  )
+}
 
 Toggle.propTypes = {
-/** @ignore */
-  formik: PropTypes.instanceOf(Object).isRequired,
   /** Adds a custom class to the Toggle button */
   className: PropTypes.string,
   /** Adds a custom inline styles to the Toggle wrapper div */
@@ -52,4 +56,4 @@ Toggle.defaultProps = {
   id: null,
 }
 
-export default connect(Toggle)
+export default Toggle

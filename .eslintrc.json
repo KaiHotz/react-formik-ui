@@ -16,8 +16,10 @@
   },
   "plugins": [
     "jest",
+    "jest-dom",
     "react",
     "react-hooks",
+    "testing-library",
     "flowtype"
   ],
   "parserOptions": {

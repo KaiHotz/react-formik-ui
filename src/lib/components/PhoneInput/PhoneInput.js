@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useFormikContext } from 'formik'
 import { PhoneInput as PhoneNrInput } from 'react-phonenr-input'
 import WithLabel from '../WithLabel'
 
 export const PhoneInput = ({
-  formik,
   id,
   name,
   placeholder,
@@ -18,10 +18,11 @@ export const PhoneInput = ({
   buttonFlagStyles,
   listFlagStyles,
   className,
+  style,
   withCountryMeta,
   ...rest
 }) => {
-  const { setFieldValue, setFieldTouched } = formik
+  const { setFieldValue, setFieldTouched } = useFormikContext()
 
   const handleChange = data => {
     setFieldValue(name, data)
@@ -35,6 +36,7 @@ export const PhoneInput = ({
       id={id || name}
       name={name}
       className={className}
+      style={style}
       placeholder={placeholder}
       disabled={disabled}
       hint={hint}
@@ -51,11 +53,9 @@ export const PhoneInput = ({
 }
 
 PhoneInput.propTypes = {
-  /** @ignore */
-  formik: PropTypes.instanceOf(Object).isRequired,
   /** Adds a custom class to the Phone Input input/select element  */
   className: PropTypes.string,
-  /** Adds a custom inline styles to the Input wrapper div */
+  /** Adds a custom inline styles to the Phone Input input element */
   style: PropTypes.instanceOf(Object),
   /** Sets an Id for the Input Field, if not passed, the id will be the name */
   id: PropTypes.string,

@@ -1,53 +1,54 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { getIn } from 'formik'
+import { useFormikContext, getIn } from 'formik'
 import cx from 'classnames'
 import WithLabel from '../WithLabel'
 
 export const Radio = ({
-  formik: {
-    values, handleChange, handleBlur,
-  },
   disabled,
   name,
   options,
   inline,
   className,
+  style,
   ...rest
-}) => (
-  <div className={cx('radio-options', { inline })}>
-    {
-      options.map(option => (
-        <div key={option.label} className="radio-option">
-          <input
-            className={className}
-            onChange={handleChange}
-            {...rest}
-            checked={getIn(values, name) === option.value}
-            id={`${name}-id-${option.value}`}
-            value={option.value}
-            onBlur={handleBlur}
-            name={name}
-            disabled={disabled}
-            type="radio"
-          />
-          <label
-            htmlFor={`${name}-id-${option.value}`}
-          >
-            {option.label}
-          </label>
-        </div>
-      ))
-    }
-  </div>
-)
+}) => {
+  const { values, handleChange, handleBlur } = useFormikContext()
+
+  return (
+    <div className={cx('radio-options', { inline })}>
+      {
+        options.map(option => (
+          <div key={option.label} className="radio-option">
+            <input
+              className={className}
+              style={style}
+              onChange={handleChange}
+              {...rest}
+              checked={getIn(values, name) === option.value}
+              id={`${name}-id-${option.value}`}
+              value={option.value}
+              onBlur={handleBlur}
+              name={name}
+              disabled={disabled}
+              type="radio"
+            />
+            <label
+              htmlFor={`${name}-id-${option.value}`}
+            >
+              {option.label}
+            </label>
+          </div>
+        ))
+      }
+    </div>
+  )
+}
 
 Radio.propTypes = {
-  /** @ignore */
-  formik: PropTypes.instanceOf(Object).isRequired,
   /** Adds a custom class to each input element of the Radio component */
   className: PropTypes.string,
-  /** Adds a custom inline styles to the Radio wrapper div */
+  /** Adds a custom inline styles to the Radio input element */
   style: PropTypes.instanceOf(Object),
   /** Disables the Radio Fields */
   disabled: PropTypes.bool,

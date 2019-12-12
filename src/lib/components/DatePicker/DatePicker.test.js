@@ -1,48 +1,39 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
+import { mount } from 'enzyme'
+import { Form, Formik } from 'formik'
 import WithLabel from '../WithLabel'
 import { Datepicker } from './Datepicker'
+
+// eslint-disable-next-line react/prop-types
+const FormiWrapper = ({ children }) => (
+  <Formik
+    initialValues={{
+      DatepickerTest: '',
+    }}
+  >
+    <Form>
+      {children}
+    </Form>
+  </Formik>
+)
 
 describe('<Datepicker />', () => {
   const baseProps = {
     name: 'DatepickerTest',
     onFocus: jest.fn(),
     onBlur: jest.fn(),
-    formik: {
-      handleChange: jest.fn(),
-      handleBlur: jest.fn(),
-      setFieldValue: jest.fn(),
-      setFieldTouched: jest.fn(),
-      touched: {},
-      errors: {},
-      values: {
-        DatepickerTest: '',
-      },
-    },
   }
 
   const WrappedComponent = WithLabel('datePicker')(Datepicker)
 
   it('should render', () => {
-    const wrapper = shallow(<WrappedComponent {...baseProps} />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...baseProps} />
+      </FormiWrapper>,
+    )
 
     expect(wrapper).toBeDefined()
-  })
-
-  it('should call handleChange', () => {
-    const wrapper = mount(<Datepicker {...baseProps} />)
-    wrapper.find('input').simulate('change', { target: { value: '10.10.2019' } })
-
-    expect(baseProps.formik.setFieldValue).toHaveBeenCalled()
-    expect(baseProps.formik.setFieldTouched).toHaveBeenCalled()
-  })
-
-  it('should call handleChangeRaw', () => {
-    const wrapper = mount(<Datepicker {...baseProps} />)
-    wrapper.find('input').simulate('change', { target: { value: '10.10.2019' } })
-
-    expect(baseProps.formik.setFieldValue).toHaveBeenCalled()
-    expect(baseProps.formik.setFieldTouched).toHaveBeenCalled()
   })
 
   it('should allow custom className', () => {
@@ -50,13 +41,21 @@ describe('<Datepicker />', () => {
       ...baseProps,
       className: 'customDatepicker',
     }
-    const wrapper = mount(<WrappedComponent {...props} />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...props} />
+      </FormiWrapper>,
+    )
 
-    expect(wrapper.hasClass(props.className)).toBe(true)
+    expect(wrapper.find('input').hasClass(props.className)).toBe(true)
   })
 
   it('should be disabled', () => {
-    const wrapper = mount(<WrappedComponent {...baseProps} disabled />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...baseProps} disabled />
+      </FormiWrapper>,
+    )
 
     expect(wrapper.find('input').prop('disabled')).toBe(true)
   })
@@ -66,7 +65,11 @@ describe('<Datepicker />', () => {
       ...baseProps,
       label: 'Custom',
     }
-    const wrapper = mount(<WrappedComponent {...props} />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...props} />
+      </FormiWrapper>,
+    )
 
     expect(wrapper.find('.label').length).toBe(1)
   })
@@ -76,7 +79,11 @@ describe('<Datepicker />', () => {
       ...baseProps,
       hint: 'hintTest',
     }
-    const wrapper = mount(<WrappedComponent {...props} />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...props} />
+      </FormiWrapper>,
+    )
 
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)

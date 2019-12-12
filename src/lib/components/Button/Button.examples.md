@@ -6,14 +6,13 @@ import { Form, Button } from 'react-formik-ui';
 
 <Formik
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form>
+>
+  <Form>
 
-      <Button onClick={(() => alert('Button clicked'))}>
-        Click me
-      </Button>
+    <Button onClick={(() => alert('Button clicked'))}>
+      Click me
+    </Button>
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```

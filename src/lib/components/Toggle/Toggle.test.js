@@ -1,25 +1,32 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
+import { Form, Formik } from 'formik'
 import { Toggle } from './Toggle'
+
+// eslint-disable-next-line react/prop-types
+const FormiWrapper = ({ children }) => (
+  <Formik
+    initialValues={{
+      toggleTest: false,
+    }}
+  >
+    <Form>
+      {children}
+    </Form>
+  </Formik>
+)
 
 describe('<Toggle />', () => {
   const baseProps = {
     name: 'toggleTest',
-    formik: {
-      handleChange: jest.fn(),
-      handleBlur: jest.fn(),
-      setFieldValue: jest.fn(),
-      setFieldTouched: jest.fn(),
-      touched: {},
-      errors: {},
-      values: {
-        toggleTest: false,
-      },
-    },
   }
 
   it('should render', () => {
-    const wrapper = shallow(<Toggle {...baseProps} />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <Toggle {...baseProps} />
+      </FormiWrapper>,
+    )
 
     expect(wrapper).toBeDefined()
   })
@@ -29,22 +36,23 @@ describe('<Toggle />', () => {
       ...baseProps,
       className: 'Custom',
     }
-    const wrapper = shallow(<Toggle {...props} />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <Toggle {...props} />
+      </FormiWrapper>,
+    )
 
-    expect(wrapper.hasClass(props.className)).toBe(true)
-  })
-
-  it('should call handleChange', () => {
-    const wrapper = shallow(<Toggle {...baseProps} />)
-    wrapper.find('input').simulate('change')
-
-    expect(baseProps.formik.handleChange).toHaveBeenCalled()
+    expect(wrapper.find('.form-element').hasClass(props.className)).toBe(true)
   })
 
   it('should be disabled', () => {
-    const wrapper = shallow(<Toggle {...baseProps} disabled />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <Toggle {...baseProps} disabled />
+      </FormiWrapper>,
+    )
 
     expect(wrapper.find('input').prop('disabled')).toBe(true)
-    expect(wrapper.prop('className').includes('disabled'))
+    expect(wrapper.find('.form-element').prop('className').includes('disabled'))
   })
 })

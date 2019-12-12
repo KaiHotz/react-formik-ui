@@ -9,17 +9,16 @@ import { Form, Textarea } from 'react-formik-ui';
     textAreaExample1: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form>
+>
+  <Form>
 
-      <Textarea
-        name='textAreaExample1'
-        label='Write a comment'
-      />
+    <Textarea
+      name='textAreaExample1'
+      label='Write a comment'
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### Structured
@@ -33,17 +32,16 @@ import { Form, Textarea } from 'react-formik-ui';
     textAreaExample2: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='structured'>
+>
+  <Form mode='structured'>
 
-      <Textarea
-        name='textAreaExample2'
-        label='Write a comment'
-      />
+    <Textarea
+      name='textAreaExample2'
+      label='Write a comment'
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### Themed
@@ -57,17 +55,16 @@ import { Form, Textarea } from 'react-formik-ui';
     textAreaExample3: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='themed'>
+>
+  <Form mode='themed'>
 
-      <Textarea
-        name='textAreaExample3'
-        label='Write a comment'
-      />
+    <Textarea
+      name='textAreaExample3'
+      label='Write a comment'
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### Themed with placeholder
@@ -81,18 +78,17 @@ import { Form, Textarea } from 'react-formik-ui';
     textAreaExample3: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='themed'>
+>
+  <Form mode='themed'>
 
-      <Textarea
-        name='textAreaExample3'
-        label='Write a comment'
-        placeholder='Write some text here'
-      />
+    <Textarea
+      name='textAreaExample3'
+      label='Write a comment'
+      placeholder='Write some text here'
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### Themed and disabled
@@ -106,18 +102,17 @@ import { Form, Textarea } from 'react-formik-ui';
     textAreaExample3: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='themed'>
+>
+  <Form mode='themed'>
 
-      <Textarea
-        name='textAreaExample3'
-        label='Write a comment'
-        disabled
-      />
+    <Textarea
+      name='textAreaExample3'
+      label='Write a comment'
+      disabled
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### Themed disabled with text
@@ -131,16 +126,15 @@ import { Form, Textarea } from 'react-formik-ui';
     textAreaExample4: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='themed'>
+>
+  <Form mode='themed'>
 
-      <Textarea
-        name='textAreaExample4'
-        label='Write a comment'
-        disabled
-      />
+    <Textarea
+      name='textAreaExample4'
+      label='Write a comment'
+      disabled
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```

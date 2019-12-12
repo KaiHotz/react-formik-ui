@@ -1,7 +1,21 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
+import { mount } from 'enzyme'
+import { Form, Formik } from 'formik'
 import WithLabel from '../WithLabel'
 import { Autocomplete } from './Autocomplete'
+
+// eslint-disable-next-line react/prop-types
+const FormiWrapper = ({ children }) => (
+  <Formik
+    initialValues={{
+      autocompleteTest: '',
+    }}
+  >
+    <Form>
+      {children}
+    </Form>
+  </Formik>
+)
 
 describe('<Autocomplete />', () => {
   const baseProps = {
@@ -12,23 +26,16 @@ describe('<Autocomplete />', () => {
       'Albania',
       'Algeria',
     ],
-    formik: {
-      handleChange: jest.fn(),
-      handleBlur: jest.fn(),
-      setFieldValue: jest.fn(),
-      setFieldTouched: jest.fn(),
-      touched: {},
-      errors: {},
-      values: {
-        autocompleteTest: '',
-      },
-    },
   }
 
   const WrappedComponent = WithLabel('autocomplete')(Autocomplete)
 
   it('should render', () => {
-    const wrapper = shallow(<Autocomplete {...baseProps} />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <Autocomplete {...baseProps} />
+      </FormiWrapper>,
+    )
 
     expect(wrapper).toBeDefined()
   })
@@ -38,13 +45,21 @@ describe('<Autocomplete />', () => {
       ...baseProps,
       className: 'Custom',
     }
-    const wrapper = mount(<WrappedComponent {...props} />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...props} />
+      </FormiWrapper>,
+    )
 
     expect(wrapper.find('input').hasClass(props.className)).toBe(true)
   })
 
   it('should be disabled', () => {
-    const wrapper = mount(<WrappedComponent {...baseProps} disabled />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...baseProps} disabled />
+      </FormiWrapper>,
+    )
 
     expect(wrapper.find('input').prop('disabled')).toBe(true)
   })
@@ -54,18 +69,13 @@ describe('<Autocomplete />', () => {
       ...baseProps,
       hint: 'hintTest',
     }
-    const wrapper = mount(<WrappedComponent {...props} />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...props} />
+      </FormiWrapper>,
+    )
 
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)
-  })
-
-  it('should call handleChange', () => {
-    const wrapper = mount(<Autocomplete {...baseProps} />)
-
-    wrapper.find('input').simulate('change', { target: { value: 'a' } })
-
-    expect(baseProps.formik.setFieldValue).toHaveBeenCalled()
-    expect(baseProps.formik.setFieldTouched).toHaveBeenCalled()
   })
 })

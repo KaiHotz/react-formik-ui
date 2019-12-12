@@ -1,7 +1,21 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
+import { mount } from 'enzyme'
+import { Form, Formik } from 'formik'
 import WithLabel from '../WithLabel'
 import { Select } from './Select'
+
+// eslint-disable-next-line react/prop-types
+const FormiWrapper = ({ children }) => (
+  <Formik
+    initialValues={{
+      selectTest: '',
+    }}
+  >
+    <Form>
+      {children}
+    </Form>
+  </Formik>
+)
 
 describe('<Select />', () => {
   const baseProps = {
@@ -11,23 +25,16 @@ describe('<Select />', () => {
       { value: '1', label: 'Option 2' },
       { value: '2', label: 'Option 3' },
     ],
-    formik: {
-      handleChange: jest.fn(),
-      handleBlur: jest.fn(),
-      setFieldValue: jest.fn(),
-      setFieldTouched: jest.fn(),
-      touched: {},
-      errors: {},
-      values: {
-        selectTest: '',
-      },
-    },
   }
 
   const WrappedComponent = WithLabel('select')(Select)
 
   it('should render', () => {
-    const wrapper = shallow(<WrappedComponent {...baseProps} />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...baseProps} />
+      </FormiWrapper>,
+    )
 
     expect(wrapper).toBeDefined()
   })
@@ -37,7 +44,11 @@ describe('<Select />', () => {
       ...baseProps,
       className: 'customClass',
     }
-    const wrapper = mount(<WrappedComponent {...props} />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...props} />
+      </FormiWrapper>,
+    )
 
     expect(wrapper.find('select').hasClass(props.className)).toBe(true)
   })
@@ -47,7 +58,11 @@ describe('<Select />', () => {
       ...baseProps,
       label: 'Custom',
     }
-    const wrapper = mount(<WrappedComponent {...props} />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...props} />
+      </FormiWrapper>,
+    )
 
     expect(wrapper.find('.label').length).toBe(1)
   })
@@ -57,8 +72,12 @@ describe('<Select />', () => {
       ...baseProps,
       placeholder: 'Custom',
     }
-    const wrapper = mount(<WrappedComponent {...props} />)
-    expect(wrapper.prop('placeholder')).toBe(props.placeholder)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...props} />
+      </FormiWrapper>,
+    )
+
     expect(wrapper.find('option').first().text()).toBe(props.placeholder)
   })
 
@@ -67,8 +86,12 @@ describe('<Select />', () => {
       ...baseProps,
       placeholder: 'Custom',
     }
-    const wrapper = mount(<WrappedComponent {...props} required />)
-    expect(wrapper.prop('placeholder')).toBe(props.placeholder)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...props} required />
+      </FormiWrapper>,
+    )
+
     expect(wrapper.find('option').first().text()).toBe(`${props.placeholder} *`)
   })
 
@@ -77,22 +100,23 @@ describe('<Select />', () => {
       ...baseProps,
       hint: 'hintTest',
     }
-    const wrapper = mount(<WrappedComponent {...props} />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...props} />
+      </FormiWrapper>,
+    )
 
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)
   })
 
   it('should be disabled', () => {
-    const wrapper = mount(<WrappedComponent {...baseProps} disabled />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...baseProps} disabled />
+      </FormiWrapper>,
+    )
 
     expect(wrapper.find('select').prop('disabled')).toBe(true)
-  })
-
-  it('should call onChange', () => {
-    const wrapper = mount(<Select {...baseProps} />)
-    wrapper.find('select').simulate('change')
-
-    expect(baseProps.formik.handleChange).toHaveBeenCalled()
   })
 })

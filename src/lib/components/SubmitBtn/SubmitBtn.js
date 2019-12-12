@@ -1,29 +1,30 @@
-import React from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { connect } from 'formik'
+import { useFormikContext } from 'formik'
 
 export const SubmitBtn = ({
-  formik,
   className,
   disabled,
   children,
   ...rest
-}) => (
-  <button
-    className={cx('form-element btn submit-btn', className, { isDisabled: disabled })}
-    onClick={formik.handleSubmit}
-    type="submit"
-    disabled={disabled}
-    {...rest}
-  >
-    {children}
-  </button>
-)
+}) => {
+  const { handleSubmit } = useFormikContext()
+
+  return (
+    <button
+      className={cx('form-element btn submit-btn', className, { isDisabled: disabled })}
+      onClick={handleSubmit}
+      type="submit"
+      disabled={disabled}
+      {...rest}
+    >
+      {children}
+    </button>
+  )
+}
 
 SubmitBtn.propTypes = {
-  /** @ignore */
-  formik: PropTypes.instanceOf(Object).isRequired,
   /** Adds a custom class to the SubmitBtn */
   className: PropTypes.string,
   /** Disables the SubmitBtn */
@@ -41,4 +42,4 @@ SubmitBtn.defaultProps = {
   children: 'Submit',
 }
 
-export default connect(SubmitBtn)
+export default memo(SubmitBtn)

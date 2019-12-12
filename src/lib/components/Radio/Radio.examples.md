@@ -8,22 +8,21 @@ import { Form, Radio } from 'react-formik-ui';
     radioExample1: '2'
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form>
+>
+  <Form>
 
-      <Radio
-        name='radioExample1'
-        label='Radio options label'
-        options={[
-          { value: '1', label: 'Option 1' },
-          { value: '2', label: 'Option 2' },
-          { value: '3', label: 'Option 3' }
-        ]}
-      />
+    <Radio
+      name='radioExample1'
+      label='Radio options label'
+      options={[
+        { value: '1', label: 'Option 1' },
+        { value: '2', label: 'Option 2' },
+        { value: '3', label: 'Option 3' }
+      ]}
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### Default inline
@@ -36,23 +35,22 @@ import { Form, Radio } from 'react-formik-ui';
     radioExample2: '2'
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form>
+>
+  <Form>
 
-      <Radio
-        inline
-        name='radioExample2'
-        label='Radio options label'
-        options={[
-          { value: '1', label: 'Option 1' },
-          { value: '2', label: 'Option 2' },
-          { value: '3', label: 'Option 3' }
-        ]}
-      />
+    <Radio
+      inline
+      name='radioExample2'
+      label='Radio options label'
+      options={[
+        { value: '1', label: 'Option 1' },
+        { value: '2', label: 'Option 2' },
+        { value: '3', label: 'Option 3' }
+      ]}
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 
@@ -66,22 +64,21 @@ import { Form, Radio } from 'react-formik-ui';
     radioExample3: '2'
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='structured'>
+>
+  <Form mode='structured'>
 
-      <Radio
-        name='radioExample3'
-        label='Radio options label'
-        options={[
-          { value: '1', label: 'Option 1' },
-          { value: '2', label: 'Option 2' },
-          { value: '3', label: 'Option 3' }
-        ]}
-      />
+    <Radio
+      name='radioExample3'
+      label='Radio options label'
+      options={[
+        { value: '1', label: 'Option 1' },
+        { value: '2', label: 'Option 2' },
+        { value: '3', label: 'Option 3' }
+      ]}
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 
@@ -95,23 +92,22 @@ import { Form, Radio } from 'react-formik-ui';
     radioExample4: '2'
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='structured'>
+>
+  <Form mode='structured'>
 
-      <Radio
-        inline
-        name='radioExample4'
-        label='Radio options label'
-        options={[
-          { value: '1', label: 'Option 1' },
-          { value: '2', label: 'Option 2' },
-          { value: '3', label: 'Option 3' }
-        ]}
-      />
+    <Radio
+      inline
+      name='radioExample4'
+      label='Radio options label'
+      options={[
+        { value: '1', label: 'Option 1' },
+        { value: '2', label: 'Option 2' },
+        { value: '3', label: 'Option 3' }
+      ]}
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 
@@ -125,22 +121,21 @@ import { Form, Radio } from 'react-formik-ui';
     radioExample5: '2'
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='themed'>
+>
+  <Form mode='themed'>
 
-      <Radio
-        name='radioExample5'
-        label='Radio options label'
-        options={[
-          { value: '1', label: 'Option 1' },
-          { value: '2', label: 'Option 2' },
-          { value: '3', label: 'Option 3' }
-        ]}
-      />
+    <Radio
+      name='radioExample5'
+      label='Radio options label'
+      options={[
+        { value: '1', label: 'Option 1' },
+        { value: '2', label: 'Option 2' },
+        { value: '3', label: 'Option 3' }
+      ]}
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### Themed inline
@@ -153,23 +148,22 @@ import { Form, Radio } from 'react-formik-ui';
     radioExample6: '2'
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='themed'>
+>
+  <Form mode='themed'>
 
-      <Radio
-        inline
-        name='radioExample6'
-        label='Radio options label'
-        options={[
-          { value: '1', label: 'Option 1' },
-          { value: '2', label: 'Option 2' },
-          { value: '3', label: 'Option 3' }
-        ]}
-      />
+    <Radio
+      inline
+      name='radioExample6'
+      label='Radio options label'
+      options={[
+        { value: '1', label: 'Option 1' },
+        { value: '2', label: 'Option 2' },
+        { value: '3', label: 'Option 3' }
+      ]}
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### Themed and disabled
@@ -182,23 +176,22 @@ import { Form, Radio } from 'react-formik-ui';
     radioExample7: '2'
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='themed'>
+>
+  <Form mode='themed'>
 
-      <Radio
-        name='radioExample7'
-        label='Radio options label'
-        options={[
-          { value: '1', label: 'Option 1' },
-          { value: '2', label: 'Option 2' },
-          { value: '3', label: 'Option 3' }
-        ]}
-        disabled
-      />
+    <Radio
+      name='radioExample7'
+      label='Radio options label'
+      options={[
+        { value: '1', label: 'Option 1' },
+        { value: '2', label: 'Option 2' },
+        { value: '3', label: 'Option 3' }
+      ]}
+      disabled
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 

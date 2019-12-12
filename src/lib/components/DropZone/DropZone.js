@@ -1,14 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import { useFormikContext } from 'formik'
 import { useDropzone } from 'react-dropzone'
 import Button from '../Button'
 import WithLabel from '../WithLabel'
 
 export const DropZone = ({
-  formik: {
-    values, setFieldValue, setFieldTouched, handleReset,
-  },
   disabled,
   id,
   name,
@@ -23,6 +21,10 @@ export const DropZone = ({
   multiple,
   ...rest
 }) => {
+  const {
+    values, setFieldValue, setFieldTouched, handleReset,
+  } = useFormikContext()
+
   const onDrop = dropedFiles => {
     const files = multiple ? values[name].concat(dropedFiles) : dropedFiles
 
@@ -103,8 +105,6 @@ export const DropZone = ({
 }
 
 DropZone.propTypes = {
-  /** @ignore */
-  formik: PropTypes.instanceOf(Object).isRequired,
   /** Adds a custom class to the React-Dropzone component */
   className: PropTypes.string,
   /** Adds a custom inline styles to the DropZone wrapper div  */

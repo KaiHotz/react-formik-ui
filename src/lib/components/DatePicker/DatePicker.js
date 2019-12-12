@@ -1,15 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import DatePickerCmp from 'react-datepicker'
-import { getIn } from 'formik'
+import { useFormikContext, getIn } from 'formik'
 import 'react-datepicker/dist/react-datepicker.css'
 import { useDatepicker } from './useDatepicker'
 import WithLabel from '../WithLabel'
 
 export const Datepicker = ({
-  formik: {
-    values, setFieldValue, setFieldTouched,
-  },
   dateFormat,
   disabled,
   name,
@@ -18,9 +15,11 @@ export const Datepicker = ({
   onFocus,
   onBlur,
   className,
+  style,
   ...rest
 }) => {
-  const [handleChangeRaw, handleChange] = useDatepicker(setFieldValue, setFieldTouched, name)
+  const { values } = useFormikContext()
+  const [handleChangeRaw, handleChange] = useDatepicker(name)
 
   return (
     <DatePickerCmp
@@ -30,6 +29,7 @@ export const Datepicker = ({
       id={id || name}
       name={name}
       className={className}
+      style={style}
       selected={getIn(values, name) && new Date(getIn(values, name))}
       placeholderText={placeholder}
       dateFormat={dateFormat}
@@ -44,8 +44,6 @@ export const Datepicker = ({
 
 Datepicker.propTypes = {
   /** @ignore */
-  formik: PropTypes.instanceOf(Object).isRequired,
-  /** @ignore */
   onFocus: PropTypes.func.isRequired,
   /** @ignore */
   onBlur: PropTypes.func.isRequired,
@@ -55,7 +53,7 @@ Datepicker.propTypes = {
   id: PropTypes.string,
   /** Adds a custom class to the React-Datepicker component */
   className: PropTypes.string,
-  /** Adds a custom inline styles to the Datepicker wrapper div */
+  /** Adds a custom inline styles to the React-Datepicker component */
   style: PropTypes.instanceOf(Object),
   /** Sets the main Label for the Datepicker */
   label: PropTypes.string,

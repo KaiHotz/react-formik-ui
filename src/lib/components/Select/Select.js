@@ -1,12 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { getIn } from 'formik'
+import { useFormikContext, getIn } from 'formik'
 import WithLabel from '../WithLabel'
 
 export const Select = ({
-  formik: {
-    values, handleChange, setFieldValue,
-  },
   disabled,
   id,
   label,
@@ -15,9 +12,12 @@ export const Select = ({
   placeholder,
   required,
   className,
+  style,
   multiple,
   ...rest
 }) => {
+  const { values, handleChange, setFieldValue } = useFormikContext()
+
   const handleMultipleChange = evt => setFieldValue(
     name,
     [].slice
@@ -32,6 +32,7 @@ export const Select = ({
       id={id || name}
       name={name}
       className={className}
+      style={style}
       value={getIn(values, name)}
       disabled={disabled}
       multiple={multiple}
@@ -58,11 +59,9 @@ export const Select = ({
 }
 
 Select.propTypes = {
-  /** @ignore */
-  formik: PropTypes.instanceOf(Object).isRequired,
   /** Adds a custom class to the select element of the Select component */
   className: PropTypes.string,
-  /** Adds a custom inline styles to the Select wrapper div */
+  /** Adds a custom inline styles to the select element */
   style: PropTypes.instanceOf(Object),
   /** Disables the Select Field */
   disabled: PropTypes.bool,

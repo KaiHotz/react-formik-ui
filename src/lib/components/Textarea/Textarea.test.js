@@ -1,7 +1,21 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
+import { mount } from 'enzyme'
+import { Form, Formik } from 'formik'
 import WithLabel from '../WithLabel'
 import { Textarea } from './Textarea'
+
+// eslint-disable-next-line react/prop-types
+const FormiWrapper = ({ children }) => (
+  <Formik
+    initialValues={{
+      autocompleteTest: '',
+    }}
+  >
+    <Form>
+      {children}
+    </Form>
+  </Formik>
+)
 
 describe('<Textarea />', () => {
   const baseProps = {
@@ -9,23 +23,16 @@ describe('<Textarea />', () => {
     value: '',
     onFocus: jest.fn(),
     onBlur: jest.fn(),
-    formik: {
-      handleChange: jest.fn(),
-      handleBlur: jest.fn(),
-      setFieldValue: jest.fn(),
-      setFieldTouched: jest.fn(),
-      touched: {},
-      errors: {},
-      values: {
-        textAreaTest: '',
-      },
-    },
   }
 
   const WrappedComponent = WithLabel('textarea')(Textarea)
 
   it('should render', () => {
-    const wrapper = shallow(<WrappedComponent {...baseProps} />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...baseProps} />
+      </FormiWrapper>,
+    )
 
     expect(wrapper).toBeDefined()
   })
@@ -35,9 +42,13 @@ describe('<Textarea />', () => {
       ...baseProps,
       className: 'Custom',
     }
-    const wrapper = mount(<WrappedComponent {...props} readOnly />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...props} readOnly />
+      </FormiWrapper>,
+    )
 
-    expect(wrapper.hasClass(props.className)).toBe(true)
+    expect(wrapper.find('textarea').hasClass(props.className)).toBe(true)
   })
 
   it('should have a label', () => {
@@ -45,7 +56,11 @@ describe('<Textarea />', () => {
       ...baseProps,
       label: 'Custom Label',
     }
-    const wrapper = mount(<WrappedComponent {...props} readOnly />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...props} readOnly />
+      </FormiWrapper>,
+    )
 
     expect(wrapper.find('.label').length).toBe(1)
   })
@@ -55,16 +70,13 @@ describe('<Textarea />', () => {
       ...baseProps,
       hint: 'hintTest',
     }
-    const wrapper = mount(<WrappedComponent {...props} readOnly />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...props} readOnly />
+      </FormiWrapper>,
+    )
 
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)
-  })
-
-  it('should call onChange', () => {
-    const wrapper = mount(<Textarea {...baseProps} />)
-    wrapper.find('textarea').simulate('change')
-
-    expect(baseProps.formik.handleChange).toHaveBeenCalled()
   })
 })

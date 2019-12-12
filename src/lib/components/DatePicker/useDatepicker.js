@@ -1,6 +1,8 @@
 import { isValid } from 'date-fns'
+import { useFormikContext } from 'formik'
 
-export const useDatepicker = (setFieldValue, setFieldTouched, name) => {
+export const useDatepicker = name => {
+  const { setFieldValue, setFieldTouched } = useFormikContext()
   const handleChangeRaw = e => {
     const { name, value } = e.target
     const validChars = /^\d{0,2}[./]{0,1}\d{0,2}[./]{0,1}\d{0,4}$/

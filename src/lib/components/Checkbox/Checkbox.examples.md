@@ -9,18 +9,17 @@ import { Form, Checkbox } from 'react-formik-ui';
     checkboxExample1: false
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form>
+>
+  <Form>
 
-      <Checkbox
-        name='checkboxExample1'
-        label='Checkbox label'
-        text='Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+    <Checkbox
+      name='checkboxExample1'
+      label='Checkbox label'
+      text='Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
     />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### Structured
@@ -34,18 +33,17 @@ import { Form, Checkbox } from 'react-formik-ui';
     checkboxExample2: false
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='structured'>
+>
+  <Form mode='structured'>
 
-      <Checkbox
-        name='checkboxExample2'
-        label='Checkbox label'
-        text='Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+    <Checkbox
+      name='checkboxExample2'
+      label='Checkbox label'
+      text='Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
     />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### Themed
@@ -59,19 +57,18 @@ import { Form, Checkbox } from 'react-formik-ui';
     checkboxExample3: false
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='themed'>
+>
+  <Form mode='themed'>
 
-      <Checkbox
-        name='checkboxExample3'
-        label='Checkbox label'
-        text='Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
-        hint='This is a hint'
+    <Checkbox
+      name='checkboxExample3'
+      label='Checkbox label'
+      text='Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      hint='This is a hint'
     />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### Checkbox group example
@@ -95,20 +92,19 @@ const checkBoxes = [
     }), {})
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='themed'>
-      {
-        checkBoxes.map(cb => (
-          <Checkbox
-            key={cb.name}
-            name={cb.name}
-            text={cb.text}
-          />
-        ))
-      }
-    </Form>
-  )}
-/>
+>
+  <Form mode='themed'>
+    {
+      checkBoxes.map(cb => (
+        <Checkbox
+          key={cb.name}
+          name={cb.name}
+          text={cb.text}
+        />
+      ))
+    }
+  </Form>
+</Formik>
 ```
 
 ##### Themed and disabled
@@ -122,19 +118,18 @@ import { Form, Checkbox } from 'react-formik-ui';
     checkboxExample4: false
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='themed'>
+>
+  <Form mode='themed'>
 
-      <Checkbox
-        name='checkboxExample4'
-        label='Checkbox label'
-        text='Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
-        disabled
+    <Checkbox
+      name='checkboxExample4'
+      label='Checkbox label'
+      text='Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      disabled
     />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### Themed disabled and checked
@@ -148,18 +143,17 @@ import { Form, Checkbox } from 'react-formik-ui';
     checkboxExample5: true
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='themed'>
+>
+  <Form mode='themed'>
 
-      <Checkbox
-        name='checkboxExample5'
-        label='Checkbox label'
-        text='Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
-        hint='This is a hint'
-        disabled
-    />
+  <Checkbox
+    name='checkboxExample5'
+    label='Checkbox label'
+    text='Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+    hint='This is a hint'
+    disabled
+  />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```

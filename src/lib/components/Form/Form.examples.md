@@ -7,7 +7,7 @@ import { Form, Radio, Input, Datepicker, PhoneInput, Select, Toggle, DropZone, T
 
 const onSubmit = data => (alert(JSON.stringify(data)));
 
-const  getSchema = () => {
+const getSchema1 = () => {
   return yup.object().shape({
     salutationExample: yup
       .string(),
@@ -53,97 +53,98 @@ const  getSchema = () => {
     additionalInfoExample: '',
     checkboxExample: false,
   }}
-  validationSchema={getSchema}
+  validationSchema={getSchema1}
   onSubmit={onSubmit}
-  render={({ values }) => {
-  return (
+>
+{
+  ({ values }) => (
     <Form mode='structured'>
       <fieldset>
-        <legend>Complete Form Example</legend>
+      <legend>Complete Form Example</legend>
 
-          <Radio
-            name='salutationExample'
-            label='Salutation'
-            options={[
-              { value: 'Mr', label: 'Mr.' },
-              { value: 'Mrs', label: 'Mrs.' },
-              { value: 'Ms', label: 'Ms.' }
-            ]}
-          />
+        <Radio
+          name='salutationExample'
+          label='Salutation'
+          options={[
+            { value: 'Mr', label: 'Mr.' },
+            { value: 'Mrs', label: 'Mrs.' },
+            { value: 'Ms', label: 'Ms.' }
+          ]}
+        />
 
-          <Input
-            name='nameExample'
-            label='Name'
-            required
-          />
+        <Input
+          name='nameExample'
+          label='Name'
+          required
+        />
 
-          <Input
-            name='emailExample'
-            label='Email'
-            placeholder='foo@bar.com'
-            hint='Please enter your Email'
-            required
-          />
+        <Input
+          name='emailExample'
+          label='Email'
+          placeholder='foo@bar.com'
+          hint='Please enter your Email'
+          required
+        />
 
-          <Datepicker
-            name='birthDayExample'
-            label='Birthday'
-            dateFormat='dd.MM.yyyy'
-            placeholder='dd.mm.yyyy'
-            hint='Please enter your birth date'
-          />
+        <Datepicker
+          name='birthDayExample'
+          label='Birthday'
+          dateFormat='dd.MM.yyyy'
+          placeholder='dd.mm.yyyy'
+          hint='Please enter your birth date'
+        />
 
-          <PhoneInput
-            name='phoneNrExample'
-            label='Phone Nr.'
-            required
-          />
+        <PhoneInput
+          name='phoneNrExample'
+          label='Phone Nr.'
+          required
+        />
 
-          <Select
-            name='maritalStatusExample'
-            label='Marital Status'
-            placeholder='Select an Option'
-            options={[
-              { value: '1', label: 'Married' },
-              { value: '2', label: 'Single' },
-              { value: '3', label: 'Divorced' },
-              { value: '4', label: 'Widowed' }
-            ]}
-          />
+        <Select
+          name='maritalStatusExample'
+          label='Marital Status'
+          placeholder='Select an Option'
+          options={[
+            { value: '1', label: 'Married' },
+            { value: '2', label: 'Single' },
+            { value: '3', label: 'Divorced' },
+            { value: '4', label: 'Widowed' }
+          ]}
+        />
 
-          <div style={{marginBottom: '15px'}}>
-            <div style={{marginBottom: '10px'}}>
-              {`Do you have a drivers license ? ${values.driverLicenseExample ? 'Yes' : 'No'}`}
-            </div>
-            <Toggle name='driverLicenseExample' />
+        <div style={{marginBottom: '15px'}}>
+          <div style={{marginBottom: '10px'}}>
+            {`Do you have a drivers license ? ${values.driverLicenseExample ? 'Yes' : 'No'}`}
           </div>
+          <Toggle name='driverLicenseExample' />
+        </div>
 
-          <DropZone
-            name='filesExample'
-            label='File upload'
-            placeholder='Drop some files here'
-            withClearButton
-          />
+        <DropZone
+          name='filesExample'
+          label='File upload'
+          placeholder='Drop some files here'
+          withClearButton
+        />
 
-          <Textarea
-            name='additionalInfoExample'
-            label='Aditional information'
-            hint='this is optional'
-          />
+        <Textarea
+          name='additionalInfoExample'
+          label='Aditional information'
+          hint='this is optional'
+        />
 
-          <Checkbox
-            name='checkboxExample'
-            label='Terms and Conditions'
-            text='Click to enable the submit button'
-          />
+        <Checkbox
+          name='checkboxExample'
+          label='Terms and Conditions'
+          text='Click to enable the submit button'
+        />
 
-          <SubmitBtn disabled={!values.checkboxExample} />
-          <Button onClick={(() => alert('Cancel'))}>Cancel</Button>
-        </fieldset>
-      </Form>
-    );
-  }}
-/>
+        <SubmitBtn disabled={!values.checkboxExample} />
+        <Button onClick={(() => alert('Cancel'))}>Cancel</Button>
+      </fieldset>
+    </Form>
+  )
+}
+</Formik>
 ```
 
 #### Form example Themed
@@ -155,7 +156,7 @@ import { Form, Radio, Input, Datepicker, Select, PhoneInput, Toggle, DropZone, T
 
 const onSubmit = data => (alert(JSON.stringify(data)));
 
-const  getSchema = () => {
+const getSchema2 = () => {
   return yup.object().shape({
     salutation: yup
       .string(),
@@ -200,103 +201,104 @@ const  getSchema = () => {
     additionalInfo: '',
     termsAndConitions: false,
   }}
-  validationSchema={getSchema}
+  validationSchema={getSchema2}
   onSubmit={onSubmit}
-  render={({ values }) => {
-  return (
+>
+{
+  ({ values }) => (
     <Form mode='themed'>
       <fieldset>
         <legend>Complete Form Example</legend>
-          <div style={{padding: '0 10px'}}>
-            <Radio
-              inline
-              name='salutation'
-              label='Salutation'
-              options={[
-                { value: 'Mr', label: 'Mr.' },
-                { value: 'Mrs', label: 'Mrs.' },
-                { value: 'Ms', label: 'Ms.' }
-              ]}
-            />
-          </div>
-
-          <Input
-            name='fullName'
-            label='Full name'
-            hint='This is a hint message'
-            required
-          />
-
-          <Input
-            name='email'
-            label='Email'
-            placeholder='foo@bar.com'
-            hint='Please enter your birth date'
-            required
-          />
-
-          <Datepicker
-            name='birthDay'
-            label='Birthday'
-            dateFormat='dd.MM.yyyy'
-            placeholder='dd.mm.yyyy'
-            hint='Please enter your birth date'
-            required
-          />
-
-          <Select
-            name='title'
-            label='Title'
-            placeholder='Select an Option'
+        <div style={{padding: '0 10px'}}>
+          <Radio
+            inline
+            name='salutation'
+            label='Salutation'
             options={[
-              { value: '1', label: 'Option 1' },
-              { value: '2', label: 'Option 2' },
-              { value: '3', label: 'Option 3' },
-              { value: '4', label: 'Option 4' }
+              { value: 'Mr', label: 'Mr.' },
+              { value: 'Mrs', label: 'Mrs.' },
+              { value: 'Ms', label: 'Ms.' }
             ]}
-            required
+          />
+        </div>
+
+        <Input
+          name='fullName'
+          label='Full name'
+          hint='This is a hint message'
+          required
+        />
+
+        <Input
+          name='email'
+          label='Email'
+          placeholder='foo@bar.com'
+          hint='Please enter your birth date'
+          required
+        />
+
+        <Datepicker
+          name='birthDay'
+          label='Birthday'
+          dateFormat='dd.MM.yyyy'
+          placeholder='dd.mm.yyyy'
+          hint='Please enter your birth date'
+          required
+        />
+
+        <Select
+          name='title'
+          label='Title'
+          placeholder='Select an Option'
+          options={[
+            { value: '1', label: 'Option 1' },
+            { value: '2', label: 'Option 2' },
+            { value: '3', label: 'Option 3' },
+            { value: '4', label: 'Option 4' }
+          ]}
+          required
+        />
+
+        <PhoneInput
+          name='phoneNr'
+          label='Phone Nr.'
+          required
+        />
+
+        <div style={{marginBottom: '25px', padding: '0 10px'}}>
+          <div style={{marginBottom: '10px'}}>
+            {`Do you have a drivers license ? ${values.driverLicense ? 'Yes' : 'No'}`}
+          </div>
+          <Toggle name='driverLicense'/>
+        </div>
+
+        <div style={{padding: '0 10px'}}>
+          <DropZone
+            name='files'
+            label='File upload'
+            placeholder='Drop some files here'
+            withClearButton
           />
 
-          <PhoneInput
-            name='phoneNr'
-            label='Phone Nr.'
-            required
+          <Textarea
+            name='additionalInfo'
+            label='Aditional information'
+            hint='this is optional'
           />
 
-          <div style={{marginBottom: '25px', padding: '0 10px'}}>
-            <div style={{marginBottom: '10px'}}>
-              {`Do you have a drivers license ? ${values.driverLicense ? 'Yes' : 'No'}`}
-            </div>
-            <Toggle name='driverLicense'/>
-          </div>
+          <Checkbox
+            name='termsAndConitions'
+            label='Terms and Conditions'
+            text='Click to enable the submit button'
+          />
 
-          <div style={{padding: '0 10px'}}>
-            <DropZone
-              name='files'
-              label='File upload'
-              placeholder='Drop some files here'
-              withClearButton
-            />
+          <SubmitBtn disabled={!values.termsAndConitions} />
 
-            <Textarea
-              name='additionalInfo'
-              label='Aditional information'
-              hint='this is optional'
-            />
-
-            <Checkbox
-              name='termsAndConitions'
-              label='Terms and Conditions'
-              text='Click to enable the submit button'
-            />
-
-            <SubmitBtn disabled={!values.termsAndConitions} />
-
-            <Button onClick={(() => alert('Cancel'))}>Cancel</Button>
-          </div>
-        </fieldset>
-      </Form>
-    );
-  }}
-/>
+          <Button onClick={(() => alert('Cancel'))}>Cancel</Button>
+        </div>
+      </fieldset>
+    </Form>
+  )
+}
+</Formik>
 ```

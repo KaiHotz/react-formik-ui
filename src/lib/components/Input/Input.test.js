@@ -1,7 +1,21 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
+import { mount } from 'enzyme'
+import { Form, Formik } from 'formik'
 import WithLabel from '../WithLabel'
 import { Input } from './Input'
+
+// eslint-disable-next-line react/prop-types
+const FormiWrapper = ({ children }) => (
+  <Formik
+    initialValues={{
+      inputTest: '',
+    }}
+  >
+    <Form>
+      {children}
+    </Form>
+  </Formik>
+)
 
 describe('<Input />', () => {
   const baseProps = {
@@ -9,23 +23,16 @@ describe('<Input />', () => {
     onFocus: jest.fn(),
     onBlur: jest.fn(),
     onAnimationStart: jest.fn(),
-    formik: {
-      handleChange: jest.fn(),
-      handleBlur: jest.fn(),
-      setFieldValue: jest.fn(),
-      setFieldTouched: jest.fn(),
-      touched: {},
-      errors: {},
-      values: {
-        inputTest: '',
-      },
-    },
   }
 
   const WrappedComponent = WithLabel('input')(Input)
 
   it('should render', () => {
-    const wrapper = shallow(<WrappedComponent {...baseProps} />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...baseProps} />
+      </FormiWrapper>,
+    )
 
     expect(wrapper).toBeDefined()
   })
@@ -35,9 +42,13 @@ describe('<Input />', () => {
       ...baseProps,
       className: 'Custom',
     }
-    const wrapper = mount(<WrappedComponent {...props} />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...props} />
+      </FormiWrapper>,
+    )
 
-    expect(wrapper.hasClass(props.className)).toBe(true)
+    expect(wrapper.find('input').hasClass(props.className)).toBe(true)
   })
 
   it('should have custom type', () => {
@@ -45,7 +56,11 @@ describe('<Input />', () => {
       ...baseProps,
       type: 'text',
     }
-    const wrapper = mount(<WrappedComponent {...props} />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...props} />
+      </FormiWrapper>,
+    )
 
     expect(wrapper.find('input').prop('type')).toBe(props.type)
   })
@@ -55,7 +70,11 @@ describe('<Input />', () => {
       ...baseProps,
       label: 'Custom',
     }
-    const wrapper = mount(<WrappedComponent {...props} />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...props} />
+      </FormiWrapper>,
+    )
 
     expect(wrapper.find('.label').length).toBe(1)
   })
@@ -65,22 +84,23 @@ describe('<Input />', () => {
       ...baseProps,
       hint: 'hintTest',
     }
-    const wrapper = mount(<WrappedComponent {...props} />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...props} />
+      </FormiWrapper>,
+    )
 
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)
   })
 
   it('should be disabled', () => {
-    const wrapper = mount(<WrappedComponent {...baseProps} disabled />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...baseProps} disabled />
+      </FormiWrapper>,
+    )
 
     expect(wrapper.find('input').prop('disabled')).toBe(true)
-  })
-
-  it('should call onChange', () => {
-    const wrapper = shallow(<Input {...baseProps} />)
-    wrapper.find('input').simulate('change')
-
-    expect(baseProps.formik.handleChange).toHaveBeenCalled()
   })
 })

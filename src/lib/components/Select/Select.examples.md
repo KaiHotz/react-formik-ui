@@ -9,26 +9,25 @@ import { Form, Select } from 'react-formik-ui';
     selectExample1: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form>
+>
+  <Form>
 
-      <Select
-        name='selectExample1'
-        label='Select options label'
-        placeholder='Select an Option'
-        options={[
-          { value: '1', label: 'Option 1' },
-          { value: '2', label: 'Option 2' },
-          { value: '3', label: 'Option 3' },
-          { value: '4', label: 'Option 4' },
-          { value: '5', label: 'Option 5' },
-          { value: '6', label: 'Option 6' },
-        ]}
-      />
+    <Select
+      name='selectExample1'
+      label='Select options label'
+      placeholder='Select an Option'
+      options={[
+        { value: '1', label: 'Option 1' },
+        { value: '2', label: 'Option 2' },
+        { value: '3', label: 'Option 3' },
+        { value: '4', label: 'Option 4' },
+        { value: '5', label: 'Option 5' },
+        { value: '6', label: 'Option 6' },
+      ]}
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### Default Multiselect
@@ -44,26 +43,25 @@ import { Form, Select } from 'react-formik-ui';
     defaultMultipleSelect: ['1', '3']
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form>
+>
+  <Form>
 
-      <Select
-        multiple
-        name='defaultMultipleSelect'
-        label='Select options label'
-        options={[
-          { value: '1', label: 'Option 1' },
-          { value: '2', label: 'Option 2' },
-          { value: '3', label: 'Option 3' },
-          { value: '4', label: 'Option 4' },
-          { value: '5', label: 'Option 5' },
-          { value: '6', label: 'Option 6' },
-        ]}
-      />
+    <Select
+      multiple
+      name='defaultMultipleSelect'
+      label='Select options label'
+      options={[
+        { value: '1', label: 'Option 1' },
+        { value: '2', label: 'Option 2' },
+        { value: '3', label: 'Option 3' },
+        { value: '4', label: 'Option 4' },
+        { value: '5', label: 'Option 5' },
+        { value: '6', label: 'Option 6' },
+      ]}
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### Structured
@@ -77,26 +75,25 @@ import { Form, Select } from 'react-formik-ui';
     selectExample2: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='structured'>
+>
+  <Form mode='structured'>
 
-      <Select
-        name='selectExample2'
-        label='Select options label'
-        placeholder='Select an Option'
-        options={[
-          { value: '1', label: 'Option 1' },
-          { value: '2', label: 'Option 2' },
-          { value: '3', label: 'Option 3' },
-          { value: '4', label: 'Option 4' },
-          { value: '5', label: 'Option 5' },
-          { value: '6', label: 'Option 6' },
-        ]}
-      />
+    <Select
+      name='selectExample2'
+      label='Select options label'
+      placeholder='Select an Option'
+      options={[
+        { value: '1', label: 'Option 1' },
+        { value: '2', label: 'Option 2' },
+        { value: '3', label: 'Option 3' },
+        { value: '4', label: 'Option 4' },
+        { value: '5', label: 'Option 5' },
+        { value: '6', label: 'Option 6' },
+      ]}
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### Structured Multiselect
@@ -112,26 +109,25 @@ import { Form, Select } from 'react-formik-ui';
     structuredMultipleSelect: ['1', '3']
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='structured'>
+>
+  <Form mode='structured'>
 
-      <Select
-        multiple
-        name='structuredMultipleSelect'
-        label='Select options label'
-        options={[
-          { value: '1', label: 'Option 1' },
-          { value: '2', label: 'Option 2' },
-          { value: '3', label: 'Option 3' },
-          { value: '4', label: 'Option 4' },
-          { value: '5', label: 'Option 5' },
-          { value: '6', label: 'Option 6' },
-        ]}
-      />
+    <Select
+      multiple
+      name='structuredMultipleSelect'
+      label='Select options label'
+      options={[
+        { value: '1', label: 'Option 1' },
+        { value: '2', label: 'Option 2' },
+        { value: '3', label: 'Option 3' },
+        { value: '4', label: 'Option 4' },
+        { value: '5', label: 'Option 5' },
+        { value: '6', label: 'Option 6' },
+      ]}
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### Themed
@@ -145,26 +141,25 @@ import { Form, Select } from 'react-formik-ui';
     selectExample3: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='themed'>
+>
+  <Form mode='themed'>
 
-      <Select
-        name='selectExample3'
-        label='Select options label'
-        placeholder='Select an Option'
-        options={[
-          { value: '1', label: 'Option 1' },
-          { value: '2', label: 'Option 2' },
-          { value: '3', label: 'Option 3' },
-          { value: '4', label: 'Option 4' },
-          { value: '5', label: 'Option 5' },
-          { value: '6', label: 'Option 6' },
-        ]}
-      />
+    <Select
+      name='selectExample3'
+      label='Select options label'
+      placeholder='Select an Option'
+      options={[
+        { value: '1', label: 'Option 1' },
+        { value: '2', label: 'Option 2' },
+        { value: '3', label: 'Option 3' },
+        { value: '4', label: 'Option 4' },
+        { value: '5', label: 'Option 5' },
+        { value: '6', label: 'Option 6' },
+      ]}
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### Themed Multiselect
@@ -180,26 +175,25 @@ import { Form, Select } from 'react-formik-ui';
     themedMultipleSelect: ['1', '3']
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='themed'>
+>
+  <Form mode='themed'>
 
-      <Select
-        multiple
-        name='themedMultipleSelect'
-        label='Select options label'
-        options={[
-          { value: '1', label: 'Option 1' },
-          { value: '2', label: 'Option 2' },
-          { value: '3', label: 'Option 3' },
-          { value: '4', label: 'Option 4' },
-          { value: '5', label: 'Option 5' },
-          { value: '6', label: 'Option 6' },
-        ]}
-      />
+    <Select
+      multiple
+      name='themedMultipleSelect'
+      label='Select options label'
+      options={[
+        { value: '1', label: 'Option 1' },
+        { value: '2', label: 'Option 2' },
+        { value: '3', label: 'Option 3' },
+        { value: '4', label: 'Option 4' },
+        { value: '5', label: 'Option 5' },
+        { value: '6', label: 'Option 6' },
+      ]}
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### Themed and disabled
@@ -213,25 +207,24 @@ import { Form, Select } from 'react-formik-ui';
     selectExample4: '1'
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='themed'>
+>
+  <Form mode='themed'>
 
-      <Select
-        name='selectExample4'
-        label='Select options label'
-        placeholder='Select an Option'
-        options={[
-          { value: '1', label: 'Option 1' },
-          { value: '2', label: 'Option 2' },
-          { value: '3', label: 'Option 3' },
-          { value: '4', label: 'Option 4' },
-          { value: '5', label: 'Option 5' },
-          { value: '6', label: 'Option 6' },
-        ]}
-        disabled
-      />
+    <Select
+      name='selectExample4'
+      label='Select options label'
+      placeholder='Select an Option'
+      options={[
+        { value: '1', label: 'Option 1' },
+        { value: '2', label: 'Option 2' },
+        { value: '3', label: 'Option 3' },
+        { value: '4', label: 'Option 4' },
+        { value: '5', label: 'Option 5' },
+        { value: '6', label: 'Option 6' },
+      ]}
+      disabled
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```

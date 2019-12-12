@@ -1,28 +1,29 @@
-import React from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { connect } from 'formik'
+import { useFormikContext } from 'formik'
 import '../../styles/index.scss'
 
 export const Form = ({
-  formik,
   children,
   className,
   mode,
   ...rest
-}) => (
-  <form
-    {...rest}
-    className={cx('react-formik-ui form-wrapper', mode, className)}
-    onSubmit={formik.handleSubmit}
-  >
-    {children}
-  </form>
-)
+}) => {
+  const { submitForm } = useFormikContext()
+
+  return (
+    <form
+      {...rest}
+      className={cx('react-formik-ui form-wrapper', mode, className)}
+      onSubmit={submitForm}
+    >
+      {children}
+    </form>
+  )
+}
 
 Form.propTypes = {
-  /** @ignore */
-  formik: PropTypes.instanceOf(Object).isRequired,
   /** @ignore */
   children: PropTypes.node.isRequired,
   /** Adds a custom class to the form element */
@@ -36,4 +37,4 @@ Form.defaultProps = {
   mode: 'default',
 }
 
-export default connect(Form)
+export default memo(Form)

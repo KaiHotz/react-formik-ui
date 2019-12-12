@@ -11,18 +11,17 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
     dateExample1: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form>
+>
+  <Form>
 
-      <Datepicker
-        name='dateExample1'
-        label='Select a date'
-      />
+    <Datepicker
+      name='dateExample1'
+      label='Select a date'
+    />
 
-      <SubmitBtn />
-    </Form>
-  )}
-/>
+    <SubmitBtn />
+  </Form>
+</Formik>
 ```
 
 ##### Structured
@@ -36,19 +35,57 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
     dateExample2: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='structured'>
+>
+  <Form mode='structured'>
 
-      <Datepicker
-        name='dateExample2'
-        label='Select a date'
-      />
+    <Datepicker
+      name='dateExample2'
+      label='Select a date'
+    />
 
-      <SubmitBtn />
-    </Form>
-  )}
-/>
+    <SubmitBtn />
+  </Form>
+</Formik>
 ```
+
+##### Structured Required
+
+```jsx
+import { Formik } from 'formik'
+import * as yup from 'yup'
+import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
+
+const getSchema = () => {
+  return yup.object().shape({
+    dateExampleRequired: yup
+      .date()
+      .required('Is required'),
+  });
+};
+
+<Formik
+  initialValues={{
+    dateExampleRequired: ''
+  }}
+  validationSchema={getSchema}
+  onSubmit={data => (alert(JSON.stringify(data)))}
+>
+  <Form mode='structured'>
+
+    <Datepicker
+      name='dateExampleRequired'
+      label='Select a date'
+      dateFormat='dd.MM.yyyy'
+      placeholder='dd.mm.yyyy'
+      hint='Please enter / select a date'
+      required
+    />
+
+    <SubmitBtn />
+  </Form>
+</Formik>
+```
+
 
 ##### with Keyboard Navigation enabled
 
@@ -61,19 +98,18 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
     dateExample8: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='structured'>
+>
+  <Form mode='structured'>
 
-      <Datepicker
-        name='dateExample8'
-        label='Select a date'
-        disabledKeyboardNavigation={false}
-      />
+    <Datepicker
+      name='dateExample8'
+      label='Select a date'
+      disabledKeyboardNavigation={false}
+    />
 
-      <SubmitBtn />
-    </Form>
-  )}
-/>
+    <SubmitBtn />
+  </Form>
+</Formik>
 ```
 
 ##### Themed
@@ -87,18 +123,17 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
     dateExample3: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='themed'>
-      <Datepicker
-        name='dateExample3'
-        label='Select a date'
-        hint='DD.MM.YYYY'
-      />
+>
+  <Form mode='themed'>
+    <Datepicker
+      name='dateExample3'
+      label='Select a date'
+      hint='DD.MM.YYYY'
+    />
 
-      <SubmitBtn />
-    </Form>
-  )}
-/>
+    <SubmitBtn />
+  </Form>
+</Formik>
 ```
 
 ##### Themed with placeholder
@@ -112,20 +147,19 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
     dateExample4: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='themed'>
+>
+  <Form mode='themed'>
 
-      <Datepicker
-        name='dateExample4'
-        label='Select a date'
-        placeholder='DD.MM.YYYYY'
-        dateFormat='dd.MM.yyyy'
-      />
+    <Datepicker
+      name='dateExample4'
+      label='Select a date'
+      placeholder='DD.MM.YYYYY'
+      dateFormat='dd.MM.yyyy'
+    />
 
-      <SubmitBtn />
-    </Form>
-  )}
-/>
+    <SubmitBtn />
+  </Form>
+</Formik>
 ```
 
 ##### Themed with time picker
@@ -139,24 +173,23 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
     dateExample5: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='themed'>
+>
+  <Form mode='themed'>
 
-      <Datepicker
-        name='dateExample5'
-        label='Select a date and time'
-        showTimeSelect
-        timeFormat="HH:mm"
-        timeIntervals={30}
-        dateFormat="dd.MM.yyyy hh:mm aa"
-        timeCaption="time"
-        minDate={new Date()}
-      />
+    <Datepicker
+      name='dateExample5'
+      label='Select a date and time'
+      showTimeSelect
+      timeFormat="HH:mm"
+      timeIntervals={30}
+      dateFormat="dd.MM.yyyy hh:mm aa"
+      timeCaption="time"
+      minDate={new Date()}
+    />
 
-      <SubmitBtn />
-    </Form>
-  )}
-/>
+    <SubmitBtn />
+  </Form>
+</Formik>
 ```
 
 ##### Themed and disabled
@@ -170,19 +203,18 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
     dateExample6: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='themed'>
+>
+  <Form mode='themed'>
 
-      <Datepicker
-        name='dateExample6'
-        label='Select a date'
-        disabled
-      />
+    <Datepicker
+      name='dateExample6'
+      label='Select a date'
+      disabled
+    />
 
-      <SubmitBtn />
-    </Form>
-  )}
-/>
+    <SubmitBtn />
+  </Form>
+</Formik>
 ```
 
 ##### Themed disabled with placeholder
@@ -196,19 +228,18 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
     dateExample7: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='themed'>
+>
+  <Form mode='themed'>
 
-      <Datepicker
-        name='dateExample7'
-        label='Select a date'
-        placeholder='DD.MM.YYYYY'
-        dateFormat='dd.MM.yyyy'
-        disabled
-      />
+    <Datepicker
+      name='dateExample7'
+      label='Select a date'
+      placeholder='DD.MM.YYYYY'
+      dateFormat='dd.MM.yyyy'
+      disabled
+    />
 
-      <SubmitBtn />
-    </Form>
-  )}
-/>
+    <SubmitBtn />
+  </Form>
+</Formik>
 ```

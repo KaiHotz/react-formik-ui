@@ -1,6 +1,16 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
+import { Form, Formik } from 'formik'
 import { SubmitBtn } from './SubmitBtn'
+
+// eslint-disable-next-line react/prop-types
+const FormiWrapper = ({ children }) => (
+  <Formik>
+    <Form>
+      {children}
+    </Form>
+  </Formik>
+)
 
 describe('<SubmitBtn />', () => {
   const baseProps = {
@@ -10,7 +20,11 @@ describe('<SubmitBtn />', () => {
   }
 
   it('should render', () => {
-    const wrapper = shallow(<SubmitBtn {...baseProps} />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <SubmitBtn {...baseProps} />
+      </FormiWrapper>,
+    )
 
     expect(wrapper).toBeDefined()
   })
@@ -20,23 +34,24 @@ describe('<SubmitBtn />', () => {
       children: 'Content',
       ...baseProps,
     }
-    const wrapper = shallow(<SubmitBtn {...props} />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <SubmitBtn {...props} />
+      </FormiWrapper>,
+    )
 
-    expect(wrapper.text().includes(props.children)).toBeTruthy()
-  })
-
-  it('should call onClick', () => {
-    const wrapper = shallow(<SubmitBtn {...baseProps} />)
-    wrapper.simulate('click')
-
-    expect(baseProps.formik.handleSubmit).toHaveBeenCalled()
+    expect(wrapper.find('button').text().includes(props.children)).toBeTruthy()
   })
 
   it('should be disabled', () => {
-    const wrapper = shallow(<SubmitBtn {...baseProps} disabled />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <SubmitBtn {...baseProps} disabled />
+      </FormiWrapper>,
+    )
 
-    expect(wrapper.prop('disabled')).toBe(true)
-    expect(wrapper.prop('className').includes('disabled'))
+    expect(wrapper.find('button').prop('disabled')).toBe(true)
+    expect(wrapper.find('button').prop('className').includes('disabled'))
   })
 
   it('should have custom type', () => {
@@ -44,9 +59,13 @@ describe('<SubmitBtn />', () => {
       type: 'button',
       ...baseProps,
     }
-    const wrapper = shallow(<SubmitBtn {...props} />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <SubmitBtn {...props} />
+      </FormiWrapper>,
+    )
 
-    expect(wrapper.prop('type')).toBe(props.type)
+    expect(wrapper.find('button').prop('type')).toBe(props.type)
   })
 
   it('should allow custom className', () => {
@@ -54,8 +73,12 @@ describe('<SubmitBtn />', () => {
       className: 'Custom',
       ...baseProps,
     }
-    const wrapper = shallow(<SubmitBtn {...props} />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <SubmitBtn {...props} />
+      </FormiWrapper>,
+    )
 
-    expect(wrapper.hasClass(props.className)).toBe(true)
+    expect(wrapper.find('button').hasClass(props.className)).toBe(true)
   })
 })

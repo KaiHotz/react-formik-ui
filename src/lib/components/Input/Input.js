@@ -1,12 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { getIn } from 'formik'
+import { useFormikContext, getIn } from 'formik'
 import WithLabel from '../WithLabel'
 
 export const Input = ({
-  formik: {
-    values, handleChange,
-  },
   disabled,
   id,
   name,
@@ -16,27 +13,31 @@ export const Input = ({
   onFocus,
   onBlur,
   className,
+  style,
   ...rest
-}) => (
-  <input
-    value={getIn(values, name)}
-    onChange={handleChange}
-    {...rest}
-    id={id || name}
-    name={name}
-    className={className}
-    type={type}
-    onAnimationStart={onAnimationStart}
-    placeholder={placeholder}
-    onFocus={onFocus}
-    onBlur={onBlur}
-    disabled={disabled}
-  />
-)
+}) => {
+  const { values, handleChange } = useFormikContext()
+
+  return (
+    <input
+      value={getIn(values, name)}
+      onChange={handleChange}
+      {...rest}
+      id={id || name}
+      name={name}
+      className={className}
+      style={style}
+      type={type}
+      onAnimationStart={onAnimationStart}
+      placeholder={placeholder}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      disabled={disabled}
+    />
+  )
+}
 
 Input.propTypes = {
-  /** @ignore */
-  formik: PropTypes.instanceOf(Object).isRequired,
   /** @ignore */
   onAnimationStart: PropTypes.func.isRequired,
   /** @ignore */
@@ -45,7 +46,7 @@ Input.propTypes = {
   onBlur: PropTypes.func.isRequired,
   /** Adds a custom class to the input element of the Input component */
   className: PropTypes.string,
-  /** Adds a custom inline styles to the Input wrapper div */
+  /** Adds a custom inline styles to the input element */
   style: PropTypes.instanceOf(Object),
   /** Sets an Id for the Input Field, if not passed, the id will be the name */
   id: PropTypes.string,

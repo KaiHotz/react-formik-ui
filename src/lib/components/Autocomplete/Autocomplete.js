@@ -1,22 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { getIn } from 'formik'
+import { useFormikContext, getIn } from 'formik'
 import { useAutocomplete } from './useAutocomplete'
 import WithLabel from '../WithLabel'
 
 export const Autocomplete = ({
-  formik: {
-    values,
-    setFieldValue,
-    setFieldTouched,
-  },
   name,
   id,
   suggestions,
   className,
+  style,
   ...rest
 }) => {
+  const { values } = useFormikContext()
   const [
     activeSuggestion,
     filteredSuggestions,
@@ -24,7 +21,7 @@ export const Autocomplete = ({
     handleChange,
     handleClick,
     handleKeyDown,
-  ] = useAutocomplete(setFieldValue, setFieldTouched, name, suggestions)
+  ] = useAutocomplete(name, suggestions)
 
   return (
     <>
@@ -33,6 +30,7 @@ export const Autocomplete = ({
         id={id || name}
         name={name}
         className={className}
+        style={style}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         value={getIn(values, name)}
@@ -43,7 +41,7 @@ export const Autocomplete = ({
         showSuggestions && !!getIn(values, name) && (
           <ul className="suggestions">
             {
-              filteredSuggestions?.map((suggestion, index) => {
+              filteredSuggestions ?.map((suggestion, index) => {
                 const sugetionItem = (
                   <li
                     className={cx({ 'suggestion-active': index === activeSuggestion })}
@@ -66,15 +64,13 @@ export const Autocomplete = ({
 }
 
 Autocomplete.propTypes = {
-  /** @ignore */
-  formik: PropTypes.instanceOf(Object).isRequired,
   /** Sets the Name of the Autocomplete */
   name: PropTypes.string.isRequired,
   /** Array of suggestions to be searchred in */
   suggestions: PropTypes.instanceOf(Array).isRequired,
   /** Adds a custom class to the Autocomplete input element */
   className: PropTypes.string,
-  /** Adds a custom inline styles to the Input wrapper div */
+  /** Adds a custom inline styles to the input element */
   style: PropTypes.instanceOf(Object),
   /** Sets an Id for the Input Field, if not passed, the id will be the name */
   id: PropTypes.string,
@@ -102,4 +98,3 @@ Autocomplete.defaultProps = {
 }
 
 export default WithLabel('autocomplete')(Autocomplete)
-

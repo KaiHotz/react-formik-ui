@@ -1,32 +1,14 @@
-import React, { useState } from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { connect, getIn } from 'formik'
+import { useFormikContext, getIn } from 'formik'
 import omit from 'lodash.omit'
 import InfoMsg from '../InfoMsg'
+import useLabel from './useLabel'
 
 export const WithLabel = (component = 'input') => WrappedComponent => {
   const Label = props => {
-    const [hideLabel, setHide] = useState(false)
-
-    const handleAutoFill = e => {
-      setHide(e.animationName === 'onAutoFillStart')
-    }
-
-    const handleFocus = () => {
-      setHide(true)
-    }
-
-    const handleBlur = () => {
-      setHide(false)
-    }
-
     const {
-      formik: {
-        touched,
-        errors,
-        values,
-      },
       name,
       label,
       hint,
@@ -38,17 +20,17 @@ export const WithLabel = (component = 'input') => WrappedComponent => {
       format,
     } = props
 
+    const [hide, handleAutoFill, handleFocus, handleBlur] = useLabel(name, placeholder, disabled)
+    const { errors, touched } = useFormikContext()
     const error = getIn(errors, name)
     const touch = getIn(touched, name)
-    const value = getIn(values, name)
-    const hide = hideLabel || !!value || !!placeholder || !!(disabled && value)
     const hidden = type && type === 'hidden'
     const errorMsg = touch && error ? error : null
     const moveLabel = component === 'phoneInput' && format === 'INTERNATIONAL'
-    const passableProps = omit(props, ['hint', 'label', 'style'])
+    const passableProps = omit(props, ['hint', 'label'])
 
     return (
-      <div className={cx('form-element', component, { hasError: !!errorMsg, hidden })} style={style}>
+      <div className={cx('form-element', component, { hasError: !!errorMsg, hidden })}>
         <div
           className={cx(`${component}-wrapper`, { isDisabled: disabled })}
         >
@@ -63,6 +45,7 @@ export const WithLabel = (component = 'input') => WrappedComponent => {
             onAnimationStart={handleAutoFill}
             onFocus={handleFocus}
             onBlur={handleBlur}
+            style={style}
             {...passableProps}
           />
         </div>
@@ -73,7 +56,6 @@ export const WithLabel = (component = 'input') => WrappedComponent => {
   }
 
   Label.propTypes = {
-    formik: PropTypes.instanceOf(Object).isRequired,
     name: PropTypes.string.isRequired,
     label: PropTypes.string,
     hint: PropTypes.string,
@@ -96,7 +78,7 @@ export const WithLabel = (component = 'input') => WrappedComponent => {
     format: 'INTERNATIONAL',
   }
 
-  return connect(Label)
+  return memo(Label)
 }
 
 export default WithLabel

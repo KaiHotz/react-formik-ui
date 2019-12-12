@@ -1,50 +1,55 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import PropTypes from 'prop-types'
-import { getIn } from 'formik'
+import { useFormikContext, getIn } from 'formik'
 import WithLabel from '../WithLabel'
 
 export const Checkbox = ({
-  formik: {
-    values, handleChange, handleBlur,
-  },
   disabled,
   id,
   name,
   text,
   className,
+  style,
   ...rest
-}) => (
-  <div className="checkbox-input-wrapper">
-    <input
-      onChange={handleChange}
-      {...rest}
-      id={id || name}
-      name={name}
-      checked={getIn(values, name)}
-      className={className}
-      onBlur={handleBlur}
-      disabled={disabled}
-      type="checkbox"
-    />
-    <label
-      htmlFor={name}
-      className="checkbox-text"
-    >
-      {text}
-    </label>
-  </div>
-)
+}) => {
+  const { values, setFieldValue, setFieldTouched } = useFormikContext()
+  const value = getIn(values, name)
+  const handleChange = useCallback(() => {
+    setFieldValue(name, !value)
+    setFieldTouched(name, true)
+  }, [value])
+
+  return (
+    <div className="checkbox-input-wrapper">
+      <input
+        onChange={handleChange}
+        {...rest}
+        id={id || name}
+        name={name}
+        checked={value}
+        className={className}
+        style={style}
+        disabled={disabled}
+        type="checkbox"
+      />
+      <label
+        htmlFor={name}
+        className="checkbox-text"
+      >
+        {text}
+      </label>
+    </div>
+  )
+}
 
 Checkbox.propTypes = {
-  /** @ignore */
-  formik: PropTypes.instanceOf(Object).isRequired,
   /** Sets the Name of the Checkbox */
   name: PropTypes.string.isRequired,
   /** Sets an Id for the Checkbox, if not passed, the id will be the name */
   id: PropTypes.string,
   /** Adds a custom class to the Checkbox input element */
   className: PropTypes.string,
-  /** Adds a custom inline styles to the Checkbox wrapper div */
+  /** Adds a custom inline styles to the Checkbox input element */
   style: PropTypes.instanceOf(Object),
   /** Sets the main Label for the Checkbox */
   label: PropTypes.string,

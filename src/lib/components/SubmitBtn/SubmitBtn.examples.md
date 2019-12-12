@@ -9,12 +9,11 @@ import { Form, SubmitBtn } from 'react-formik-ui';
     testFiled: 'Data was submitted'
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form>
+>
+  <Form>
 
-      <SubmitBtn />
+    <SubmitBtn />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```

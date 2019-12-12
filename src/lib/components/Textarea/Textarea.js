@@ -1,12 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { getIn } from 'formik'
+import { useFormikContext, getIn } from 'formik'
 import WithLabel from '../WithLabel'
 
 export const Textarea = ({
-  formik: {
-    values, handleChange,
-  },
   disabled,
   id,
   name,
@@ -14,32 +11,36 @@ export const Textarea = ({
   onFocus,
   onBlur,
   className,
+  style,
   ...rest
-}) => (
-  <textarea
-    onChange={handleChange}
-    {...rest}
-    id={id || name}
-    name={name}
-    placeholder={placeholder}
-    value={getIn(values, name)}
-    onFocus={onFocus}
-    onBlur={onBlur}
-    disabled={disabled}
-    className={className}
-  />
-)
+}) => {
+  const { values, handleChange } = useFormikContext()
+
+  return (
+    <textarea
+      onChange={handleChange}
+      {...rest}
+      id={id || name}
+      name={name}
+      placeholder={placeholder}
+      value={getIn(values, name)}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      disabled={disabled}
+      className={className}
+      style={style}
+    />
+  )
+}
 
 Textarea.propTypes = {
-  /** @ignore */
-  formik: PropTypes.instanceOf(Object).isRequired,
   /** @ignore */
   onFocus: PropTypes.func.isRequired,
   /** @ignore */
   onBlur: PropTypes.func.isRequired,
   /** Adds a custom class to the textarea element of the Textarea component */
   className: PropTypes.string,
-  /** Adds a custom inline styles to the Textarea wrapper div */
+  /** Adds a custom inline styles to the Textarea element */
   style: PropTypes.instanceOf(Object),
   /** Disables the Textarea */
   disabled: PropTypes.bool,

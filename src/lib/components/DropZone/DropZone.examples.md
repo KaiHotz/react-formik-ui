@@ -9,18 +9,17 @@ import { Form, DropZone } from 'react-formik-ui';
     files1: []
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form>
+>
+  <Form>
 
-      <DropZone
-        name='files1'
-        label='File upload'
-        placeholder='Try dropping some files here, or click to select files to upload.'
-      />
+    <DropZone
+      name='files1'
+      label='File upload'
+      placeholder='Try dropping some files here, or click to select files to upload.'
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### Default / Structured / Themed, with Clear Button
@@ -34,19 +33,18 @@ import { Form, DropZone } from 'react-formik-ui';
     files2: []
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form>
+>
+  <Form>
 
-      <DropZone
-        name='files2'
-        label='File upload'
-        placeholder='Try dropping some files here, or click to select files to upload.'
-        withClearButton
-      />
+    <DropZone
+      name='files2'
+      label='File upload'
+      placeholder='Try dropping some files here, or click to select files to upload.'
+      withClearButton
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### Default / Structured / Themed, with Single file upload
@@ -60,19 +58,18 @@ import { Form, DropZone } from 'react-formik-ui';
     files3: []
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form>
+>
+  <Form>
 
-      <DropZone
-        name='files3'
-        label='File upload'
-        placeholder='Try dropping some files here, or click to select files to upload.'
-        multiple={false}
-      />
+    <DropZone
+      name='files3'
+      label='File upload'
+      placeholder='Try dropping some files here, or click to select files to upload.'
+      multiple={false}
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### Default / Structured / Themed, with file information on accepted and rejected files
@@ -86,19 +83,18 @@ import { Form, DropZone } from 'react-formik-ui';
     files4: []
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form>
+>
+  <Form>
 
-      <DropZone
-        fileInfo
-        name='files4'
-        label='File upload'
-        placeholder='Try dropping some files here, or click to select files to upload.'
-      />
+    <DropZone
+      fileInfo
+      name='files4'
+      label='File upload'
+      placeholder='Try dropping some files here, or click to select files to upload.'
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### Disabled
@@ -112,17 +108,16 @@ import { Form, DropZone } from 'react-formik-ui';
     files5: []
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form>
+>
+  <Form>
 
-      <DropZone
-        name='files5'
-        label='File upload'
-        placeholder='Try dropping some files here, or click to select files to upload.'
-        disabled
-      />
+    <DropZone
+      name='files5'
+      label='File upload'
+      placeholder='Try dropping some files here, or click to select files to upload.'
+      disabled
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```

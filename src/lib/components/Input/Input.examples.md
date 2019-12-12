@@ -9,19 +9,18 @@ import { Form, Input, SubmitBtn } from 'react-formik-ui';
     textFieldExample1: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form>
+>
+  <Form>
 
-      <Input
-        name='textFieldExample1'
-        label='Input field label'
-        hint='This is a hint'
-      />
+    <Input
+      name='textFieldExample1'
+      label='Input field label'
+      hint='This is a hint'
+    />
 
-      <SubmitBtn />
-    </Form>
-  )}
-/>
+    <SubmitBtn />
+  </Form>
+</Formik>
 ```
 
 ##### Structured
@@ -35,18 +34,17 @@ import { Form, Input, SubmitBtn } from 'react-formik-ui';
     textFieldExample2: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='structured'>
+>
+  <Form mode='structured'>
 
-      <Input
-        name='textFieldExample2'
-        label='Input field label'
-        hint='This is a hint'
-      />
+    <Input
+      name='textFieldExample2'
+      label='Input field label'
+      hint='This is a hint'
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### Themed
@@ -60,18 +58,17 @@ import { Form, Input, SubmitBtn } from 'react-formik-ui';
     textFieldExample3: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='themed'>
+>
+  <Form mode='themed'>
 
-      <Input
-        name='textFieldExample3'
-        label='Input field label'
-        hint='This is a hint'
-      />
+    <Input
+      name='textFieldExample3'
+      label='Input field label'
+      hint='This is a hint'
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ###### Themed with placeholder
@@ -85,20 +82,19 @@ import { Form, Input, SubmitBtn } from 'react-formik-ui';
     textFieldExample4: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='themed'>
+>
+  <Form mode='themed'>
 
-      <Input
-        name='textFieldExample4'
-        label='Input field label'
-        placeholder='Your Name'
-        hint='This is a hint'
-        required
-      />
+    <Input
+      name='textFieldExample4'
+      label='Input field label'
+      placeholder='Your Name'
+      hint='This is a hint'
+      required
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ###### Themed and disabled
@@ -112,17 +108,16 @@ import { Form, Input, SubmitBtn } from 'react-formik-ui';
     textFieldExample5: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='themed'>
+>
+  <Form mode='themed'>
 
-      <Input
-        name='textFieldExample5'
-        label='Text Input'
-        hint='This field is disabled'
-        disabled
-      />
+    <Input
+      name='textFieldExample5'
+      label='Text Input'
+      hint='This field is disabled'
+      disabled
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```

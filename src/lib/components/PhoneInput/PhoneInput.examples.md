@@ -10,19 +10,18 @@ import { Form, PhoneInput } from 'react-formik-ui';
     phoneNr1: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form>
+>
+  <Form>
 
-      <PhoneInput
-        name='phoneNr1'
-        label='Phone Nr.'
-        placeholder='+1 702 123 4567'
-        hint='This is a hint'
-      />
+    <PhoneInput
+      name='phoneNr1'
+      label='Phone Nr.'
+      placeholder='+1 702 123 4567'
+      hint='This is a hint'
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### with country meta data
@@ -41,20 +40,19 @@ import { Form, PhoneInput } from 'react-formik-ui';
     }
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form>
+>
+  <Form>
 
-      <PhoneInput
-        name='phoneData'
-        label='Phone Nr.'
-        placeholder='+1 702 123 4567'
-        hint='This is a hint'
-        withCountryMeta
-      />
+    <PhoneInput
+      name='phoneData'
+      label='Phone Nr.'
+      placeholder='+1 702 123 4567'
+      hint='This is a hint'
+      withCountryMeta
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 
@@ -68,19 +66,18 @@ import { Form, PhoneInput } from 'react-formik-ui';
     phoneNr2: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form>
+>
+  <Form>
 
-      <PhoneInput
-        name='phoneNr2'
-        label='Phone Nr.'
-        hint='This is a hint'
-        defaultCountry='de'
-      />
+    <PhoneInput
+      name='phoneNr2'
+      label='Phone Nr.'
+      hint='This is a hint'
+      defaultCountry='de'
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### With Preferred Countries
@@ -93,19 +90,18 @@ import { Form, PhoneInput } from 'react-formik-ui';
     phoneNr3: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form>
+>
+  <Form>
 
-      <PhoneInput
-        name='phoneNr3'
-        label='Phone Nr.'
-        hint='This is a hint'
-        preferredCountries={['cl', 'ar', 'br', 'co']}
-      />
+    <PhoneInput
+      name='phoneNr3'
+      label='Phone Nr.'
+      hint='This is a hint'
+      preferredCountries={['cl', 'ar', 'br', 'co']}
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### With Regions
@@ -118,19 +114,18 @@ import { Form, PhoneInput } from 'react-formik-ui';
     phoneNr4: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form>
+>
+  <Form>
 
-      <PhoneInput
-        name='phoneNr4'
-        label='Phone Nr.'
-        hint='This is a hint'
-        regions={['carribean', 'oceania']}
-      />
+    <PhoneInput
+      name='phoneNr4'
+      label='Phone Nr.'
+      hint='This is a hint'
+      regions={['carribean', 'oceania']}
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### National Phone Nr. Format
@@ -143,21 +138,20 @@ import { Form, PhoneInput } from 'react-formik-ui';
     phoneNr5: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form>
+>
+  <Form>
 
-      <PhoneInput
-        name='phoneNr5'
-        label='Phone Nr.'
-        format='NATIONAL'
-        defaultCountry='us'
-        placeholder='(555) 123-4567'
-        hint='This is a hint'
-      />
+    <PhoneInput
+      name='phoneNr5'
+      label='Phone Nr.'
+      format='NATIONAL'
+      defaultCountry='us'
+      placeholder='(555) 123-4567'
+      hint='This is a hint'
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### Themed
@@ -170,18 +164,17 @@ import { Form, PhoneInput } from 'react-formik-ui';
     phoneNr6: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='themed'>
+>
+  <Form mode='themed'>
 
-      <PhoneInput
-        name='phoneNr6'
-        label='Phone Nr.'
-        hint='This is a hint'
-      />
+    <PhoneInput
+      name='phoneNr6'
+      label='Phone Nr.'
+      hint='This is a hint'
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 ##### Themed National Phone Nr. Format
@@ -194,20 +187,19 @@ import { Form, PhoneInput } from 'react-formik-ui';
     phoneNr7: ''
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
-  render={() => (
-    <Form mode='themed'>
+>
+  <Form mode='themed'>
 
-      <PhoneInput
-        name='phoneNr7'
-        label='Phone Nr.'
-        format='NATIONAL'
-        defaultCountry='us'
-        hint='This is a hint'
-      />
+    <PhoneInput
+      name='phoneNr7'
+      label='Phone Nr.'
+      format='NATIONAL'
+      defaultCountry='us'
+      hint='This is a hint'
+    />
 
-    </Form>
-  )}
-/>
+  </Form>
+</Formik>
 ```
 
 

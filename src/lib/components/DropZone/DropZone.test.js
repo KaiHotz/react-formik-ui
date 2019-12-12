@@ -1,28 +1,35 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
+import { mount } from 'enzyme'
+import { Form, Formik } from 'formik'
 import WithLabel from '../WithLabel'
 import { DropZone } from './DropZone'
+
+// eslint-disable-next-line react/prop-types
+const FormiWrapper = ({ children }) => (
+  <Formik
+    initialValues={{
+      DropZoneTest: [],
+    }}
+  >
+    <Form>
+      {children}
+    </Form>
+  </Formik>
+)
 
 describe('<DropZone />', () => {
   const baseProps = {
     name: 'DropZoneTest',
-    formik: {
-      handleChange: jest.fn(),
-      handleBlur: jest.fn(),
-      setFieldValue: jest.fn(),
-      setFieldTouched: jest.fn(),
-      touched: {},
-      errors: {},
-      values: {
-        files: [],
-      },
-    },
   }
 
   const WrappedComponent = WithLabel('dropzone')(DropZone)
 
   it('should render', () => {
-    const wrapper = shallow(<WrappedComponent {...baseProps} />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...baseProps} />
+      </FormiWrapper>,
+    )
 
     expect(wrapper).toBeDefined()
   })
@@ -33,7 +40,11 @@ describe('<DropZone />', () => {
       label: 'Custom',
     }
 
-    const wrapper = mount(<WrappedComponent {...props} />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...props} />
+      </FormiWrapper>,
+    )
 
     expect(wrapper.find('.label').length).toBe(1)
   })
@@ -43,7 +54,11 @@ describe('<DropZone />', () => {
       ...baseProps,
       hint: 'hintTest',
     }
-    const wrapper = mount(<WrappedComponent {...props} />)
+    const wrapper = mount(
+      <FormiWrapper>
+        <WrappedComponent {...props} />
+      </FormiWrapper>,
+    )
 
     expect(wrapper.find('.hint').length).toBe(1)
     expect(wrapper.find('.hint').text()).toBe(props.hint)
