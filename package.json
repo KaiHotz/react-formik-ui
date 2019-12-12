@@ -1,7 +1,7 @@
 {
   "name": "react-formik-ui",
   "author": "Kai Hotz",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Plain form components for make use of formik even easier",
   "license": "MIT",
   "repository": {
@@ -175,7 +175,8 @@
       "@babel/plugin-proposal-object-rest-spread",
       "@babel/plugin-proposal-optional-chaining",
       "@babel/plugin-syntax-dynamic-import",
-      "@babel/plugin-proposal-class-properties"
+      "@babel/plugin-proposal-class-properties",
+      "transform-react-remove-prop-types"
     ]
   }
 }
