@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { useFormikContext } from 'formik'
@@ -37,4 +37,4 @@ Form.defaultProps = {
   mode: 'default',
 }
 
-export default Form
+export default memo(Form)

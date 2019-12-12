@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -49,4 +49,4 @@ Button.defaultProps = {
   type: 'button',
 }
 
-export default Button
+export default memo(Button)

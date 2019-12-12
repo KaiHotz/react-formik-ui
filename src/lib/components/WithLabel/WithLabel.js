@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { useFormikContext, getIn } from 'formik'
@@ -78,7 +78,7 @@ export const WithLabel = (component = 'input') => WrappedComponent => {
     format: 'INTERNATIONAL',
   }
 
-  return Label
+  return memo(Label)
 }
 
 export default WithLabel

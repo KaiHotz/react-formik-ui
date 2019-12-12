@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { useFormikContext } from 'formik'
@@ -42,4 +42,4 @@ SubmitBtn.defaultProps = {
   children: 'Submit',
 }
 
-export default SubmitBtn
+export default memo(SubmitBtn)
