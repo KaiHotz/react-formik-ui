@@ -7,7 +7,7 @@ import { Form, Radio, Input, Datepicker, PhoneInput, Select, Toggle, DropZone, T
 
 const onSubmit = data => (alert(JSON.stringify(data)));
 
-const  getSchema = () => {
+const getSchema1 = () => {
   return yup.object().shape({
     salutationExample: yup
       .string(),
@@ -53,7 +53,7 @@ const  getSchema = () => {
     additionalInfoExample: '',
     checkboxExample: false,
   }}
-  validationSchema={getSchema}
+  validationSchema={getSchema1}
   onSubmit={onSubmit}
 >
 {
@@ -156,7 +156,7 @@ import { Form, Radio, Input, Datepicker, Select, PhoneInput, Toggle, DropZone, T
 
 const onSubmit = data => (alert(JSON.stringify(data)));
 
-const  getSchema = () => {
+const getSchema2 = () => {
   return yup.object().shape({
     salutation: yup
       .string(),
@@ -201,7 +201,7 @@ const  getSchema = () => {
     additionalInfo: '',
     termsAndConitions: false,
   }}
-  validationSchema={getSchema}
+  validationSchema={getSchema2}
   onSubmit={onSubmit}
 >
 {

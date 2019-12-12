@@ -48,6 +48,45 @@ import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
 </Formik>
 ```
 
+##### Structured Required
+
+```jsx
+import { Formik } from 'formik'
+import * as yup from 'yup'
+import { Form, Datepicker, SubmitBtn } from 'react-formik-ui';
+
+const getSchema = () => {
+  return yup.object().shape({
+    dateExampleRequired: yup
+      .date()
+      .required('Is required'),
+  });
+};
+
+<Formik
+  initialValues={{
+    dateExampleRequired: ''
+  }}
+  validationSchema={getSchema}
+  onSubmit={data => (alert(JSON.stringify(data)))}
+>
+  <Form mode='structured'>
+
+    <Datepicker
+      name='dateExampleRequired'
+      label='Select a date'
+      dateFormat='dd.MM.yyyy'
+      placeholder='dd.mm.yyyy'
+      hint='Please enter / select a date'
+      required
+    />
+
+    <SubmitBtn />
+  </Form>
+</Formik>
+```
+
+
 ##### with Keyboard Navigation enabled
 
 ```jsx
