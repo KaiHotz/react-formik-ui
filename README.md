@@ -22,8 +22,8 @@ Each component makes use of Formiks context, there for you need to have Formik i
 
 ## NEW in v4:
 
-**Updateed to use Formik v2:** React Formik UI was updated to use Formik v2  and the hooks implementation from thet Formik version.
-That means that you need to have Formik v2 installed to use React Formik UI v4.
+**Updateed to use Formik v2:** React Formik UI was updated to use Formik v2  and their hooks implementation.
+That means that you need to have Formik v2 installed to use React Formik UI v4. If you haven't updated, please do so.
 
 **Bundle size decreased:** Wepack-Blocks got replased by a custom wepack config to render the styleguide, as well, since we could remove the connect HOC from Formik now the bundle gets minimized through the Rollup Tether plguin.
 
