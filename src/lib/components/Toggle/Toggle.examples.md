@@ -6,13 +6,12 @@ import { Form, Toggle } from 'react-formik-ui';
 
 <Formik
   initialValues={{
-    toggleSwitch: false
+    toggleSwitchExample: false
   }}
-  onSubmit={data => (alert(JSON.stringify(data)))}
 >
   <Form>
 
-    <Toggle name='toggleSwitch'/>
+    <Toggle name='toggleSwitchExample'/>
 
   </Form>
 </Formik>

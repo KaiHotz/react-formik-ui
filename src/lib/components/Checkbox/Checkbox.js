@@ -12,7 +12,11 @@ export const Checkbox = ({
   style,
   ...rest
 }) => {
-  const { values, handleChange } = useFormikContext()
+  const { values, setFieldValue, setFieldTouched } = useFormikContext()
+  const handleChange = () => {
+    setFieldValue(name, !getIn(values, name))
+    setFieldTouched(name, true)
+  }
 
   return (
     <div className="checkbox-input-wrapper">

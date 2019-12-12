@@ -11,7 +11,11 @@ export const Toggle = ({
   id,
   ...rest
 }) => {
-  const { values, handleChange } = useFormikContext()
+  const { values, setFieldValue, setFieldTouched } = useFormikContext()
+  const handleChange = () => {
+    setFieldValue(name, !getIn(values, name))
+    setFieldTouched(name, true)
+  }
 
   return (
     <div className={cx('form-element', 'toggle-wrapper', className, { isDisabled: disabled })} style={style}>
