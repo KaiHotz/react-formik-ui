@@ -10,7 +10,6 @@ const FormiWrapper = ({ children }) => (
     initialValues={{
       checkboxExample1: false,
     }}
-    onSubmit={data => (alert(JSON.stringify(data)))}
   >
     <Form>
       {children}
