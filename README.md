@@ -33,43 +33,37 @@ That means that you need to have Formik v2 installed to use React Formik UI v4. 
 The markup for the components Input, PhoneInput, Select, Checkbox, Radio, Textarea, Datepicker and DropZone consists of a wrapper div, label, the main component, hint, and error message.
 
 By default all component have NO styling applied at all.</br>
-This is intentionally, so you have the possibility to apply your own styling.</br>
+This is intentionally, so you have the possibility to apply your own styling through css or scss by passing a custom className.</br>
 All the components used in the Form are scoped by the default classes, situated on the Form component, `react-formik-ui form-wrapper`
 
 Each component has its corresponding component class (eg: PhoneInput component  `phoneInput` ) followed a level deeper by its wrapper class (eg: phoneInput component  `phoneInput-wrapper` ), as well as the class `form-element`.</br>
 
-You can pass the `style` prop on each component, to add custom inline styles to the component div for each component.
+You can pass the `style` prop on each component, to add custom inline styles to the component main element. Lets say you ad a style object through the style prop on the Select component, the inline styles will be applied to the select element of the Select component.
 
 The `className` Prop can be passed on each component to add a css class directly to the component instead of the wrapper div, so libraries like Bootstrap can be used to style the form component.
 
-**The Mode prop:** If you pass the  `mode` prop to the `Form` component with `structured` as value, a minimal styling will be applied to add some structure to each `form-element`.
+**The Mode prop:** If you pass the `mode` prop to the `Form` component with `structured` as value, a minimal styling will be applied to add some structure to each `form-element`.
 
 In case you pass the value `themed` through the `mode` prop on the `Form` component, the React-Formik-Ui Theme will be applied
 
-## MIGRATION v3 to v3:
+## Migrating from v3 to v4:
 
-Just update Formik in ypour project to v2.
+Just make shure tu use Formik v2 in your project.
 
 ## Installation
 
 **Note:** React Formik UI makes use of the recently released react `Hooks` API, therefore make sure that your project uses the latest `React` version
 
 ```sh
-yarn add --save react-formik-ui
+yarn add react-formik-ui
 ```
-
-## Support
-
-If you like the project and want to support my work, you can buy me a coffee :)
-
-[![paypal](https://img.shields.io/badge/donate-paypal-blue.svg)](https://paypal.me/kaihotz)
 
 # Usage
 
 ### Peer Dependency
 
-React-Formik-UI has a Peer dependency of [Formik](https://github.com/jaredpalmer/formik).</br>
-This means that you need to add [Formik](https://github.com/jaredpalmer/formik) to your project to make use of React-Formik-UI.</br>
+React-Formik-UI has [Formik](https://github.com/jaredpalmer/formik), [React](https://reactjs.org/) and [react-dom](https://www.npmjs.com/package/react-dom) as Peer dependencies.</br>
+So make shure to have those packages installed to your project to make use of React-Formik-UI.</br>
 
 ```sh
 yarn add formik
@@ -104,3 +98,9 @@ yarn add yup
 ## License
 
 MIT © [KaiHotz](https://github.com/KaiHotz)
+
+## Support
+
+If you like the project and want to support my work, you can buy me a coffee :)
+
+[![paypal](https://img.shields.io/badge/donate-paypal-blue.svg)](https://paypal.me/kaihotz)
