@@ -16,13 +16,13 @@ export const useDatepicker = name => {
     }
   }
 
-  const handleChange = date => {
+  const handleChange = async date => {
     const dateInstance = new Date(date)
 
     if (date && isValid(dateInstance)) {
-      setFieldValue(name, dateInstance)
+      await setFieldValue(name, dateInstance)
     } else {
-      setFieldValue(name, '')
+      await setFieldValue(name, '')
     }
 
     setFieldTouched(name, true)
