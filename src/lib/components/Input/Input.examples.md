@@ -47,6 +47,140 @@ import { Form, Input, SubmitBtn } from 'react-formik-ui';
 </Formik>
 ```
 
+##### FieldArray example with Inital values
+
+```jsx
+import { Formik, FieldArray } from 'formik'
+import { Form, Input, SubmitBtn } from 'react-formik-ui'
+const buttonStyle = {
+  cursor: 'pointer',
+  margin: '7px 3px 0px',
+};
+
+<Formik
+  initialValues={{
+    friends: ['jared', 'ian', 'brent']
+  }}
+  onSubmit={data => (alert(JSON.stringify(data)))}
+>
+  {
+    ({ values }) => (
+      <Form mode='structured'>
+        <FieldArray
+          name="friends"
+          render={arrayHelpers => (
+            <div>
+              {values.friends && values.friends.length > 0 ? (
+                values.friends.map((friend, index) => (
+                  <div key={index} style={{display: 'flex', alignItems: 'center'}}>
+                    <Input
+                      name={`friends.${index}`}
+                      label={`Friend ${index + 1}`}
+                    />
+                    <div>
+                      <button
+                        style={buttonStyle}
+                        type="button"
+                        onClick={() => arrayHelpers.remove(index)} // remove a friend from the list
+                      >
+                        -
+                      </button>
+                      <button
+                        style={buttonStyle}
+                        type="button"
+                        onClick={() => arrayHelpers.insert(index, '')} // insert an empty string at a position
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <button type="button" onClick={() => arrayHelpers.push('')}>
+                  {/* show this when user has removed all friends from the list */}
+                  Add a friend
+                </button>
+              )}
+              <div>
+                <SubmitBtn />
+              </div>
+            </div>
+          )}
+        />
+      </Form>
+    )
+  }
+</Formik>
+```
+
+##### FieldArray example without Inital values
+
+```jsx
+import { Formik, FieldArray } from 'formik'
+import { Form, Input, SubmitBtn } from 'react-formik-ui'
+const buttonStyle = {
+  cursor: 'pointer',
+  margin: '7px 3px 0px',
+};
+
+<Formik
+  initialValues={{
+    friendsEmpty: []
+  }}
+  onSubmit={data => (alert(JSON.stringify(data)))}
+>
+  {
+    ({ values }) => (
+      <Form mode='structured'>
+        <FieldArray
+          name="friendsEmpty"
+          render={arrayHelpers => (
+            <div>
+              {values.friendsEmpty && values.friendsEmpty.length > 0 ? (
+                values.friendsEmpty.map((friend, index) => (
+                  <div key={index} style={{display: 'flex', alignItems: 'center'}}>
+                    <Input
+                      name={`friendsEmpty.${index}`}
+                      label={`Friend ${index + 1}`}
+                    />
+                    <div>
+                      <button
+                        style={buttonStyle}
+                        type="button"
+                        onClick={() => arrayHelpers.remove(index)} // remove a friend from the list
+                      >
+                        -
+                      </button>
+                      <button
+                        style={buttonStyle}
+                        type="button"
+                        onClick={() => arrayHelpers.insert(index, '')} // insert an empty string at a position
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <button type="button" onClick={() => arrayHelpers.push('')}>
+                  {/* show this when user has removed all friends from the list */}
+                  Add a friend
+                </button>
+              )}
+              <div>
+                <SubmitBtn />
+              </div>
+            </div>
+          )}
+        />
+      </Form>
+    )
+  }
+</Formik>
+```
+
+
+
 ##### Themed
 
 ```jsx
