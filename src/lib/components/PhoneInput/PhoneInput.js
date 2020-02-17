@@ -22,11 +22,10 @@ export const PhoneInput = ({
   withCountryMeta,
   ...rest
 }) => {
-  const { setFieldValue, setFieldTouched } = useFormikContext()
+  const { setFieldValue } = useFormikContext()
 
-  const handleChange = data => {
-    setFieldValue(name, data)
-    setFieldTouched(name, true)
+  const handleChange = async data => {
+    await setFieldValue(name, data)
   }
 
   return (
