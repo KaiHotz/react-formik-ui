@@ -199,6 +199,8 @@ import { Form, Input, SubmitBtn } from 'react-formik-ui';
       name='textFieldExample3'
       label='Input field label'
       hint='This is a hint'
+      onFocus={() => console.log('focus')}
+      onBlur={() => console.log('blur')}
     />
 
   </Form>

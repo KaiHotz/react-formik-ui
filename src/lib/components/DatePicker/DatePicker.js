@@ -43,10 +43,10 @@ export const Datepicker = ({
 }
 
 Datepicker.propTypes = {
-  /** @ignore */
-  onFocus: PropTypes.func.isRequired,
-  /** @ignore */
-  onBlur: PropTypes.func.isRequired,
+  /** Function that is called when entering the focus */
+  onFocus: PropTypes.func,
+  /** Function that is called when leaving the focus */
+  onBlur: PropTypes.func,
   /** Sets the Name of the Datepicker Field */
   name: PropTypes.string.isRequired,
   /** Sets an Id for the Datepicker, if not passed, the id will be the name */
@@ -82,5 +82,7 @@ Datepicker.defaultProps = {
   placeholder: null,
   required: false,
   disabled: false,
+  onFocus: null,
+  onBlur: null,
 }
 export default WithLabel('datePicker')(Datepicker)

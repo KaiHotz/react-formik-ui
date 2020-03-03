@@ -22,6 +22,8 @@ export const Input = ({
     <input
       value={getIn(values, name)}
       onChange={handleChange}
+      onFocus={onFocus}
+      onBlur={onBlur}
       {...rest}
       id={id || name}
       name={name}
@@ -30,8 +32,6 @@ export const Input = ({
       type={type}
       onAnimationStart={onAnimationStart}
       placeholder={placeholder}
-      onFocus={onFocus}
-      onBlur={onBlur}
       disabled={disabled}
     />
   )
@@ -40,10 +40,10 @@ export const Input = ({
 Input.propTypes = {
   /** @ignore */
   onAnimationStart: PropTypes.func.isRequired,
-  /** @ignore */
-  onFocus: PropTypes.func.isRequired,
-  /** @ignore */
-  onBlur: PropTypes.func.isRequired,
+  /** Function that is called when entering the focus */
+  onFocus: PropTypes.func,
+  /** Function that is called when leaving the focus */
+  onBlur: PropTypes.func,
   /** Adds a custom class to the input element of the Input component */
   className: PropTypes.string,
   /** Adds a custom inline styles to the input element */
@@ -79,6 +79,8 @@ Input.propTypes = {
 }
 
 Input.defaultProps = {
+  onFocus: null,
+  onBlur: null,
   className: null,
   style: null,
   disabled: false,

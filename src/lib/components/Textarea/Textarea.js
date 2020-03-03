@@ -34,10 +34,10 @@ export const Textarea = ({
 }
 
 Textarea.propTypes = {
-  /** @ignore */
-  onFocus: PropTypes.func.isRequired,
-  /** @ignore */
-  onBlur: PropTypes.func.isRequired,
+  /** Function that is called when entering the focus */
+  onFocus: PropTypes.func,
+  /** Function that is called when leaving the focus */
+  onBlur: PropTypes.func,
   /** Adds a custom class to the textarea element of the Textarea component */
   className: PropTypes.string,
   /** Adds a custom inline styles to the Textarea element */
@@ -59,6 +59,8 @@ Textarea.propTypes = {
 }
 
 Textarea.defaultProps = {
+  onFocus: null,
+  onBlur: null,
   className: null,
   style: null,
   disabled: false,
