@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useFormikContext, getIn } from 'formik'
 
-const useLabel = (name, placeholder, disabled = false) => {
+const useLabel = (name, placeholder, disabled = false, onFocus, onBlur) => {
   const { values } = useFormikContext()
   const [hideLabel, setHide] = useState(false)
 
@@ -10,10 +10,16 @@ const useLabel = (name, placeholder, disabled = false) => {
   }
 
   const handleFocus = () => {
+    if (onFocus) {
+      onFocus()
+    }
     setHide(true)
   }
 
   const handleBlur = () => {
+    if (onBlur) {
+      onBlur()
+    }
     setHide(false)
   }
 

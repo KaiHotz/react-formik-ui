@@ -18,16 +18,17 @@ export const WithLabel = (component = 'input') => WrappedComponent => {
       required,
       style,
       format,
+      onFocus, onBlur,
     } = props
 
-    const [hide, handleAutoFill, handleFocus, handleBlur] = useLabel(name, placeholder, disabled)
+    const [hide, handleAutoFill, handleFocus, handleBlur] = useLabel(name, placeholder, disabled, onFocus, onBlur)
     const { errors, touched } = useFormikContext()
     const error = getIn(errors, name)
     const touch = getIn(touched, name)
     const hidden = type && type === 'hidden'
     const errorMsg = touch && error ? error : null
     const moveLabel = component === 'phoneInput' && format === 'INTERNATIONAL'
-    const passableProps = omit(props, ['hint', 'label'])
+    const passableProps = omit(props, ['hint', 'label', 'onFocus', 'onBlur'])
 
     return (
       <div className={cx('form-element', component, { hasError: !!errorMsg, hidden })}>
@@ -65,6 +66,9 @@ export const WithLabel = (component = 'input') => WrappedComponent => {
     required: PropTypes.bool,
     style: PropTypes.instanceOf(Object),
     format: PropTypes.string,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
+
   }
 
   Label.defaultProps = {
@@ -76,6 +80,8 @@ export const WithLabel = (component = 'input') => WrappedComponent => {
     required: false,
     style: null,
     format: 'INTERNATIONAL',
+    onFocus: null,
+    onBlur: null,
   }
 
   return memo(Label)
