@@ -20,13 +20,11 @@ so you don't have to write any HTML markup or extra components for your forms.
 
 Each component makes use of Formiks context, there for you need to have Formik installed in your project.
 
-## NEW in v4:
+## NEW in v5:
 
-**Updated to use Formik v2:** React Formik UI was updated to use Formik v2  and their hooks implementation.
-That means that you need to have Formik v2 installed to use React Formik UI v4. If you haven't updated, please do so.
+**Typescript:** React-Formik-UI is now written in Typescript
 
-**Bundle size decreased:** Wepack-Blocks got replased by a custom wepack config to render the styleguide, as well, since we could remove the connect HOC from Formik now the bundle gets minimized through the Rollup Tether plguin.
-
+There where several breaking changes, if you come from version 4 please refer to `Migrating from v4 to v5` section in this document for all the changes
 
 ## Markup, Styling and ClassNames
 
@@ -48,7 +46,6 @@ In case you pass the value `theme` through the `styling` prop on the `Form` comp
 
 ## Migrating from v4 to v5:
 
-- React-Formik-UI is now written in Typescript
 - `Button` component has been removed, therfore you should use your own.
 - `SubmitBtn` component now also recieves a `text` prop for rnedering the text of the button
 - `mode` prop has been renamed to `styling`, the values `structured` and `themed` for the it also have been renamed to `structure` and `theme`.
