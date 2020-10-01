@@ -81,20 +81,6 @@ describe('<Select />', () => {
     expect(wrapper.find('option').first().text()).toBe(props.placeholder)
   })
 
-  it('should have a placeholder with required', () => {
-    const props = {
-      ...baseProps,
-      placeholder: 'Custom',
-    }
-    const wrapper = mount(
-      <FormiWrapper>
-        <WrappedComponent {...props} required />
-      </FormiWrapper>,
-    )
-
-    expect(wrapper.find('option').first().text()).toBe(`${props.placeholder} *`)
-  })
-
   it('should have a hint', () => {
     const props = {
       ...baseProps,

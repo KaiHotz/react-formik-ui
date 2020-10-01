@@ -54,20 +54,6 @@ describe('<SubmitBtn />', () => {
     expect(wrapper.find('button').prop('className').includes('disabled'))
   })
 
-  it('should have custom type', () => {
-    const props = {
-      type: 'button',
-      ...baseProps,
-    }
-    const wrapper = mount(
-      <FormiWrapper>
-        <SubmitBtn {...props} />
-      </FormiWrapper>,
-    )
-
-    expect(wrapper.find('button').prop('type')).toBe(props.type)
-  })
-
   it('should allow custom className', () => {
     const props = {
       className: 'Custom',
