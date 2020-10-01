@@ -9,7 +9,7 @@ module.exports = {
     [pkg.name]: path.resolve(__dirname, 'src'),
   },
   ribbon: {
-    url: 'https://github.com/KaiHotz/react-rollup-boilerplate',
+    url: 'https://github.com/KaiHotz/react-formik-ui',
     text: 'Fork me on GitHub',
   },
   showSidebar: true,
