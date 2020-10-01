@@ -21,7 +21,7 @@ yarn-debug.log*
 yarn-error.log*
 default.config
 rollup.config.js
-
+tsconfig.json
 
 docker*
 Docker*
@@ -30,7 +30,6 @@ coverage
 config
 demo
 public
-build
 src
 scripts
 styleguide*

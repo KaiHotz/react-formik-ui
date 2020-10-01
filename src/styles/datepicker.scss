@@ -1,0 +1,27 @@
+.react-formik-ui {
+  .form-element {
+    .datePicker-wrapper {
+      .react-datepicker-popper {
+        z-index: 10;
+      }
+    }
+  }
+  &.theme {
+    .form-element {
+      .datePicker-wrapper {
+        @extend .rfui-themed-component;
+        width: 171px;
+        .react-datepicker-popper {
+          min-width: 400px;
+        }
+        .label {
+          @extend .rfui-themed-label;
+        }
+        input {
+          @extend .rfui-themed-input;
+        }
+      }
+    }
+  }
+}
+

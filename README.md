@@ -42,20 +42,32 @@ You can pass the `style` prop on each component, to add custom inline styles to 
 
 The `className` Prop can be passed on each component to add a css class directly to the component instead of the wrapper div, so libraries like Bootstrap can be used to style the form component.
 
-**The Mode prop:** If you pass the `mode` prop to the `Form` component with `structured` as value, a minimal styling will be applied to add some structure to each `form-element`.
+**The Styling prop:** If you pass the `styling` prop to the `Form` component with `structure` as value, a minimal styling will be applied to add some structure to each `form-element`.
 
-In case you pass the value `themed` through the `mode` prop on the `Form` component, the React-Formik-Ui Theme will be applied
+In case you pass the value `theme` through the `styling` prop on the `Form` component, the React-Formik-Ui Theme will be applied
 
-## Migrating from v3 to v4:
+## Migrating from v4 to v5:
 
-Just make shure tu use Formik v2 in your project.
+- React-Formik-UI is now written in Typescript
+- `Button` component has been removed, therfore you should use your own.
+- `SubmitBtn` component now also recieves a `text` prop for rnedering the text of the button
+- `mode` prop has been renamed to `styling`, the values `structured` and `themed` for the it also have been renamed to `structure` and `theme`.
+- Datepicker component has been renamed to `DatePicker``
+- The `style` prop has been removed form the `DatePicker` and `PhoneInput`component
+
 
 ## Installation
 
-**Note:** React Formik UI makes use of the recently released react `Hooks` API, therefore make sure that your project uses the latest `React` version
+**Note:** React Formik UI makes use of the recently released react `Hooks` API, therefore make sure that your project uses at least `React` version 16.13.1
 
 ```sh
 yarn add react-formik-ui
+```
+
+or
+
+```sh
+npm i -S react-formik-ui
 ```
 
 # Usage
@@ -69,6 +81,13 @@ So make shure to have those packages installed to your project to make use of Re
 yarn add formik
 ```
 
+or
+
+```sh
+npm i -S formik
+```
+
+
 ### Form validations
 
 To validate the form fields, the use of [Yup](https://github.com/jquense/yup) is recommended.
@@ -77,12 +96,18 @@ To validate the form fields, the use of [Yup](https://github.com/jquense/yup) is
 yarn add yup
 ```
 
+or
+
+```sh
+npm i -S yup
+```
+
+
 ### See the Styleguide with Demo and Examples [here](https://kaihotz.github.io/react-formik-ui/)
 
 ### Components Documentation and Examples
 
 - [Autocomplete](https://kaihotz.github.io/react-formik-ui/#autocomplete)
-- [Button](https://kaihotz.github.io/react-formik-ui/#button)
 - [Checkbox](https://kaihotz.github.io/react-formik-ui/#checkbox)
 - [Datepicker](https://kaihotz.github.io/react-formik-ui/#datepicker)
 - [DropZone](https://kaihotz.github.io/react-formik-ui/#dropzone)

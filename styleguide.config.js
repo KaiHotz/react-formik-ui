@@ -3,13 +3,13 @@ const pkg = require('./package.json')
 const webpackConfig = require('./config/webpack.js')
 
 module.exports = {
-  title: `React Formik UI v${pkg.version}`,
-  components: 'src/lib/components/**/[A-Z]*.js',
+  title: `${pkg.name} v${pkg.version}`,
+  components: 'src/components/**/[A-Z]*.{jsx,tsx}',
   moduleAliases: {
-    [pkg.name]: path.resolve(__dirname, 'src/lib'),
+    [pkg.name]: path.resolve(__dirname, 'src'),
   },
   ribbon: {
-    url: 'https://github.com/KaiHotz/react-formik-ui',
+    url: 'https://github.com/KaiHotz/react-rollup-boilerplate',
     text: 'Fork me on GitHub',
   },
   showSidebar: true,
@@ -23,9 +23,25 @@ module.exports = {
     font: ['Helvetica', 'sans-serif'],
   },
   styles: {
-    Heading: {
-      heading2: {
-        fontSize: 26,
+    StyleGuide: {
+      content: {
+        maxWidth: '80%',
+      },
+    },
+    Table: {
+      cell: {
+        '&:first-child': {
+          width: 120,
+        },
+        '&:nth-of-type(2)': {
+          width: 280,
+        },
+        '&:nth-of-type(3)': {
+          width: 160,
+        },
+        '&:last-child': {
+          width: '40%',
+        },
       },
     },
     Ribbon: {
@@ -37,6 +53,11 @@ module.exports = {
       },
       link: {
         backgroundColor: '#065fd4',
+      },
+    },
+    Heading: {
+      heading2: {
+        fontSize: 26,
       },
     },
     ReactComponent: {
@@ -51,12 +72,13 @@ module.exports = {
       },
     },
   },
+  propsParser: require('react-docgen-typescript').withDefaultConfig('./tsconfig.json').parse,
   webpackConfig,
   getExampleFilename(componentPath) {
-    return componentPath.replace(/\.js?$/, '.examples.md')
+    return componentPath.replace(/\.(jsx?|tsx?)$/, '.examples.md')
   },
   getComponentPathLine(componentPath) {
-    const name = path.basename(componentPath, '.js')
+    const name = path.basename(componentPath, '{.tsx, .jsx}')
 
     return `import { ${name} } from '${pkg.name}';`
   },
