@@ -115,6 +115,7 @@
     "style-loader": "^1.2.1",
     "ts-loader": "^8.0.2",
     "typescript": "^4.0.2",
+    "url-loader": "^4.1.0",
     "webpack": "^4.44.1",
     "yup": "^0.29.3"
   },
@@ -129,8 +130,7 @@
     ],
     "resolver": "jest-pnp-resolver",
     "setupFiles": [
-      "react-app-polyfill/jsdom",
-      "<rootDir>/config/enzymeConfig.js"
+      "react-app-polyfill/jsdom"
     ],
     "setupFilesAfterEnv": [
       "<rootDir>/config/setupTests.js"
