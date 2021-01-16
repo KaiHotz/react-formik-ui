@@ -11,14 +11,7 @@ import { terser } from 'rollup-plugin-terser'
 
 import pkg from './package.json'
 
-export default {
-  input: 'src/index.ts',
-  output: [
-    {
-      file: pkg.module,
-      format: 'es',
-    },
-  ],
+const config = {
   plugins: [
     postcss({
       minimize: true,
@@ -64,3 +57,136 @@ export default {
     terser(),
   ],
 }
+
+export default [
+  {
+    input: 'src/index.ts',
+    output: [
+      {
+        file: pkg.module,
+        format: 'es',
+      },
+    ],
+    ...config,
+  },
+  {
+    input: 'src/Autocomplete.tsx',
+    output: [
+      {
+        file: 'dist/Autocomplete.js',
+        format: 'es',
+      },
+    ],
+    ...config,
+  },
+  {
+    input: 'src/Checkbox.tsx',
+    output: [
+      {
+        file: 'dist/Checkbox.js',
+        format: 'es',
+      },
+    ],
+    ...config,
+  },
+  {
+    input: 'src/DatePicker.tsx',
+    output: [
+      {
+        file: 'dist/DatePicker.js',
+        format: 'es',
+      },
+    ],
+    ...config,
+  },
+  {
+    input: 'src/DropZone.tsx',
+    output: [
+      {
+        file: 'dist/DropZone.js',
+        format: 'es',
+      },
+    ],
+    ...config,
+  },
+  {
+    input: 'src/Form.tsx',
+    output: [
+      {
+        file: 'dist/Form.js',
+        format: 'es',
+      },
+    ],
+    ...config,
+  },
+  {
+    input: 'src/Input.tsx',
+    output: [
+      {
+        file: 'dist/Input.js',
+        format: 'es',
+      },
+    ],
+    ...config,
+  },
+  {
+    input: 'src/PhoneInput.tsx',
+    output: [
+      {
+        file: 'dist/PhoneInput.js',
+        format: 'es',
+      },
+    ],
+    ...config,
+  },
+  {
+    input: 'src/Radio.tsx',
+    output: [
+      {
+        file: 'dist/Radio.js',
+        format: 'es',
+      },
+    ],
+    ...config,
+  },
+  {
+    input: 'src/Select.tsx',
+    output: [
+      {
+        file: 'dist/Select.js',
+        format: 'es',
+      },
+    ],
+    ...config,
+  },
+  {
+    input: 'src/SubmitBtn.tsx',
+    output: [
+      {
+        file: 'dist/SubmitBtn.js',
+        format: 'es',
+      },
+    ],
+    ...config,
+  },
+  {
+    input: 'src/Textarea.tsx',
+    output: [
+      {
+        file: 'dist/Textarea.js',
+        format: 'es',
+      },
+    ],
+    ...config,
+  },
+  {
+    input: 'src/Toggle.tsx',
+    output: [
+      {
+        file: 'dist/Toggle.js',
+        format: 'es',
+      },
+    ],
+    ...config,
+  },
+]
