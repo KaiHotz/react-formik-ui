@@ -1,10 +1,9 @@
-import React, { FC, CSSProperties } from 'react'
-import cx from 'classnames'
-import { useField } from 'formik'
-import { useAutocomplete } from './useAutocomplete'
-import WithLabel from '../WithLabel'
-
-export type Suggestions = string[] | null
+import React, { FC, CSSProperties } from 'react';
+import cx from 'classnames';
+import { useField } from 'formik';
+import { useAutocomplete } from './useAutocomplete';
+import { Suggestions } from './types';
+import WithLabel from '../WithLabel';
 
 export interface IFormikUiAutocompleteProps {
   /** Sets the Name of the Autocomplete */
@@ -14,7 +13,7 @@ export interface IFormikUiAutocompleteProps {
   /** Adds a custom class to the Autocomplete input element */
   className?: string;
   /** Adds a custom inline styles to the input element */
-  style?: CSSProperties
+  style?: CSSProperties;
   /** Sets an Id for the Input Field, if not passed, the id will be the name */
   id?: string;
   /** Sets the main Label for the Input Field */
@@ -29,15 +28,8 @@ export interface IFormikUiAutocompleteProps {
   required?: boolean;
 }
 
-export const Autocomplete: FC<IFormikUiAutocompleteProps> = ({
-  name,
-  id,
-  suggestions,
-  className,
-  style,
-  ...rest
-}) => {
-  const [{ value }] = useField(name)
+export const Autocomplete: FC<IFormikUiAutocompleteProps> = ({ name, id, suggestions, className, style, ...rest }) => {
+  const [{ value }] = useField(name);
   const [
     activeSuggestion,
     filteredSuggestions,
@@ -45,7 +37,7 @@ export const Autocomplete: FC<IFormikUiAutocompleteProps> = ({
     handleChange,
     handleClick,
     handleKeyDown,
-  ] = useAutocomplete(name, suggestions)
+  ] = useAutocomplete(name, suggestions);
 
   return (
     <>
@@ -61,30 +53,26 @@ export const Autocomplete: FC<IFormikUiAutocompleteProps> = ({
         type="text"
         tabIndex={0}
       />
-      {
-        showSuggestions && !!value && (
-          <ul className="suggestions">
-            {
-              filteredSuggestions?.map((suggestion: string, index: number) => {
-                const sugetionItem = (
-                  <li
-                    className={cx({ 'suggestion-active': index === activeSuggestion })}
-                    key={suggestion}
-                    onClick={handleClick}
-                    role="presentation"
-                  >
-                    {suggestion}
-                  </li>
-                )
+      {showSuggestions && !!value && (
+        <ul className="suggestions">
+          {filteredSuggestions?.map((suggestion: string, index: number) => {
+            const sugetionItem = (
+              <li
+                className={cx({ 'suggestion-active': index === activeSuggestion })}
+                key={suggestion}
+                onClick={handleClick}
+                role="presentation"
+              >
+                {suggestion}
+              </li>
+            );
 
-                return sugetionItem
-              })
-            }
-          </ul>
-        )
-      }
+            return sugetionItem;
+          })}
+        </ul>
+      )}
     </>
-  )
-}
+  );
+};
 
-export default WithLabel('autocomplete')(Autocomplete)
+export default WithLabel('autocomplete')(Autocomplete);

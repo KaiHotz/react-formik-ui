@@ -1,2 +1,2 @@
-export { default } from './Autocomplete'
-export type { IFormikUiAutocompleteProps } from './Autocomplete'
+export { default } from './Autocomplete';
+export type { IFormikUiAutocompleteProps } from './Autocomplete';

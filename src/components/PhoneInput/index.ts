@@ -1,2 +1,2 @@
-export { default } from './PhoneInput'
-export type { IFormikUiPhoneInputProps } from './PhoneInput'
+export { default } from './PhoneInput';
+export type { IFormikUiPhoneInputProps } from './PhoneInput';

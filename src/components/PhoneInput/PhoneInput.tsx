@@ -1,9 +1,9 @@
-import React, { FC } from 'react'
-import { useFormikContext } from 'formik'
-import { PhoneInput as PhoneNrInput, IPhoneInputProps, PhoneNumber } from 'react-phonenr-input'
-import WithLabel from '../WithLabel'
+import React, { FC } from 'react';
+import { useFormikContext } from 'formik';
+import { PhoneInput as PhoneNrInput, IPhoneInputProps, PhoneNumber } from 'react-phonenr-input';
+import WithLabel from '../WithLabel';
 
-export interface IFormikUiPhoneInputProps extends Omit<IPhoneInputProps, 'onChange'>{
+export interface IFormikUiPhoneInputProps extends Omit<IPhoneInputProps, 'onChange'> {
   /** Sets the Name of the Input Field */
   name: string;
   /** Sets an Id for the Input Field, if not passed, the id will be the name */
@@ -31,11 +31,11 @@ export const PhoneInput: FC<IFormikUiPhoneInputProps> = ({
   withCountryMeta,
   ...rest
 }) => {
-  const { setFieldValue } = useFormikContext()
+  const { setFieldValue } = useFormikContext();
 
   const handleChange = (data: PhoneNumber): void => {
-    setFieldValue(name, data)
-  }
+    setFieldValue(name, data);
+  };
 
   return (
     <PhoneNrInput
@@ -50,7 +50,7 @@ export const PhoneInput: FC<IFormikUiPhoneInputProps> = ({
       regions={regions}
       withCountryMeta={withCountryMeta}
     />
-  )
-}
+  );
+};
 
-export default WithLabel('phoneInput')(PhoneInput)
+export default WithLabel('phoneInput')(PhoneInput);

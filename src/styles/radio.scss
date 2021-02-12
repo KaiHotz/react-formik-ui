@@ -35,18 +35,18 @@
         .radio-options {
           .radio-option {
             margin-bottom: 5px;
-            input[type="radio"] {
+            input[type='radio'] {
               &:checked,
               &:not(:checked) {
                 position: absolute;
                 left: -9999px;
                 &:disabled + label {
                   color: $disabled;
-                  &::before {
+                  &:before {
                     border: 1px dotted currentColor;
                   }
                 }
-                &:disabled:hover +label::before {
+                &:disabled:hover + label:before {
                   background: transparent;
                 }
               }
@@ -57,7 +57,7 @@
                 cursor: pointer;
                 line-height: 20px;
                 display: inline-block;
-                &::before {
+                &:before {
                   content: '';
                   position: absolute;
                   left: 0;
@@ -67,7 +67,7 @@
                   border: 1px solid $border;
                   border-radius: 100%;
                 }
-                &::after {
+                &:after {
                   content: '';
                   width: 12px;
                   height: 12px;
@@ -80,20 +80,20 @@
                   transition: all 0.2s ease;
                 }
               }
-              &:checked + label::after {
+              &:checked + label:after {
                 opacity: 1;
                 -webkit-transform: scale(1);
                 transform: scale(1);
               }
-              &:not(:checked) + label::after {
+              &:not(:checked) + label:after {
                 opacity: 0;
                 -webkit-transform: scale(0);
                 transform: scale(0);
               }
-              &:not(:checked):hover + label::before {
-                background: $hover
+              &:not(:checked):hover + label:before {
+                background: $hover;
               }
-              &:checked:disabled + label::after {
+              &:checked:disabled + label:after {
                 background: $disabled;
               }
             }
@@ -103,8 +103,3 @@
     }
   }
 }
-
-
-
-
-

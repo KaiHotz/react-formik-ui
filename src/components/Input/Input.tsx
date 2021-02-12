@@ -1,8 +1,6 @@
-import React, {
-  FC, FocusEvent, AnimationEvent, CSSProperties,
-} from 'react'
-import { useField } from 'formik'
-import WithLabel from '../WithLabel'
+import React, { FC, FocusEvent, AnimationEvent, CSSProperties } from 'react';
+import { useField } from 'formik';
+import WithLabel from '../WithLabel';
 
 export interface IFormikUiInputProps {
   /** @ignore */
@@ -46,7 +44,7 @@ export const Input: FC<IFormikUiInputProps> = ({
   style,
   ...rest
 }) => {
-  const [{ value, onChange }] = useField(name)
+  const [{ value, onChange }] = useField(name);
 
   return (
     <input
@@ -64,7 +62,7 @@ export const Input: FC<IFormikUiInputProps> = ({
       placeholder={placeholder}
       disabled={disabled}
     />
-  )
-}
+  );
+};
 
-export default WithLabel('input')(Input)
+export default WithLabel('input')(Input);

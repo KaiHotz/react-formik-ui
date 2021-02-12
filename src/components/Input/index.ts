@@ -1,2 +1,2 @@
-export { default } from './Input'
-export type { IFormikUiInputProps } from './Input'
+export { default } from './Input';
+export type { IFormikUiInputProps } from './Input';

@@ -3,13 +3,13 @@
     .form-element {
       .select-wrapper {
         @extend .rfui-themed-component;
-        margin: 0px;
-        &::after {
-          content: "";
+        margin: 0;
+        &:after {
+          content: '';
           width: 0;
           height: 0;
           border: 7px solid transparent;
-          border-color: currentColor transparent transparent transparent;
+          border-color: currentColor transparent transparent;
           position: absolute;
           right: 5px;
           top: 50%;
@@ -31,7 +31,7 @@
           cursor: pointer;
           &[multiple] {
             height: auto;
-            padding-right: 0px;
+            padding-right: 0;
           }
           &::-ms-expand {
             display: none;
@@ -44,7 +44,7 @@
           }
         }
         &.multiple {
-          &::after {
+          &:after {
             border: none;
           }
         }

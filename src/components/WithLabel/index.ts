@@ -1,1 +1,1 @@
-export { default } from './WithLabel'
+export { default } from './WithLabel';

@@ -1,2 +1,2 @@
-export { default } from './Textarea'
-export type { IFormikUiTextareaProps } from './Textarea'
+export { default } from './Textarea';
+export type { IFormikUiTextareaProps } from './Textarea';

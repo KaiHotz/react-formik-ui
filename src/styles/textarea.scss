@@ -4,7 +4,7 @@
       .textarea-wrapper {
         @extend .rfui-themed-component;
         .label {
-        @extend .rfui-themed-label;
+          @extend .rfui-themed-label;
           top: 24px;
           &.hide {
             top: 10px;
@@ -18,13 +18,13 @@
           letter-spacing: normal;
           word-spacing: normal;
           text-transform: none;
-          text-indent: 0px;
+          text-indent: 0;
           text-shadow: none;
           border: none;
           min-height: 120px;
           width: auto;
-          padding: 24px 0px 6px;
-          border-radius: 0px;
+          padding: 24px 0 6px;
+          border-radius: 0;
           color: currentColor;
           background: transparent;
           box-sizing: border-box;
@@ -37,4 +37,3 @@
     }
   }
 }
-

@@ -1,2 +1,2 @@
-export { default } from './Toggle'
-export type { IFormikUiToggleProps } from './Toggle'
+export { default } from './Toggle';
+export type { IFormikUiToggleProps } from './Toggle';

@@ -1,2 +1,2 @@
-export { default } from './SubmitBtn'
-export type { IFormikUiSubmitBtnProps } from './SubmitBtn'
+export { default } from './SubmitBtn';
+export type { IFormikUiSubmitBtnProps } from './SubmitBtn';

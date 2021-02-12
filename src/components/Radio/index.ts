@@ -1,2 +1,2 @@
-export { default } from './Radio'
-export type { IFormikUiRadioOption, IFormikUiRadioProps } from './Radio'
+export { default } from './Radio';
+export type { IFormikUiRadioOption, IFormikUiRadioProps } from './Radio';

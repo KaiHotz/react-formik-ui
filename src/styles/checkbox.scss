@@ -1,7 +1,7 @@
 .react-formik-ui {
   &.structure {
     .form-element {
-      .checkbox-input-wrapper{
+      .checkbox-input-wrapper {
         display: flex;
         align-items: flex-start;
         label {
@@ -26,15 +26,15 @@
           display: flex;
           margin-bottom: 10px;
           align-items: flex-end;
-          input[type="checkbox"] {
+          input[type='checkbox'] {
             outline: none;
             position: absolute;
             opacity: 0;
-            & + label {
+            + label {
               position: relative;
               cursor: pointer;
               padding: 0;
-              &::before {
+              &:before {
                 content: '';
                 margin-right: 8px;
                 display: inline-block;
@@ -44,14 +44,14 @@
                 border: 1px solid $border;
               }
             }
-            &:hover + label::before {
+            &:hover + label:before {
               background: $hover;
             }
             &:checked + label {
-              &::before {
+              &:before {
                 background: $blue;
               }
-              &::after {
+              &:after {
                 content: '';
                 position: absolute;
                 left: 5px;
@@ -59,20 +59,14 @@
                 background: $white;
                 width: 2px;
                 height: 2px;
-                box-shadow:
-                  2px 0 0 $white,
-                  4px 0 0 $white,
-                  4px -2px 0 $white,
-                  4px -4px 0 $white,
-                  4px -6px 0 $white,
-                  4px -8px 0 $white;
+                box-shadow: 2px 0 0 $white, 4px 0 0 $white, 4px -2px 0 $white, 4px -4px 0 $white, 4px -6px 0 $white, 4px -8px 0 $white;
                 transform: rotate(45deg);
               }
             }
             &:disabled + label {
               color: $disabled;
               cursor: auto;
-              &::before {
+              &:before {
                 box-shadow: none;
                 border: 1px dotted $disabled;
                 background: $hover;

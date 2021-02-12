@@ -1,9 +1,9 @@
-import React, { FC, FocusEvent } from 'react'
-import ReactDatePicker, { ReactDatePickerProps } from 'react-datepicker'
-import { isValid } from 'date-fns'
-import { useField } from 'formik'
-import 'react-datepicker/dist/react-datepicker.css'
-import WithLabel from '../WithLabel'
+import React, { FC, FocusEvent } from 'react';
+import ReactDatePicker, { ReactDatePickerProps } from 'react-datepicker';
+import { isValid } from 'date-fns';
+import { useField } from 'formik';
+import 'react-datepicker/dist/react-datepicker.css';
+import WithLabel from '../WithLabel';
 
 export interface IFormikUiDatepickerProps extends ReactDatePickerProps {
   /** Sets the Name of the Datepicker Field */
@@ -11,7 +11,7 @@ export interface IFormikUiDatepickerProps extends ReactDatePickerProps {
   /** Sets an Id for the Datepicker, if not passed, the id will be the name */
   id?: string;
   /** Sets the main Label for the Datepicker */
-  label?:string;
+  label?: string;
   /** Sets a hint text after/below the Datepicker */
   hint?: string;
   /** Sets the Placeholder text */
@@ -32,27 +32,26 @@ export const DatePicker: FC<IFormikUiDatepickerProps> = ({
   autoComplete = 'off',
   ...rest
 }) => {
-  const [{ value }, , { setValue }] = useField(name)
+  const [{ value }, , { setValue }] = useField(name);
 
   const handleChangeRaw = (event: FocusEvent<HTMLInputElement>): void => {
-    const { value } = event.target
-    const validChars = /^\d{0,2}[./]{0,1}\d{0,2}[./]{0,1}\d{0,4}$/
-    if (!validChars.test(value)) {
-      event.preventDefault()
+    const validChars = /^\d{0,2}[./]{0,1}\d{0,2}[./]{0,1}\d{0,4}$/;
+    if (!validChars.test(event.target.value)) {
+      event.preventDefault();
     }
 
     if (isValid(new Date(value))) {
-      setValue(value)
+      setValue(value);
     }
-  }
+  };
 
-  const handleChange: ReactDatePickerProps['onChange'] = date => {
+  const handleChange: ReactDatePickerProps['onChange'] = (date) => {
     if (date && isValid(date)) {
-      setValue(date)
+      setValue(date);
     } else {
-      setValue('')
+      setValue('');
     }
-  }
+  };
 
   return (
     <ReactDatePicker
@@ -71,6 +70,6 @@ export const DatePicker: FC<IFormikUiDatepickerProps> = ({
       onBlur={onBlur}
       disabled={disabled}
     />
-  )
-}
-export default WithLabel('datePicker')(DatePicker)
+  );
+};
+export default WithLabel('datePicker')(DatePicker);

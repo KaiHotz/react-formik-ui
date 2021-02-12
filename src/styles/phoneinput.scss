@@ -1,6 +1,7 @@
 .react-formik-ui {
   &.theme {
     .form-element {
+      /* stylelint-disable-next-line */
       .phoneInput-wrapper {
         @extend .rfui-themed-component;
         .label {
@@ -21,4 +22,3 @@
     }
   }
 }
-

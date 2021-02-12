@@ -1,6 +1,6 @@
-import React, { FC, FocusEvent, CSSProperties } from 'react'
-import { useField } from 'formik'
-import WithLabel from '../WithLabel'
+import React, { FC, FocusEvent, CSSProperties } from 'react';
+import { useField } from 'formik';
+import WithLabel from '../WithLabel';
 
 export interface IFormikUiTextareaProps {
   /** Sets the Name of the Textarea */
@@ -25,7 +25,6 @@ export interface IFormikUiTextareaProps {
   hint?: string;
   /** Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema */
   required?: boolean;
-
 }
 
 export const Textarea: FC<IFormikUiTextareaProps> = ({
@@ -39,7 +38,7 @@ export const Textarea: FC<IFormikUiTextareaProps> = ({
   style,
   ...rest
 }) => {
-  const [{ value, onChange }] = useField(name)
+  const [{ value, onChange }] = useField(name);
 
   return (
     <textarea
@@ -55,7 +54,7 @@ export const Textarea: FC<IFormikUiTextareaProps> = ({
       className={className}
       style={style}
     />
-  )
-}
+  );
+};
 
-export default WithLabel('textarea')(Textarea)
+export default WithLabel('textarea')(Textarea);

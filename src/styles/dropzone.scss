@@ -8,7 +8,7 @@
 }
 
 .react-formik-ui {
-  .form-element{
+  .form-element {
     .dropzone-wrapper {
       .label {
         display: block;
@@ -21,23 +21,22 @@
         flex-flow: row wrap;
         padding: 10px;
         box-sizing: border-box;
-        border: 2px dashed #C8C8C8;
+        border: 2px dashed #c8c8c8;
         outline: none;
-        background-color: #F0F0F0;
+        background-color: #f0f0f0;
         cursor: pointer;
         p.text {
           width: 100%;
           text-align: center;
-          color: #787878
+          color: #787878;
         }
-        &--isActive {
+        &--active {
           border: 2px solid;
-          background-image: repeating-linear-gradient(-45deg, #F0F0F0, #F0F0F0 25px, #C8C8C8 25px, #C8C8C8 50px);
+          background-image: repeating-linear-gradient(-45deg, #f0f0f0, #f0f0f0 25px, #c8c8c8 25px, #c8c8c8 50px);
           animation: progress 1s linear infinite !important;
           background-size: 150% 100%;
-
         }
-        &--isDisabled {
+        &--disabled {
           background-color: $white;
           opacity: 0.5;
           p.text {
@@ -47,7 +46,7 @@
         img {
           max-height: 130px;
           margin: 0 8px 8px 0;
-          transition: .8s opacity;
+          transition: 0.8s opacity;
           border-radius: 5px;
           object-fit: contain;
         }
@@ -70,7 +69,7 @@
             box-sizing: border-box;
             overflow: hidden;
 
-            &::after {
+            &:after {
               content: '';
               position: absolute;
               display: block;
@@ -81,7 +80,7 @@
               border-radius: 0 2px;
               transition: all 0.2s linear;
               backface-visibility: hidden;
-              background: linear-gradient(45deg, lighten($blue, 15%) 50%, #F0F0F0 50%);
+              background: linear-gradient(45deg, lighten($blue, 15%) 50%, #f0f0f0 50%);
             }
             i {
               position: absolute;
@@ -92,19 +91,19 @@
               font-size: 10px;
               color: $white;
               font-weight: 500;
-              &::before,
-              &::after {
+              &:before,
+              &:after {
                 display: block;
                 transition: all 0.2s linear;
               }
-              &::before {
+              &:before {
                 content: '< >';
                 text-align: center;
                 font-size: 12px;
                 opacity: 0;
                 transform: translateY(5px);
               }
-              &::after {
+              &:after {
                 content: attr(title);
                 text-align: center;
                 transform: translateY(-7px);
@@ -112,23 +111,23 @@
             }
             &:hover {
               border-radius: 2px 4px 2px 2px;
-              &::after {
+              &:after {
                 width: 12px;
                 height: 12px;
               }
               i {
-                &::before {
+                &:before {
                   transform: translateY(0);
                   opacity: 1;
                 }
-                &::after {
+                &:after {
                   transform: translateY(0);
                 }
               }
             }
           }
         }
-        .fileInfo {
+        .file-info {
           width: 100%;
           text-align: left;
           padding-top: 10px;
