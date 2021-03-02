@@ -1,7 +1,7 @@
 {
   "name": "react-formik-ui",
   "author": "Kai Hotz",
-  "version": "5.1.5",
+  "version": "5.1.6",
   "description": "Plain form components for make use of formik even easier",
   "license": "MIT",
   "repository": {
@@ -32,7 +32,7 @@
     "stylelint:fix": "stylelint \"**/*.{css,scss,sass}\" --fix",
     "check-types": "tsc",
     "prepare": "npm run build",
-    "prerelease": "npm run lint:fix && npm run test:coverage && npm run build",
+    "prerelease": "npm run lint:fix && npm run test",
     "release": "npm publish",
     "predeploy": "npm run styleguide:build",
     "deploy": "gh-pages -d styleguide"
