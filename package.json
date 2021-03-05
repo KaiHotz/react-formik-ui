@@ -1,7 +1,7 @@
 {
   "name": "react-formik-ui",
   "author": "Kai Hotz",
-  "version": "5.1.7",
+  "version": "5.1.8",
   "description": "Plain form components for make use of formik even easier",
   "license": "MIT",
   "repository": {
@@ -43,7 +43,7 @@
     "lodash.omit": "^4.5.0",
     "react-datepicker": "^3.6.0",
     "react-dropzone": "^11.3.1",
-    "react-phonenr-input": "^2.0.17"
+    "react-phonenr-input": "^2.0.18"
   },
   "peerDependencies": {
     "formik": "^2.x",
