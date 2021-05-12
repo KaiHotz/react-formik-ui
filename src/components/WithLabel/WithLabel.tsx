@@ -6,8 +6,8 @@ import omit from 'lodash.omit';
 
 export interface IFormikUiLabelProps {
   name: string;
-  label?: string;
-  hint?: string;
+  label?: ReactNode;
+  hint?: ReactNode;
   placeholder?: string;
   type?: string;
   disabled?: boolean;
