@@ -1,4 +1,4 @@
-import React, { FC, CSSProperties } from 'react';
+import React, { FC, CSSProperties, ReactNode } from 'react';
 import { useField } from 'formik';
 import cx from 'classnames';
 import WithLabel from '../WithLabel';
@@ -20,11 +20,11 @@ export interface IFormikUiRadioProps {
   /** Disables the Radio Fields */
   disabled?: boolean;
   /** Sets the main Label for the Radio Fields */
-  label?: string;
+  label?: ReactNode;
   /** Displays the radio option inline from left to right */
   inline?: boolean;
   /** Sets a hint text after/below the Radio component */
-  hint?: string;
+  hint?: ReactNode;
   /** Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema */
   required?: boolean;
 }

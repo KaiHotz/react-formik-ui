@@ -1,4 +1,4 @@
-import React, { FC, FocusEvent } from 'react';
+import React, { FC, FocusEvent, ReactNode } from 'react';
 import ReactDatePicker, { ReactDatePickerProps } from 'react-datepicker';
 import { isValid } from 'date-fns';
 import { useField } from 'formik';
@@ -11,9 +11,9 @@ export interface IFormikUiDatepickerProps extends ReactDatePickerProps {
   /** Sets an Id for the Datepicker, if not passed, the id will be the name */
   id?: string;
   /** Sets the main Label for the Datepicker */
-  label?: string;
+  label?: ReactNode;
   /** Sets a hint text after/below the Datepicker */
-  hint?: string;
+  hint?: ReactNode;
   /** Sets the Placeholder text */
   placeholder?: string;
   /** Sets the Datepicker as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema */

@@ -1,4 +1,4 @@
-import React, { FC, CSSProperties } from 'react';
+import React, { FC, CSSProperties, ReactNode } from 'react';
 import cx from 'classnames';
 import { useField } from 'formik';
 import { useAutocomplete } from './useAutocomplete';
@@ -17,7 +17,7 @@ export interface IFormikUiAutocompleteProps {
   /** Sets an Id for the Input Field, if not passed, the id will be the name */
   id?: string;
   /** Sets the main Label for the Input Field */
-  label?: string;
+  label?: ReactNode;
   /** Sets the Placeholder text */
   placeholder?: string;
   /** Disables the Input Field */

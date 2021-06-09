@@ -1,4 +1,4 @@
-import React, { FC, FocusEvent, AnimationEvent, CSSProperties } from 'react';
+import React, { FC, FocusEvent, AnimationEvent, CSSProperties, ReactNode } from 'react';
 import { useField } from 'formik';
 import WithLabel from '../WithLabel';
 
@@ -18,7 +18,7 @@ export interface IFormikUiInputProps {
   /** Sets an Id for the Input Field, if not passed, the id will be the name */
   id?: string;
   /** Sets the main Label for the Input Field */
-  label?: string;
+  label?: ReactNode;
   /** Sets the Placeholder text */
   placeholder?: string;
   /** Defines the type of the Input Filed */
@@ -26,7 +26,7 @@ export interface IFormikUiInputProps {
   /** Disables the Input Field */
   disabled?: boolean;
   /** Sets a hint text after/below the Input Field */
-  hint?: string;
+  hint?: ReactNode;
   /** Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema */
   required?: boolean;
 }

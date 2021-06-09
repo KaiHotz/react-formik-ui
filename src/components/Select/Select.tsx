@@ -1,4 +1,4 @@
-import React, { FC, CSSProperties, ChangeEvent } from 'react';
+import React, { FC, CSSProperties, ChangeEvent, ReactNode } from 'react';
 import { useField } from 'formik';
 import WithLabel from '../WithLabel';
 
@@ -21,11 +21,11 @@ export interface IFOrmikUiSelectProps {
   /** Sets an Id for the Select Field, if not passed, the id will be the name */
   id: string;
   /** Sets the main Label for the Select Field */
-  label?: string;
+  label?: ReactNode;
   /** Sets a Placeholder as the first option with no value */
   placeholder?: string;
   /** Sets a hint text after/below the Select component */
-  hint?: string;
+  hint?: ReactNode;
   /** Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema */
   required?: boolean;
   /** Allowes multiple selection */

@@ -12,11 +12,11 @@ export interface IFormikUiCheckboxProps {
   /** Adds a custom inline styles to the Checkbox input element */
   style?: CSSProperties;
   /** Sets the main Label for the Checkbox */
-  label?: string;
+  label?: ReactNode;
   /** Sets a hint text after/below the Checkbox */
-  hint?: string;
+  hint?: ReactNode;
   /** Sets the text shown beside the checkbox */
-  text?: string | ReactNode;
+  text?: ReactNode;
   /** Sets the Checkbox as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema */
   required?: boolean;
   /** Disables the Checkbox */

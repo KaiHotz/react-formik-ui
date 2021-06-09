@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { useFormikContext } from 'formik';
 import { PhoneInput as PhoneNrInput, IPhoneInputProps, PhoneNumber } from 'react-phonenr-input';
 import WithLabel from '../WithLabel';
@@ -9,9 +9,9 @@ export interface IFormikUiPhoneInputProps extends Omit<IPhoneInputProps, 'onChan
   /** Sets an Id for the Input Field, if not passed, the id will be the name */
   id?: string;
   /** Sets the main Label for the Input Field */
-  label?: string;
+  label?: ReactNode;
   /** Sets a hint text after/below the Input Field */
-  hint?: string;
+  hint?: ReactNode;
   /** Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema */
   required?: boolean;
 }

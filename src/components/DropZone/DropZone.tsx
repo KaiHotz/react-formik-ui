@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
-import React, { FC, CSSProperties } from 'react';
+import React, { FC, CSSProperties, ReactNode } from 'react';
 import cx from 'classnames';
 import { useField, useFormikContext } from 'formik';
 import { useDropzone, DropzoneProps, DropzoneOptions, DropzoneState } from 'react-dropzone';
@@ -22,7 +22,7 @@ export interface IFormikUiDropZoneProps extends DropZoneOptionsState {
   /** Set accepted file types. See [https://github.com/okonet/attr-accept](https://github.com/okonet/attr-accept) for more information. Keep in mind that mime type determination is not reliable across platforms. CSV files, for example, are reported as text/plain under macOS but as application/vnd.ms-excel under Windows. In some cases there might not be a mime type set at all. See: [https://github.com/react-dropzone/react-dropzone/issues/276](https://github.com/react-dropzone/react-dropzone/issues/276) */
   accept?: string;
   /** Sets the main Label for the DropZone Field */
-  label?: string;
+  label?: ReactNode;
   /** Sets the text to be shown when draging files over the drop zone */
   zoneActiveText?: string;
   /** Shows the number of accepted and rejected files after each drop */
@@ -32,7 +32,7 @@ export interface IFormikUiDropZoneProps extends DropZoneOptionsState {
   /** Sets the Placeholder text */
   placeholder?: string;
   /** Sets a hint text after/below the DropZone Field */
-  hint?: string;
+  hint?: ReactNode;
   /** Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema */
   required?: boolean;
   /** Enables a Clear button below the Dropbox, that enables you to clear out all the files you added to the Dropbox */

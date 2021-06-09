@@ -1,4 +1,4 @@
-import React, { FC, FocusEvent, CSSProperties } from 'react';
+import React, { FC, FocusEvent, CSSProperties, ReactNode } from 'react';
 import { useField } from 'formik';
 import WithLabel from '../WithLabel';
 
@@ -18,11 +18,11 @@ export interface IFormikUiTextareaProps {
   /** Sets an Id for the Textarea, if not passed, the id will be the name */
   id?: string;
   /** Sets the main Label for the Textarea */
-  label?: string;
+  label?: ReactNode;
   /** Sets the Placeholder text */
   placeholder?: string;
   /** Sets a hint text after/below the Textarea */
-  hint?: string;
+  hint?: ReactNode;
   /** Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema */
   required?: boolean;
 }
