@@ -1,7 +1,7 @@
 {
   "name": "react-formik-ui",
   "author": "Kai Hotz",
-  "version": "5.3.1",
+  "version": "5.3.5",
   "description": "Plain form components for make use of formik even easier",
   "license": "MIT",
   "repository": {
@@ -11,7 +11,6 @@
   "homepage": "https://KaiHotz.github.io/react-formik-ui",
   "main": "dist/index.js",
   "module": "dist/index.js",
-  "jsnext:main": "dist/index.js",
   "types": "dist/index.d.ts",
   "engines": {
     "node": ">=8",
@@ -47,8 +46,8 @@
   },
   "peerDependencies": {
     "formik": "^2.x",
-    "react": "^17.x",
-    "react-dom": "^17.x"
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
