@@ -28,7 +28,7 @@ export default {
   output: [
     {
       dir: 'dist',
-      format: 'esm',
+      format: 'es',
       preserveModules: true,
       preserveModulesRoot: 'src',
     },
