@@ -33,6 +33,10 @@ export default {
       preserveModules: true,
       preserveModulesRoot: 'src',
     },
+    {
+      dir: 'dist',
+      format: 'cjs',
+    },
   ],
   plugins: [
     postcss({
