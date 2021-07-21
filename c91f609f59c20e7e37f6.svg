@@ -1,0 +1,34 @@
+var _path, _path2, _path3, _g;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import * as React from "react";
+
+function SvgIq(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 512 512"
+  }, props), _path || (_path = /*#__PURE__*/React.createElement("path", {
+    fill: "#fff",
+    d: "M0 170.7h512v170.6H0z"
+  })), _path2 || (_path2 = /*#__PURE__*/React.createElement("path", {
+    fill: "#ce1126",
+    d: "M0 0h512v170.7H0z"
+  })), _path3 || (_path3 = /*#__PURE__*/React.createElement("path", {
+    d: "M0 341.3h512V512H0z"
+  })), _g || (_g = /*#__PURE__*/React.createElement("g", {
+    fill: "#007a3d",
+    transform: "translate(-276.6 -99) scale(1.8686)"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M325.5 173.2a5 5 0 01-1.4-1c-.3-.5-.1-.5 1.2-.2 2.3.7 3.8.4 5.3-.8l1.3-1.1 1.5.7c.9.5 1.8.8 2 .7.7-.2 2.1-2 2-2.6 0-.7.6-.5 1 .3.6 1.6-.3 3.5-2 3.9-.7.2-1.4.1-2.6-.3-1.4-.5-1.7-.5-2.4 0a5.4 5.4 0 01-5.9.4zm5.8-5.3a8 8 0 01-1-4c.1-.6.3-.8.8-.6 1 .3 1.2 1 1 3 0 1.8-.3 2.3-.8 1.6zm-67.6-1.9c-.1 1.3 2.4 4.6 3.5 5.2-.8.3-1.7.2-2.4.5-4 4-18.4 18-21 21.4 7.8.2 16.4-.1 23.7-.4 0-5.3 5-5.6 8.4-7.5 1.7 2.7 6 2.5 6.6 6.6v17.6H216a9.7 9.7 0 01-12.3 7.5c2-2 5.4-2.8 6.6-5.7 1-6.4-2-10.3-4-14a24 24 0 007-3.6c-2.3 7 6.2 6.3 12.4 6.1.2-2.4.1-5.2-1.7-5.6 2.3-.9 2.7-1.2 6.6-4.4v9.6l46.1-.1c0-3 .8-7.9-1.6-7.9-2.2 0 0 6.2-1.8 6.2h-35.7v-6c1.5-1.6 1.3-1.5 11.6-11.8 1-1 8.3-7.6 14.6-13.7zm89.1-.3c2.5 1.4 4.5 3.2 7.5 4-.3 1.3-1.5 1.8-1.8 3.1v27c3.4.7 4.2-1.3 5.8-2.3.4 4.3 3.2 8.5 3 12h-14.5v-43.7zm-19.4 14.5s5.3-4.5 5.3-4.7V199h3.8l-.1-26.3c1.5-1.6 4.6-3.8 5.3-5.4v42h-33.4c-.5-8.7-.6-17.7 9.6-15.8V190c-.3-.6-.9.1-1-.7 1.6-1.6 2.1-2 6.5-5.8l.1 15.5h3.9v-18.8zm-12.6 18.6c.7 1 3.2 1 3-.8-.3-1.5-3.5-1-3 .8z"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: 224,
+    cy: 214.4,
+    r: 2
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M287 165.8c2.5 1.3 4.5 3.2 7.6 4-.4 1.2-1.5 1.7-1.8 3v27c3.4.7 4.1-1.2 5.7-2.3.5 4.3 3.2 8.6 3.1 12H287v-43.7z"
+  }))));
+}
+
+export default "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJmbGFnLWljb24tY3NzLWlxIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CiAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTAgMTcwLjdoNTEydjE3MC42SDB6Ii8+CiAgPHBhdGggZmlsbD0iI2NlMTEyNiIgZD0iTTAgMGg1MTJ2MTcwLjdIMHoiLz4KICA8cGF0aCBkPSJNMCAzNDEuM2g1MTJWNTEySDB6Ii8+CiAgPGcgZmlsbD0iIzAwN2EzZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI3Ni42IC05OSkgc2NhbGUoMS44Njg2KSI+CiAgICA8cGF0aCBkPSJNMzI1LjUgMTczLjJhNSA1IDAgMDEtMS40LTFjLS4zLS41LS4xLS41IDEuMi0uMiAyLjMuNyAzLjguNCA1LjMtLjhsMS4zLTEuMSAxLjUuN2MuOS41IDEuOC44IDIgLjcuNy0uMiAyLjEtMiAyLTIuNiAwLS43LjYtLjUgMSAuMy42IDEuNi0uMyAzLjUtMiAzLjktLjcuMi0xLjQuMS0yLjYtLjMtMS40LS41LTEuNy0uNS0yLjQgMGE1LjQgNS40IDAgMDEtNS45LjR6bTUuOC01LjNhOCA4IDAgMDEtMS00Yy4xLS42LjMtLjguOC0uNiAxIC4zIDEuMiAxIDEgMyAwIDEuOC0uMyAyLjMtLjggMS42em0tNjcuNi0xLjljLS4xIDEuMyAyLjQgNC42IDMuNSA1LjItLjguMy0xLjcuMi0yLjQuNS00IDQtMTguNCAxOC0yMSAyMS40IDcuOC4yIDE2LjQtLjEgMjMuNy0uNCAwLTUuMyA1LTUuNiA4LjQtNy41IDEuNyAyLjcgNiAyLjUgNi42IDYuNnYxNy42SDIxNmE5LjcgOS43IDAgMDEtMTIuMyA3LjVjMi0yIDUuNC0yLjggNi42LTUuNyAxLTYuNC0yLTEwLjMtNC0xNGEyNCAyNCAwIDAwNy0zLjZjLTIuMyA3IDYuMiA2LjMgMTIuNCA2LjEuMi0yLjQuMS01LjItMS43LTUuNiAyLjMtLjkgMi43LTEuMiA2LjYtNC40djkuNmw0Ni4xLS4xYzAtMyAuOC03LjktMS42LTcuOS0yLjIgMCAwIDYuMi0xLjggNi4yaC0zNS43di02YzEuNS0xLjYgMS4zLTEuNSAxMS42LTExLjggMS0xIDguMy03LjYgMTQuNi0xMy43em04OS4xLS4zYzIuNSAxLjQgNC41IDMuMiA3LjUgNC0uMyAxLjMtMS41IDEuOC0xLjggMy4xdjI3YzMuNC43IDQuMi0xLjMgNS44LTIuMy40IDQuMyAzLjIgOC41IDMgMTJoLTE0LjV2LTQzLjd6bS0xOS40IDE0LjVzNS4zLTQuNSA1LjMtNC43VjE5OWgzLjhsLS4xLTI2LjNjMS41LTEuNiA0LjYtMy44IDUuMy01LjR2NDJoLTMzLjRjLS41LTguNy0uNi0xNy43IDkuNi0xNS44VjE5MGMtLjMtLjYtLjkuMS0xLS43IDEuNi0xLjYgMi4xLTIgNi41LTUuOGwuMSAxNS41aDMuOXYtMTguOHptLTEyLjYgMTguNmMuNyAxIDMuMiAxIDMtLjgtLjMtMS41LTMuNS0xLTMgLjh6Ii8+CiAgICA8Y2lyY2xlIGN4PSIyMjQiIGN5PSIyMTQuNCIgcj0iMiIvPgogICAgPHBhdGggZD0iTTI4NyAxNjUuOGMyLjUgMS4zIDQuNSAzLjIgNy42IDQtLjQgMS4yLTEuNSAxLjctMS44IDN2MjdjMy40LjcgNC4xLTEuMiA1LjctMi4zLjUgNC4zIDMuMiA4LjYgMy4xIDEySDI4N3YtNDMuN3oiLz4KICA8L2c+Cjwvc3ZnPgo=";
+export { SvgIq as ReactComponent };

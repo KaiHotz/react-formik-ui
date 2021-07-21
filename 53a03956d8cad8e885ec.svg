@@ -1,0 +1,36 @@
+var _defs, _g;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import * as React from "react";
+
+function SvgPr(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 512 512"
+  }, props), _defs || (_defs = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("clipPath", {
+    id: "pr_svg__a"
+  }, /*#__PURE__*/React.createElement("path", {
+    fillOpacity: 0.7,
+    d: "M51.6 0h708.7v708.7H51.6z"
+  })))), _g || (_g = /*#__PURE__*/React.createElement("g", {
+    fillRule: "evenodd",
+    clipPath: "url(#pr_svg__a)",
+    transform: "translate(-37.3) scale(.72249)"
+  }, /*#__PURE__*/React.createElement("path", {
+    fill: "#ed0000",
+    d: "M0 0h1063v708.7H0z"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "#fff",
+    d: "M0 141.7h1063v141.8H0zm0 283.5h1063v141.7H0z"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "#0050f0",
+    d: "M0 0l610 353.9L0 707.3V0z"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "#fff",
+    d: "M268.2 450.5l-65.7-49-65.3 49.5 24.3-80.5-65.3-49.7 80.7-.7 25-80.2 25.6 80 80.7.1-64.9 50.2 24.9 80.3z"
+  }))));
+}
+
+export default "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJmbGFnLWljb24tY3NzLXByIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CiAgPGRlZnM+CiAgICA8Y2xpcFBhdGggaWQ9ImEiPgogICAgICA8cGF0aCBmaWxsLW9wYWNpdHk9Ii43IiBkPSJNNTEuNiAwaDcwOC43djcwOC43SDUxLjZ6Ii8+CiAgICA8L2NsaXBQYXRoPgogIDwvZGVmcz4KICA8ZyBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcGF0aD0idXJsKCNhKSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTM3LjMpIHNjYWxlKC43MjI0OSkiPgogICAgPHBhdGggZmlsbD0iI2VkMDAwMCIgZD0iTTAgMGgxMDYzdjcwOC43SDB6Ii8+CiAgICA8cGF0aCBmaWxsPSIjZmZmIiBkPSJNMCAxNDEuN2gxMDYzdjE0MS44SDB6bTAgMjgzLjVoMTA2M3YxNDEuN0gweiIvPgogICAgPHBhdGggZmlsbD0iIzAwNTBmMCIgZD0iTTAgMGw2MTAgMzUzLjlMMCA3MDcuM1YweiIvPgogICAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTI2OC4yIDQ1MC41bC02NS43LTQ5LTY1LjMgNDkuNSAyNC4zLTgwLjUtNjUuMy00OS43IDgwLjctLjcgMjUtODAuMiAyNS42IDgwIDgwLjcuMS02NC45IDUwLjIgMjQuOSA4MC4zeiIvPgogIDwvZz4KPC9zdmc+Cg==";
+export { SvgPr as ReactComponent };

@@ -1,0 +1,33 @@
+var _defs, _g;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import * as React from "react";
+
+function SvgLy(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 640 480"
+  }, props), _defs || (_defs = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("clipPath", {
+    id: "ly_svg__a"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M166.7-20h666.6v500H166.7z"
+  })))), _g || (_g = /*#__PURE__*/React.createElement("g", {
+    clipPath: "url(#ly_svg__a)",
+    transform: "matrix(.96 0 0 .96 -160 19.2)"
+  }, /*#__PURE__*/React.createElement("path", {
+    fill: "#239e46",
+    d: "M0-20h1000v500H0z"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M0-20h1000v375H0z"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "#e70013",
+    d: "M0-20h1000v125H0z"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "#fff",
+    d: "M544.2 185.8a54.3 54.3 0 100 88.4 62.5 62.5 0 110-88.4M530.4 230l84.1-27.3-52 71.5v-88.4l52 71.5z"
+  }))));
+}
+
+export default "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJmbGFnLWljb24tY3NzLWx5IiB2aWV3Qm94PSIwIDAgNjQwIDQ4MCI+CiAgPGRlZnM+CiAgICA8Y2xpcFBhdGggaWQ9Imx5LWEiPgogICAgICA8cGF0aCBkPSJNMTY2LjctMjBoNjY2LjZ2NTAwSDE2Ni43eiIvPgogICAgPC9jbGlwUGF0aD4KICA8L2RlZnM+CiAgPGcgY2xpcC1wYXRoPSJ1cmwoI2x5LWEpIiB0cmFuc2Zvcm09Im1hdHJpeCguOTYgMCAwIC45NiAtMTYwIDE5LjIpIj4KICAgIDxwYXRoIGZpbGw9IiMyMzllNDYiIGQ9Ik0wLTIwaDEwMDB2NTAwSDB6Ii8+CiAgICA8cGF0aCBkPSJNMC0yMGgxMDAwdjM3NUgweiIvPgogICAgPHBhdGggZmlsbD0iI2U3MDAxMyIgZD0iTTAtMjBoMTAwMHYxMjVIMHoiLz4KICAgIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik01NDQuMiAxODUuOGE1NC4zIDU0LjMgMCAxMDAgODguNCA2Mi41IDYyLjUgMCAxMTAtODguNE01MzAuNCAyMzBsODQuMS0yNy4zLTUyIDcxLjV2LTg4LjRsNTIgNzEuNXoiLz4KICA8L2c+Cjwvc3ZnPgo=";
+export { SvgLy as ReactComponent };

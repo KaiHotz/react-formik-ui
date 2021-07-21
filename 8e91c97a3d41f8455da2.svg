@@ -1,0 +1,37 @@
+var _path, _path2, _path3, _path4, _path5, _path6, _path7;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import * as React from "react";
+
+function SvgTv(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 640 480"
+  }, props), _path || (_path = /*#__PURE__*/React.createElement("path", {
+    fill: "#009fca",
+    d: "M0 0h640v480H0z"
+  })), _path2 || (_path2 = /*#__PURE__*/React.createElement("path", {
+    fill: "#fff40d",
+    fillRule: "evenodd",
+    d: "M593.3 122.7H621l-22.3 15.2 8.5 24.7-22.3-15.3-22.2 15.3 8.5-24.7-22.3-15.2h27.5l8.5-24.7zm-69.2 196.8h27.6l-22.3 15.2 8.5 24.7-22.3-15.3-22.3 15.3 8.6-24.7-22.3-15.2H507l8.5-24.7zm69.2-44.6H621l-22.3 15.2 8.5 24.7-22.3-15.3-22.2 15.3 8.5-24.7-22.3-15.2h27.5l8.5-24.7zM295.8 417.7h27.6L301 432.8l8.6 24.6-22.3-15.2-22.3 15.2 8.6-24.6-22.4-15.3h27.6l8.5-24.6zm62.6-76.5h-27.6l22.3-15.3-8.5-24.6 22.3 15.2 22.3-15.2-8.6 24.6 22.3 15.3h-27.5l-8.5 24.6zm81.3-112.5H412l22.3-15.2-8.5-24.7 22.3 15.3 22.3-15.3-8.6 24.7 22.3 15.2h-27.5l-8.5 24.7zm68.3-23.3h-27.6l22.4-15.3-8.6-24.6 22.3 15.2 22.3-15.2-8.6 24.6 22.4 15.3H525l-8.5 24.6zM439.7 400H412l22.3-15.2L426 360l22.3 15.2 22.3-15.2-8.6 24.7 22.3 15.2h-27.5l-8.5 24.7zm-81.3 19.9h-27.6l22.3-15.2-8.5-24.7 22.3 15.2 22.3-15.2-8.6 24.6L403 420h-27.5l-8.5 24.7z"
+  })), _path3 || (_path3 = /*#__PURE__*/React.createElement("path", {
+    fill: "#012169",
+    d: "M0 0h320v240H0z"
+  })), _path4 || (_path4 = /*#__PURE__*/React.createElement("path", {
+    fill: "#FFF",
+    d: "M37.5 0l122 90.5L281 0h39v31l-120 89.5 120 89V240h-40l-120-89.5L40.5 240H0v-30l119.5-89L0 32V0z"
+  })), _path5 || (_path5 = /*#__PURE__*/React.createElement("path", {
+    fill: "#C8102E",
+    d: "M212 140.5L320 220v20l-135.5-99.5zm-92 10l3 17.5-96 72H0zM320 0v1.5l-124.5 94 1-22L295 0zM0 0l119.5 88h-30L0 21z"
+  })), _path6 || (_path6 = /*#__PURE__*/React.createElement("path", {
+    fill: "#FFF",
+    d: "M120.5 0v240h80V0zM0 80v80h320V80z"
+  })), _path7 || (_path7 = /*#__PURE__*/React.createElement("path", {
+    fill: "#C8102E",
+    d: "M0 96.5v48h320v-48zM136.5 0v240h48V0z"
+  })));
+}
+
+export default "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJmbGFnLWljb24tY3NzLXR2IiB2aWV3Qm94PSIwIDAgNjQwIDQ4MCI+CiAgPGRlZnMgaWQ9ImRlZnM4MzAiPgogICAgPGNsaXBQYXRoIGlkPSJ0di1hIj4KICAgICAgPHBhdGggaWQ9InBhdGg4MjciIGZpbGwtb3BhY2l0eT0iLjciIGQ9Ik0wIDBoNjQwdjQ4MEgweiIvPgogICAgPC9jbGlwUGF0aD4KICA8L2RlZnM+CiAgPHBhdGggaWQ9InJlY3Q4OTEiIGZpbGw9IiMwMDlmY2EiIGZpbGwtb3BhY2l0eT0iMSIgc3Ryb2tlLXdpZHRoPSIxMS44IiBkPSJNMCAwaDY0MHY0ODBIMHoiLz4KICA8cGF0aCBpZD0icGF0aDg2MiIgZmlsbD0iI2ZmZjQwZCIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2Utd2lkdGg9IjFwdCIgZD0iTTU5My4zIDEyMi43SDYyMWwtMjIuMyAxNS4yIDguNSAyNC43LTIyLjMtMTUuMy0yMi4yIDE1LjMgOC41LTI0LjctMjIuMy0xNS4yaDI3LjVsOC41LTI0Ljd6bS02OS4yIDE5Ni44aDI3LjZsLTIyLjMgMTUuMiA4LjUgMjQuNy0yMi4zLTE1LjMtMjIuMyAxNS4zIDguNi0yNC43LTIyLjMtMTUuMkg1MDdsOC41LTI0Ljd6bTY5LjItNDQuNkg2MjFsLTIyLjMgMTUuMiA4LjUgMjQuNy0yMi4zLTE1LjMtMjIuMiAxNS4zIDguNS0yNC43LTIyLjMtMTUuMmgyNy41bDguNS0yNC43ek0yOTUuOCA0MTcuN2gyNy42TDMwMSA0MzIuOGw4LjYgMjQuNi0yMi4zLTE1LjItMjIuMyAxNS4yIDguNi0yNC42LTIyLjQtMTUuM2gyNy42bDguNS0yNC42em02Mi42LTc2LjVoLTI3LjZsMjIuMy0xNS4zLTguNS0yNC42IDIyLjMgMTUuMiAyMi4zLTE1LjItOC42IDI0LjYgMjIuMyAxNS4zaC0yNy41bC04LjUgMjQuNnptODEuMy0xMTIuNUg0MTJsMjIuMy0xNS4yLTguNS0yNC43IDIyLjMgMTUuMyAyMi4zLTE1LjMtOC42IDI0LjcgMjIuMyAxNS4yaC0yNy41bC04LjUgMjQuN3ptNjguMy0yMy4zaC0yNy42bDIyLjQtMTUuMy04LjYtMjQuNiAyMi4zIDE1LjIgMjIuMy0xNS4yLTguNiAyNC42IDIyLjQgMTUuM0g1MjVsLTguNSAyNC42ek00MzkuNyA0MDBINDEybDIyLjMtMTUuMkw0MjYgMzYwbDIyLjMgMTUuMiAyMi4zLTE1LjItOC42IDI0LjcgMjIuMyAxNS4yaC0yNy41bC04LjUgMjQuN3ptLTgxLjMgMTkuOWgtMjcuNmwyMi4zLTE1LjItOC41LTI0LjcgMjIuMyAxNS4yIDIyLjMtMTUuMi04LjYgMjQuNkw0MDMgNDIwaC0yNy41bC04LjUgMjQuN3oiIG9wYWNpdHk9IjEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDxnIGlkPSJnMTU1MSIgdHJhbnNmb3JtPSJzY2FsZSguNSkiPgogICAgPHBhdGggaWQ9InBhdGgxNTI5IiBmaWxsPSIjMDEyMTY5IiBkPSJNMCAwaDY0MHY0ODBIMHoiLz4KICAgIDxwYXRoIGlkPSJwYXRoMTUzMSIgZmlsbD0iI0ZGRiIgZD0iTTc1IDBsMjQ0IDE4MUw1NjIgMGg3OHY2Mkw0MDAgMjQxbDI0MCAxNzh2NjFoLTgwTDMyMCAzMDEgODEgNDgwSDB2LTYwbDIzOS0xNzhMMCA2NFYweiIvPgogICAgPHBhdGggaWQ9InBhdGgxNTMzIiBmaWxsPSIjQzgxMDJFIiBkPSJNNDI0IDI4MWwyMTYgMTU5djQwTDM2OSAyODF6bS0xODQgMjBsNiAzNUw1NCA0ODBIMHpNNjQwIDB2M0wzOTEgMTkxbDItNDRMNTkwIDB6TTAgMGwyMzkgMTc2aC02MEwwIDQyeiIvPgogICAgPHBhdGggaWQ9InBhdGgxNTM1IiBmaWxsPSIjRkZGIiBkPSJNMjQxIDB2NDgwaDE2MFYwek0wIDE2MHYxNjBoNjQwVjE2MHoiLz4KICAgIDxwYXRoIGlkPSJwYXRoMTUzNyIgZmlsbD0iI0M4MTAyRSIgZD0iTTAgMTkzdjk2aDY0MHYtOTZ6TTI3MyAwdjQ4MGg5NlYweiIvPgogIDwvZz4KPC9zdmc+Cg==";
+export { SvgTv as ReactComponent };

@@ -1,0 +1,33 @@
+var _defs, _g;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import * as React from "react";
+
+function SvgFo(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 512 512"
+  }, props), _defs || (_defs = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("clipPath", {
+    id: "fo_svg__a"
+  }, /*#__PURE__*/React.createElement("path", {
+    fillOpacity: 0.7,
+    d: "M0 0h512v512H0z"
+  })))), _g || (_g = /*#__PURE__*/React.createElement("g", {
+    fillRule: "evenodd",
+    strokeWidth: 0,
+    clipPath: "url(#fo_svg__a)"
+  }, /*#__PURE__*/React.createElement("path", {
+    fill: "#fff",
+    d: "M-78 0h708.2v512H-78z"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "#003897",
+    d: "M-75.9 199.1h198.3V0h113.3v199.1h396.6V313H235.7v199H122.4V312.9H-76V199z"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "#d72828",
+    d: "M-75.9 227.6h226.6V0h56.7v227.6h424.9v56.9h-425V512h-56.6V284.4H-75.9v-56.8z"
+  }))));
+}
+
+export default "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJmbGFnLWljb24tY3NzLWZvIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CiAgPGRlZnM+CiAgICA8Y2xpcFBhdGggaWQ9ImEiPgogICAgICA8cGF0aCBmaWxsLW9wYWNpdHk9Ii43IiBkPSJNMCAwaDUxMnY1MTJIMHoiLz4KICAgIDwvY2xpcFBhdGg+CiAgPC9kZWZzPgogIDxnIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlLXdpZHRoPSIwIiBjbGlwLXBhdGg9InVybCgjYSkiPgogICAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTS03OCAwaDcwOC4ydjUxMkgtNzh6Ii8+CiAgICA8cGF0aCBmaWxsPSIjMDAzODk3IiBkPSJNLTc1LjkgMTk5LjFoMTk4LjNWMGgxMTMuM3YxOTkuMWgzOTYuNlYzMTNIMjM1Ljd2MTk5SDEyMi40VjMxMi45SC03NlYxOTl6Ii8+CiAgICA8cGF0aCBmaWxsPSIjZDcyODI4IiBkPSJNLTc1LjkgMjI3LjZoMjI2LjZWMGg1Ni43djIyNy42aDQyNC45djU2LjloLTQyNVY1MTJoLTU2LjZWMjg0LjRILTc1Ljl2LTU2Ljh6Ii8+CiAgPC9nPgo8L3N2Zz4K";
+export { SvgFo as ReactComponent };

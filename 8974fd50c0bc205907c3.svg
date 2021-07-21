@@ -1,0 +1,76 @@
+var _path, _path2, _g, _use, _use2, _use3, _use4;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import * as React from "react";
+
+function SvgHn(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    xmlnsXlink: "http://www.w3.org/1999/xlink",
+    viewBox: "0 0 512 512"
+  }, props), _path || (_path = /*#__PURE__*/React.createElement("path", {
+    fill: "#0073cf",
+    d: "M0 0h512v512H0z"
+  })), _path2 || (_path2 = /*#__PURE__*/React.createElement("path", {
+    fill: "#fff",
+    d: "M0 170.7h512v170.6H0z"
+  })), _g || (_g = /*#__PURE__*/React.createElement("g", {
+    id: "hn_svg__c",
+    fill: "#0073cf",
+    transform: "translate(256 256) scale(28.44446)"
+  }, /*#__PURE__*/React.createElement("g", {
+    id: "hn_svg__b"
+  }, /*#__PURE__*/React.createElement("path", {
+    id: "hn_svg__a",
+    d: "M0-1l-.3 1 .5.1z"
+  }), /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "scale(-1 1)",
+    xlinkHref: "#hn_svg__a"
+  })), /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "rotate(72)",
+    xlinkHref: "#hn_svg__b"
+  }), /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "rotate(-72)",
+    xlinkHref: "#hn_svg__b"
+  }), /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "rotate(144)",
+    xlinkHref: "#hn_svg__b"
+  }), /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "rotate(-144)",
+    xlinkHref: "#hn_svg__b"
+  }))), _use || (_use = /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "translate(142.2 -45.5)",
+    xlinkHref: "#hn_svg__c"
+  })), _use2 || (_use2 = /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "translate(142.2 39.8)",
+    xlinkHref: "#hn_svg__c"
+  })), _use3 || (_use3 = /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "translate(-142.2 -45.5)",
+    xlinkHref: "#hn_svg__c"
+  })), _use4 || (_use4 = /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "translate(-142.2 39.8)",
+    xlinkHref: "#hn_svg__c"
+  })));
+}
+
+export default "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBpZD0iZmxhZy1pY29uLWNzcy1obiIgdmlld0JveD0iMCAwIDUxMiA1MTIiPgogIDxwYXRoIGZpbGw9IiMwMDczY2YiIGQ9Ik0wIDBoNTEydjUxMkgweiIvPgogIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0wIDE3MC43aDUxMnYxNzAuNkgweiIvPgogIDxnIGlkPSJjIiBmaWxsPSIjMDA3M2NmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNTYgMjU2KSBzY2FsZSgyOC40NDQ0NikiPgogICAgPGcgaWQ9ImIiPgogICAgICA8cGF0aCBpZD0iYSIgZD0iTTAtMWwtLjMgMSAuNS4xeiIvPgogICAgICA8dXNlIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHRyYW5zZm9ybT0ic2NhbGUoLTEgMSkiIHhsaW5rOmhyZWY9IiNhIi8+CiAgICA8L2c+CiAgICA8dXNlIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHRyYW5zZm9ybT0icm90YXRlKDcyKSIgeGxpbms6aHJlZj0iI2IiLz4KICAgIDx1c2Ugd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdHJhbnNmb3JtPSJyb3RhdGUoLTcyKSIgeGxpbms6aHJlZj0iI2IiLz4KICAgIDx1c2Ugd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdHJhbnNmb3JtPSJyb3RhdGUoMTQ0KSIgeGxpbms6aHJlZj0iI2IiLz4KICAgIDx1c2Ugd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdHJhbnNmb3JtPSJyb3RhdGUoLTE0NCkiIHhsaW5rOmhyZWY9IiNiIi8+CiAgPC9nPgogIDx1c2Ugd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTQyLjIgLTQ1LjUpIiB4bGluazpocmVmPSIjYyIvPgogIDx1c2Ugd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTQyLjIgMzkuOCkiIHhsaW5rOmhyZWY9IiNjIi8+CiAgPHVzZSB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTQyLjIgLTQ1LjUpIiB4bGluazpocmVmPSIjYyIvPgogIDx1c2Ugd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE0Mi4yIDM5LjgpIiB4bGluazpocmVmPSIjYyIvPgo8L3N2Zz4K";
+export { SvgHn as ReactComponent };

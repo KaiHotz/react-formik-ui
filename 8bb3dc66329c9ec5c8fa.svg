@@ -1,0 +1,31 @@
+var _path, _path2, _path3;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import * as React from "react";
+
+function SvgGe(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 640 480"
+  }, props), _path || (_path = /*#__PURE__*/React.createElement("path", {
+    fill: "#fff",
+    d: "M0 0h640v480H0z"
+  })), _path2 || (_path2 = /*#__PURE__*/React.createElement("path", {
+    fill: "red",
+    d: "M272 0h96v480h-96z"
+  })), _path3 || (_path3 = /*#__PURE__*/React.createElement("path", {
+    fill: "red",
+    d: "M0 192h640v96H0z"
+  })), /*#__PURE__*/React.createElement("path", {
+    style: {
+      mixBlendMode: "multiply"
+    },
+    fill: "red",
+    fillRule: "evenodd",
+    d: "M146.8 373.1c1-16.8 4-31.1 4-31.1s-9.8 1-14.8 1c-4.9 0-14.8-1-14.8-1s3 14.3 4 31.2c-16.9-1-31.2-4-31.2-4s1 7.4 1 14.8-1 14.8-1 14.8 14.3-3 31.2-4c-1 16.9-4 31.2-4 31.2s7.4-1 14.8-1 14.8 1 14.8 1-3-14.3-4-31.2c16.9 1 31.2 4 31.2 4s-1-9.8-1-14.8c0-4.9 1-14.8 1-14.8s-14.3 3-31.1 4zm368-288c1-16.8 4-31.1 4-31.1s-9.8 1-14.8 1c-4.9 0-14.8-1-14.8-1s3 14.3 4 31.1c-16.9-1-31.2-3.9-31.2-3.9s1 7.4 1 14.8-1 14.8-1 14.8 14.3-3 31.2-4c-1 16.9-4 31.2-4 31.2s7.4-1 14.8-1 14.8 1 14.8 1-3-14.3-4-31.1c16.9 1 31.2 4 31.2 4s-1-10-1-14.9 1-14.8 1-14.8-14.3 3-31.2 4zm-368 0c1-16.8 4-31.1 4-31.1s-9.8 1-14.8 1c-4.9 0-14.8-1-14.8-1s3 14.3 4 31.2c-16.9-1-31.2-4-31.2-4s1 7.4 1 14.8-1 14.8-1 14.8 14.3-3 31.2-4c-1 16.9-4 31.2-4 31.2s7.4-1 14.8-1 14.8 1 14.8 1-3-14.3-4-31.2c16.9 1 31.2 4 31.2 4s-1-9.8-1-14.8c0-4.9 1-14.8 1-14.8s-14.3 3-31.1 4zm368 288c1-16.8 4-31.1 4-31.1s-9.8 1-14.8 1c-4.9 0-14.8-1-14.8-1s3 14.3 4 31.2c-16.9-1-31.2-4-31.2-4s1 7.4 1 14.8-1 14.8-1 14.8 14.3-3 31.2-4c-1 16.9-4 31.2-4 31.2s7.4-1 14.8-1 14.8 1 14.8 1-3-14.3-4-31.2c16.9 1 31.2 4 31.2 4s-1-9.8-1-14.8c0-4.9 1-14.8 1-14.8s-14.3 3-31.2 4z"
+  }));
+}
+
+export default "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJmbGFnLWljb24tY3NzLWdlIiB2aWV3Qm94PSIwIDAgNjQwIDQ4MCI+CiAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTAgMGg2NDB2NDgwSDB6Ii8+CiAgPHBhdGggZmlsbD0icmVkIiBkPSJNMjcyIDBoOTZ2NDgwaC05NnoiLz4KICA8cGF0aCBmaWxsPSJyZWQiIGQ9Ik0wIDE5Mmg2NDB2OTZIMHoiLz4KICA8cGF0aCBzdHlsZT0ibWl4LWJsZW5kLW1vZGU6bXVsdGlwbHkiIGZpbGw9InJlZCIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMTQ2LjggMzczLjFjMS0xNi44IDQtMzEuMSA0LTMxLjFzLTkuOCAxLTE0LjggMWMtNC45IDAtMTQuOC0xLTE0LjgtMXMzIDE0LjMgNCAzMS4yYy0xNi45LTEtMzEuMi00LTMxLjItNHMxIDcuNCAxIDE0LjgtMSAxNC44LTEgMTQuOCAxNC4zLTMgMzEuMi00Yy0xIDE2LjktNCAzMS4yLTQgMzEuMnM3LjQtMSAxNC44LTEgMTQuOCAxIDE0LjggMS0zLTE0LjMtNC0zMS4yYzE2LjkgMSAzMS4yIDQgMzEuMiA0cy0xLTkuOC0xLTE0LjhjMC00LjkgMS0xNC44IDEtMTQuOHMtMTQuMyAzLTMxLjEgNHptMzY4LTI4OGMxLTE2LjggNC0zMS4xIDQtMzEuMXMtOS44IDEtMTQuOCAxYy00LjkgMC0xNC44LTEtMTQuOC0xczMgMTQuMyA0IDMxLjFjLTE2LjktMS0zMS4yLTMuOS0zMS4yLTMuOXMxIDcuNCAxIDE0LjgtMSAxNC44LTEgMTQuOCAxNC4zLTMgMzEuMi00Yy0xIDE2LjktNCAzMS4yLTQgMzEuMnM3LjQtMSAxNC44LTEgMTQuOCAxIDE0LjggMS0zLTE0LjMtNC0zMS4xYzE2LjkgMSAzMS4yIDQgMzEuMiA0cy0xLTEwLTEtMTQuOSAxLTE0LjggMS0xNC44LTE0LjMgMy0zMS4yIDR6bS0zNjggMGMxLTE2LjggNC0zMS4xIDQtMzEuMXMtOS44IDEtMTQuOCAxYy00LjkgMC0xNC44LTEtMTQuOC0xczMgMTQuMyA0IDMxLjJjLTE2LjktMS0zMS4yLTQtMzEuMi00czEgNy40IDEgMTQuOC0xIDE0LjgtMSAxNC44IDE0LjMtMyAzMS4yLTRjLTEgMTYuOS00IDMxLjItNCAzMS4yczcuNC0xIDE0LjgtMSAxNC44IDEgMTQuOCAxLTMtMTQuMy00LTMxLjJjMTYuOSAxIDMxLjIgNCAzMS4yIDRzLTEtOS44LTEtMTQuOGMwLTQuOSAxLTE0LjggMS0xNC44cy0xNC4zIDMtMzEuMSA0em0zNjggMjg4YzEtMTYuOCA0LTMxLjEgNC0zMS4xcy05LjggMS0xNC44IDFjLTQuOSAwLTE0LjgtMS0xNC44LTFzMyAxNC4zIDQgMzEuMmMtMTYuOS0xLTMxLjItNC0zMS4yLTRzMSA3LjQgMSAxNC44LTEgMTQuOC0xIDE0LjggMTQuMy0zIDMxLjItNGMtMSAxNi45LTQgMzEuMi00IDMxLjJzNy40LTEgMTQuOC0xIDE0LjggMSAxNC44IDEtMy0xNC4zLTQtMzEuMmMxNi45IDEgMzEuMiA0IDMxLjIgNHMtMS05LjgtMS0xNC44YzAtNC45IDEtMTQuOCAxLTE0LjhzLTE0LjMgMy0zMS4yIDR6Ii8+Cjwvc3ZnPgo=";
+export { SvgGe as ReactComponent };

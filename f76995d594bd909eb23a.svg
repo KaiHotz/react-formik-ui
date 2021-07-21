@@ -1,0 +1,30 @@
+var _path, _path2, _path3, _use;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import * as React from "react";
+
+function SvgBb(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    xmlnsXlink: "http://www.w3.org/1999/xlink",
+    viewBox: "0 0 640 480"
+  }, props), _path || (_path = /*#__PURE__*/React.createElement("path", {
+    fill: "#00267f",
+    d: "M0 0h640v480H0z"
+  })), _path2 || (_path2 = /*#__PURE__*/React.createElement("path", {
+    fill: "#ffc726",
+    d: "M213.3 0h213.4v480H213.3z"
+  })), _path3 || (_path3 = /*#__PURE__*/React.createElement("path", {
+    id: "bb_svg__a",
+    d: "M319.8 135.5c-7 19-14 38.6-29.2 53.7 4.7-1.6 13-3 18.2-2.8v79.5l-22.4 3.3c-.8 0-1-1.3-1-3-2.2-24.7-8-45.5-14.8-67-.5-2.9-9-14-2.4-12 .8 0 9.5 3.6 8.2 1.9a85 85 0 00-46.4-24c-1.5-.3-2.4.5-1 2.2 22.4 34.6 41.3 75.5 41.1 124 8.8 0 30-5.2 38.7-5.2v56.1H320l2.5-156.7z"
+  })), _use || (_use = /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "matrix(-1 0 0 1 639.5 0)",
+    xlinkHref: "#bb_svg__a"
+  })));
+}
+
+export default "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBpZD0iZmxhZy1pY29uLWNzcy1iYiIgdmlld0JveD0iMCAwIDY0MCA0ODAiPgogIDxwYXRoIGZpbGw9IiMwMDI2N2YiIGQ9Ik0wIDBoNjQwdjQ4MEgweiIvPgogIDxwYXRoIGZpbGw9IiNmZmM3MjYiIGQ9Ik0yMTMuMyAwaDIxMy40djQ4MEgyMTMuM3oiLz4KICA8cGF0aCBpZD0iYSIgZD0iTTMxOS44IDEzNS41Yy03IDE5LTE0IDM4LjYtMjkuMiA1My43IDQuNy0xLjYgMTMtMyAxOC4yLTIuOHY3OS41bC0yMi40IDMuM2MtLjggMC0xLTEuMy0xLTMtMi4yLTI0LjctOC00NS41LTE0LjgtNjctLjUtMi45LTktMTQtMi40LTEyIC44IDAgOS41IDMuNiA4LjIgMS45YTg1IDg1IDAgMDAtNDYuNC0yNGMtMS41LS4zLTIuNC41LTEgMi4yIDIyLjQgMzQuNiA0MS4zIDc1LjUgNDEuMSAxMjQgOC44IDAgMzAtNS4yIDM4LjctNS4ydjU2LjFIMzIwbDIuNS0xNTYuN3oiLz4KICA8dXNlIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHRyYW5zZm9ybT0ibWF0cml4KC0xIDAgMCAxIDYzOS41IDApIiB4bGluazpocmVmPSIjYSIvPgo8L3N2Zz4K";
+export { SvgBb as ReactComponent };

@@ -1,0 +1,23 @@
+var _path, _path2;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import * as React from "react";
+
+function SvgGbSct(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 640 480"
+  }, props), _path || (_path = /*#__PURE__*/React.createElement("path", {
+    fill: "#0065bd",
+    d: "M0 0h640v480H0z"
+  })), _path2 || (_path2 = /*#__PURE__*/React.createElement("path", {
+    stroke: "#fff",
+    strokeWidth: 0.6,
+    d: "M0 0l5 3M0 3l5-3",
+    transform: "scale(128 160)"
+  })));
+}
+
+export default "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJmbGFnLWljb24tY3NzLWdiLXNjdCIgdmlld0JveD0iMCAwIDY0MCA0ODAiPgogIDxwYXRoIGZpbGw9IiMwMDY1YmQiIGQ9Ik0wIDBoNjQwdjQ4MEgweiIvPgogIDxwYXRoIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIuNiIgZD0iTTAgMGw1IDNNMCAzbDUtMyIgdHJhbnNmb3JtPSJzY2FsZSgxMjggMTYwKSIvPgo8L3N2Zz4K";
+export { SvgGbSct as ReactComponent };

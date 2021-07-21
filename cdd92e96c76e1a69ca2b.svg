@@ -1,0 +1,31 @@
+var _defs, _g;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import * as React from "react";
+
+function SvgFm(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 512 512"
+  }, props), _defs || (_defs = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("clipPath", {
+    id: "fm_svg__a"
+  }, /*#__PURE__*/React.createElement("path", {
+    fillOpacity: 0.7,
+    d: "M244.2 0h496v496h-496z"
+  })))), _g || (_g = /*#__PURE__*/React.createElement("g", {
+    fillRule: "evenodd",
+    strokeWidth: "1pt",
+    clipPath: "url(#fm_svg__a)",
+    transform: "translate(-252) scale(1.032)"
+  }, /*#__PURE__*/React.createElement("path", {
+    fill: "#6797d6",
+    d: "M0 0h992.1v496H0z"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "#fff",
+    d: "M507.9 84.5h38.8l-31.5 21.4 12 34.8-31.3-21.5-31.5 21.5 12-34.8L445 84.4h39l12-34.7m12 363h38.8l-31.5-21.5 12-34.8-31.3 21.5-31.5-21.5 12 34.8-31.4 21.5H484l12 34.7M346 230.1l37.2-11.4-23.9 29.8 21.7 29.7-36.3-11.4-23.8 29.8 1.4-36.8-36.4-11.4 37.2-11.3 1.3-36.8m321 29.8l-37.1-11.4 23.8 29.7-21.7 29.8 36.4-11.4 23.7 29.8-1.3-36.8 36.4-11.4-37.2-11.3-1.3-36.8"
+  }))));
+}
+
+export default "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJmbGFnLWljb24tY3NzLWZtIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CiAgPGRlZnM+CiAgICA8Y2xpcFBhdGggaWQ9ImEiPgogICAgICA8cGF0aCBmaWxsLW9wYWNpdHk9Ii43IiBkPSJNMjQ0LjIgMGg0OTZ2NDk2aC00OTZ6Ii8+CiAgICA8L2NsaXBQYXRoPgogIDwvZGVmcz4KICA8ZyBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZS13aWR0aD0iMXB0IiBjbGlwLXBhdGg9InVybCgjYSkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yNTIpIHNjYWxlKDEuMDMyKSI+CiAgICA8cGF0aCBmaWxsPSIjNjc5N2Q2IiBkPSJNMCAwaDk5Mi4xdjQ5NkgweiIvPgogICAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTUwNy45IDg0LjVoMzguOGwtMzEuNSAyMS40IDEyIDM0LjgtMzEuMy0yMS41LTMxLjUgMjEuNSAxMi0zNC44TDQ0NSA4NC40aDM5bDEyLTM0LjdtMTIgMzYzaDM4LjhsLTMxLjUtMjEuNSAxMi0zNC44LTMxLjMgMjEuNS0zMS41LTIxLjUgMTIgMzQuOC0zMS40IDIxLjVINDg0bDEyIDM0LjdNMzQ2IDIzMC4xbDM3LjItMTEuNC0yMy45IDI5LjggMjEuNyAyOS43LTM2LjMtMTEuNC0yMy44IDI5LjggMS40LTM2LjgtMzYuNC0xMS40IDM3LjItMTEuMyAxLjMtMzYuOG0zMjEgMjkuOGwtMzcuMS0xMS40IDIzLjggMjkuNy0yMS43IDI5LjggMzYuNC0xMS40IDIzLjcgMjkuOC0xLjMtMzYuOCAzNi40LTExLjQtMzcuMi0xMS4zLTEuMy0zNi44Ii8+CiAgPC9nPgo8L3N2Zz4K";
+export { SvgFm as ReactComponent };

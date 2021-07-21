@@ -1,0 +1,43 @@
+var _defs, _g;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import * as React from "react";
+
+function SvgZa(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 640 480"
+  }, props), _defs || (_defs = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("clipPath", {
+    id: "za_svg__a"
+  }, /*#__PURE__*/React.createElement("path", {
+    fillOpacity: 0.7,
+    d: "M-71.9 0h682.7v512H-71.9z"
+  })))), _g || (_g = /*#__PURE__*/React.createElement("g", {
+    clipPath: "url(#za_svg__a)",
+    transform: "translate(67.4) scale(.93748)"
+  }, /*#__PURE__*/React.createElement("g", {
+    fillRule: "evenodd",
+    strokeWidth: "1pt"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M-71.9 407.8V104.4L154 256.1-72 407.8z"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "#00c",
+    d: "M82.2 512.1l253.6-170.6H696V512H82.2z"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "red",
+    d: "M66 0h630v170.8H335.7S69.3-1.7 66 0z"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "#fc0",
+    d: "M-71.9 64v40.4L154 256-72 407.8v40.3l284.5-192L-72 64z"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "#093",
+    d: "M-71.9 64V0h95l301.2 204h371.8v104.2H324.3L23 512h-94.9v-63.9l284.4-192L-71.8 64z"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "#fff",
+    d: "M23 0h59.2l253.6 170.7H696V204H324.3L23 .1zm0 512.1h59.2l253.6-170.6H696v-33.2H324.3L23 512z"
+  })))));
+}
+
+export default "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJmbGFnLWljb24tY3NzLXphIiB2aWV3Qm94PSIwIDAgNjQwIDQ4MCI+CiAgPGRlZnM+CiAgICA8Y2xpcFBhdGggaWQ9InphLWEiPgogICAgICA8cGF0aCBmaWxsLW9wYWNpdHk9Ii43IiBkPSJNLTcxLjkgMGg2ODIuN3Y1MTJILTcxLjl6Ii8+CiAgICA8L2NsaXBQYXRoPgogIDwvZGVmcz4KICA8ZyBjbGlwLXBhdGg9InVybCgjemEtYSkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY3LjQpIHNjYWxlKC45Mzc0OCkiPgogICAgPGcgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2Utd2lkdGg9IjFwdCI+CiAgICAgIDxwYXRoIGQ9Ik0tNzEuOSA0MDcuOFYxMDQuNEwxNTQgMjU2LjEtNzIgNDA3Ljh6Ii8+CiAgICAgIDxwYXRoIGZpbGw9IiMwMGMiIGQ9Ik04Mi4yIDUxMi4xbDI1My42LTE3MC42SDY5NlY1MTJIODIuMnoiLz4KICAgICAgPHBhdGggZmlsbD0icmVkIiBkPSJNNjYgMGg2MzB2MTcwLjhIMzM1LjdTNjkuMy0xLjcgNjYgMHoiLz4KICAgICAgPHBhdGggZmlsbD0iI2ZjMCIgZD0iTS03MS45IDY0djQwLjRMMTU0IDI1Ni03MiA0MDcuOHY0MC4zbDI4NC41LTE5MkwtNzIgNjR6Ii8+CiAgICAgIDxwYXRoIGZpbGw9IiMwOTMiIGQ9Ik0tNzEuOSA2NFYwaDk1bDMwMS4yIDIwNGgzNzEuOHYxMDQuMkgzMjQuM0wyMyA1MTJoLTk0Ljl2LTYzLjlsMjg0LjQtMTkyTC03MS44IDY0eiIvPgogICAgICA8cGF0aCBmaWxsPSIjZmZmIiBkPSJNMjMgMGg1OS4ybDI1My42IDE3MC43SDY5NlYyMDRIMzI0LjNMMjMgLjF6bTAgNTEyLjFoNTkuMmwyNTMuNi0xNzAuNkg2OTZ2LTMzLjJIMzI0LjNMMjMgNTEyeiIvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+Cg==";
+export { SvgZa as ReactComponent };

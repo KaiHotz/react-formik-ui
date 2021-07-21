@@ -1,0 +1,44 @@
+var _path, _path2, _path3, _path4, _use, _use2, _use3;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import * as React from "react";
+
+function SvgGg(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    xmlnsXlink: "http://www.w3.org/1999/xlink",
+    viewBox: "0 0 512 512"
+  }, props), _path || (_path = /*#__PURE__*/React.createElement("path", {
+    fill: "#fff",
+    d: "M0 0h512v512H0z"
+  })), _path2 || (_path2 = /*#__PURE__*/React.createElement("path", {
+    fill: "#e8112d",
+    d: "M192 0h128v512H192z"
+  })), _path3 || (_path3 = /*#__PURE__*/React.createElement("path", {
+    fill: "#e8112d",
+    d: "M0 187.7h512v136.6H0z"
+  })), _path4 || (_path4 = /*#__PURE__*/React.createElement("path", {
+    id: "gg_svg__a",
+    fill: "#f9dd16",
+    d: "M46 305.8l23.3-25h210v-49.7h-210L46 206.2z"
+  })), _use || (_use = /*#__PURE__*/React.createElement("use", {
+    width: 36,
+    height: 24,
+    transform: "matrix(0 1.06667 -.9375 0 496 -17)",
+    xlinkHref: "#gg_svg__a"
+  })), _use2 || (_use2 = /*#__PURE__*/React.createElement("use", {
+    width: 36,
+    height: 24,
+    transform: "matrix(0 -1.06667 .9375 0 16 529)",
+    xlinkHref: "#gg_svg__a"
+  })), _use3 || (_use3 = /*#__PURE__*/React.createElement("use", {
+    width: 36,
+    height: 24,
+    transform: "rotate(180 256 256)",
+    xlinkHref: "#gg_svg__a"
+  })));
+}
+
+export default "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBpZD0iZmxhZy1pY29uLWNzcy1nZyIgdmlld0JveD0iMCAwIDUxMiA1MTIiPgogIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0wIDBoNTEydjUxMkgweiIvPgogIDxwYXRoIGZpbGw9IiNlODExMmQiIGQ9Ik0xOTIgMGgxMjh2NTEySDE5MnoiLz4KICA8cGF0aCBmaWxsPSIjZTgxMTJkIiBkPSJNMCAxODcuN2g1MTJ2MTM2LjZIMHoiLz4KICA8cGF0aCBpZD0iYSIgZmlsbD0iI2Y5ZGQxNiIgZD0iTTQ2IDMwNS44bDIzLjMtMjVoMjEwdi00OS43aC0yMTBMNDYgMjA2LjJ6Ii8+CiAgPHVzZSB3aWR0aD0iMzYiIGhlaWdodD0iMjQiIHRyYW5zZm9ybT0ibWF0cml4KDAgMS4wNjY2NyAtLjkzNzUgMCA0OTYgLTE3KSIgeGxpbms6aHJlZj0iI2EiLz4KICA8dXNlIHdpZHRoPSIzNiIgaGVpZ2h0PSIyNCIgdHJhbnNmb3JtPSJtYXRyaXgoMCAtMS4wNjY2NyAuOTM3NSAwIDE2IDUyOSkiIHhsaW5rOmhyZWY9IiNhIi8+CiAgPHVzZSB3aWR0aD0iMzYiIGhlaWdodD0iMjQiIHRyYW5zZm9ybT0icm90YXRlKDE4MCAyNTYgMjU2KSIgeGxpbms6aHJlZj0iI2EiLz4KPC9zdmc+Cg==";
+export { SvgGg as ReactComponent };

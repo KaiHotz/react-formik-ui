@@ -1,0 +1,59 @@
+var _path, _path2, _path3, _circle, _path4, _path5, _ellipse, _ellipse2, _circle2, _path6, _use;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import * as React from "react";
+
+function SvgNc(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    xmlnsXlink: "http://www.w3.org/1999/xlink",
+    viewBox: "0 0 640 480"
+  }, props), _path || (_path = /*#__PURE__*/React.createElement("path", {
+    fill: "#009543",
+    d: "M0 0h640v480H0z"
+  })), _path2 || (_path2 = /*#__PURE__*/React.createElement("path", {
+    fill: "#ed4135",
+    d: "M0 0h640v320H0z"
+  })), _path3 || (_path3 = /*#__PURE__*/React.createElement("path", {
+    fill: "#0035ad",
+    d: "M0 0h640v160H0z"
+  })), _circle || (_circle = /*#__PURE__*/React.createElement("circle", {
+    cx: 240,
+    cy: 240,
+    r: 157.3,
+    fill: "#fae600",
+    stroke: "#000",
+    strokeWidth: 5.3
+  })), _path4 || (_path4 = /*#__PURE__*/React.createElement("path", {
+    stroke: "#000",
+    strokeWidth: 6.4,
+    d: "M213.3 263.5h53.3M213.3 224h53.3M240 83.2V352"
+  })), _path5 || (_path5 = /*#__PURE__*/React.createElement("path", {
+    d: "M176.6 384.4c64.2 26.3 124.4 1.7 124.4 1.7s-22.7-24.6-34.3-34.2c-11.4-9.4-44.8-9-56.2 0a488.7 488.7 0 00-33.9 32.5z"
+  })), _ellipse || (_ellipse = /*#__PURE__*/React.createElement("ellipse", {
+    cx: 240,
+    cy: 312.5,
+    rx: 17.6,
+    ry: 25.6
+  })), _ellipse2 || (_ellipse2 = /*#__PURE__*/React.createElement("ellipse", {
+    cx: 240,
+    cy: 243.7,
+    rx: 21.3,
+    ry: 13.5
+  })), _circle2 || (_circle2 = /*#__PURE__*/React.createElement("circle", {
+    cx: 240,
+    cy: 181.3,
+    r: 21.3
+  })), _path6 || (_path6 = /*#__PURE__*/React.createElement("path", {
+    d: "M265.6 101.9s1.8 3-2 10c-18.6 33.5-37.3 34.2-40.8 37.1-4 3.2-5.6 3-5.6 3 .3-2.9.5-14.6.7-15.7 2.9-15.7 26.5-15.5 45-31.5 2.9-2.5 2.7-3 2.7-3zM203.2 173.867s4.268 11.947 4.8 24c1.068 19.2 19.414 19.734 32.001 19.734v-10.667c-9.493 0-17.707-1.387-24.533-15.467a122.667 122.667 0 00-12.267-17.6zm-.532 154.667s6.72-8.32 14.613-27.733c4.053-10.133 13.867-16 22.72-16v-14.933c-20.267 0-30.08 7.466-31.04 18.56-2.133 22.506-6.293 40.106-6.293 40.106z"
+  })), _use || (_use = /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "matrix(-1 0 0 1 480 0)",
+    xlinkHref: "#nc_svg__leaf"
+  })));
+}
+
+export default "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBpZD0iZmxhZy1pY29uLWNzcy1uYyIgdmlld0JveD0iMCAwIDY0MCA0ODAiPgogIDxwYXRoIGZpbGw9IiMwMDk1NDMiIHN0cm9rZS13aWR0aD0iLjkiIGQ9Ik0wIDBoNjQwdjQ4MEgweiIvPgogIDxwYXRoIGZpbGw9IiNlZDQxMzUiIHN0cm9rZS13aWR0aD0iLjkiIGQ9Ik0wIDBoNjQwdjMyMEgweiIvPgogIDxwYXRoIGZpbGw9IiMwMDM1YWQiIHN0cm9rZS13aWR0aD0iLjkiIGQ9Ik0wIDBoNjQwdjE2MEgweiIvPgogIDxjaXJjbGUgY3g9IjI0MCIgY3k9IjI0MCIgcj0iMTU3LjMiIGZpbGw9IiNmYWU2MDAiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSI1LjMiLz4KICA8cGF0aCBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iNi40IiBkPSJNMjEzLjMgMjYzLjVoNTMuM00yMTMuMyAyMjRoNTMuM00yNDAgODMuMlYzNTIiLz4KICA8cGF0aCBzdHJva2Utd2lkdGg9IjEuMSIgZD0iTTE3Ni42IDM4NC40YzY0LjIgMjYuMyAxMjQuNCAxLjcgMTI0LjQgMS43cy0yMi43LTI0LjYtMzQuMy0zNC4yYy0xMS40LTkuNC00NC44LTktNTYuMiAwYTQ4OC43IDQ4OC43IDAgMDAtMzMuOSAzMi41eiIvPgogIDxlbGxpcHNlIGN4PSIyNDAiIGN5PSIzMTIuNSIgc3Ryb2tlLXdpZHRoPSIxLjEiIHJ4PSIxNy42IiByeT0iMjUuNiIvPgogIDxlbGxpcHNlIGN4PSIyNDAiIGN5PSIyNDMuNyIgc3Ryb2tlLXdpZHRoPSIxLjEiIHJ4PSIyMS4zIiByeT0iMTMuNSIvPgogIDxjaXJjbGUgY3g9IjI0MCIgY3k9IjE4MS4zIiByPSIyMS4zIiBzdHJva2Utd2lkdGg9IjEuMSIvPgogIDxwYXRoIHN0cm9rZS13aWR0aD0iMS4xIiBkPSJNMjY1LjYgMTAxLjlzMS44IDMtMiAxMGMtMTguNiAzMy41LTM3LjMgMzQuMi00MC44IDM3LjEtNCAzLjItNS42IDMtNS42IDMgLjMtMi45LjUtMTQuNi43LTE1LjcgMi45LTE1LjcgMjYuNS0xNS41IDQ1LTMxLjUgMi45LTIuNSAyLjctMyAyLjctM3oiLz4KICA8cGF0aCBkPSJNMjY1LjUgMTYzczQgMTEuMiA0LjUgMjIuNWMxIDE4IDE4LjIgMTguNSAzMCAxOC41di0xMGMtOC45IDAtMTYuNi0xLjMtMjMtMTQuNWExMTUgMTE1IDAgMDAtMTEuNS0xNi41em0tLjUgMTQ1czYuMy03LjggMTMuNy0yNmMzLjgtOS41IDEzLTE1IDIxLjMtMTV2LTE0Yy0xOSAwLTI4LjIgNy0yOS4xIDE3LjQtMiAyMS4xLTUuOSAzNy42LTUuOSAzNy42eiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTgwKSBzY2FsZSgxLjA2NjY3KSIvPgogIDx1c2Ugd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdHJhbnNmb3JtPSJtYXRyaXgoLTEgMCAwIDEgNDgwIDApIiB4bGluazpocmVmPSIjbGVhZiIvPgo8L3N2Zz4K";
+export { SvgNc as ReactComponent };

@@ -1,0 +1,110 @@
+var _defs, _path, _path2, _path3, _circle, _use, _use2, _use3, _use4, _path4, _path5, _use5, _use6, _use7;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import * as React from "react";
+
+function SvgGd(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    xmlnsXlink: "http://www.w3.org/1999/xlink",
+    viewBox: "0 0 512 512"
+  }, props), _defs || (_defs = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("g", {
+    id: "gd_svg__c"
+  }, /*#__PURE__*/React.createElement("g", {
+    id: "gd_svg__b"
+  }, /*#__PURE__*/React.createElement("path", {
+    id: "gd_svg__a",
+    fill: "#fcd116",
+    d: "M0-1v1h.5",
+    transform: "rotate(18 0 -1)"
+  }), /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "scale(-1 1)",
+    xlinkHref: "#gd_svg__a"
+  })), /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "rotate(72)",
+    xlinkHref: "#gd_svg__b"
+  }), /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "rotate(144)",
+    xlinkHref: "#gd_svg__b"
+  }), /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "rotate(-144)",
+    xlinkHref: "#gd_svg__b"
+  }), /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "rotate(-72)",
+    xlinkHref: "#gd_svg__b"
+  })))), _path || (_path = /*#__PURE__*/React.createElement("path", {
+    fill: "#ce1126",
+    d: "M0 0h512v512H0z"
+  })), _path2 || (_path2 = /*#__PURE__*/React.createElement("path", {
+    fill: "#007a5e",
+    d: "M71.7 71.7h368.6v368.6H71.7z"
+  })), _path3 || (_path3 = /*#__PURE__*/React.createElement("path", {
+    fill: "#fcd116",
+    d: "M71.7 71.7h368.6L71.7 440.4h368.6z"
+  })), _circle || (_circle = /*#__PURE__*/React.createElement("circle", {
+    cx: 255.9,
+    cy: 256.1,
+    r: 61.4,
+    fill: "#ce1126"
+  })), _use || (_use = /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "translate(256 256) scale(56.32)",
+    xlinkHref: "#gd_svg__c"
+  })), _use2 || (_use2 = /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    x: -100,
+    transform: "translate(-16.4 -.1)",
+    xlinkHref: "#gd_svg__d"
+  })), _use3 || (_use3 = /*#__PURE__*/React.createElement("use", {
+    id: "gd_svg__d",
+    width: "100%",
+    height: "100%",
+    transform: "translate(256 35.9) scale(33.28)",
+    xlinkHref: "#gd_svg__c"
+  })), _use4 || (_use4 = /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    x: 100,
+    transform: "translate(16.4)",
+    xlinkHref: "#gd_svg__d"
+  })), _path4 || (_path4 = /*#__PURE__*/React.createElement("path", {
+    fill: "#ce1126",
+    d: "M99.8 256.8c7.7 14.3 22.6 29.8 35.7 35.3.2-14.5-5-33.2-12-48l-23.7 12.7z"
+  })), _path5 || (_path5 = /*#__PURE__*/React.createElement("path", {
+    fill: "#fcd116",
+    d: "M86.8 207.6c11.1 23.3-29 78.7 37.8 91.7a67.5 67.5 0 01-11.5-44.7 75.5 75.5 0 0134.6 32.8c17.5-63.4-44.8-59.5-61-79.8z"
+  })), _use5 || (_use5 = /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    x: -100,
+    transform: "translate(-16.4 442)",
+    xlinkHref: "#gd_svg__d"
+  })), _use6 || (_use6 = /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "translate(256 478) scale(33.28)",
+    xlinkHref: "#gd_svg__c"
+  })), _use7 || (_use7 = /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    x: 100,
+    transform: "translate(16.4 442.2)",
+    xlinkHref: "#gd_svg__d"
+  })));
+}
+
+export default "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBpZD0iZmxhZy1pY29uLWNzcy1nZCIgdmlld0JveD0iMCAwIDUxMiA1MTIiPgogIDxkZWZzPgogICAgPGcgaWQ9ImMiPgogICAgICA8ZyBpZD0iYiI+CiAgICAgICAgPHBhdGggaWQ9ImEiIGZpbGw9IiNmY2QxMTYiIGQ9Ik0wLTF2MWguNSIgdHJhbnNmb3JtPSJyb3RhdGUoMTggMCAtMSkiLz4KICAgICAgICA8dXNlIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHRyYW5zZm9ybT0ic2NhbGUoLTEgMSkiIHhsaW5rOmhyZWY9IiNhIi8+CiAgICAgIDwvZz4KICAgICAgPHVzZSB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB0cmFuc2Zvcm09InJvdGF0ZSg3MikiIHhsaW5rOmhyZWY9IiNiIi8+CiAgICAgIDx1c2Ugd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdHJhbnNmb3JtPSJyb3RhdGUoMTQ0KSIgeGxpbms6aHJlZj0iI2IiLz4KICAgICAgPHVzZSB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB0cmFuc2Zvcm09InJvdGF0ZSgtMTQ0KSIgeGxpbms6aHJlZj0iI2IiLz4KICAgICAgPHVzZSB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB0cmFuc2Zvcm09InJvdGF0ZSgtNzIpIiB4bGluazpocmVmPSIjYiIvPgogICAgPC9nPgogIDwvZGVmcz4KICA8cGF0aCBmaWxsPSIjY2UxMTI2IiBkPSJNMCAwaDUxMnY1MTJIMHoiLz4KICA8cGF0aCBmaWxsPSIjMDA3YTVlIiBkPSJNNzEuNyA3MS43aDM2OC42djM2OC42SDcxLjd6Ii8+CiAgPHBhdGggZmlsbD0iI2ZjZDExNiIgZD0iTTcxLjcgNzEuN2gzNjguNkw3MS43IDQ0MC40aDM2OC42eiIvPgogIDxjaXJjbGUgY3g9IjI1NS45IiBjeT0iMjU2LjEiIHI9IjYxLjQiIGZpbGw9IiNjZTExMjYiLz4KICA8dXNlIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI1NiAyNTYpIHNjYWxlKDU2LjMyKSIgeGxpbms6aHJlZj0iI2MiLz4KICA8dXNlIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHg9Ii0xMDAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xNi40IC0uMSkiIHhsaW5rOmhyZWY9IiNkIi8+CiAgPHVzZSBpZD0iZCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjU2IDM1LjkpIHNjYWxlKDMzLjI4KSIgeGxpbms6aHJlZj0iI2MiLz4KICA8dXNlIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHg9IjEwMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTYuNCkiIHhsaW5rOmhyZWY9IiNkIi8+CiAgPHBhdGggZmlsbD0iI2NlMTEyNiIgZD0iTTk5LjggMjU2LjhjNy43IDE0LjMgMjIuNiAyOS44IDM1LjcgMzUuMy4yLTE0LjUtNS0zMy4yLTEyLTQ4bC0yMy43IDEyLjd6Ii8+CiAgPHBhdGggZmlsbD0iI2ZjZDExNiIgZD0iTTg2LjggMjA3LjZjMTEuMSAyMy4zLTI5IDc4LjcgMzcuOCA5MS43YTY3LjUgNjcuNSAwIDAxLTExLjUtNDQuNyA3NS41IDc1LjUgMCAwMTM0LjYgMzIuOGMxNy41LTYzLjQtNDQuOC01OS41LTYxLTc5Ljh6Ii8+CiAgPHVzZSB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4PSItMTAwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTYuNCA0NDIpIiB4bGluazpocmVmPSIjZCIvPgogIDx1c2Ugd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjU2IDQ3OCkgc2NhbGUoMzMuMjgpIiB4bGluazpocmVmPSIjYyIvPgogIDx1c2Ugd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgeD0iMTAwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNi40IDQ0Mi4yKSIgeGxpbms6aHJlZj0iI2QiLz4KPC9zdmc+Cg==";
+export { SvgGd as ReactComponent };

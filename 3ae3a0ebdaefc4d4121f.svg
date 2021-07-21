@@ -1,0 +1,70 @@
+var _defs, _path, _path2, _path3, _path4, _path5, _use, _use2, _use3, _use4, _use5;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import * as React from "react";
+
+function SvgTf(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    xmlnsXlink: "http://www.w3.org/1999/xlink",
+    viewBox: "0 0 512 512"
+  }, props), _defs || (_defs = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("path", {
+    id: "tf_svg__a",
+    fill: "#fff",
+    d: "M0-21l12.3 38L-20-6.5h40L-12.3 17z"
+  }))), _path || (_path = /*#__PURE__*/React.createElement("path", {
+    fill: "#002395",
+    d: "M0 0h512v512H0z"
+  })), _path2 || (_path2 = /*#__PURE__*/React.createElement("path", {
+    fill: "#fff",
+    d: "M0 0h312.3v210H0z"
+  })), _path3 || (_path3 = /*#__PURE__*/React.createElement("path", {
+    fill: "#002395",
+    d: "M0 0h102.4v204.8H0z"
+  })), _path4 || (_path4 = /*#__PURE__*/React.createElement("path", {
+    fill: "#ed2939",
+    d: "M204.8 0h102.4v204.8H204.8z"
+  })), _path5 || (_path5 = /*#__PURE__*/React.createElement("path", {
+    fill: "#fff",
+    d: "M282.4 234.2l16.5 26.3h46.9V352l-35.3-55-47.3 75.5h23l24.4-43.5 49.9 89.6 49.9-89.6 24.3 43.5h23L410.5 297l-35.2 55v-50.6h21.1l15.7-25h-36.8v-16h46.9l16.5-26.2H282.4zm55 112h-51.2v18h51.2zm97.3 0h-51.2v18h51.2z"
+  })), _use || (_use = /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    x: 416,
+    y: 362,
+    transform: "translate(-172) scale(1.28)",
+    xlinkHref: "#tf_svg__a"
+  })), _use2 || (_use2 = /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    x: 371,
+    y: 328,
+    transform: "translate(-172) scale(1.28)",
+    xlinkHref: "#tf_svg__a"
+  })), _use3 || (_use3 = /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    x: 461,
+    y: 328,
+    transform: "translate(-172) scale(1.28)",
+    xlinkHref: "#tf_svg__a"
+  })), _use4 || (_use4 = /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    x: 333,
+    y: 227,
+    transform: "translate(-172) scale(1.28)",
+    xlinkHref: "#tf_svg__a"
+  })), _use5 || (_use5 = /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    x: 499,
+    y: 227,
+    transform: "translate(-172) scale(1.28)",
+    xlinkHref: "#tf_svg__a"
+  })));
+}
+
+export default "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBpZD0iZmxhZy1pY29uLWNzcy10ZiIgdmlld0JveD0iMCAwIDUxMiA1MTIiPgogIDxkZWZzPgogICAgPHBhdGggaWQ9ImEiIGZpbGw9IiNmZmYiIGQ9Ik0wLTIxbDEyLjMgMzhMLTIwLTYuNWg0MEwtMTIuMyAxN3oiLz4KICA8L2RlZnM+CiAgPHBhdGggZmlsbD0iIzAwMjM5NSIgZD0iTTAgMGg1MTJ2NTEySDB6Ii8+CiAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTAgMGgzMTIuM3YyMTBIMHoiLz4KICA8cGF0aCBmaWxsPSIjMDAyMzk1IiBkPSJNMCAwaDEwMi40djIwNC44SDB6Ii8+CiAgPHBhdGggZmlsbD0iI2VkMjkzOSIgZD0iTTIwNC44IDBoMTAyLjR2MjA0LjhIMjA0Ljh6Ii8+CiAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTI4Mi40IDIzNC4ybDE2LjUgMjYuM2g0Ni45VjM1MmwtMzUuMy01NS00Ny4zIDc1LjVoMjNsMjQuNC00My41IDQ5LjkgODkuNiA0OS45LTg5LjYgMjQuMyA0My41aDIzTDQxMC41IDI5N2wtMzUuMiA1NXYtNTAuNmgyMS4xbDE1LjctMjVoLTM2Ljh2LTE2aDQ2LjlsMTYuNS0yNi4ySDI4Mi40em01NSAxMTJoLTUxLjJ2MThoNTEuMnptOTcuMyAwaC01MS4ydjE4aDUxLjJ6Ii8+CiAgPHVzZSB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4PSI0MTYiIHk9IjM2MiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE3Mikgc2NhbGUoMS4yOCkiIHhsaW5rOmhyZWY9IiNhIi8+CiAgPHVzZSB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4PSIzNzEiIHk9IjMyOCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE3Mikgc2NhbGUoMS4yOCkiIHhsaW5rOmhyZWY9IiNhIi8+CiAgPHVzZSB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4PSI0NjEiIHk9IjMyOCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE3Mikgc2NhbGUoMS4yOCkiIHhsaW5rOmhyZWY9IiNhIi8+CiAgPHVzZSB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4PSIzMzMiIHk9IjIyNyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE3Mikgc2NhbGUoMS4yOCkiIHhsaW5rOmhyZWY9IiNhIi8+CiAgPHVzZSB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4PSI0OTkiIHk9IjIyNyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE3Mikgc2NhbGUoMS4yOCkiIHhsaW5rOmhyZWY9IiNhIi8+Cjwvc3ZnPgo=";
+export { SvgTf as ReactComponent };

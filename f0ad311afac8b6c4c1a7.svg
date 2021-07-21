@@ -1,0 +1,143 @@
+var _path, _path2, _g, _use, _use2, _use3, _circle, _path3, _use4, _use5, _use6, _use7, _path4, _path5, _path6, _path7, _path8, _use8, _circle2, _path9;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import * as React from "react";
+
+function SvgAr(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    xmlnsXlink: "http://www.w3.org/1999/xlink",
+    viewBox: "0 0 512 512"
+  }, props), _path || (_path = /*#__PURE__*/React.createElement("path", {
+    fill: "#74acdf",
+    d: "M0 0h512v512H0z"
+  })), _path2 || (_path2 = /*#__PURE__*/React.createElement("path", {
+    fill: "#fff",
+    d: "M0 170.7h512v170.6H0z"
+  })), _g || (_g = /*#__PURE__*/React.createElement("g", {
+    id: "ar_svg__c",
+    transform: "translate(-153.6) scale(1.024)"
+  }, /*#__PURE__*/React.createElement("path", {
+    id: "ar_svg__a",
+    fill: "#f6b40e",
+    stroke: "#85340a",
+    strokeWidth: 1.1,
+    d: "M396.8 251.3l28.5 62s.5 1.2 1.3.9c.8-.4.3-1.5.3-1.5l-23.7-64m-.7 24.1c-.4 9.4 5.4 14.6 4.7 23-.8 8.5 3.8 13.2 5 16.5 1 3.3-1.3 5.2-.3 5.7s3-2.1 2.4-6.8c-.7-4.6-4.2-6-3.4-16.3.8-10.3-4.2-12.7-3-22"
+  }), /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "rotate(22.5 400 250)",
+    xlinkHref: "#ar_svg__a"
+  }), /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "rotate(45 400 250)",
+    xlinkHref: "#ar_svg__a"
+  }), /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "rotate(67.5 400 250)",
+    xlinkHref: "#ar_svg__a"
+  }), /*#__PURE__*/React.createElement("path", {
+    id: "ar_svg__b",
+    fill: "#85340a",
+    d: "M404.3 274.4c.5 9 5.6 13 4.6 21.3 2.2-6.5-3.1-11.6-2.8-21.2m-7.7-23.8l19.5 42.6-16.3-43.9"
+  }), /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "rotate(22.5 400 250)",
+    xlinkHref: "#ar_svg__b"
+  }), /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "rotate(45 400 250)",
+    xlinkHref: "#ar_svg__b"
+  }), /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "rotate(67.5 400 250)",
+    xlinkHref: "#ar_svg__b"
+  }))), _use || (_use = /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "rotate(90 256 256)",
+    xlinkHref: "#ar_svg__c"
+  })), _use2 || (_use2 = /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "rotate(180 256 256)",
+    xlinkHref: "#ar_svg__c"
+  })), _use3 || (_use3 = /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "rotate(-90 256 256)",
+    xlinkHref: "#ar_svg__c"
+  })), _circle || (_circle = /*#__PURE__*/React.createElement("circle", {
+    cx: 256,
+    cy: 256,
+    r: 28.4,
+    fill: "#f6b40e",
+    stroke: "#85340a",
+    strokeWidth: 1.5
+  })), _path3 || (_path3 = /*#__PURE__*/React.createElement("path", {
+    id: "ar_svg__h",
+    fill: "#843511",
+    d: "M265.7 250c-2 0-3.8.8-4.9 2.5 2.2 2 7 2.2 10.3-.2a7.5 7.5 0 00-5.4-2.4zm0 .4c1.9 0 3.6.8 3.9 1.7-2.2 2.4-5.7 2.2-7.9.4a4.6 4.6 0 014-2.1z"
+  })), _use4 || (_use4 = /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "matrix(-1 0 0 1 512.3 0)",
+    xlinkHref: "#ar_svg__d"
+  })), _use5 || (_use5 = /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "matrix(-1 0 0 1 512.3 0)",
+    xlinkHref: "#ar_svg__e"
+  })), _use6 || (_use6 = /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "translate(19.3)",
+    xlinkHref: "#ar_svg__f"
+  })), _use7 || (_use7 = /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "matrix(-1 0 0 1 512.3 0)",
+    xlinkHref: "#ar_svg__g"
+  })), _path4 || (_path4 = /*#__PURE__*/React.createElement("path", {
+    fill: "#85340a",
+    d: "M251.7 260a2 2 0 102 3c.7.6 1.7.6 2.3.6h.3a4.2 4.2 0 002.3-.6 2 2 0 102-3c.5.1.9.6.9 1.2a1.3 1.3 0 01-1.3 1.3 1.3 1.3 0 01-1.3-1.3 3.3 3.3 0 01-2.8 1.8 3.3 3.3 0 01-2.7-1.8 1.3 1.3 0 01-1.3 1.3 1.3 1.3 0 01-1.3-1.3c0-.6.3-1 .8-1.3zm2 5.8c-2.1 0-3 2-5 3.3 1.2-.5 2-1.3 3.6-2.2 1.5-.9 2.8.2 3.7.2.9 0 2.2-1.1 3.7-.2 1.5.9 2.4 1.7 3.5 2.2-2-1.4-2.8-3.3-5-3.3a6 6 0 00-2.2.6 5.8 5.8 0 00-2.2-.6z"
+  })), _path5 || (_path5 = /*#__PURE__*/React.createElement("path", {
+    fill: "#85340a",
+    d: "M253 268.4a15 15 0 00-3.6.7c4-1 4.8.4 6.6.4 1.8 0 2.6-1.3 6.6-.5-4.4-1.2-5.3-.4-6.6-.4-.9 0-1.5-.3-3-.3z"
+  })), _path6 || (_path6 = /*#__PURE__*/React.createElement("path", {
+    fill: "#85340a",
+    d: "M249.6 269h-.8c4.6.5 2.3 3.1 7.2 3.1 4.8 0 2.6-2.6 7.2-3-4.8-.5-3.3 2.4-7.2 2.4-3.7 0-2.6-2.5-6.4-2.5zm10.3 7.1a4 4 0 00-3.9-4 4 4 0 00-4 4 4 4 0 014-3 4 4 0 014 3z"
+  })), _path7 || (_path7 = /*#__PURE__*/React.createElement("path", {
+    id: "ar_svg__e",
+    fill: "#85340a",
+    d: "M238.3 249.9c5-4.4 11.4-5 14.9-1.8a8.6 8.6 0 011.6 3.7c.5 2.5-.3 5.2-2.3 8 .3 0 .7.1 1 .4 1.6-3.4 2.3-6.8 1.7-10a14.2 14.2 0 00-.7-2.5c-4.8-4-11.4-4.4-16.2 2.2z"
+  })), _path8 || (_path8 = /*#__PURE__*/React.createElement("path", {
+    id: "ar_svg__d",
+    fill: "#85340a",
+    d: "M246.2 248.6c2.8 0 3.5.6 4.8 1.7 1.3 1.1 2 .9 2.2 1.1.2.2 0 .9-.5.7-.4-.3-1.2-.7-2.6-1.8-1.3-1-2.6-1-4-1-3.8 0-6 3.2-6.5 3-.4-.2 2.2-3.7 6.6-3.7z"
+  })), _use8 || (_use8 = /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "translate(-19.6)",
+    xlinkHref: "#ar_svg__h"
+  })), _circle2 || (_circle2 = /*#__PURE__*/React.createElement("circle", {
+    id: "ar_svg__f",
+    cx: 246.3,
+    cy: 252.1,
+    r: 2,
+    fill: "#85340a"
+  })), _path9 || (_path9 = /*#__PURE__*/React.createElement("path", {
+    id: "ar_svg__g",
+    fill: "#85340a",
+    d: "M241 253.4c3.7 2.8 7.4 2.6 9.6 1.3 2.2-1.3 2.2-1.8 1.7-1.8-.4 0-.9.5-2.6 1.3-1.8 1-4.4 1-8.8-.8z"
+  })));
+}
+
+export default "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBpZD0iZmxhZy1pY29uLWNzcy1hciIgdmlld0JveD0iMCAwIDUxMiA1MTIiPgogIDxwYXRoIGZpbGw9IiM3NGFjZGYiIGQ9Ik0wIDBoNTEydjUxMkgweiIvPgogIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0wIDE3MC43aDUxMnYxNzAuNkgweiIvPgogIDxnIGlkPSJjIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTUzLjYpIHNjYWxlKDEuMDI0KSI+CiAgICA8cGF0aCBpZD0iYSIgZmlsbD0iI2Y2YjQwZSIgc3Ryb2tlPSIjODUzNDBhIiBzdHJva2Utd2lkdGg9IjEuMSIgZD0iTTM5Ni44IDI1MS4zbDI4LjUgNjJzLjUgMS4yIDEuMy45Yy44LS40LjMtMS41LjMtMS41bC0yMy43LTY0bS0uNyAyNC4xYy0uNCA5LjQgNS40IDE0LjYgNC43IDIzLS44IDguNSAzLjggMTMuMiA1IDE2LjUgMSAzLjMtMS4zIDUuMi0uMyA1LjdzMy0yLjEgMi40LTYuOGMtLjctNC42LTQuMi02LTMuNC0xNi4zLjgtMTAuMy00LjItMTIuNy0zLTIyIi8+CiAgICA8dXNlIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHRyYW5zZm9ybT0icm90YXRlKDIyLjUgNDAwIDI1MCkiIHhsaW5rOmhyZWY9IiNhIi8+CiAgICA8dXNlIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHRyYW5zZm9ybT0icm90YXRlKDQ1IDQwMCAyNTApIiB4bGluazpocmVmPSIjYSIvPgogICAgPHVzZSB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB0cmFuc2Zvcm09InJvdGF0ZSg2Ny41IDQwMCAyNTApIiB4bGluazpocmVmPSIjYSIvPgogICAgPHBhdGggaWQ9ImIiIGZpbGw9IiM4NTM0MGEiIGQ9Ik00MDQuMyAyNzQuNGMuNSA5IDUuNiAxMyA0LjYgMjEuMyAyLjItNi41LTMuMS0xMS42LTIuOC0yMS4ybS03LjctMjMuOGwxOS41IDQyLjYtMTYuMy00My45Ii8+CiAgICA8dXNlIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHRyYW5zZm9ybT0icm90YXRlKDIyLjUgNDAwIDI1MCkiIHhsaW5rOmhyZWY9IiNiIi8+CiAgICA8dXNlIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHRyYW5zZm9ybT0icm90YXRlKDQ1IDQwMCAyNTApIiB4bGluazpocmVmPSIjYiIvPgogICAgPHVzZSB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB0cmFuc2Zvcm09InJvdGF0ZSg2Ny41IDQwMCAyNTApIiB4bGluazpocmVmPSIjYiIvPgogIDwvZz4KICA8dXNlIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHRyYW5zZm9ybT0icm90YXRlKDkwIDI1NiAyNTYpIiB4bGluazpocmVmPSIjYyIvPgogIDx1c2Ugd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdHJhbnNmb3JtPSJyb3RhdGUoMTgwIDI1NiAyNTYpIiB4bGluazpocmVmPSIjYyIvPgogIDx1c2Ugd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIDI1NiAyNTYpIiB4bGluazpocmVmPSIjYyIvPgogIDxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMjguNCIgZmlsbD0iI2Y2YjQwZSIgc3Ryb2tlPSIjODUzNDBhIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogIDxwYXRoIGlkPSJoIiBmaWxsPSIjODQzNTExIiBkPSJNMjY1LjcgMjUwYy0yIDAtMy44LjgtNC45IDIuNSAyLjIgMiA3IDIuMiAxMC4zLS4yYTcuNSA3LjUgMCAwMC01LjQtMi40em0wIC40YzEuOSAwIDMuNi44IDMuOSAxLjctMi4yIDIuNC01LjcgMi4yLTcuOS40YTQuNiA0LjYgMCAwMTQtMi4xeiIvPgogIDx1c2Ugd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdHJhbnNmb3JtPSJtYXRyaXgoLTEgMCAwIDEgNTEyLjMgMCkiIHhsaW5rOmhyZWY9IiNkIi8+CiAgPHVzZSB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB0cmFuc2Zvcm09Im1hdHJpeCgtMSAwIDAgMSA1MTIuMyAwKSIgeGxpbms6aHJlZj0iI2UiLz4KICA8dXNlIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE5LjMpIiB4bGluazpocmVmPSIjZiIvPgogIDx1c2Ugd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdHJhbnNmb3JtPSJtYXRyaXgoLTEgMCAwIDEgNTEyLjMgMCkiIHhsaW5rOmhyZWY9IiNnIi8+CiAgPHBhdGggZmlsbD0iIzg1MzQwYSIgZD0iTTI1MS43IDI2MGEyIDIgMCAxMDIgM2MuNy42IDEuNy42IDIuMy42aC4zYTQuMiA0LjIgMCAwMDIuMy0uNiAyIDIgMCAxMDItM2MuNS4xLjkuNi45IDEuMmExLjMgMS4zIDAgMDEtMS4zIDEuMyAxLjMgMS4zIDAgMDEtMS4zLTEuMyAzLjMgMy4zIDAgMDEtMi44IDEuOCAzLjMgMy4zIDAgMDEtMi43LTEuOCAxLjMgMS4zIDAgMDEtMS4zIDEuMyAxLjMgMS4zIDAgMDEtMS4zLTEuM2MwLS42LjMtMSAuOC0xLjN6bTIgNS44Yy0yLjEgMC0zIDItNSAzLjMgMS4yLS41IDItMS4zIDMuNi0yLjIgMS41LS45IDIuOC4yIDMuNy4yLjkgMCAyLjItMS4xIDMuNy0uMiAxLjUuOSAyLjQgMS43IDMuNSAyLjItMi0xLjQtMi44LTMuMy01LTMuM2E2IDYgMCAwMC0yLjIuNiA1LjggNS44IDAgMDAtMi4yLS42eiIvPgogIDxwYXRoIGZpbGw9IiM4NTM0MGEiIGQ9Ik0yNTMgMjY4LjRhMTUgMTUgMCAwMC0zLjYuN2M0LTEgNC44LjQgNi42LjQgMS44IDAgMi42LTEuMyA2LjYtLjUtNC40LTEuMi01LjMtLjQtNi42LS40LS45IDAtMS41LS4zLTMtLjN6Ii8+CiAgPHBhdGggZmlsbD0iIzg1MzQwYSIgZD0iTTI0OS42IDI2OWgtLjhjNC42LjUgMi4zIDMuMSA3LjIgMy4xIDQuOCAwIDIuNi0yLjYgNy4yLTMtNC44LS41LTMuMyAyLjQtNy4yIDIuNC0zLjcgMC0yLjYtMi41LTYuNC0yLjV6bTEwLjMgNy4xYTQgNCAwIDAwLTMuOS00IDQgNCAwIDAwLTQgNCA0IDQgMCAwMTQtMyA0IDQgMCAwMTQgM3oiLz4KICA8cGF0aCBpZD0iZSIgZmlsbD0iIzg1MzQwYSIgZD0iTTIzOC4zIDI0OS45YzUtNC40IDExLjQtNSAxNC45LTEuOGE4LjYgOC42IDAgMDExLjYgMy43Yy41IDIuNS0uMyA1LjItMi4zIDggLjMgMCAuNy4xIDEgLjQgMS42LTMuNCAyLjMtNi44IDEuNy0xMGExNC4yIDE0LjIgMCAwMC0uNy0yLjVjLTQuOC00LTExLjQtNC40LTE2LjIgMi4yeiIvPgogIDxwYXRoIGlkPSJkIiBmaWxsPSIjODUzNDBhIiBkPSJNMjQ2LjIgMjQ4LjZjMi44IDAgMy41LjYgNC44IDEuNyAxLjMgMS4xIDIgLjkgMi4yIDEuMS4yLjIgMCAuOS0uNS43LS40LS4zLTEuMi0uNy0yLjYtMS44LTEuMy0xLTIuNi0xLTQtMS0zLjggMC02IDMuMi02LjUgMy0uNC0uMiAyLjItMy43IDYuNi0zLjd6Ii8+CiAgPHVzZSB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTkuNikiIHhsaW5rOmhyZWY9IiNoIi8+CiAgPGNpcmNsZSBpZD0iZiIgY3g9IjI0Ni4zIiBjeT0iMjUyLjEiIHI9IjIiIGZpbGw9IiM4NTM0MGEiLz4KICA8cGF0aCBpZD0iZyIgZmlsbD0iIzg1MzQwYSIgZD0iTTI0MSAyNTMuNGMzLjcgMi44IDcuNCAyLjYgOS42IDEuMyAyLjItMS4zIDIuMi0xLjggMS43LTEuOC0uNCAwLS45LjUtMi42IDEuMy0xLjggMS00LjQgMS04LjgtLjh6Ii8+Cjwvc3ZnPgo=";
+export { SvgAr as ReactComponent };

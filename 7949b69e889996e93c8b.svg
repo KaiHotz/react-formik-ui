@@ -1,0 +1,37 @@
+var _path, _path2, _path3, _circle, _circle2, _path4;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import * as React from "react";
+
+function SvgAz(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 640 480"
+  }, props), _path || (_path = /*#__PURE__*/React.createElement("path", {
+    fill: "#3f9c35",
+    d: "M.1 0h640v480H.1z"
+  })), _path2 || (_path2 = /*#__PURE__*/React.createElement("path", {
+    fill: "#ed2939",
+    d: "M.1 0h640v320H.1z"
+  })), _path3 || (_path3 = /*#__PURE__*/React.createElement("path", {
+    fill: "#00b9e4",
+    d: "M.1 0h640v160H.1z"
+  })), _circle || (_circle = /*#__PURE__*/React.createElement("circle", {
+    cx: 304,
+    cy: 240,
+    r: 72,
+    fill: "#fff"
+  })), _circle2 || (_circle2 = /*#__PURE__*/React.createElement("circle", {
+    cx: 320,
+    cy: 240,
+    r: 60,
+    fill: "#ed2939"
+  })), _path4 || (_path4 = /*#__PURE__*/React.createElement("path", {
+    fill: "#fff",
+    d: "M384 200l7.7 21.5 20.6-9.8-9.8 20.7L424 240l-21.5 7.7 9.8 20.6-20.6-9.8L384 280l-7.7-21.5-20.6 9.8 9.8-20.6L344 240l21.5-7.7-9.8-20.6 20.6 9.8L384 200z"
+  })));
+}
+
+export default "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJmbGFnLWljb24tY3NzLWF6IiB2aWV3Qm94PSIwIDAgNjQwIDQ4MCI+CiAgPHBhdGggZmlsbD0iIzNmOWMzNSIgZD0iTS4xIDBoNjQwdjQ4MEguMXoiLz4KICA8cGF0aCBmaWxsPSIjZWQyOTM5IiBkPSJNLjEgMGg2NDB2MzIwSC4xeiIvPgogIDxwYXRoIGZpbGw9IiMwMGI5ZTQiIGQ9Ik0uMSAwaDY0MHYxNjBILjF6Ii8+CiAgPGNpcmNsZSBjeD0iMzA0IiBjeT0iMjQwIiByPSI3MiIgZmlsbD0iI2ZmZiIvPgogIDxjaXJjbGUgY3g9IjMyMCIgY3k9IjI0MCIgcj0iNjAiIGZpbGw9IiNlZDI5MzkiLz4KICA8cGF0aCBmaWxsPSIjZmZmIiBkPSJNMzg0IDIwMGw3LjcgMjEuNSAyMC42LTkuOC05LjggMjAuN0w0MjQgMjQwbC0yMS41IDcuNyA5LjggMjAuNi0yMC42LTkuOEwzODQgMjgwbC03LjctMjEuNS0yMC42IDkuOCA5LjgtMjAuNkwzNDQgMjQwbDIxLjUtNy43LTkuOC0yMC42IDIwLjYgOS44TDM4NCAyMDB6Ii8+Cjwvc3ZnPgo=";
+export { SvgAz as ReactComponent };

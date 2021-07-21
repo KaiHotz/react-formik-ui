@@ -1,0 +1,36 @@
+var _defs, _g;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import * as React from "react";
+
+function SvgDj(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 640 480"
+  }, props), _defs || (_defs = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("clipPath", {
+    id: "dj_svg__a"
+  }, /*#__PURE__*/React.createElement("path", {
+    fillOpacity: 0.7,
+    d: "M-40 0h682.7v512H-40z"
+  })))), _g || (_g = /*#__PURE__*/React.createElement("g", {
+    fillRule: "evenodd",
+    clipPath: "url(#dj_svg__a)",
+    transform: "translate(37.5) scale(.94)"
+  }, /*#__PURE__*/React.createElement("path", {
+    fill: "#0c0",
+    d: "M-40 0h768v512H-40z"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "#69f",
+    d: "M-40 0h768v256H-40z"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "#fffefe",
+    d: "M-40 0l382.7 255.7L-40 511V0z"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "red",
+    d: "M119.8 292L89 270l-30.7 22.4L69.7 256l-30.6-22.5 37.9-.3 11.7-36.3 12 36.2h37.9l-30.5 22.7 11.7 36.4z"
+  }))));
+}
+
+export default "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJmbGFnLWljb24tY3NzLWRqIiB2aWV3Qm94PSIwIDAgNjQwIDQ4MCI+CiAgPGRlZnM+CiAgICA8Y2xpcFBhdGggaWQ9ImRqLWEiPgogICAgICA8cGF0aCBmaWxsLW9wYWNpdHk9Ii43IiBkPSJNLTQwIDBoNjgyLjd2NTEySC00MHoiLz4KICAgIDwvY2xpcFBhdGg+CiAgPC9kZWZzPgogIDxnIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1wYXRoPSJ1cmwoI2RqLWEpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzNy41KSBzY2FsZSguOTQpIj4KICAgIDxwYXRoIGZpbGw9IiMwYzAiIGQ9Ik0tNDAgMGg3Njh2NTEySC00MHoiLz4KICAgIDxwYXRoIGZpbGw9IiM2OWYiIGQ9Ik0tNDAgMGg3Njh2MjU2SC00MHoiLz4KICAgIDxwYXRoIGZpbGw9IiNmZmZlZmUiIGQ9Ik0tNDAgMGwzODIuNyAyNTUuN0wtNDAgNTExVjB6Ii8+CiAgICA8cGF0aCBmaWxsPSJyZWQiIGQ9Ik0xMTkuOCAyOTJMODkgMjcwbC0zMC43IDIyLjRMNjkuNyAyNTZsLTMwLjYtMjIuNSAzNy45LS4zIDExLjctMzYuMyAxMiAzNi4yaDM3LjlsLTMwLjUgMjIuNyAxMS43IDM2LjR6Ii8+CiAgPC9nPgo8L3N2Zz4K";
+export { SvgDj as ReactComponent };

@@ -1,0 +1,38 @@
+var _rect, _rect2, _path, _path2;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import * as React from "react";
+
+function SvgSy(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 640 480"
+  }, props), _rect || (_rect = /*#__PURE__*/React.createElement("rect", {
+    width: 640,
+    height: 160,
+    y: 160,
+    fill: "#fff",
+    fillRule: "evenodd",
+    rx: 0,
+    ry: 0
+  })), _rect2 || (_rect2 = /*#__PURE__*/React.createElement("rect", {
+    width: 640,
+    height: 160,
+    y: 320,
+    fillRule: "evenodd",
+    rx: 0,
+    ry: 0
+  })), _path || (_path = /*#__PURE__*/React.createElement("path", {
+    fill: "red",
+    fillRule: "evenodd",
+    d: "M0 0h640v160H0z"
+  })), _path2 || (_path2 = /*#__PURE__*/React.createElement("path", {
+    fill: "#090",
+    fillRule: "evenodd",
+    d: "M201.9 281l-28.8-20.9-28.7 21.1 10.7-34.2-28.7-21.2 35.4-.3 11-34.1 11.3 34h35.4L191 246.9l10.9 34.2zm307.6 0l-28.8-20.9-28.7 21.1 10.7-34.2-28.6-21.2 35.4-.3 11-34.1 11.2 34h35.4l-28.5 21.4 11 34.2z"
+  })));
+}
+
+export default "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJmbGFnLWljb24tY3NzLXN5IiB2aWV3Qm94PSIwIDAgNjQwIDQ4MCI+CiAgPHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSIxNjAiIHk9IjE2MCIgZmlsbD0iI2ZmZiIgZmlsbC1ydWxlPSJldmVub2RkIiByeD0iMCIgcnk9IjAiLz4KICA8cmVjdCB3aWR0aD0iNjQwIiBoZWlnaHQ9IjE2MCIgeT0iMzIwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHJ4PSIwIiByeT0iMCIvPgogIDxwYXRoIGZpbGw9InJlZCIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMCAwaDY0MHYxNjBIMHoiLz4KICA8cGF0aCBmaWxsPSIjMDkwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yMDEuOSAyODFsLTI4LjgtMjAuOS0yOC43IDIxLjEgMTAuNy0zNC4yLTI4LjctMjEuMiAzNS40LS4zIDExLTM0LjEgMTEuMyAzNGgzNS40TDE5MSAyNDYuOWwxMC45IDM0LjJ6bTMwNy42IDBsLTI4LjgtMjAuOS0yOC43IDIxLjEgMTAuNy0zNC4yLTI4LjYtMjEuMiAzNS40LS4zIDExLTM0LjEgMTEuMiAzNGgzNS40bC0yOC41IDIxLjQgMTEgMzQuMnoiLz4KPC9zdmc+Cg==";
+export { SvgSy as ReactComponent };

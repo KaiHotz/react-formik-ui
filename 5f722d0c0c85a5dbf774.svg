@@ -1,0 +1,67 @@
+var _defs, _g;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import * as React from "react";
+
+function SvgNu(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 640 480"
+  }, props), _defs || (_defs = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("clipPath", {
+    id: "nu_svg__a"
+  }, /*#__PURE__*/React.createElement("path", {
+    fillOpacity: 0.7,
+    d: "M0 0h496v372H0z"
+  })))), _g || (_g = /*#__PURE__*/React.createElement("g", {
+    clipPath: "url(#nu_svg__a)",
+    transform: "scale(1.2902)"
+  }, /*#__PURE__*/React.createElement("path", {
+    fill: "#fff",
+    fillRule: "evenodd",
+    d: "M0 0h499.6v248.1H0z"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "#c00",
+    d: "M0 0v18.6L119.2 80l44.9 1.3L0 0z"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "#006",
+    d: "M51 0l144.6 75.5V0H51z"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "#c00",
+    d: "M214.9 0v96.4H0v55h215v96.4h66v-96.4h215v-55H281V0h-66z"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "#006",
+    d: "M300.2 0v71.1L441.6.6 300.2 0z"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "#c00",
+    d: "M304.7 78.9l39.8-.3L498.9.6l-41 .6L304.8 79z"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "#006",
+    d: "M0 167.5v52.8L99.2 168 0 167.6z"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "#c00",
+    d: "M381.9 169.7l-41.4-.3 155.8 77.5-1-17.7-113.5-59.5zM38.7 248.3l146.1-76.8-38.3.3L0 248.1"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "#006",
+    d: "M497.9 21.8l-118 58.5 116.4.5v87.1h-99.1l98.2 53.3 1.4 27-52.4-.6-143.6-70.5v71.2H196V177L61.3 248l-60.9.2V496H992V.4L499 0M.6 28L0 79.4l104.4 1.3L.5 28z"
+  }), /*#__PURE__*/React.createElement("g", {
+    fill: "#ffd900",
+    fillRule: "evenodd",
+    strokeWidth: "1pt"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M496 0h496.1v496h-496z"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M0 248h523.5v248H0z"
+  })), /*#__PURE__*/React.createElement("g", {
+    fillRule: "evenodd"
+  }, /*#__PURE__*/React.createElement("path", {
+    fill: "#000067",
+    d: "M290.9 125.3a42.8 42.8 0 11-85.5 0 42.8 42.8 0 0185.5 0z"
+  }), /*#__PURE__*/React.createElement("path", {
+    fill: "#fff40d",
+    d: "M240.2 114.3l8.2-24.6 8.2 24.6h26.7l-21.6 15.2L270 154l-21.6-15.3-21.6 15.2 8.3-24.5-21.6-15.2zm148.5 4l4.1-11.5 4 11.6h13.3l-10.7 7 4.1 11.5-10.7-7-10.7 7 4.1-11.5-10.7-7zM244.1 204l4-11.5 4.1 11.5h13.2l-10.7 7 4.1 11.6-10.7-7.1-10.7 7 4.1-11.4-10.7-7.1zm0-167l4-11.6 4.1 11.5h13.2L254.7 44l4.1 11.5-10.7-7-10.7 7 4.1-11.5-10.7-7zM98.9 118.2l4.1-11.5 4 11.5h13.3l-10.7 7.1 4.1 11.5-10.7-7-10.7 7 4.1-11.5-10.7-7z"
+  })))));
+}
+
+export default "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJmbGFnLWljb24tY3NzLW51IiB2aWV3Qm94PSIwIDAgNjQwIDQ4MCI+CiAgPGRlZnM+CiAgICA8Y2xpcFBhdGggaWQ9Im51LWEiPgogICAgICA8cGF0aCBmaWxsLW9wYWNpdHk9Ii43IiBkPSJNMCAwaDQ5NnYzNzJIMHoiLz4KICAgIDwvY2xpcFBhdGg+CiAgPC9kZWZzPgogIDxnIGNsaXAtcGF0aD0idXJsKCNudS1hKSIgdHJhbnNmb3JtPSJzY2FsZSgxLjI5MDIpIj4KICAgIDxwYXRoIGZpbGw9IiNmZmYiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTAgMGg0OTkuNnYyNDguMUgweiIvPgogICAgPHBhdGggZmlsbD0iI2MwMCIgZD0iTTAgMHYxOC42TDExOS4yIDgwbDQ0LjkgMS4zTDAgMHoiLz4KICAgIDxwYXRoIGZpbGw9IiMwMDYiIGQ9Ik01MSAwbDE0NC42IDc1LjVWMEg1MXoiLz4KICAgIDxwYXRoIGZpbGw9IiNjMDAiIGQ9Ik0yMTQuOSAwdjk2LjRIMHY1NWgyMTV2OTYuNGg2NnYtOTYuNGgyMTV2LTU1SDI4MVYwaC02NnoiLz4KICAgIDxwYXRoIGZpbGw9IiMwMDYiIGQ9Ik0zMDAuMiAwdjcxLjFMNDQxLjYuNiAzMDAuMiAweiIvPgogICAgPHBhdGggZmlsbD0iI2MwMCIgZD0iTTMwNC43IDc4LjlsMzkuOC0uM0w0OTguOS42bC00MSAuNkwzMDQuOCA3OXoiLz4KICAgIDxwYXRoIGZpbGw9IiMwMDYiIGQ9Ik0wIDE2Ny41djUyLjhMOTkuMiAxNjggMCAxNjcuNnoiLz4KICAgIDxwYXRoIGZpbGw9IiNjMDAiIGQ9Ik0zODEuOSAxNjkuN2wtNDEuNC0uMyAxNTUuOCA3Ny41LTEtMTcuNy0xMTMuNS01OS41ek0zOC43IDI0OC4zbDE0Ni4xLTc2LjgtMzguMy4zTDAgMjQ4LjEiLz4KICAgIDxwYXRoIGZpbGw9IiMwMDYiIGQ9Ik00OTcuOSAyMS44bC0xMTggNTguNSAxMTYuNC41djg3LjFoLTk5LjFsOTguMiA1My4zIDEuNCAyNy01Mi40LS42LTE0My42LTcwLjV2NzEuMkgxOTZWMTc3TDYxLjMgMjQ4bC02MC45LjJWNDk2SDk5MlYuNEw0OTkgME0uNiAyOEwwIDc5LjRsMTA0LjQgMS4zTC41IDI4eiIvPgogICAgPGcgZmlsbD0iI2ZmZDkwMCIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2Utd2lkdGg9IjFwdCI+CiAgICAgIDxwYXRoIGQ9Ik00OTYgMGg0OTYuMXY0OTZoLTQ5NnoiLz4KICAgICAgPHBhdGggZD0iTTAgMjQ4aDUyMy41djI0OEgweiIvPgogICAgPC9nPgogICAgPGcgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgPHBhdGggZmlsbD0iIzAwMDA2NyIgZD0iTTI5MC45IDEyNS4zYTQyLjggNDIuOCAwIDExLTg1LjUgMCA0Mi44IDQyLjggMCAwMTg1LjUgMHoiLz4KICAgICAgPHBhdGggZmlsbD0iI2ZmZjQwZCIgZD0iTTI0MC4yIDExNC4zbDguMi0yNC42IDguMiAyNC42aDI2LjdsLTIxLjYgMTUuMkwyNzAgMTU0bC0yMS42LTE1LjMtMjEuNiAxNS4yIDguMy0yNC41LTIxLjYtMTUuMnptMTQ4LjUgNGw0LjEtMTEuNSA0IDExLjZoMTMuM2wtMTAuNyA3IDQuMSAxMS41LTEwLjctNy0xMC43IDcgNC4xLTExLjUtMTAuNy03ek0yNDQuMSAyMDRsNC0xMS41IDQuMSAxMS41aDEzLjJsLTEwLjcgNyA0LjEgMTEuNi0xMC43LTcuMS0xMC43IDcgNC4xLTExLjQtMTAuNy03LjF6bTAtMTY3bDQtMTEuNiA0LjEgMTEuNWgxMy4yTDI1NC43IDQ0bDQuMSAxMS41LTEwLjctNy0xMC43IDcgNC4xLTExLjUtMTAuNy03ek05OC45IDExOC4ybDQuMS0xMS41IDQgMTEuNWgxMy4zbC0xMC43IDcuMSA0LjEgMTEuNS0xMC43LTctMTAuNyA3IDQuMS0xMS41LTEwLjctN3oiLz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPgo=";
+export { SvgNu as ReactComponent };

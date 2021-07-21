@@ -1,0 +1,59 @@
+var _path, _path2, _path3, _g;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import * as React from "react";
+
+function SvgGw(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    xmlnsXlink: "http://www.w3.org/1999/xlink",
+    viewBox: "0 0 512 512"
+  }, props), _path || (_path = /*#__PURE__*/React.createElement("path", {
+    fill: "#ce1126",
+    d: "M0 0h160v512H0z"
+  })), _path2 || (_path2 = /*#__PURE__*/React.createElement("path", {
+    fill: "#fcd116",
+    d: "M160 0h352v256H160z"
+  })), _path3 || (_path3 = /*#__PURE__*/React.createElement("path", {
+    fill: "#009e49",
+    d: "M160 256h352v256H160z"
+  })), _g || (_g = /*#__PURE__*/React.createElement("g", {
+    transform: "translate(-46.2 72.8) scale(.7886)"
+  }, /*#__PURE__*/React.createElement("g", {
+    id: "gw_svg__b",
+    transform: "matrix(80 0 0 80 160 240)"
+  }, /*#__PURE__*/React.createElement("path", {
+    id: "gw_svg__a",
+    d: "M0-1v1h.5",
+    transform: "rotate(18 0 -1)"
+  }), /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "scale(-1 1)",
+    xlinkHref: "#gw_svg__a"
+  })), /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "rotate(72 160 240)",
+    xlinkHref: "#gw_svg__b"
+  }), /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "rotate(144 160 240)",
+    xlinkHref: "#gw_svg__b"
+  }), /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "rotate(-144 160 240)",
+    xlinkHref: "#gw_svg__b"
+  }), /*#__PURE__*/React.createElement("use", {
+    width: "100%",
+    height: "100%",
+    transform: "rotate(-72 160 240)",
+    xlinkHref: "#gw_svg__b"
+  }))));
+}
+
+export default "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBpZD0iZmxhZy1pY29uLWNzcy1ndyIgdmlld0JveD0iMCAwIDUxMiA1MTIiPgogIDxwYXRoIGZpbGw9IiNjZTExMjYiIGQ9Ik0wIDBoMTYwdjUxMkgweiIvPgogIDxwYXRoIGZpbGw9IiNmY2QxMTYiIGQ9Ik0xNjAgMGgzNTJ2MjU2SDE2MHoiLz4KICA8cGF0aCBmaWxsPSIjMDA5ZTQ5IiBkPSJNMTYwIDI1NmgzNTJ2MjU2SDE2MHoiLz4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDYuMiA3Mi44KSBzY2FsZSguNzg4NikiPgogICAgPGcgaWQ9ImIiIHRyYW5zZm9ybT0ibWF0cml4KDgwIDAgMCA4MCAxNjAgMjQwKSI+CiAgICAgIDxwYXRoIGlkPSJhIiBkPSJNMC0xdjFoLjUiIHRyYW5zZm9ybT0icm90YXRlKDE4IDAgLTEpIi8+CiAgICAgIDx1c2Ugd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdHJhbnNmb3JtPSJzY2FsZSgtMSAxKSIgeGxpbms6aHJlZj0iI2EiLz4KICAgIDwvZz4KICAgIDx1c2Ugd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdHJhbnNmb3JtPSJyb3RhdGUoNzIgMTYwIDI0MCkiIHhsaW5rOmhyZWY9IiNiIi8+CiAgICA8dXNlIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHRyYW5zZm9ybT0icm90YXRlKDE0NCAxNjAgMjQwKSIgeGxpbms6aHJlZj0iI2IiLz4KICAgIDx1c2Ugd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdHJhbnNmb3JtPSJyb3RhdGUoLTE0NCAxNjAgMjQwKSIgeGxpbms6aHJlZj0iI2IiLz4KICAgIDx1c2Ugd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdHJhbnNmb3JtPSJyb3RhdGUoLTcyIDE2MCAyNDApIiB4bGluazpocmVmPSIjYiIvPgogIDwvZz4KPC9zdmc+Cg==";
+export { SvgGw as ReactComponent };
