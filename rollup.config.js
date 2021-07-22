@@ -36,6 +36,7 @@ export default {
     {
       dir: 'dist',
       format: 'cjs',
+      exports: 'named',
     },
   ],
   plugins: [
