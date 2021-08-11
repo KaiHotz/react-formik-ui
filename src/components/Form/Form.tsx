@@ -5,7 +5,7 @@ import '../../styles/index.scss';
 
 export interface IFormikUiFormProps extends FormikFormProps {
   className?: string;
-  styling?: 'default' | 'structue' | 'theme';
+  styling?: 'default' | 'structure' | 'theme';
 }
 
 export const Form: FC<IFormikUiFormProps> = ({
