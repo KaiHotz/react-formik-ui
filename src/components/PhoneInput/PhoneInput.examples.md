@@ -11,16 +11,24 @@ import { Form, PhoneInput } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
 >
-  <Form>
-
-    <PhoneInput
-      name='phoneNr1'
-      label='Phone Nr.'
-      placeholder='+1 702 123 4567'
-      hint='This is a hint'
-    />
-
-  </Form>
+    {({values}) => {
+      return (
+        <Form>
+          <PhoneInput
+            name='phoneNr1'
+            label='Phone Nr.'
+            placeholder='+1 702 123 4567'
+            hint='This is a hint'
+          />
+          <fieldset style={{maxWidth: 250, minHeight: 32, marginTop: 20}}>
+            <legend>Preview of the returned Value:</legend>
+            <pre style={{margin: 0}}>
+              {values.phoneNr1 && JSON.stringify(values.phoneNr1, null, 2)}
+            </pre>
+          </fieldset>
+        </Form>
+      )
+    }}
 </Formik>
 ```
 
@@ -41,17 +49,25 @@ import { Form, PhoneInput } from 'react-formik-ui';
   }}
   onSubmit={data => (alert(JSON.stringify(data)))}
 >
-  <Form>
-
-    <PhoneInput
-      name='phoneData'
-      label='Phone Nr.'
-      placeholder='+1 702 123 4567'
-      hint='This is a hint'
-      withCountryMeta
-    />
-
-  </Form>
+    {({values}) => {
+      return (
+        <Form>
+          <PhoneInput
+            name='phoneData'
+            label='Phone Nr.'
+            placeholder='+1 702 123 4567'
+            hint='This is a hint'
+            withCountryMeta
+          />
+          <fieldset style={{maxWidth: 250, minHeight: 32, marginTop: 20}}>
+            <legend>Preview of the returned Value:</legend>
+            <pre style={{margin: 0}}>
+              {values.phoneData && JSON.stringify(values.phoneData, null, 2)}
+            </pre>
+          </fieldset>
+        </Form>
+      )
+    }}
 </Formik>
 ```
 
@@ -73,7 +89,7 @@ import { Form, PhoneInput } from 'react-formik-ui';
       name='phoneNr2'
       label='Phone Nr.'
       hint='This is a hint'
-      defaultCountry='de'
+      defaultCountry='DE'
     />
 
   </Form>
@@ -97,7 +113,7 @@ import { Form, PhoneInput } from 'react-formik-ui';
       name='phoneNr3'
       label='Phone Nr.'
       hint='This is a hint'
-      preferredCountries={['cl', 'ar', 'br', 'co']}
+      preferredCountries={['CL', 'AR', 'BR', 'CO']}
     />
 
   </Form>
@@ -145,7 +161,7 @@ import { Form, PhoneInput } from 'react-formik-ui';
       name='phoneNr5'
       label='Phone Nr.'
       format='NATIONAL'
-      defaultCountry='us'
+      defaultCountry='US'
       placeholder='(555) 123-4567'
       hint='This is a hint'
     />
@@ -194,7 +210,7 @@ import { Form, PhoneInput } from 'react-formik-ui';
       name='phoneNr7'
       label='Phone Nr.'
       format='NATIONAL'
-      defaultCountry='us'
+      defaultCountry='US'
       hint='This is a hint'
     />
 
