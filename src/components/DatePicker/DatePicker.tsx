@@ -40,7 +40,7 @@ export const DatePicker: FC<IFormikUiDatepickerProps> = ({
       event.preventDefault();
     }
 
-    if (isValid(new Date(value))) {
+    if (isValid(new Date(value as string | number | Date))) {
       setValue(value);
     }
   };
@@ -61,7 +61,7 @@ export const DatePicker: FC<IFormikUiDatepickerProps> = ({
       id={id || name}
       name={name}
       className={className}
-      selected={value && new Date(value)}
+      selected={value && new Date(value as string | number | Date)}
       placeholderText={placeholder}
       dateFormat={dateFormat}
       onChangeRaw={handleChangeRaw}

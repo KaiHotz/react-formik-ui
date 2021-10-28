@@ -1,7 +1,7 @@
 const bemClass = /^([a-z0-9\\-]{2,})(__[a-z0-9\\-]{2,})?(--[a-z0-9\\-]{2,})?$/;
 module.exports = {
   plugins: ['stylelint-scss', 'stylelint-prettier'],
-
+  customSyntax: 'postcss-scss',
   rules: {
     'prettier/prettier': true,
 
@@ -61,7 +61,6 @@ module.exports = {
 
     // Function
     'function-linear-gradient-no-nonstandard-direction': true,
-    'function-calc-no-invalid': true,
 
     // Comment
     'comment-no-empty': true,
