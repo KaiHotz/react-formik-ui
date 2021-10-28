@@ -1,7 +1,7 @@
 {
   "name": "react-formik-ui",
   "author": "Kai Hotz",
-  "version": "5.5.0",
+  "version": "5.5.1",
   "description": "Plain form components for make use of formik even easier",
   "license": "MIT",
   "repository": {
@@ -31,6 +31,7 @@
     "stylelint": "stylelint \"**/*.{css,scss,sass}\"",
     "stylelint:fix": "stylelint \"**/*.{css,scss,sass}\" --fix",
     "check-types": "tsc",
+    "audit:fix": "npx yarn-audit-fix",
     "prepare": "yarn build",
     "prerelease": "yarn lint:fix && yarn test:coverage",
     "release": "npm publish",
@@ -140,6 +141,7 @@
     "typescript": "^4.3.5",
     "url-loader": "^4.1.1",
     "webpack": "^5.50.0",
+    "yarn-audit-fix": "^7.1.3",
     "yup": "^0.32.9"
   }
 }
