@@ -53,11 +53,7 @@ export const WithLabel =
       return (
         <div className={cx('form-element', component, { 'has-error': !!error, hidden })}>
           <div className={cx(`${component}-wrapper`, { disabled })}>
-            {label && (
-              <span className={cx('label', { hide, 'move-label': moveLabel })}>{`${label}${
-                required ? ' *' : ''
-              }`}</span>
-            )}
+            {label && <span className={cx('label', { hide, 'move-label': moveLabel })}>{`${label}${required ? ' *' : ''}`}</span>}
             <WrappedComponent
               onAnimationStart={handleAutoFill}
               onFocus={handleFocus}

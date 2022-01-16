@@ -25,15 +25,7 @@ export const Toggle: FC<IFormikUiToggleProps> = ({ className, disabled, name, st
   return (
     <div className={cx('form-element', 'toggle-wrapper', className, { isDisabled: disabled })} style={style}>
       <label className={cx('toggle-switch', className)}>
-        <input
-          {...rest}
-          onChange={handleChange}
-          name={name}
-          id={id || name}
-          checked={value}
-          disabled={disabled}
-          type="checkbox"
-        />
+        <input {...rest} onChange={handleChange} name={name} id={id || name} checked={value} disabled={disabled} type="checkbox" />
         <span className="slider" />
       </label>
     </div>

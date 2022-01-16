@@ -51,6 +51,5 @@ describe('<Toggle />', () => {
     );
 
     expect(wrapper.find('input').prop('disabled')).toBe(true);
-    expect(wrapper.find('.form-element').prop('className').includes('disabled'));
   });
 });

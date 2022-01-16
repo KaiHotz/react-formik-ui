@@ -91,11 +91,9 @@ export const DropZone: FC<IFormikUiDropZoneProps> = ({
             <>
               <input {...getInputProps()} id={id || name} name={name} />
               {(acceptedFiles.length && value.length) || fileRejections.length ? (
-                value.map((file: { type: string | string[]; name: string }) => {
+                value.map((file: File) => {
                   if (file.type.includes('image')) {
-                    return (
-                      <img key={file.name} src={URL.createObjectURL(file)} className="img-thumbnail" alt={file.name} />
-                    );
+                    return <img key={file.name} src={URL.createObjectURL(file)} className="img-thumbnail" alt={file.name} />;
                   }
 
                   return (
@@ -112,11 +110,7 @@ export const DropZone: FC<IFormikUiDropZoneProps> = ({
               ) : (
                 <p className="text">{placeholder}</p>
               )}
-              {fileInfo && (
-                <div className="file-info">
-                  {`Accepted ${acceptedFiles.length}, rejected ${fileRejections.length} files`}
-                </div>
-              )}
+              {fileInfo && <div className="file-info">{`Accepted ${acceptedFiles.length}, rejected ${fileRejections.length} files`}</div>}
             </>
           )}
         </div>

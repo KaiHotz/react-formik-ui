@@ -49,7 +49,6 @@ describe('<SubmitBtn />', () => {
     );
 
     expect(wrapper.find('button').prop('disabled')).toBe(true);
-    expect(wrapper.find('button').prop('className').includes('disabled'));
   });
 
   it('should allow custom className', () => {

@@ -10,7 +10,7 @@ import svgr from '@svgr/rollup';
 import { terser } from 'rollup-plugin-terser';
 import typescriptEngine from 'typescript';
 
-export default {
+const config = {
   input: [
     'src/index.ts',
     'src/Autocomplete.tsx',
@@ -63,3 +63,5 @@ export default {
     terser(),
   ],
 };
+
+export default config;

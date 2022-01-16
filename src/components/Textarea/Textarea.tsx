@@ -27,17 +27,7 @@ export interface IFormikUiTextareaProps {
   required?: boolean;
 }
 
-export const Textarea: FC<IFormikUiTextareaProps> = ({
-  disabled,
-  id,
-  name,
-  placeholder,
-  onFocus,
-  onBlur,
-  className,
-  style,
-  ...rest
-}) => {
+export const Textarea: FC<IFormikUiTextareaProps> = ({ disabled, id, name, placeholder, onFocus, onBlur, className, style, ...rest }) => {
   const [{ value, onChange }] = useField(name);
 
   return (

@@ -30,8 +30,10 @@ export interface IFormikUiAutocompleteProps {
 
 export const Autocomplete: FC<IFormikUiAutocompleteProps> = ({ name, id, suggestions, className, style, ...rest }) => {
   const [{ value }] = useField(name);
-  const [activeSuggestion, filteredSuggestions, showSuggestions, handleChange, handleClick, handleKeyDown] =
-    useAutocomplete(name, suggestions);
+  const [activeSuggestion, filteredSuggestions, showSuggestions, handleChange, handleClick, handleKeyDown] = useAutocomplete(
+    name,
+    suggestions,
+  );
 
   return (
     <>
