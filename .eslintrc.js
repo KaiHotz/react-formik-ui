@@ -20,5 +20,6 @@ module.exports = {
   rules: {
     'prettier/prettier': ['error', prettierConfig],
     'newline-before-return': 'error',
+    'import/no-anonymous-default-export': 0,
   },
 };

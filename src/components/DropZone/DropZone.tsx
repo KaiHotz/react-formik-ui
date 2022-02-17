@@ -26,7 +26,7 @@ export interface IFormikUiDropZoneProps extends DropZoneOptionsState {
   /** Sets the text to be shown when draging files over the drop zone */
   zoneActiveText?: string;
   /** Shows the number of accepted and rejected files after each drop */
-  fileInfo?: boolean;
+  fileCount?: boolean;
   /** text shown as placeholder if DropZone is disabled  */
   disabledText?: string;
   /** Sets the Placeholder text */
@@ -49,7 +49,7 @@ export const DropZone: FC<IFormikUiDropZoneProps> = ({
   name,
   accept,
   zoneActiveText = 'Drop file(s) here',
-  fileInfo,
+  fileCount,
   disabledText = 'File upload disabled',
   placeholder = 'Try dropping some files here, or click to select files to upload.',
   className,
@@ -110,7 +110,7 @@ export const DropZone: FC<IFormikUiDropZoneProps> = ({
               ) : (
                 <p className="text">{placeholder}</p>
               )}
-              {fileInfo && <div className="file-info">{`Accepted ${acceptedFiles.length}, rejected ${fileRejections.length} files`}</div>}
+              {fileCount && <div className="file-count">{`Accepted ${acceptedFiles.length}, rejected ${fileRejections.length} files`}</div>}
             </>
           )}
         </div>

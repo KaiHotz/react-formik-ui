@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { FC, useState, ReactNode, FocusEvent, CSSProperties, memo, ComponentType } from 'react';
+import React, { FC, useState, ReactNode, FocusEvent, CSSProperties, ComponentType, ElementType, memo } from 'react';
 import cx from 'classnames';
 import { useField, ErrorMessage } from 'formik';
 import omit from 'lodash.omit';
@@ -14,13 +14,14 @@ export interface IFormikUiLabelProps {
   required?: boolean;
   style?: CSSProperties;
   format?: string;
-  onFocus?: (event: FocusEvent<unknown>) => void;
-  onBlur?: (event: FocusEvent<unknown>) => void;
+  onAnimationStart?: (e: AnimationEvent) => void;
+  onFocus?: (event: FocusEvent<HTMLInputElement>) => void;
+  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
 }
 
 export const WithLabel =
-  (component = 'input') =>
-  (WrappedComponent: ComponentType<any>): ReactNode => {
+  (component: string = 'input') =>
+  (WrappedComponent: ComponentType<any>): ElementType => {
     const Label: FC<IFormikUiLabelProps> = (props) => {
       const { name, label, hint, placeholder, type, disabled, required, style, format, onFocus, onBlur } = props;
       const [hideLabel, setHide] = useState<boolean>(false);
@@ -33,14 +34,14 @@ export const WithLabel =
         setHide(e.animationName === 'onAutoFillStart');
       };
 
-      const handleFocus = (event: FocusEvent<unknown>): void => {
+      const handleFocus = (event: FocusEvent<HTMLInputElement>): void => {
         if (onFocus) {
           onFocus(event);
         }
         setHide(true);
       };
 
-      const handleBlur = (event: FocusEvent<unknown>): void => {
+      const handleBlur = (event: FocusEvent<HTMLInputElement>): void => {
         if (onBlur) {
           onBlur(event);
         }
@@ -54,13 +55,15 @@ export const WithLabel =
         <div className={cx('form-element', component, { 'has-error': !!error, hidden })}>
           <div className={cx(`${component}-wrapper`, { disabled })}>
             {label && <span className={cx('label', { hide, 'move-label': moveLabel })}>{`${label}${required ? ' *' : ''}`}</span>}
-            <WrappedComponent
-              onAnimationStart={handleAutoFill}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-              style={style}
-              {...passableProps}
-            />
+            {WrappedComponent && (
+              <WrappedComponent
+                onAnimationStart={handleAutoFill}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                style={style}
+                {...passableProps}
+              />
+            )}
           </div>
           <span className="rfui-error">
             <ErrorMessage name={name} />
