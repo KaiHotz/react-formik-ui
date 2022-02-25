@@ -11956,10 +11956,10 @@ react-onclickoutside@^6.12.0:
   resolved "https://registry.yarnpkg.com/react-onclickoutside/-/react-onclickoutside-6.12.1.tgz#92dddd28f55e483a1838c5c2930e051168c1e96b"
   integrity sha512-a5Q7CkWznBRUWPmocCvE8b6lEYw1s6+opp/60dCunhO+G6E4tDTO2Sd2jKE+leEnnrLAE2Wj5DlDHNqj5wPv1Q==
 
-react-phonenr-input@^3.0.7:
-  version "3.0.7"
-  resolved "https://registry.yarnpkg.com/react-phonenr-input/-/react-phonenr-input-3.0.7.tgz#0c9e9ec92f37be236e2669673c90a1e60a5dae8d"
-  integrity sha512-AwJ1tUugtYaEeMr1WBun+u4J0oOhgSdShQmH+CldEpx3GoBwavFWPoKOep7fO5o0J+m75bewVz0ni29DeMnpcA==
+react-phonenr-input@^3.0.8:
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/react-phonenr-input/-/react-phonenr-input-3.0.8.tgz#9a39ec66309a8dac531890262fca0d438e0b386f"
+  integrity sha512-RzVrY7PNLmLsAs4jFBBwqsLaeoq5y0RSPBWr5AfWJIo8qWXUjLux2OTVjzPmCOvN51CHIHmUx24WMWKQ+F0r/Q==
   dependencies:
     classnames "^2.3.1"
     immer "^9.0.12"
