@@ -8,7 +8,7 @@ export interface IFormikUiToggleProps {
   /** Sets an Id for the Toggle button, if not passed, the id will be the name */
   id?: string;
   /** Adds a custom class to the Toggle button */
-  className: string;
+  className?: string;
   /** Adds a custom inline styles to the Toggle wrapper div */
   style?: CSSProperties;
   /** Disables the Toggle button */

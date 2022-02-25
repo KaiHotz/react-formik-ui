@@ -2,6 +2,12 @@
   .form-element {
     /* stylelint-disable-next-line */
     .datePicker-wrapper {
+      .react-datepicker__triangle {
+        &:before,
+        &:after {
+          left: -120px;
+        }
+      }
       .react-datepicker-popper {
         z-index: 10;
       }
