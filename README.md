@@ -4,7 +4,6 @@
 
 [![NPM](https://img.shields.io/npm/v/react-formik-ui.svg)](https://www.npmjs.com/package/react-formik-ui)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-formik-ui)
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-Airbnb-brightgreen.svg)](https://github.com/airbnb/javascript)
 [![license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/KaiHotz/react-formik-ui/blob/master/LICENSE)
 ![npm](https://img.shields.io/npm/dw/react-formik-ui)
 
