@@ -1,6 +1,5 @@
 .react-formik-ui {
   .form-element {
-    /* stylelint-disable-next-line */
     .datePicker-wrapper {
       .react-datepicker__triangle {
         &:before,
@@ -15,7 +14,6 @@
   }
   &.theme {
     .form-element {
-      /* stylelint-disable-next-line */
       .datePicker-wrapper {
         @extend .rfui-themed-component;
         width: 171px;
