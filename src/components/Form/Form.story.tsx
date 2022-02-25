@@ -1,7 +1,7 @@
-import React from 'react';
-import Form, { Form as FormComp } from './Form';
+import React, { FC } from 'react';
 import * as yup from 'yup';
 import { Formik } from 'formik';
+import Form, { Form as FormComp } from './Form';
 import { Radio, Input, DatePicker, PhoneInput, Select, Toggle, DropZone, Textarea, Checkbox, SubmitBtn } from '../../index';
 
 export default {
@@ -31,7 +31,7 @@ const schema = yup
   })
   .required();
 
-export const Structured = () => {
+export const Structured: FC = () => {
   const onSubmit = (data: yup.InferType<typeof schema>) => alert(JSON.stringify(data));
 
   return (
@@ -57,7 +57,7 @@ export const Structured = () => {
           <fieldset>
             <legend>Complete Form Example</legend>
             <Radio
-              name="salutationExample"
+              name="salutation"
               label="Salutation"
               options={[
                 { value: 'Mr', label: 'Mr.' },
@@ -66,22 +66,22 @@ export const Structured = () => {
               ]}
             />
 
-            <Input name="nameExample" label="Name" required />
+            <Input name="fullName" label="Name" required />
 
-            <Input name="emailExample" label="Email" placeholder="foo@bar.com" hint="Please enter your Email" required />
+            <Input name="email" label="Email" placeholder="foo@bar.com" hint="Please enter your Email" required />
 
             <DatePicker
-              name="birthDayExample"
+              name="birthDay"
               label="Birthday"
               dateFormat="dd.MM.yyyy"
               placeholder="dd.mm.yyyy"
               hint="Please enter your birth date"
             />
 
-            <PhoneInput name="phoneNrExample" label="Phone Nr." required />
+            <PhoneInput name="phoneNr" label="Phone Nr." required />
 
             <Select
-              name="maritalStatusExample"
+              name="maritalStatus"
               label="Marital Status"
               placeholder="Select an Option"
               options={[
@@ -93,17 +93,100 @@ export const Structured = () => {
             />
 
             <div style={{ marginBottom: '15px' }}>
-              <div style={{ marginBottom: '10px' }}>{`Do you have a drivers license ? ${values.driverLicenseExample ? 'Yes' : 'No'}`}</div>
-              <Toggle name="driverLicenseExample" />
+              <div style={{ marginBottom: '10px' }}>{`Do you have a drivers license ? ${values.driverLicense ? 'Yes' : 'No'}`}</div>
+              <Toggle name="driverLicense" />
             </div>
 
-            <DropZone name="filesExample" label="File upload" placeholder="Drop some files here" withClearButton />
+            <DropZone name="files" label="File upload" placeholder="Drop some files here" withClearButton />
 
-            <Textarea name="additionalInfoExample" label="Aditional information" hint="this is optional" />
+            <Textarea name="additionalInfo" label="Aditional information" hint="this is optional" />
 
-            <Checkbox name="checkboxExample" label="Terms and Conditions" text="Click to enable the submit button" />
+            <Checkbox name="termsAndConitions" label="Terms and Conditions" text="Click to enable the submit button" />
             <br />
-            <SubmitBtn disabled={!values.checkboxExample} text="Submit" />
+            <SubmitBtn disabled={!values.termsAndConitions} text="Submit" />
+            <br />
+            <br />
+            <button onClick={() => alert('Cancel')}>Cancel</button>
+          </fieldset>
+        </Form>
+      )}
+    </Formik>
+  );
+};
+
+export const Themed: FC = () => {
+  const onSubmit = (data: yup.InferType<typeof schema>) => alert(JSON.stringify(data));
+
+  return (
+    <Formik
+      initialValues={{
+        salutation: 'Mr',
+        fullName: '',
+        email: '',
+        birthDay: '',
+        phoneNr: '',
+        title: '',
+        maritalStatus: '',
+        driverLicense: false,
+        files: [],
+        additionalInfo: '',
+        termsAndConitions: false,
+      }}
+      validationSchema={schema}
+      onSubmit={onSubmit}
+    >
+      {({ values }) => (
+        <Form styling="theme">
+          <fieldset>
+            <legend>Complete Form Example</legend>
+            <Radio
+              name="salutation"
+              label="Salutation"
+              options={[
+                { value: 'Mr', label: 'Mr.' },
+                { value: 'Mrs', label: 'Mrs.' },
+                { value: 'Ms', label: 'Ms.' },
+              ]}
+            />
+
+            <Input name="fullName" label="Name" required />
+
+            <Input name="email" label="Email" placeholder="foo@bar.com" hint="Please enter your Email" required />
+
+            <DatePicker
+              name="birthDay"
+              label="Birthday"
+              dateFormat="dd.MM.yyyy"
+              placeholder="dd.mm.yyyy"
+              hint="Please enter your birth date"
+            />
+
+            <PhoneInput name="phoneNr" label="Phone Nr." required />
+
+            <Select
+              name="maritalStatus"
+              label="Marital Status"
+              placeholder="Select an Option"
+              options={[
+                { value: '1', label: 'Married' },
+                { value: '2', label: 'Single' },
+                { value: '3', label: 'Divorced' },
+                { value: '4', label: 'Widowed' },
+              ]}
+            />
+
+            <div style={{ marginBottom: '15px' }}>
+              <div style={{ marginBottom: '10px' }}>{`Do you have a drivers license ? ${values.driverLicense ? 'Yes' : 'No'}`}</div>
+              <Toggle name="driverLicense" />
+            </div>
+
+            <DropZone name="files" label="File upload" placeholder="Drop some files here" withClearButton />
+
+            <Textarea name="additionalInfo" label="Aditional information" hint="this is optional" />
+
+            <Checkbox name="termsAndConitions" label="Terms and Conditions" text="Click to enable the submit button" />
+            <br />
+            <SubmitBtn disabled={!values.termsAndConitions} text="Submit" />
             <br />
             <br />
             <button onClick={() => alert('Cancel')}>Cancel</button>

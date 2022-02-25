@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
+import { Formik } from 'formik';
 import Autocomplete, { Autocomplete as AutocompleteComp } from './Autocomplete';
 import Form from '../Form';
-import { Formik } from 'formik';
 
 export default {
   title: 'Autocomplete',
@@ -50,7 +50,7 @@ const suggestions = [
   'Brunei Darussalam',
 ];
 
-export const Default = () => {
+export const Default: FC = () => {
   return (
     <Formik
       initialValues={{
@@ -65,7 +65,7 @@ export const Default = () => {
   );
 };
 
-export const Structured = () => {
+export const Structured: FC = () => {
   return (
     <Formik
       initialValues={{
@@ -80,7 +80,7 @@ export const Structured = () => {
   );
 };
 
-export const Themed = () => {
+export const Themed: FC = () => {
   return (
     <Formik
       initialValues={{

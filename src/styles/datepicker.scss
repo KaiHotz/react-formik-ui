@@ -3,8 +3,8 @@
     /* stylelint-disable-next-line */
     .datePicker-wrapper {
       .react-datepicker__triangle {
-        &::before,
-        &::after {
+        &:before,
+        &:after {
           left: -120px;
         }
       }

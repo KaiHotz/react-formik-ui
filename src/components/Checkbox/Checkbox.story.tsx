@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Checkbox, { Checkbox as CheckboxComp } from './Checkbox';
 import Form from '../Form';
 import { Formik } from 'formik';
@@ -13,7 +13,7 @@ export default {
   },
 };
 
-export const Default = () => {
+export const Default: FC = () => {
   return (
     <Formik
       initialValues={{
@@ -28,7 +28,7 @@ export const Default = () => {
   );
 };
 
-export const Structured = () => {
+export const Structured: FC = () => {
   return (
     <Formik
       initialValues={{
@@ -43,7 +43,7 @@ export const Structured = () => {
   );
 };
 
-export const Themed = () => {
+export const Themed: FC = () => {
   return (
     <Formik
       initialValues={{
@@ -63,7 +63,7 @@ export const Themed = () => {
   );
 };
 
-export const ThemedDisabled = () => {
+export const ThemedDisabled: FC = () => {
   return (
     <Formik
       initialValues={{
@@ -78,7 +78,7 @@ export const ThemedDisabled = () => {
   );
 };
 
-export const ThemedDisabledChecked = () => {
+export const ThemedDisabledChecked: FC = () => {
   return (
     <Formik
       initialValues={{
@@ -99,7 +99,7 @@ export const ThemedDisabledChecked = () => {
   );
 };
 
-export const Group = () => {
+export const Group: FC = () => {
   const checkBoxes = [
     { name: 'check1', label: 'Checkbox 1', text: 'Lorem ipsum dolor 1.', value: false },
     { name: 'check2', label: 'Checkbox 2', text: 'Lorem ipsum dolor 2.', value: true },

@@ -7,7 +7,7 @@ export interface IFormikUiSubmitBtnProps {
   className?: string;
   /** Disables the SubmitBtn */
   disabled?: boolean;
-  /** sets aölternativley to children the teyt shown on the button */
+  /** sets alternativley to children the text shown on the button */
   text?: string | number | ReactNode;
   /** Button Click handler */
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;

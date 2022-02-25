@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import * as yup from 'yup';
 import DatePicker, { DatePicker as DatePickerComp } from './DatePicker';
 import Form from '../Form';
@@ -15,7 +15,7 @@ export default {
   },
 };
 
-export const Default = () => {
+export const Default: FC = () => {
   return (
     <Formik
       initialValues={{
@@ -32,7 +32,7 @@ export const Default = () => {
   );
 };
 
-export const Structured = () => {
+export const Structured: FC = () => {
   return (
     <Formik
       initialValues={{
@@ -49,7 +49,7 @@ export const Structured = () => {
   );
 };
 
-export const StructuredRequired = () => {
+export const StructuredRequired: FC = () => {
   const shema = yup.object().shape({
     dateExample: yup.date().required('Is required'),
   });
@@ -78,7 +78,7 @@ export const StructuredRequired = () => {
   );
 };
 
-export const KeyboardNavigationEnabled = () => {
+export const KeyboardNavigationEnabled: FC = () => {
   return (
     <Formik
       initialValues={{
@@ -95,7 +95,7 @@ export const KeyboardNavigationEnabled = () => {
   );
 };
 
-export const Themed = () => {
+export const Themed: FC = () => {
   return (
     <Formik
       initialValues={{
@@ -112,7 +112,7 @@ export const Themed = () => {
   );
 };
 
-export const ThemedWithTimePicker = () => {
+export const ThemedWithTimePicker: FC = () => {
   return (
     <Formik
       initialValues={{
@@ -138,7 +138,7 @@ export const ThemedWithTimePicker = () => {
   );
 };
 
-export const ThemedDisabled = () => {
+export const ThemedDisabled: FC = () => {
   return (
     <Formik
       initialValues={{
@@ -155,7 +155,7 @@ export const ThemedDisabled = () => {
   );
 };
 
-export const ThemedDisabledWithPlaceholder = () => {
+export const ThemedDisabledWithPlaceholder: FC = () => {
   return (
     <Formik
       initialValues={{

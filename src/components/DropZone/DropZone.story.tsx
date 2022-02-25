@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import DropZone, { DropZone as DropZoneComp } from './DropZone';
 import Form from '../Form';
 import { Formik } from 'formik';
@@ -13,7 +13,7 @@ export default {
   },
 };
 
-export const Default = () => {
+export const Default: FC = () => {
   return (
     <Formik
       initialValues={{
@@ -28,7 +28,7 @@ export const Default = () => {
   );
 };
 
-export const WithClearButton = () => {
+export const WithClearButton: FC = () => {
   return (
     <Formik
       initialValues={{
@@ -48,7 +48,7 @@ export const WithClearButton = () => {
   );
 };
 
-export const SingleFileUpload = () => {
+export const SingleFileUpload: FC = () => {
   return (
     <Formik
       initialValues={{
@@ -68,7 +68,7 @@ export const SingleFileUpload = () => {
   );
 };
 
-export const WithFileCountForAcceptedAndRejectedFiles = () => {
+export const WithFileCountForAcceptedAndRejectedFiles: FC = () => {
   return (
     <Formik
       initialValues={{
@@ -88,7 +88,7 @@ export const WithFileCountForAcceptedAndRejectedFiles = () => {
   );
 };
 
-export const Disabled = () => {
+export const Disabled: FC = () => {
   return (
     <Formik
       initialValues={{

@@ -15,7 +15,7 @@ module.exports = {
     'storybook-addon-react-docgen',
     '@storybook/addon-actions',
     '@storybook/addon-links',
-    '@storybook/addon-postcss'
+    '@storybook/addon-postcss',
   ],
   webpackFinal: config => {
     return { ...config,
@@ -29,5 +29,14 @@ module.exports = {
   },
   core: {
     builder: "webpack5"
-  }
+  },
+  typescript: {
+    check: false,
+    checkOptions: {},
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+    },
+  },
 };
