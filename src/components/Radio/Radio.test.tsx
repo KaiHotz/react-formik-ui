@@ -1,11 +1,11 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import React, { FC, ReactNode } from 'react';
+import { render, screen } from '@testing-library/react';
 import { Form, Formik } from 'formik';
 import Radio from './Radio';
 
-// eslint-disable-next-line react/prop-types
-const FormiWrapper = ({ children }) => (
+const FormiWrapper: FC<{ children: ReactNode }> = ({ children }) => (
   <Formik
+    onSubmit={jest.fn()}
     initialValues={{
       radioTest: '0',
     }}
@@ -25,13 +25,13 @@ describe('<Radio />', () => {
   };
 
   it('should render', () => {
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <Radio {...baseProps} />
       </FormiWrapper>,
     );
 
-    expect(wrapper).toBeDefined();
+    expect(screen.getByTestId('fui-radio')).toBeInTheDocument();
   });
 
   it('should allow custom className', () => {
@@ -39,14 +39,15 @@ describe('<Radio />', () => {
       ...baseProps,
       className: 'Custom',
     };
-    const wrapper = mount(
+
+    render(
       <FormiWrapper>
         <Radio {...props} readOnly />
       </FormiWrapper>,
     );
 
-    wrapper.find('input').forEach((node) => {
-      expect(node.prop('className')).toBe(props.className);
+    screen.getAllByTestId('fui-radio-item').forEach((node) => {
+      expect(node).toHaveClass(props.className);
     });
   });
 
@@ -55,25 +56,24 @@ describe('<Radio />', () => {
       ...baseProps,
       hint: 'hintTest',
     };
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <Radio {...props} readOnly />
       </FormiWrapper>,
     );
 
-    expect(wrapper.find('.hint').length).toBe(1);
-    expect(wrapper.find('.hint').text()).toBe(props.hint);
+    expect(screen.getByText(props.hint)).toBeInTheDocument();
   });
 
   it('should be disabled', () => {
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <Radio {...baseProps} disabled />
       </FormiWrapper>,
     );
 
-    wrapper.find('input').forEach((node) => {
-      expect(node.prop('disabled')).toBe(true);
+    screen.getAllByTestId('fui-radio-item').forEach((node) => {
+      expect(node).toHaveProperty('disabled');
     });
   });
 });

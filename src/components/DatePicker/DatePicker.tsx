@@ -54,6 +54,7 @@ export const DatePicker: FC<IFormikUiDatepickerProps> = ({
   };
 
   return (
+    // @ts-ignore
     <ReactDatePicker
       {...rest}
       disabledKeyboardNavigation
@@ -69,6 +70,7 @@ export const DatePicker: FC<IFormikUiDatepickerProps> = ({
       onFocus={onFocus}
       onBlur={onBlur}
       disabled={disabled}
+      data-testid="fui-datePicker"
     />
   );
 };

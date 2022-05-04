@@ -1,14 +1,14 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import React, { FC, ReactNode } from 'react';
+import { render, screen } from '@testing-library/react';
 import { Form, Formik } from 'formik';
 import WithLabel from '../WithLabel';
 import { Checkbox } from './Checkbox';
 
-// eslint-disable-next-line react/prop-types
-const FormiWrapper = ({ children }) => (
+const FormiWrapper: FC<{ children: ReactNode }> = ({ children }) => (
   <Formik
+    onSubmit={jest.fn()}
     initialValues={{
-      checkboxExample1: false,
+      checkboxTest: false,
     }}
   >
     <Form>{children}</Form>
@@ -23,13 +23,13 @@ describe('<Checkbox />', () => {
   const WrappedComponent = WithLabel('checkbox')(Checkbox);
 
   it('should render', () => {
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <WrappedComponent {...baseProps} />
       </FormiWrapper>,
     );
 
-    expect(wrapper).toBeDefined();
+    expect(screen.getByTestId('fui-checkbox')).toBeInTheDocument();
   });
 
   it('should allow custom className', () => {
@@ -37,23 +37,23 @@ describe('<Checkbox />', () => {
       ...baseProps,
       className: 'Custom',
     };
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <WrappedComponent {...props} />
       </FormiWrapper>,
     );
 
-    expect(wrapper.find('input').hasClass(props.className)).toBe(true);
+    expect(screen.getByTestId('fui-checkbox')).toHaveClass(props.className);
   });
 
   it('should be disabled', () => {
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <WrappedComponent {...baseProps} disabled />
       </FormiWrapper>,
     );
 
-    expect(wrapper.find('input').prop('disabled')).toBe(true);
+    expect(screen.getByTestId('fui-checkbox')).toHaveProperty('disabled');
   });
 
   it('should have a hint', () => {
@@ -61,13 +61,12 @@ describe('<Checkbox />', () => {
       ...baseProps,
       hint: 'hintTest',
     };
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <WrappedComponent {...props} />
       </FormiWrapper>,
     );
 
-    expect(wrapper.find('.hint').length).toBe(1);
-    expect(wrapper.find('.hint').text()).toBe(props.hint);
+    expect(screen.getByText(props.hint)).toBeInTheDocument();
   });
 });

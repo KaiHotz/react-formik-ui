@@ -38,6 +38,7 @@ export const Checkbox: FC<IFormikUiCheckboxProps> = ({ disabled, id, name, text,
         style={style}
         disabled={disabled}
         type="checkbox"
+        data-testid="fui-checkbox"
       />
       <label htmlFor={name} className="checkbox-text">
         {text}

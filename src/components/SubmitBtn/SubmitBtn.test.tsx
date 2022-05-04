@@ -1,67 +1,63 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import React, { FC, ReactNode } from 'react';
+import { render, screen } from '@testing-library/react';
 import { Form, Formik } from 'formik';
 import { SubmitBtn } from './SubmitBtn';
 
-// eslint-disable-next-line react/prop-types
-const FormiWrapper = ({ children }) => (
-  <Formik>
+const FormiWrapper: FC<{ children: ReactNode }> = ({ children }) => (
+  <Formik
+    onSubmit={jest.fn()}
+    initialValues={{
+      testValue: '',
+    }}
+  >
     <Form>{children}</Form>
   </Formik>
 );
 
 describe('<SubmitBtn />', () => {
-  const baseProps = {
-    formik: {
-      handleSubmit: jest.fn(),
-    },
-  };
-
   it('should render', () => {
-    const wrapper = mount(
+    render(
       <FormiWrapper>
-        <SubmitBtn {...baseProps} />
+        <SubmitBtn />
       </FormiWrapper>,
     );
 
-    expect(wrapper).toBeDefined();
+    expect(screen.getByTestId('fui-submit-btn')).toBeInTheDocument();
   });
 
   it('should display children', () => {
     const props = {
       children: 'Content',
-      ...baseProps,
     };
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <SubmitBtn {...props} />
       </FormiWrapper>,
     );
 
-    expect(wrapper.find('button').text().includes(props.children)).toBeTruthy();
+    expect(screen.getByText(/Content/i)).toBeInTheDocument();
   });
 
   it('should be disabled', () => {
-    const wrapper = mount(
+    render(
       <FormiWrapper>
-        <SubmitBtn {...baseProps} disabled />
+        <SubmitBtn disabled />
       </FormiWrapper>,
     );
 
-    expect(wrapper.find('button').prop('disabled')).toBe(true);
+    expect(screen.getByTestId('fui-submit-btn')).toHaveProperty('disabled');
   });
 
   it('should allow custom className', () => {
     const props = {
       className: 'Custom',
-      ...baseProps,
     };
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <SubmitBtn {...props} />
       </FormiWrapper>,
     );
 
-    expect(wrapper.find('button').hasClass(props.className)).toBe(true);
+    expect(screen.getByTestId('fui-submit-btn')).toHaveClass(props.className);
   });
 });

@@ -1,12 +1,12 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import React, { FC, ReactNode } from 'react';
+import { render, screen } from '@testing-library/react';
 import { Form, Formik } from 'formik';
 import WithLabel from '../WithLabel';
 import { Input } from './Input';
 
-// eslint-disable-next-line react/prop-types
-const FormiWrapper = ({ children }) => (
+const FormiWrapper: FC<{ children: ReactNode }> = ({ children }) => (
   <Formik
+    onSubmit={jest.fn()}
     initialValues={{
       inputTest: '',
     }}
@@ -26,13 +26,13 @@ describe('<Input />', () => {
   const WrappedComponent = WithLabel('input')(Input);
 
   it('should render', () => {
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <WrappedComponent {...baseProps} />
       </FormiWrapper>,
     );
 
-    expect(wrapper).toBeDefined();
+    expect(screen.getByTestId('fui-input')).toBeInTheDocument();
   });
 
   it('should allow custom className', () => {
@@ -40,27 +40,13 @@ describe('<Input />', () => {
       ...baseProps,
       className: 'Custom',
     };
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <WrappedComponent {...props} />
       </FormiWrapper>,
     );
 
-    expect(wrapper.find('input').hasClass(props.className)).toBe(true);
-  });
-
-  it('should have custom type', () => {
-    const props = {
-      ...baseProps,
-      type: 'text',
-    };
-    const wrapper = mount(
-      <FormiWrapper>
-        <WrappedComponent {...props} />
-      </FormiWrapper>,
-    );
-
-    expect(wrapper.find('input').prop('type')).toBe(props.type);
+    expect(screen.getByTestId('fui-input')).toHaveClass(props.className);
   });
 
   it('should have a label', () => {
@@ -68,13 +54,13 @@ describe('<Input />', () => {
       ...baseProps,
       label: 'Custom',
     };
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <WrappedComponent {...props} />
       </FormiWrapper>,
     );
 
-    expect(wrapper.find('.label').length).toBe(1);
+    expect(screen.getByText(props.label)).toBeInTheDocument();
   });
 
   it('should have a hint', () => {
@@ -82,23 +68,22 @@ describe('<Input />', () => {
       ...baseProps,
       hint: 'hintTest',
     };
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <WrappedComponent {...props} />
       </FormiWrapper>,
     );
 
-    expect(wrapper.find('.hint').length).toBe(1);
-    expect(wrapper.find('.hint').text()).toBe(props.hint);
+    expect(screen.getByText(props.hint)).toBeInTheDocument();
   });
 
   it('should be disabled', () => {
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <WrappedComponent {...baseProps} disabled />
       </FormiWrapper>,
     );
 
-    expect(wrapper.find('input').prop('disabled')).toBe(true);
+    expect(screen.getByTestId('fui-input')).toHaveProperty('disabled');
   });
 });

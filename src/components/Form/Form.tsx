@@ -16,7 +16,7 @@ export const Form: FC<IFormikUiFormProps> = ({
   styling = 'default',
   ...rest
 }) => (
-  <FormCmp {...rest} className={cx('react-formik-ui form-wrapper', styling, className)}>
+  <FormCmp {...rest} className={cx('react-formik-ui form-wrapper', styling, className)} data-testid="fui-form">
     {children}
   </FormCmp>
 );

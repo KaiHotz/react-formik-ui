@@ -61,10 +61,11 @@ export const Select: FC<IFOrmikUiSelectProps> = ({
       value={value}
       disabled={disabled}
       multiple={multiple}
+      data-testid="fui-select"
     >
-      {placeholder && <option value="">{`${placeholder}${!label && required ? ' *' : ''}`}</option>}
+      {placeholder && <option value="" data-testid="fui-select-option">{`${placeholder}${!label && required ? ' *' : ''}`}</option>}
       {options.map((option) => (
-        <option key={option.label} value={option.value}>
+        <option key={option.label} value={option.value} data-testid="fui-select-option">
           {option.label}
         </option>
       ))}

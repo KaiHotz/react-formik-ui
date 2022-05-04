@@ -7,6 +7,8 @@ export interface IFormikUiSubmitBtnProps {
   className?: string;
   /** Disables the SubmitBtn */
   disabled?: boolean;
+  /** sets the children for the button */
+  children?: ReactNode;
   /** sets alternativley to children the text shown on the button */
   text?: string | number | ReactNode;
   /** Button Click handler */
@@ -23,6 +25,7 @@ export const SubmitBtn: FC<IFormikUiSubmitBtnProps> = ({ className, disabled, ch
       disabled={disabled || isSubmitting}
       onClick={onClick}
       className={cx('form-element btn submit-btn', className, { disabled })}
+      data-testid="fui-submit-btn"
     >
       {children || text}
     </button>

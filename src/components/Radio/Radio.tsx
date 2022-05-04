@@ -33,7 +33,7 @@ export const Radio: FC<IFormikUiRadioProps> = ({ disabled, name, options, inline
   const [{ value, onChange }] = useField(name);
 
   return (
-    <div className={cx('radio-options', { inline })}>
+    <div className={cx('radio-options', { inline })} data-testid="fui-radio">
       {options.map((option) => (
         <div key={option.label} className="radio-option">
           <input
@@ -47,6 +47,7 @@ export const Radio: FC<IFormikUiRadioProps> = ({ disabled, name, options, inline
             name={name}
             disabled={disabled}
             type="radio"
+            data-testid="fui-radio-item"
           />
           <label htmlFor={`${name}-id-${option.value}`}>{option.label}</label>
         </div>

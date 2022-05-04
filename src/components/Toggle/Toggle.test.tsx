@@ -1,11 +1,11 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import React, { FC, ReactNode } from 'react';
+import { render, screen } from '@testing-library/react';
 import { Form, Formik } from 'formik';
 import { Toggle } from './Toggle';
 
-// eslint-disable-next-line react/prop-types
-const FormiWrapper = ({ children }) => (
+const FormiWrapper: FC<{ children: ReactNode }> = ({ children }) => (
   <Formik
+    onSubmit={jest.fn()}
     initialValues={{
       toggleTest: false,
     }}
@@ -20,13 +20,13 @@ describe('<Toggle />', () => {
   };
 
   it('should render', () => {
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <Toggle {...baseProps} />
       </FormiWrapper>,
     );
 
-    expect(wrapper).toBeDefined();
+    expect(screen.getByTestId('fui-toggle')).toBeInTheDocument();
   });
 
   it('should allow custom className', () => {
@@ -34,22 +34,23 @@ describe('<Toggle />', () => {
       ...baseProps,
       className: 'Custom',
     };
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <Toggle {...props} />
       </FormiWrapper>,
     );
 
-    expect(wrapper.find('.form-element').hasClass(props.className)).toBe(true);
+    expect(screen.getByTestId('fui-toggle')).toHaveClass(props.className);
   });
 
   it('should be disabled', () => {
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <Toggle {...baseProps} disabled />
       </FormiWrapper>,
     );
 
-    expect(wrapper.find('input').prop('disabled')).toBe(true);
+    expect(screen.getByTestId('fui-toggle')).toHaveClass('isDisabled');
+    expect(screen.getByTestId('fui-toggle-input')).toHaveProperty('disabled');
   });
 });

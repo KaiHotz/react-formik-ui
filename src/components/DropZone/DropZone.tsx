@@ -1,9 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import React, { FC, CSSProperties, ReactNode } from 'react';
 import cx from 'classnames';
 import { useField, useFormikContext } from 'formik';
-import { useDropzone, DropzoneProps, DropzoneOptions, DropzoneState } from 'react-dropzone';
+import { useDropzone, DropzoneProps, DropzoneOptions, DropzoneState, Accept } from 'react-dropzone';
 import WithLabel from '../WithLabel';
 
 type DropZoneOptionsState = DropzoneOptions & DropzoneState;
@@ -20,7 +18,7 @@ export interface IFormikUiDropZoneProps extends DropZoneOptionsState {
   /** Sets an Id for the Dropzone, if not passed, the id will be the name */
   id?: string;
   /** Set accepted file types. See [https://github.com/okonet/attr-accept](https://github.com/okonet/attr-accept) for more information. Keep in mind that mime type determination is not reliable across platforms. CSV files, for example, are reported as text/plain under macOS but as application/vnd.ms-excel under Windows. In some cases there might not be a mime type set at all. See: [https://github.com/react-dropzone/react-dropzone/issues/276](https://github.com/react-dropzone/react-dropzone/issues/276) */
-  accept?: string;
+  accept?: Accept;
   /** Sets the main Label for the DropZone Field */
   label?: ReactNode;
   /** Sets the text to be shown when draging files over the drop zone */
@@ -77,44 +75,43 @@ export const DropZone: FC<IFormikUiDropZoneProps> = ({
 
   return (
     <>
-      <section>
-        <div
-          {...getRootProps()}
-          className={cx('dropzone', className, {
-            'dropzone--active': isDragActive,
-            'dropzone--disabled': disabled,
-          })}
-        >
-          {disabled ? (
-            <p className="text">{disabledText}</p>
-          ) : (
-            <>
-              <input {...getInputProps()} id={id || name} name={name} />
-              {(acceptedFiles.length && value.length) || fileRejections.length ? (
-                value.map((file: File) => {
-                  if (file.type.includes('image')) {
-                    return <img key={file.name} src={URL.createObjectURL(file)} className="img-thumbnail" alt={file.name} />;
-                  }
+      <div
+        {...getRootProps()}
+        className={cx('dropzone', className, {
+          'dropzone--active': isDragActive,
+          'dropzone--disabled': disabled,
+        })}
+        data-testid="fui-dropzone"
+      >
+        {disabled ? (
+          <p className="text">{disabledText}</p>
+        ) : (
+          <>
+            <input {...getInputProps()} id={id || name} name={name} />
+            {(acceptedFiles.length && value.length) || fileRejections.length ? (
+              value.map((file: File) => {
+                if (file.type.includes('image')) {
+                  return <img key={file.name} src={URL.createObjectURL(file)} className="img-thumbnail" alt={file.name} />;
+                }
 
-                  return (
-                    <div key={file.name} className="icon-wrapper">
-                      <div className="icon">
-                        <i title={file.name.split('.').pop()} />
-                      </div>
-                      <p>{file.name.split('.').shift()}</p>
+                return (
+                  <div key={file.name} className="icon-wrapper">
+                    <div className="icon">
+                      <i title={file.name.split('.').pop()} />
                     </div>
-                  );
-                })
-              ) : isDragActive ? (
-                <p className="text">{zoneActiveText}</p>
-              ) : (
-                <p className="text">{placeholder}</p>
-              )}
-              {fileCount && <div className="file-count">{`Accepted ${acceptedFiles.length}, rejected ${fileRejections.length} files`}</div>}
-            </>
-          )}
-        </div>
-      </section>
+                    <p>{file.name.split('.').shift()}</p>
+                  </div>
+                );
+              })
+            ) : isDragActive ? (
+              <p className="text">{zoneActiveText}</p>
+            ) : (
+              <p className="text">{placeholder}</p>
+            )}
+            {fileCount && <div className="file-count">{`Accepted ${acceptedFiles.length}, rejected ${fileRejections.length} files`}</div>}
+          </>
+        )}
+      </div>
       {withClearButton && !disabled && (
         <button className="clear-button" type="button" onClick={handleReset}>
           {clearButtonText}

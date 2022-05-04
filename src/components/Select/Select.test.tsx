@@ -1,12 +1,12 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import React, { FC, ReactNode } from 'react';
+import { render, screen } from '@testing-library/react';
 import { Form, Formik } from 'formik';
 import WithLabel from '../WithLabel';
 import { Select } from './Select';
 
-// eslint-disable-next-line react/prop-types
-const FormiWrapper = ({ children }) => (
+const FormiWrapper: FC<{ children: ReactNode }> = ({ children }) => (
   <Formik
+    onSubmit={jest.fn()}
     initialValues={{
       selectTest: '',
     }}
@@ -28,13 +28,13 @@ describe('<Select />', () => {
   const WrappedComponent = WithLabel('select')(Select);
 
   it('should render', () => {
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <WrappedComponent {...baseProps} />
       </FormiWrapper>,
     );
 
-    expect(wrapper).toBeDefined();
+    expect(screen.getByTestId('fui-select')).toBeInTheDocument();
   });
 
   it('should allow custom className', () => {
@@ -42,13 +42,13 @@ describe('<Select />', () => {
       ...baseProps,
       className: 'customClass',
     };
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <WrappedComponent {...props} />
       </FormiWrapper>,
     );
 
-    expect(wrapper.find('select').hasClass(props.className)).toBe(true);
+    expect(screen.getByTestId('fui-select')).toHaveClass(props.className);
   });
 
   it('should have a label', () => {
@@ -56,13 +56,13 @@ describe('<Select />', () => {
       ...baseProps,
       label: 'Custom',
     };
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <WrappedComponent {...props} />
       </FormiWrapper>,
     );
 
-    expect(wrapper.find('.label').length).toBe(1);
+    expect(screen.getByText(props.label)).toBeInTheDocument();
   });
 
   it('should have a placeholder', () => {
@@ -70,13 +70,13 @@ describe('<Select />', () => {
       ...baseProps,
       placeholder: 'Custom',
     };
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <WrappedComponent {...props} />
       </FormiWrapper>,
     );
 
-    expect(wrapper.find('option').first().text()).toBe(props.placeholder);
+    expect(screen.getAllByTestId('fui-select-option')[0]).toHaveTextContent(props.placeholder);
   });
 
   it('should have a hint', () => {
@@ -84,23 +84,22 @@ describe('<Select />', () => {
       ...baseProps,
       hint: 'hintTest',
     };
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <WrappedComponent {...props} />
       </FormiWrapper>,
     );
 
-    expect(wrapper.find('.hint').length).toBe(1);
-    expect(wrapper.find('.hint').text()).toBe(props.hint);
+    expect(screen.getByText(props.hint)).toBeInTheDocument();
   });
 
   it('should be disabled', () => {
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <WrappedComponent {...baseProps} disabled />
       </FormiWrapper>,
     );
 
-    expect(wrapper.find('select').prop('disabled')).toBe(true);
+    expect(screen.getByTestId('fui-select')).toHaveProperty('disabled');
   });
 });

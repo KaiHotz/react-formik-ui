@@ -23,7 +23,7 @@ export interface IFormikUiAutocompleteProps {
   /** Disables the Input Field */
   disabled?: boolean;
   /** Sets a hint text after/below the Input Field */
-  hint: string;
+  hint?: string;
   /** Sets the field as requierd, if label is passed, an * is added to the end of the main label. Validation will only work if you pass the required() method in the yup validation schema */
   required?: boolean;
 }
@@ -48,6 +48,7 @@ export const Autocomplete: FC<IFormikUiAutocompleteProps> = ({ name, id, suggest
         value={value}
         type="text"
         tabIndex={0}
+        data-testid="fui-autocomplete"
       />
       {showSuggestions && !!value && (
         <ul className="suggestions">

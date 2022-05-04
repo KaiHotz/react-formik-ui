@@ -61,6 +61,7 @@ export const Input: FC<IFormikUiInputProps> = ({
       onAnimationStart={onAnimationStart}
       placeholder={placeholder}
       disabled={disabled}
+      data-testid="fui-input"
     />
   );
 };

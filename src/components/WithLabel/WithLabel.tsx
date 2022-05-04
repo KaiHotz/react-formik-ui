@@ -68,7 +68,11 @@ export const WithLabel =
           <span className="rfui-error">
             <ErrorMessage name={name} />
           </span>
-          {!!hint && <span className="hint">{hint}</span>}
+          {!!hint && (
+            <span className="hint" data-testid="fui-hint">
+              {hint}
+            </span>
+          )}
         </div>
       );
     };

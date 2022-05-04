@@ -1,12 +1,12 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import React, { FC, ReactNode } from 'react';
+import { render, screen } from '@testing-library/react';
 import { Form, Formik } from 'formik';
 import WithLabel from '../WithLabel';
 import { Textarea } from './Textarea';
 
-// eslint-disable-next-line react/prop-types
-const FormiWrapper = ({ children }) => (
+const FormiWrapper: FC<{ children: ReactNode }> = ({ children }) => (
   <Formik
+    onSubmit={jest.fn()}
     initialValues={{
       autocompleteTest: '',
     }}
@@ -26,13 +26,13 @@ describe('<Textarea />', () => {
   const WrappedComponent = WithLabel('textarea')(Textarea);
 
   it('should render', () => {
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <WrappedComponent {...baseProps} />
       </FormiWrapper>,
     );
 
-    expect(wrapper).toBeDefined();
+    expect(screen.getByTestId('fui-textarea')).toBeInTheDocument();
   });
 
   it('should allow custom className', () => {
@@ -40,13 +40,13 @@ describe('<Textarea />', () => {
       ...baseProps,
       className: 'Custom',
     };
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <WrappedComponent {...props} readOnly />
       </FormiWrapper>,
     );
 
-    expect(wrapper.find('textarea').hasClass(props.className)).toBe(true);
+    expect(screen.getByTestId('fui-textarea')).toHaveClass(props.className);
   });
 
   it('should have a label', () => {
@@ -54,13 +54,13 @@ describe('<Textarea />', () => {
       ...baseProps,
       label: 'Custom Label',
     };
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <WrappedComponent {...props} readOnly />
       </FormiWrapper>,
     );
 
-    expect(wrapper.find('.label').length).toBe(1);
+    expect(screen.getByText(props.label)).toBeInTheDocument();
   });
 
   it('should have a hint', () => {
@@ -68,13 +68,12 @@ describe('<Textarea />', () => {
       ...baseProps,
       hint: 'hintTest',
     };
-    const wrapper = mount(
+    render(
       <FormiWrapper>
         <WrappedComponent {...props} readOnly />
       </FormiWrapper>,
     );
 
-    expect(wrapper.find('.hint').length).toBe(1);
-    expect(wrapper.find('.hint').text()).toBe(props.hint);
+    expect(screen.getByText(props.hint)).toBeInTheDocument();
   });
 });

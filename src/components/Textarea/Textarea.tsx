@@ -43,6 +43,7 @@ export const Textarea: FC<IFormikUiTextareaProps> = ({ disabled, id, name, place
       disabled={disabled}
       className={className}
       style={style}
+      data-testid="fui-textarea"
     />
   );
 };
