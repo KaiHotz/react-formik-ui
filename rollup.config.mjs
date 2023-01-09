@@ -1,6 +1,6 @@
 import { DEFAULT_EXTENSIONS } from '@babel/core';
 import babel from '@rollup/plugin-babel';
-import typescript from 'rollup-plugin-typescript2';
+import typescript from '@rollup/plugin-typescript';
 import commonjs from '@rollup/plugin-commonjs';
 import external from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
@@ -29,27 +29,31 @@ const config = {
   output: [
     {
       dir: 'dist',
-      format: 'es',
-      preserveModules: true,
-      preserveModulesRoot: 'src',
+      format: 'cjs',
+      exports: 'named',
+      sourcemap: false,
     },
     {
       dir: 'dist',
-      format: 'cjs',
+      format: 'es',
+      preserveModules: true,
+      preserveModulesRoot: 'src',
       exports: 'named',
+      sourcemap: false,
     },
   ],
   plugins: [
     postcss({
+      plugins: [],
       minimize: true,
     }),
     external({
       includeDependencies: true,
     }),
     typescript({
+      tsconfig: './tsconfig.json',
       typescript: typescriptEngine,
-      include: ['*.js+(|x)', '**/*.js+(|x)'],
-      exclude: ['coverage', 'config', 'dist', 'node_modules/**', '*.test.{js+(|x), ts+(|x)}', '**/*.test.{js+(|x), ts+(|x)}'],
+      sourceMap: false,
     }),
     commonjs(),
     babel({
@@ -62,6 +66,9 @@ const config = {
     resolve(),
     terser(),
   ],
+  watch: {
+    clearScreen: false,
+  },
 };
 
 export default config;
