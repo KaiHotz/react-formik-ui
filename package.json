@@ -162,15 +162,5 @@
     "yup": "^1.1.1"
   },
   "resolutions": {
-    "node-fetch": "^2.6.7",
-    "prismjs": "^1.24.0",
-    "trim": "^0.0.3",
-    "highlight.js": "^10.4.1",
-    "postcss": "^8.4.16",
-    "glob-parent": "^5.1.2",
-    "marked": "^4.0.10",
-    "loader-utils": "^1.4.1",
-    "json5": "^1.0.2",
-    "trim-newlines": "^3.0.1"
   }
 }
