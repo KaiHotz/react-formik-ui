@@ -20,7 +20,6 @@ const schema = yup
     salutation: yup.string(),
     fullName: yup.string().required('Name is required'),
     email: yup.string().email('Wrong format').required('Email is required'),
-    birthDay: yup.date().required('Is required'),
     phoneNr: yup.string().required('Phone number is required'),
     title: yup.string().required('Is required').nullable(),
     maritalStatus: yup.string().nullable(),
