@@ -1,7 +1,8 @@
 import React, { FC, CSSProperties, ReactNode } from 'react';
-import cx from 'classnames';
+import cx from 'clsx';
 import { useField, useFormikContext } from 'formik';
 import { useDropzone, DropzoneProps, DropzoneOptions, DropzoneState, Accept } from 'react-dropzone';
+
 import WithLabel from '../WithLabel';
 
 type DropZoneOptionsState = DropzoneOptions & DropzoneState;
@@ -59,10 +60,10 @@ export const DropZone: FC<IFormikUiDropZoneProps> = ({
   const { handleReset } = useFormikContext();
   const [{ value }, , { setValue }] = useField(name);
 
-  const onDrop: DropzoneProps['onDrop'] = (dropedFiles) => {
+  const onDrop: DropzoneProps['onDrop'] = async (dropedFiles) => {
     const files = multiple ? value.concat(dropedFiles) : dropedFiles;
 
-    setValue(files);
+    await setValue(files);
   };
 
   const { getRootProps, getInputProps, isDragActive, acceptedFiles, fileRejections } = useDropzone({
@@ -91,7 +92,9 @@ export const DropZone: FC<IFormikUiDropZoneProps> = ({
             {(acceptedFiles.length && value.length) || fileRejections.length ? (
               value.map((file: File) => {
                 if (file.type.includes('image')) {
-                  return <img key={file.name} src={URL.createObjectURL(file)} className="img-thumbnail" alt={file.name} />;
+                  return (
+                    <img key={file.name} src={URL.createObjectURL(file)} className="img-thumbnail" alt={file.name} />
+                  );
                 }
 
                 return (
@@ -108,7 +111,9 @@ export const DropZone: FC<IFormikUiDropZoneProps> = ({
             ) : (
               <p className="text">{placeholder}</p>
             )}
-            {fileCount && <div className="file-count">{`Accepted ${acceptedFiles.length}, rejected ${fileRejections.length} files`}</div>}
+            {fileCount && (
+              <div className="file-count">{`Accepted ${acceptedFiles.length}, rejected ${fileRejections.length} files`}</div>
+            )}
           </>
         )}
       </div>

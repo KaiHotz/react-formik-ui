@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 import * as yup from 'yup';
+import { Formik } from 'formik';
+
 import DatePicker, { DatePicker as DatePickerComp } from './DatePicker';
 import Form from '../Form';
 import SubmitBtn from '../SubmitBtn';
-import { Formik } from 'formik';
 
 export default {
   title: 'DatePicker',
@@ -164,7 +165,13 @@ export const ThemedDisabledWithPlaceholder: FC = () => {
       onSubmit={(data) => alert(JSON.stringify(data))}
     >
       <Form styling="theme">
-        <DatePicker name="dateExample" label="Select a date" placeholder="DD.MM.YYYYY" dateFormat="dd.MM.yyyy" disabled />
+        <DatePicker
+          name="dateExample"
+          label="Select a date"
+          placeholder="DD.MM.YYYYY"
+          dateFormat="dd.MM.yyyy"
+          disabled
+        />
 
         <SubmitBtn text="Submit" />
       </Form>

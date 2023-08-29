@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { FC, useState, ReactNode, FocusEvent, CSSProperties, ComponentType, ElementType, memo } from 'react';
-import cx from 'classnames';
+import cx from 'clsx';
 import { useField, ErrorMessage } from 'formik';
 import omit from 'lodash.omit';
 
@@ -54,7 +54,11 @@ export const WithLabel =
       return (
         <div className={cx('form-element', component, { 'has-error': !!error, hidden })}>
           <div className={cx(`${component}-wrapper`, { disabled })}>
-            {label && <span className={cx('label', { hide, 'move-label': moveLabel })}>{`${label}${required ? ' *' : ''}`}</span>}
+            {label && (
+              <span className={cx('label', { hide, 'move-label': moveLabel })}>{`${label as string}${
+                required ? ' *' : ''
+              }`}</span>
+            )}
             {WrappedComponent && (
               <WrappedComponent
                 onAnimationStart={handleAutoFill}

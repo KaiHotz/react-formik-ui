@@ -1,5 +1,6 @@
 import React, { FC, CSSProperties, ChangeEvent, ReactNode } from 'react';
 import { useField } from 'formik';
+
 import WithLabel from '../WithLabel';
 
 export interface IFOrmikUiSelectOption {
@@ -47,8 +48,10 @@ export const Select: FC<IFOrmikUiSelectProps> = ({
 }) => {
   const [{ value, onChange }, , { setValue }] = useField(name);
 
-  const handleMultipleChange = (event: ChangeEvent<HTMLSelectElement>): void =>
-    setValue([].slice.call(event.target.selectedOptions).map((option: IFOrmikUiSelectOption) => option.value));
+  const handleMultipleChange = async (event: ChangeEvent<HTMLSelectElement>): Promise<void> => {
+    const val = [].slice.call(event.target.selectedOptions).map((option: IFOrmikUiSelectOption) => option.value);
+    await setValue(val);
+  };
 
   return (
     <select
@@ -63,7 +66,9 @@ export const Select: FC<IFOrmikUiSelectProps> = ({
       multiple={multiple}
       data-testid="fui-select"
     >
-      {placeholder && <option value="" data-testid="fui-select-option">{`${placeholder}${!label && required ? ' *' : ''}`}</option>}
+      {placeholder && (
+        <option value="" data-testid="fui-select-option">{`${placeholder}${!label && required ? ' *' : ''}`}</option>
+      )}
       {options.map((option) => (
         <option key={option.label} value={option.value} data-testid="fui-select-option">
           {option.label}

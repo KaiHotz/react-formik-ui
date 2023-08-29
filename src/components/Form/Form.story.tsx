@@ -1,8 +1,20 @@
 import React, { FC } from 'react';
 import * as yup from 'yup';
 import { Formik } from 'formik';
+
 import Form, { Form as FormComp } from './Form';
-import { Radio, Input, DatePicker, PhoneInput, Select, Toggle, DropZone, Textarea, Checkbox, SubmitBtn } from '../../index';
+import {
+  Radio,
+  Input,
+  DatePicker,
+  PhoneInput,
+  Select,
+  Toggle,
+  DropZone,
+  Textarea,
+  Checkbox,
+  SubmitBtn,
+} from '../../index';
 
 export default {
   title: 'Form',
@@ -92,7 +104,9 @@ export const Structured: FC = () => {
             />
 
             <div style={{ marginBottom: '15px' }}>
-              <div style={{ marginBottom: '10px' }}>{`Do you have a drivers license ? ${values.driverLicense ? 'Yes' : 'No'}`}</div>
+              <div style={{ marginBottom: '10px' }}>{`Do you have a drivers license ? ${
+                values.driverLicense ? 'Yes' : 'No'
+              }`}</div>
               <Toggle name="driverLicense" />
             </div>
 
@@ -175,7 +189,9 @@ export const Themed: FC = () => {
             />
 
             <div style={{ marginBottom: '15px' }}>
-              <div style={{ marginBottom: '10px' }}>{`Do you have a drivers license ? ${values.driverLicense ? 'Yes' : 'No'}`}</div>
+              <div style={{ marginBottom: '10px' }}>{`Do you have a drivers license ? ${
+                values.driverLicense ? 'Yes' : 'No'
+              }`}</div>
               <Toggle name="driverLicense" />
             </div>
 

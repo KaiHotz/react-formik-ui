@@ -1,6 +1,7 @@
 import React, { FC, CSSProperties, ReactNode } from 'react';
 import { useField } from 'formik';
-import cx from 'classnames';
+import cx from 'clsx';
+
 import WithLabel from '../WithLabel';
 
 export interface IFormikUiRadioOption {

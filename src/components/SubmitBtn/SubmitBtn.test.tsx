@@ -1,11 +1,13 @@
 import React, { FC, ReactNode } from 'react';
 import { render, screen } from '@testing-library/react';
+import { vi, describe, it, expect } from 'vitest';
 import { Form, Formik } from 'formik';
+
 import { SubmitBtn } from './SubmitBtn';
 
 const FormiWrapper: FC<{ children: ReactNode }> = ({ children }) => (
   <Formik
-    onSubmit={jest.fn()}
+    onSubmit={vi.fn()}
     initialValues={{
       testValue: '',
     }}

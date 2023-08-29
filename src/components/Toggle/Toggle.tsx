@@ -1,5 +1,5 @@
 import React, { FC, CSSProperties } from 'react';
-import cx from 'classnames';
+import cx from 'clsx';
 import { useField } from 'formik';
 
 export interface IFormikUiToggleProps {
@@ -18,12 +18,16 @@ export interface IFormikUiToggleProps {
 export const Toggle: FC<IFormikUiToggleProps> = ({ className, disabled, name, style, id, ...rest }) => {
   const [{ value }, , { setValue }] = useField(name);
 
-  const handleChange = (): void => {
-    setValue(!value);
+  const handleChange = async (): Promise<void> => {
+    await setValue(!value);
   };
 
   return (
-    <div className={cx('form-element', 'toggle-wrapper', className, { isDisabled: disabled })} style={style} data-testid="fui-toggle">
+    <div
+      className={cx('form-element', 'toggle-wrapper', className, { isDisabled: disabled })}
+      style={style}
+      data-testid="fui-toggle"
+    >
       <label className={cx('toggle-switch', className)}>
         <input
           {...rest}

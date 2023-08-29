@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
+import { Formik } from 'formik';
+
 import DropZone, { DropZone as DropZoneComp } from './DropZone';
 import Form from '../Form';
-import { Formik } from 'formik';
 
 export default {
   title: 'DropZone',
@@ -22,7 +23,11 @@ export const Default: FC = () => {
       onSubmit={(data) => alert(JSON.stringify(data))}
     >
       <Form>
-        <DropZone name="files" label="File upload" placeholder="Try dropping some files here, or click to select files to upload." />
+        <DropZone
+          name="files"
+          label="File upload"
+          placeholder="Try dropping some files here, or click to select files to upload."
+        />
       </Form>
     </Formik>
   );

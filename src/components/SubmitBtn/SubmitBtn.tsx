@@ -1,5 +1,5 @@
 import React, { FC, MouseEvent, memo, ReactNode } from 'react';
-import cx from 'classnames';
+import cx from 'clsx';
 import { useFormikContext } from 'formik';
 
 export interface IFormikUiSubmitBtnProps {

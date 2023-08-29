@@ -1,9 +1,7 @@
-import type { StorybookConfig } from '@storybook/react-webpack5';
-import custom from './webpack.config.js';
+import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
   stories: [
-    '../src/components/**/*.stories.@(js|jsx|ts|tsx)',
     '../src/components/**/*.story.@(js|jsx|ts|tsx)'
   ],
   addons: [
@@ -20,22 +18,9 @@ const config: StorybookConfig = {
       }
     },
   ],
-  webpackFinal: async config => {
-    return {
-      ...config,
-      resolve: {
-        ...config.resolve,
-        ...custom.resolve
-      },
-      module: {
-        ...config.module,
-        rules: custom.module.rules
-      }
-    };
-  },
   framework: {
-    name: '@storybook/react-webpack5',
-    options: {}
+    name: '@storybook/react-vite',
+    options: {},
   },
   docs: {
     autodocs: true,

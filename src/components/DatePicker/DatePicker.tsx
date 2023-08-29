@@ -2,6 +2,7 @@ import React, { FC, FocusEvent, ReactNode } from 'react';
 import ReactDatePicker, { ReactDatePickerProps } from 'react-datepicker';
 import { isValid } from 'date-fns';
 import { useField } from 'formik';
+
 import 'react-datepicker/dist/react-datepicker.css';
 import WithLabel from '../WithLabel';
 
@@ -32,29 +33,32 @@ export const DatePicker: FC<IFormikUiDatepickerProps> = ({
   autoComplete = 'off',
   ...rest
 }) => {
-  const [{ value }, , { setValue }] = useField(name);
+  const [{ value }, , { setValue, setError }] = useField(name);
 
-  const handleChangeRaw = (event: FocusEvent<HTMLInputElement>): void => {
+  const handleChangeRaw = async (event: FocusEvent<HTMLInputElement>): Promise<void> => {
     const validChars = /^\d{0,2}[./]{0,1}\d{0,2}[./]{0,1}\d{0,4}$/;
     if (!validChars.test(event.target.value)) {
       event.preventDefault();
     }
 
     if (isValid(new Date(value as string | number | Date))) {
-      setValue(value);
+      await setValue(value);
     }
   };
 
   const handleChange: ReactDatePickerProps['onChange'] = (date) => {
-    if (date && isValid(date)) {
-      setValue(date);
-    } else {
-      setValue('');
+    try {
+      if (date && isValid(date)) {
+        void setValue(date);
+      } else {
+        void setValue('');
+      }
+    } catch (e: unknown) {
+      setError('Ups something went wrong');
     }
   };
 
   return (
-    // @ts-ignore
     <ReactDatePicker
       {...rest}
       disabledKeyboardNavigation

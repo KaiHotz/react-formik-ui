@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Formik } from 'formik';
+
 import PhoneInput, { PhoneInput as PhoneInputComp } from './PhoneInput';
 import Form from '../Form';
 
@@ -53,7 +54,13 @@ export const WithCountryMeta: FC = () => {
       {({ values }) => {
         return (
           <Form>
-            <PhoneInput name="phoneData" label="Phone Nr." placeholder="+1 702 123 4567" hint="This is a hint" withCountryMeta />
+            <PhoneInput
+              name="phoneData"
+              label="Phone Nr."
+              placeholder="+1 702 123 4567"
+              hint="This is a hint"
+              withCountryMeta
+            />
             <fieldset style={{ maxWidth: 250, minHeight: 32, marginTop: 20 }}>
               <legend>Preview of the returned Value:</legend>
               <pre style={{ margin: 0 }}>{values.phoneData && JSON.stringify(values.phoneData, null, 2)}</pre>
@@ -89,7 +96,12 @@ export const WithPreferredCountries: FC = () => {
       onSubmit={(data) => alert(JSON.stringify(data))}
     >
       <Form>
-        <PhoneInput name="phoneNr" label="Phone Nr." hint="This is a hint" preferredCountries={['CL', 'AR', 'BR', 'CO']} />
+        <PhoneInput
+          name="phoneNr"
+          label="Phone Nr."
+          hint="This is a hint"
+          preferredCountries={['CL', 'AR', 'BR', 'CO']}
+        />
       </Form>
     </Formik>
   );

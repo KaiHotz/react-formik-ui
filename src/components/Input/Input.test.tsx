@@ -1,12 +1,14 @@
 import React, { FC, ReactNode } from 'react';
 import { render, screen } from '@testing-library/react';
+import { vi, describe, it, expect } from 'vitest';
 import { Form, Formik } from 'formik';
+
 import WithLabel from '../WithLabel';
 import { Input } from './Input';
 
 const FormiWrapper: FC<{ children: ReactNode }> = ({ children }) => (
   <Formik
-    onSubmit={jest.fn()}
+    onSubmit={vi.fn()}
     initialValues={{
       inputTest: '',
     }}
@@ -18,9 +20,9 @@ const FormiWrapper: FC<{ children: ReactNode }> = ({ children }) => (
 describe('<Input />', () => {
   const baseProps = {
     name: 'inputTest',
-    onFocus: jest.fn(),
-    onBlur: jest.fn(),
-    onAnimationStart: jest.fn(),
+    onFocus: vi.fn(),
+    onBlur: vi.fn(),
+    onAnimationStart: vi.fn(),
   };
 
   const WrappedComponent = WithLabel('input')(Input);

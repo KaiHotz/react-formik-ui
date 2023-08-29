@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Formik } from 'formik';
+
 import Toggle, { Toggle as ToggleComp } from './Toggle';
 import Form from '../Form';
 

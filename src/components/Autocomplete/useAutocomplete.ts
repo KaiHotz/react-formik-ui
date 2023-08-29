@@ -1,5 +1,6 @@
 import { useState, MouseEvent, ChangeEvent, KeyboardEvent } from 'react';
 import { useFormikContext } from 'formik';
+
 import { Suggestions } from './types';
 
 export const useAutocomplete = (
@@ -18,7 +19,7 @@ export const useAutocomplete = (
   const [filteredSuggestions, setFilteredSuggestions] = useState<Suggestions>(null);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
+  const handleChange = async (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.currentTarget;
     const filtered = suggestions?.filter((suggestion: string) => suggestion.toLowerCase().startsWith(value.toLowerCase()));
 
@@ -28,27 +29,27 @@ export const useAutocomplete = (
     }
     setShowSuggestions(true);
 
-    setFieldValue(name, value);
-    setFieldTouched(name, true);
+    await setFieldValue(name, value);
+    await setFieldTouched(name, true);
   };
 
-  const handleClick = (event: MouseEvent<HTMLLIElement>): void => {
+  const handleClick = async (event: MouseEvent<HTMLLIElement>) => {
     setActiveSuggestion(0);
     setFilteredSuggestions(null);
     setShowSuggestions(false);
 
-    setFieldValue(name, event.currentTarget.innerText);
-    setFieldTouched(name, true);
+    await setFieldValue(name, event.currentTarget.innerText);
+    await setFieldTouched(name, true);
   };
 
-  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>): void => {
+  const handleKeyDown = async (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter' && filteredSuggestions) {
       event.preventDefault();
       if (event?.currentTarget?.value === '') return;
 
       setShowSuggestions(false);
-      setFieldValue(name, filteredSuggestions[activeSuggestion]);
-      setFieldTouched(name, true);
+      await setFieldValue(name, filteredSuggestions[activeSuggestion]);
+      await setFieldTouched(name, true);
     } else if (event.key === 'ArrowUp' && filteredSuggestions) {
       const { length } = filteredSuggestions;
       setActiveSuggestion(activeSuggestion === 0 ? length - 1 : activeSuggestion - 1);

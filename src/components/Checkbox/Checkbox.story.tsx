@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
+import { Formik } from 'formik';
+
 import Checkbox, { Checkbox as CheckboxComp } from './Checkbox';
 import Form from '../Form';
-import { Formik } from 'formik';
 
 export default {
   title: 'Checkbox',
@@ -22,7 +23,11 @@ export const Default: FC = () => {
       onSubmit={(data) => alert(JSON.stringify(data))}
     >
       <Form>
-        <Checkbox name="checkboxExample" label="Checkbox label" text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr." />
+        <Checkbox
+          name="checkboxExample"
+          label="Checkbox label"
+          text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr."
+        />
       </Form>
     </Formik>
   );
@@ -37,7 +42,11 @@ export const Structured: FC = () => {
       onSubmit={(data) => alert(JSON.stringify(data))}
     >
       <Form styling="structure">
-        <Checkbox name="checkboxExample" label="Checkbox label" text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr." />
+        <Checkbox
+          name="checkboxExample"
+          label="Checkbox label"
+          text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr."
+        />
       </Form>
     </Formik>
   );
@@ -72,7 +81,12 @@ export const ThemedDisabled: FC = () => {
       onSubmit={(data) => alert(JSON.stringify(data))}
     >
       <Form styling="theme">
-        <Checkbox name="checkboxExample" label="Checkbox label" text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr." disabled />
+        <Checkbox
+          name="checkboxExample"
+          label="Checkbox label"
+          text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr."
+          disabled
+        />
       </Form>
     </Formik>
   );

@@ -1,12 +1,14 @@
 import React, { FC, ReactNode } from 'react';
 import { render, screen } from '@testing-library/react';
+import { vi, describe, it, expect } from 'vitest';
 import { Form, Formik } from 'formik';
+
 import WithLabel from '../WithLabel';
 import { Textarea } from './Textarea';
 
 const FormiWrapper: FC<{ children: ReactNode }> = ({ children }) => (
   <Formik
-    onSubmit={jest.fn()}
+    onSubmit={vi.fn()}
     initialValues={{
       autocompleteTest: '',
     }}
@@ -19,8 +21,8 @@ describe('<Textarea />', () => {
   const baseProps = {
     name: 'textAreaTest',
     value: '',
-    onFocus: jest.fn(),
-    onBlur: jest.fn(),
+    onFocus: vi.fn(),
+    onBlur: vi.fn(),
   };
 
   const WrappedComponent = WithLabel('textarea')(Textarea);

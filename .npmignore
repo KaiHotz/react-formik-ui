@@ -13,15 +13,17 @@
 .editorconfig
 .eslint*
 .yarnrc
-.babelrc.js
-.stylelintrc.js
-.stylelintignore
+.babel*
+.stylelint*
 .storybook
-jest.config.js
-jest.setup.js
-postcss.config.js
-prettier.config.js
-
+.yarn*
+.prettier*
+jest*
+postcss*
+prettier*
+rollup*
+vit*
+setupTests.*
 
 config.gypi
 CVS

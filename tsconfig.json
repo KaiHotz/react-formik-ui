@@ -1,44 +1,40 @@
 {
   "compilerOptions": {
+    "target": "es2016",
+    "module": "esnext",
+    "jsx": "react",
+    "sourceMap": true,
+    "outDir": "dist",
+    "strict": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
     "declaration": true,
     "declarationDir": "./dist",
-    "module": "esnext",
-    "noImplicitAny": true,
-    "outDir": "./dist",
-    "target": "es5",
-    "moduleResolution": "node",
+    "noEmit": false,
     "baseUrl": "./src",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "isolatedModules": true,
-    "jsx": "react",
+    "noImplicitAny": true,
     "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "strict": true,
-    "pretty": true,
+    "strictNullChecks": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "downlevelIteration": true,
-    "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
-    "skipLibCheck": true,
-    "allowSyntheticDefaultImports": true,
+    "types": ["@testing-library/jest-dom"],
     "stripInternal": true,
     "emitDecoratorMetadata": false,
     "experimentalDecorators": false,
     "strictPropertyInitialization": true,
     "importHelpers": true,
-    "sourceMap": true,
-    "strictNullChecks": true,
     "strictFunctionTypes": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
-    "noEmit": false,
     "paths": {
       "*": [
         "*",
@@ -46,15 +42,11 @@
       ]
     },
   },
-  "include": [
-    "src/**/*"
-  ],
+  "include": ["src"],
   "exclude": [
     "coverage",
     "config",
     "dist",
-    "node_modules/**",
-    "*.test.{js+(|x), ts+(|x)}",
-    "**/*.test.{js+(|x), ts+(|x)}"
+    "node_modules/**"
   ]
 }
