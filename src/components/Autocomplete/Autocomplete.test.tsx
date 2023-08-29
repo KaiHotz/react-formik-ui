@@ -1,12 +1,14 @@
 import React, { FC, ReactNode } from 'react';
 import { render, screen } from '@testing-library/react';
+import { vi, describe, it, expect } from 'vitest';
 import { Form, Formik } from 'formik';
+
 import WithLabel from '../WithLabel';
 import { Autocomplete } from './Autocomplete';
 
 const FormiWrapper: FC<{ children: ReactNode }> = ({ children }) => (
   <Formik
-    onSubmit={jest.fn()}
+    onSubmit={vi.fn()}
     initialValues={{
       autocompleteTest: '',
     }}

@@ -1,5 +1,5 @@
 import React, { FC, memo } from 'react';
-import cx from 'classnames';
+import cx from 'clsx';
 import { Form as FormCmp, FormikFormProps } from 'formik';
 import '../../styles/index.scss';
 

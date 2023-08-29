@@ -1,6 +1,7 @@
 import React, { FC, CSSProperties, ReactNode } from 'react';
-import cx from 'classnames';
+import cx from 'clsx';
 import { useField } from 'formik';
+
 import { useAutocomplete } from './useAutocomplete';
 import { Suggestions } from './types';
 import WithLabel from '../WithLabel';
@@ -30,10 +31,8 @@ export interface IFormikUiAutocompleteProps {
 
 export const Autocomplete: FC<IFormikUiAutocompleteProps> = ({ name, id, suggestions, className, style, ...rest }) => {
   const [{ value }] = useField(name);
-  const [activeSuggestion, filteredSuggestions, showSuggestions, handleChange, handleClick, handleKeyDown] = useAutocomplete(
-    name,
-    suggestions,
-  );
+  const [activeSuggestion, filteredSuggestions, showSuggestions, handleChange, handleClick, handleKeyDown] =
+    useAutocomplete(name, suggestions);
 
   return (
     <>
@@ -45,7 +44,7 @@ export const Autocomplete: FC<IFormikUiAutocompleteProps> = ({ name, id, suggest
         style={style}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
-        value={value}
+        value={value as string | number}
         type="text"
         tabIndex={0}
         data-testid="fui-autocomplete"

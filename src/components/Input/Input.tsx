@@ -1,5 +1,6 @@
 import React, { FC, FocusEvent, AnimationEvent, CSSProperties, ReactNode } from 'react';
 import { useField } from 'formik';
+
 import WithLabel from '../WithLabel';
 
 export interface IFormikUiInputProps {

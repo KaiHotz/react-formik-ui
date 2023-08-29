@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import { Formik, FieldArray } from 'formik';
+import { Formik, FieldArray, ArrayHelpers } from 'formik';
+
 import Input, { Input as InputComp } from './Input';
 import Form from '../Form';
 import { SubmitBtn } from '../../index';
@@ -112,7 +113,7 @@ export const FieldArrayExample: FC = () => {
         <Form styling="structure">
           <FieldArray
             name="friends"
-            render={(arrayHelpers) => (
+            render={(arrayHelpers: ArrayHelpers) => (
               <div>
                 {values.friends && values.friends.length > 0 ? (
                   values.friends.map((_, index) => (
