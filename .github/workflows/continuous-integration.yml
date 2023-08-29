@@ -15,7 +15,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        yarn install --immutable-cache
+        yarn install --immutable
 
     - name: Run Continuous Integration
       run: |
