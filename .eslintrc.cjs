@@ -19,10 +19,6 @@ module.exports = {
     react: {
       version: 'detect',
     },
-    'import/resolver': {
-      node: true,
-      typescript: true,
-    },
   },
   parserOptions: {
     ecmaVersion: 'latest',
@@ -94,9 +90,7 @@ module.exports = {
       files: ['*.ts', '*.tsx'],
       extends: [
         'plugin:@typescript-eslint/eslint-recommended',
-        'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
-        'plugin:import/typescript',
       ],
       plugins: ['@typescript-eslint/eslint-plugin'],
       parser: '@typescript-eslint/parser',
