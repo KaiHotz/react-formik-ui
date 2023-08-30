@@ -68,7 +68,6 @@ module.exports = {
         aspects: ['invalidHref'],
       },
     ],
-    'import/namespace': 'off',
     'import/order': [
       'error',
       {
@@ -88,7 +87,6 @@ module.exports = {
         ],
       },
     ],
-    'import/no-extraneous-dependencies': 0,
   },
   ignorePatterns: ['.eslintrc.cjs', 'vitest.config.ts', 'setupTests.ts'],
   overrides: [
